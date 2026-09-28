@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Brand } from "@/components/Brand";
 import { SiteHeader } from "@/components/SiteHeader";
+import { HeroVideo } from "@/components/HeroVideo";
 import { rooms, formatRoomPrice } from "@/data/rooms";
 import {
   ArrowRight,
@@ -22,7 +24,6 @@ import {
   MapPin,
   Mountain,
   Phone,
-  Search,
   ShieldCheck,
   Thermometer,
   Trees,
@@ -32,12 +33,6 @@ import {
   Wind,
   type LucideIcon,
 } from "lucide-react";
-
-const slides = [
-  { image: "/images/hero-resort.webp", alt: "Resor Green Hero di tengah pegunungan Darajat" },
-  { image: "/images/hero-pool.webp", alt: "Kolam air hangat alami dengan pemandangan pegunungan" },
-  { image: "/images/hero-suite.webp", alt: "Kamar hangat dengan balkon menghadap lembah Darajat" },
-];
 
 const highlights: { icon: LucideIcon; title: string; detail: string }[] = [
   {
@@ -127,17 +122,13 @@ function SectionEyebrow({ children, gold = false }: { children: React.ReactNode;
 }
 
 export default function Home() {
-  const [slide, setSlide] = useState(2);
+  const router = useRouter();
   const [roomIndex, setRoomIndex] = useState(0);
   const [bookingMessage, setBookingMessage] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2 Dewasa, 2 Anak");
   const [roomCount, setRoomCount] = useState("1 Kamar");
-
-  const changeSlide = (direction: number) => {
-    setSlide((current) => (current + direction + slides.length) % slides.length);
-  };
 
   const changeRoom = (direction: number) => {
     setRoomIndex((current) => (current + direction + rooms.length) % rooms.length);
@@ -151,91 +142,55 @@ export default function Home() {
       setBookingMessage("Tanggal check-out harus setelah tanggal check-in.");
       return;
     }
-    setBookingMessage("Ini halaman demo. Pilihan kamar tersedia di bagian bawah.");
-    document.getElementById("rooms")?.scrollIntoView({ behavior: "smooth" });
+    const params = new URLSearchParams({ guests });
+    if (checkIn) params.set("checkIn", checkIn);
+    if (checkOut) params.set("checkOut", checkOut);
+    setBookingMessage("");
+    router.push(`/rooms?${params.toString()}`);
   };
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader id="home-header" revealOnScroll />
 
       <main>
-        <section className="hero" aria-label="Selamat datang di Green Hero Darajat">
-          {slides.map((item, index) => (
-            <Image
-              key={item.image}
-              className={`hero-image${index === slide ? " is-active" : ""}`}
-              src={item.image}
-              alt={item.alt}
-              fill
-              priority={index === 2}
-              sizes="100vw"
-            />
-          ))}
+        <section className="hero" id="home" aria-label="Selamat datang di Green Hero Darajat">
+          <HeroVideo />
           <div className="hero-shade" />
-          <div className="hero-content container">
-            <span className="hero-location"><Mountain size={18} /> Darajat Pass, Garut · 1.600m dpl</span>
-            <h1>Stay Warm in the Cool Air<br />of Darajat</h1>
-            <p>Nikmati suasana pegunungan, kolam air hangat, dan waktu berkualitas bersama keluarga di Green Hero Darajat.</p>
-            <div className="hero-buttons">
-              <a className="button button-white button-lg" href="#booking">Cek Ketersediaan <ArrowRight size={19} /></a>
-              <a className="button button-outline-light button-lg" href="/rooms">Lihat Kamar</a>
+          <section className="booking-section" id="booking" aria-label="Cari kamar">
+            <h1 className="hero-destination-title">Darajat Garut</h1>
+            <div className="container">
+              <form className="booking-card" onSubmit={handleSearch}>
+                <label className="booking-field">
+                  <span><CalendarDays size={19} /> Check-in</span>
+                  <input aria-label="Tanggal check-in" type="date" value={checkIn} onChange={(event) => setCheckIn(event.target.value)} />
+                </label>
+                <label className="booking-field">
+                  <span><CalendarDays size={19} /> Check-out</span>
+                  <input aria-label="Tanggal check-out" type="date" value={checkOut} min={checkIn || undefined} onChange={(event) => setCheckOut(event.target.value)} />
+                </label>
+                <label className="booking-field">
+                  <span><UsersRound size={20} /> Tamu</span>
+                  <select aria-label="Jumlah tamu" value={guests} onChange={(event) => setGuests(event.target.value)}>
+                    <option>2 Dewasa, 2 Anak</option>
+                    <option>2 Dewasa</option>
+                    <option>4 Dewasa</option>
+                    <option>4 Dewasa, 2 Anak</option>
+                  </select>
+                </label>
+                <label className="booking-field">
+                  <span><BedDouble size={20} /> Kamar</span>
+                  <select aria-label="Jumlah kamar" value={roomCount} onChange={(event) => setRoomCount(event.target.value)}>
+                    <option>1 Kamar</option>
+                    <option>2 Kamar</option>
+                    <option>3 Kamar</option>
+                  </select>
+                </label>
+                <button className="button button-primary booking-submit" type="submit">Cek Kamar</button>
+              </form>
+              {bookingMessage && <p className="booking-message" role="status">{bookingMessage}</p>}
             </div>
-          </div>
-          <div className="hero-controls" aria-label="Kontrol slide gambar">
-            <button type="button" onClick={() => changeSlide(-1)} aria-label="Slide sebelumnya"><ChevronLeft size={22} /></button>
-            <div className="slide-dots">
-              {slides.map((item, index) => (
-                <button
-                  key={item.image}
-                  className={index === slide ? "active" : ""}
-                  type="button"
-                  onClick={() => setSlide(index)}
-                  aria-label={`Tampilkan slide ${index + 1}`}
-                  aria-current={index === slide ? "true" : undefined}
-                />
-              ))}
-            </div>
-            <button type="button" onClick={() => changeSlide(1)} aria-label="Slide berikutnya"><ChevronRight size={22} /></button>
-          </div>
-        </section>
-
-        <section className="booking-section" id="booking" aria-label="Cari kamar">
-          <div className="container">
-            <form className="booking-card" onSubmit={handleSearch}>
-              <label className="booking-field">
-                <span><CalendarDays size={19} /> Check-in</span>
-                <input aria-label="Tanggal check-in" type="date" value={checkIn} onChange={(event) => setCheckIn(event.target.value)} />
-                <small>Pilih tanggal kedatangan</small>
-              </label>
-              <label className="booking-field">
-                <span><CalendarDays size={19} /> Check-out</span>
-                <input aria-label="Tanggal check-out" type="date" value={checkOut} min={checkIn || undefined} onChange={(event) => setCheckOut(event.target.value)} />
-                <small>Pilih tanggal pulang</small>
-              </label>
-              <label className="booking-field">
-                <span><UsersRound size={20} /> Tamu</span>
-                <select aria-label="Jumlah tamu" value={guests} onChange={(event) => setGuests(event.target.value)}>
-                  <option>2 Dewasa, 2 Anak</option>
-                  <option>2 Dewasa</option>
-                  <option>4 Dewasa</option>
-                  <option>4 Dewasa, 2 Anak</option>
-                </select>
-                <small>Liburan keluarga</small>
-              </label>
-              <label className="booking-field">
-                <span><BedDouble size={20} /> Kamar</span>
-                <select aria-label="Jumlah kamar" value={roomCount} onChange={(event) => setRoomCount(event.target.value)}>
-                  <option>1 Kamar</option>
-                  <option>2 Kamar</option>
-                  <option>3 Kamar</option>
-                </select>
-                <small>Pilihan fleksibel</small>
-              </label>
-              <button className="button button-primary booking-submit" type="submit"><Search size={19} /> Cek Kamar</button>
-            </form>
-            {bookingMessage && <p className="booking-message" role="status">{bookingMessage}</p>}
-          </div>
+          </section>
         </section>
 
         <section className="welcome-section container" id="about">
@@ -421,7 +376,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer" id="contact">
+      <footer className="site-footer theme-footer" id="contact">
         <div className="container footer-grid">
           <div className="footer-about"><Brand /><p>Hotel & resor ramah keluarga di kawasan dataran tinggi Darajat Pass, Garut. Menggabungkan kenyamanan alami, kolam air panas, dan panorama perbukitan asri.</p><div className="social-icons"><a href="/gallery" aria-label="Lihat galeri"><Camera size={20} /></a><a href="#location" aria-label="Lihat lokasi"><Globe2 size={20} /></a><a href="#location" aria-label="Lihat peta"><Map size={20} /></a></div></div>
           <div><h3>Eksplorasi</h3><a href="#about">Tentang Kami</a><a href="/rooms">Kamar & Fasilitas</a><a href="#hot-spring">Kolam Air Panas</a><a href="/gallery">Galeri Momen</a></div>

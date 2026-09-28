@@ -197,7 +197,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
       </main>
       {activeRoom && <RoomInfoModal key={activeRoom.id} room={activeRoom} onClose={() => setActiveRoom(null)} />}
 
-      <footer className="site-footer" id="contact">
+      <footer className="site-footer theme-footer" id="contact">
         <div className="container footer-grid">
           <div className="footer-about"><Brand href="/" /><p>Hotel & resor ramah keluarga di kawasan dataran tinggi Darajat Pass, Garut. Menggabungkan kenyamanan alami, kolam air panas, dan panorama perbukitan asri.</p><div className="social-icons"><a href="/gallery" aria-label="Lihat galeri"><Globe2 size={20} /></a><a href="/#location" aria-label="Lihat lokasi"><Map size={20} /></a></div></div>
           <div><h3>Eksplorasi</h3><a href="/">Tentang Kami</a><a href="/rooms">Kamar & Suite</a><a href="/#hot-spring">Kolam Air Panas</a><a href="/gallery">Galeri Momen</a></div>

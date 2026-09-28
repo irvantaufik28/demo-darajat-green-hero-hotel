@@ -1,22 +1,22 @@
-.resort-contact-page { color: #023223; background: #fdf9f0; }
+.resort-contact-page { color: #0c1f1e; background: var(--cream); }
 .resort-contact-container { width: min(100% - 96px, 1184px); margin-inline: auto; }
-.resort-contact-page h2 { font-size: 32px; line-height: 1.25; margin-bottom: 16px; font-weight: 600; }
-.resort-contact-page p { font-size: 15px; line-height: 1.75; color: #667069; }
+.resort-contact-page h2 { font-size: 32px; line-height: 1.25; margin-bottom: 16px; font-weight: 300; }
+.resort-contact-page p { font-size: 15px; line-height: 1.75; color: var(--muted); }
 .resort-contact-page .button { min-height: 48px; font-size: 14px; }
 .resort-contact-page :is(button, a, input, select, textarea):focus-visible { outline: 3px solid #c29b38; outline-offset: 3px; }
 .contact-link.is-active { color: var(--forest); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 7px; }
 .resort-contact-hero { position: relative; min-height: 380px; display: flex; align-items: center; padding-block: 48px 80px; isolation: isolate; }
 .resort-contact-hero > img { object-fit: cover; z-index: -2; }
-.resort-contact-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #023223f2, #023223cc 50%, #02322380); z-index: -1; }
+.resort-contact-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #0c1f1ef2, #0c1f1ecc 50%, #0c1f1e80); z-index: -1; }
 .resort-contact-hero::after { content: ""; position: absolute; inset: 65% 0 0; background: linear-gradient(transparent, #fdf9f0); z-index: -1; }
 .resort-contact-hero-label { display: inline-block; padding: 7px 13px; border: 1px solid #c29b3880; border-radius: 99px; color: #e4ca7a; background: #c29b3820; font-size: 11px; font-weight: 700; letter-spacing: .14em; margin-bottom: 18px; }
-.resort-contact-hero h1 { max-width: 672px; font-size: 44px; line-height: 1.18; font-weight: 600; color: white; margin-bottom: 16px; }
+.resort-contact-hero h1 { max-width: 672px; font-size: 44px; line-height: 1.18; font-weight: 300; color: white; margin-bottom: 16px; }
 .resort-contact-hero p { max-width: 640px; color: #f1eee5; font-size: 16px; margin-bottom: 0; }
 .resort-contact-cards { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: -40px; }
-.resort-contact-card { display: flex; flex-direction: column; background: white; border: 1px solid #e6e6df; border-radius: 12px; padding: 32px; box-shadow: 0 8px 24px #02322306; }
+.resort-contact-card { display: flex; flex-direction: column; background: white; border: 1px solid #e6e6df; border-radius: 12px; padding: 32px; box-shadow: 0 8px 24px #0c1f1e06; }
 .resort-contact-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 24px; }
 .resort-contact-icon { width: 56px; height: 56px; border-radius: 50%; background: #eef3ed; display: grid; place-items: center; flex-shrink: 0; }
-.resort-contact-badge { border-radius: 99px; padding: 6px 10px; background: #f7f3ea; color: #657367; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.resort-contact-badge { border-radius: 99px; padding: 6px 10px; background: var(--cream); color: #657367; font-size: 10px; font-weight: 700; white-space: nowrap; }
 .resort-contact-card:first-child .resort-contact-badge { background: #e4efe5; color: #345c41; }
 .resort-contact-card h2 { font-size: 24px; margin-bottom: 12px; }
 .resort-contact-card p { margin-bottom: 20px; }
@@ -24,22 +24,22 @@
 .resort-contact-dot { width: 6px; height: 6px; background: #4c8659; border-radius: 50%; flex-shrink: 0; }
 .resort-contact-section { margin-top: 96px; }
 .resort-contact-eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #b58c2e; font-size: 11px; font-weight: 700; letter-spacing: .12em; margin-bottom: 16px; }
-.resort-contact-reservation { background: #f1eee5; border: 1px solid #e7e4da; border-radius: 16px; padding: 48px; }
+.resort-contact-reservation { background: var(--cream); border: 1px solid #e7e4da; border-radius: 16px; padding: 48px; }
 .resort-contact-reservation-top { display: flex; align-items: center; justify-content: space-between; gap: 36px; }
 .resort-contact-reservation-top > div:first-child { max-width: 600px; }
 .resort-contact-reservation-top p { margin-bottom: 0; }
 .resort-contact-reservation-actions { display: flex; flex-direction: column; gap: 12px; min-width: 190px; }
 .resort-contact-topics { border-top: 1px solid #d8dbcf; padding-top: 28px; margin-top: 32px; }
-.resort-contact-topics > span { display: block; text-transform: uppercase; font-size: 11px; letter-spacing: .08em; color: #667069; margin-bottom: 12px; }
+.resort-contact-topics > span { display: block; text-transform: uppercase; font-size: 11px; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
 .resort-contact-topics > div { display: flex; flex-wrap: wrap; gap: 10px; }
-.resort-contact-topics button { border: 1px solid #d9ded4; border-radius: 99px; padding: 10px 16px; color: #667069; background: white; font-size: 12px; transition: background .2s, color .2s; }
-.resort-contact-topics button:hover { background: #1e4938; color: white; }
+.resort-contact-topics button { border: 1px solid #d9ded4; border-radius: 99px; padding: 10px 16px; color: var(--muted); background: white; font-size: 12px; transition: background .2s, color .2s; }
+.resort-contact-topics button:hover { background: #172726; color: white; }
 .resort-contact-service-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: start; }
-.resort-contact-form-card { background: white; border: 1px solid #e6e6df; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px #02322305; scroll-margin-top: 110px; }
+.resort-contact-form-card { background: white; border: 1px solid #e6e6df; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px #0c1f1e05; scroll-margin-top: 110px; }
 .resort-contact-form-card > p { margin-bottom: 28px; }
-.resort-contact-form-card label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.resort-contact-form-card label { display: block; font-size: 13px; font-weight: 400; margin-bottom: 8px; }
 .resort-contact-form-card label > span { color: #b48e37; }
-.resort-contact-form-card :is(input, select, textarea) { width: 100%; background: #fdfcf8; color: #023223; border: 1px solid #dfe2d9; border-radius: 8px; padding: 13px 14px; font: inherit; font-size: 13px; min-height: 48px; margin-bottom: 24px; }
+.resort-contact-form-card :is(input, select, textarea) { width: 100%; background: #fdfcf8; color: #0c1f1e; border: 1px solid #dfe2d9; border-radius: 8px; padding: 13px 14px; font: inherit; font-size: 13px; min-height: 48px; margin-bottom: 24px; }
 .resort-contact-form-card :is(input, textarea)::placeholder { color: #91988e; }
 .resort-contact-form-card textarea { resize: vertical; min-height: 136px; line-height: 1.7; }
 .resort-contact-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
@@ -47,19 +47,19 @@
 .resort-contact-service { padding-top: 8px; }
 .resort-contact-service-list { display: grid; gap: 12px; margin-top: 28px; }
 .resort-contact-service-list article { display: flex; align-items: center; gap: 16px; padding: 20px; background: white; border: 1px solid #e6e6df; border-radius: 12px; }
-.resort-contact-service-icon { width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; background: #f1eee5; color: #617163; }
-.resort-contact-service-icon.service-icon-2 { background: #e7efe6; color: #1e4938; }
-.resort-contact-service-icon.service-icon-4 { background: #1e4938; color: white; }
-.resort-contact-service-list h3 { font-family: var(--font-jakarta), Arial, sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.resort-contact-service-icon { width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; background: var(--cream); color: #617163; }
+.resort-contact-service-icon.service-icon-2 { background: #e7efe6; color: #172726; }
+.resort-contact-service-icon.service-icon-4 { background: #172726; color: white; }
+.resort-contact-service-list h3 { font-family: var(--font-body), Arial, sans-serif; font-size: 13px; font-weight: 400; margin-bottom: 6px; }
 .resort-contact-service-list p { font-size: 12px; line-height: 1.6; margin-bottom: 0; }
-.resort-contact-service blockquote { margin: 24px 0 0; padding: 24px; border-radius: 12px; background: #f1eee5; font-family: var(--font-playfair), Georgia, serif; font-style: italic; color: #617163; line-height: 1.7; font-size: 17px; }
-.resort-contact-service cite { display: block; font-family: var(--font-jakarta), Arial, sans-serif; font-style: normal; font-size: 9px; letter-spacing: .1em; color: #9e873e; margin-top: 12px; }
-.resort-contact-page .resort-contact-status { padding: 14px 16px; border-radius: 8px; background: #eef3ed; border: 1px solid #d8e4d7; color: #1e4938; font-size: 13px; margin: 18px 0 0; }
+.resort-contact-service blockquote { margin: 24px 0 0; padding: 24px; border-radius: 12px; background: var(--cream); font-family: var(--font-heading), Georgia, serif; font-style: italic; color: #617163; line-height: 1.7; font-size: 17px;  font-weight: 400; }
+.resort-contact-service cite { display: block; font-family: var(--font-body), Arial, sans-serif; font-style: normal; font-size: 9px; letter-spacing: .1em; color: #9e873e; margin-top: 12px; }
+.resort-contact-page .resort-contact-status { padding: 14px 16px; border-radius: 8px; background: #eef3ed; border: 1px solid #d8e4d7; color: #172726; font-size: 13px; margin: 18px 0 0; }
 .resort-contact-section-heading { max-width: 740px; margin-bottom: 32px; }
-.resort-contact-location { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); border-radius: 16px; overflow: hidden; background: white; border: 1px solid #e6e6df; box-shadow: 0 10px 30px #02322308; }
-.resort-contact-location-details { background: #f7f3ea; padding: 40px; }
-.resort-contact-altitude { display: inline-flex; gap: 8px; align-items: center; background: #e4ebe2; border-radius: 99px; padding: 8px 12px; font-size: 11px; font-weight: 600; margin-bottom: 20px; }
-.resort-contact-location-details > h3 { font-size: 28px; font-weight: 600; margin-bottom: 28px; }
+.resort-contact-location { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); border-radius: 16px; overflow: hidden; background: white; border: 1px solid #e6e6df; box-shadow: 0 10px 30px #0c1f1e08; }
+.resort-contact-location-details { background: var(--cream); padding: 40px; }
+.resort-contact-altitude { display: inline-flex; gap: 8px; align-items: center; background: #e4ebe2; border-radius: 99px; padding: 8px 12px; font-size: 11px; font-weight: 400; margin-bottom: 20px; }
+.resort-contact-location-details > h3 { font-size: 28px; font-weight: 300; margin-bottom: 28px; }
 .resort-contact-location-row { display: flex; gap: 16px; margin-bottom: 22px; }
 .resort-contact-location-row > svg { color: #a79250; flex-shrink: 0; margin-top: 2px; }
 .resort-contact-location-row span { display: block; color: #7e8579; font-size: 10px; font-weight: 700; letter-spacing: .08em; margin-bottom: 8px; }
@@ -69,32 +69,32 @@
 .resort-contact-location-preview { position: relative; overflow: hidden; min-height: 380px; display: grid; place-items: center; padding: 40px; isolation: isolate; }
 .resort-contact-location-photo { position: absolute; inset: 0; z-index: -2; transition: transform .3s; }
 .resort-contact-location-photo img { object-fit: cover; filter: blur(1px); }
-.resort-contact-location-preview::before { content: ""; position: absolute; inset: 0; background: #02322333; z-index: -1; }
-.resort-contact-location-marker { padding: 24px; border-radius: 16px; text-align: center; max-width: 384px; width: 100%; background: #fffffff2; box-shadow: 0 12px 40px #02322320; }
-.resort-contact-location-marker > span { display: grid; place-items: center; width: 64px; height: 64px; background: #023223; color: white; border-radius: 50%; margin: 0 auto 16px; }
-.resort-contact-location-marker h3 { font-size: 24px; margin-bottom: 8px; font-weight: 600; }
+.resort-contact-location-preview::before { content: ""; position: absolute; inset: 0; background: #0c1f1e33; z-index: -1; }
+.resort-contact-location-marker { padding: 24px; border-radius: 16px; text-align: center; max-width: 384px; width: 100%; background: #fffffff2; box-shadow: 0 12px 40px #0c1f1e20; }
+.resort-contact-location-marker > span { display: grid; place-items: center; width: 64px; height: 64px; background: #0c1f1e; color: white; border-radius: 50%; margin: 0 auto 16px; }
+.resort-contact-location-marker h3 { font-size: 24px; margin-bottom: 8px; font-weight: 300; }
 .resort-contact-location-marker p { font-size: 12px; margin-bottom: 16px; }
 .resort-contact-location-marker strong { display: inline-flex; align-items: center; gap: 6px; color: #9e8031; font-size: 12px; }
 .resort-contact-map-controls { position: absolute; top: 16px; right: 16px; display: grid; gap: 8px; }
-.resort-contact-map-controls button { display: grid; place-items: center; border: 0; width: 36px; height: 36px; color: #023223; background: white; border-radius: 8px; box-shadow: 0 2px 10px #02322320; }
-.resort-contact-map-controls button:hover { background: #f1eee5; }
+.resort-contact-map-controls button { display: grid; place-items: center; border: 0; width: 36px; height: 36px; color: #0c1f1e; background: white; border-radius: 8px; box-shadow: 0 2px 10px #0c1f1e20; }
+.resort-contact-map-controls button:hover { background: var(--cream); }
 .resort-contact-map-controls button:disabled { opacity: .6; cursor: default; }
 .resort-contact-final-section { margin-top: 112px; padding-bottom: 64px; }
-.resort-contact-booking { padding: 64px 48px; text-align: center; border-radius: 16px; background: radial-gradient(#c29b381a 1px, transparent 1px), #1e4938; background-size: 16px 16px; box-shadow: 0 12px 30px #02322315; }
+.resort-contact-booking { padding: 64px 48px; text-align: center; border-radius: 16px; background: radial-gradient(#c29b381a 1px, transparent 1px), #172726; background-size: 16px 16px; box-shadow: 0 12px 30px #0c1f1e15; }
 .resort-contact-booking .resort-contact-eyebrow { color: #d2b254; }
 .resort-contact-booking h2 { color: white; font-size: 44px; }
 .resort-contact-booking p { max-width: 650px; margin: 0 auto 32px; color: #ece8df; font-size: 16px; }
 .resort-contact-booking > div { display: flex; justify-content: center; gap: 16px; }
 .resort-contact-booking .button { min-width: 170px; }
-.resort-contact-footer { padding-top: 64px; background: #ece8df; color: #667069; }
+.resort-contact-footer { padding-top: 64px; background: #ece8df; color: var(--footer-text); }
 .resort-contact-footer-grid { display: grid; grid-template-columns: 4fr 2fr 3fr 3fr; gap: 40px; padding-bottom: 48px; }
-.resort-contact-footer h2 { font-family: var(--font-jakarta), Arial, sans-serif; color: #023223; font-size: 14px; font-weight: 700; margin-bottom: 24px; }
+.resort-contact-footer h2 { font-family: var(--font-body), Arial, sans-serif; color: white; font-size: 14px; font-weight: 400; margin-bottom: 24px; }
 .resort-contact-footer p { font-size: 12px; line-height: 1.85; }
 .resort-contact-footer .brand { margin-bottom: 24px; }
 .resort-contact-footer a:not(.brand) { font-size: 12px; line-height: 1.8; display: block; margin-bottom: 12px; }
-.resort-contact-footer a:hover { color: #023223; }
-.resort-contact-footer a[aria-current="page"] { color: #023223; font-weight: 700; }
-.resort-contact-footer-hours { font-size: 10px; line-height: 1.6; display: flex; align-items: center; gap: 7px; color: #736c4e; }
+.resort-contact-footer a:hover { color: white; }
+.resort-contact-footer a[aria-current="page"] { color: var(--footer-text); font-weight: 700; }
+.resort-contact-footer-hours { font-size: 10px; line-height: 1.6; display: flex; align-items: center; gap: 7px; color: var(--footer-text); }
 .resort-contact-footer-hours span { width: 6px; height: 6px; border-radius: 50%; background: #c29b38; flex-shrink: 0; }
 .resort-contact-footer .resort-contact-footer-detail { display: flex; align-items: start; gap: 9px; overflow-wrap: anywhere; }
 .resort-contact-footer-detail svg { flex-shrink: 0; margin-top: 3px; }

@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Lato } from "next/font/google";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const bodyFont = Lato({
+  variable: "--font-body",
+  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const headingFont = Cormorant_Garamond({
+  variable: "--font-heading",
+  weight: ["300", "400"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="id" className={`${jakarta.variable} ${playfair.variable}`}>
+    <html lang="id" className={`${bodyFont.variable} ${headingFont.variable}`}>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown, Globe2, Menu, X } from "lucide-react";
 import { Brand } from "./Brand";
 
@@ -15,6 +15,7 @@ export type NavLink = {
 };
 
 type SiteHeaderProps = {
+  revealOnScroll?: boolean;
   id?: string;
   links?: NavLink[];
   activeHref?: string;
@@ -71,6 +72,7 @@ export const interiorLinks: NavLink[] = defaultLinks.map((link) => ({
 }));
 
 export function SiteHeader({
+  revealOnScroll = false,
   id = "home",
   links = defaultLinks,
   activeHref = "#home",
@@ -80,9 +82,27 @@ export function SiteHeader({
   homeHref = "#home",
 }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!revealOnScroll) return;
+    const updateVisibility = () => {
+      const visible = window.scrollY > 32;
+      setScrolled(visible);
+      if (!visible) setMobileMenuOpen(false);
+    };
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", updateVisibility);
+  }, [revealOnScroll]);
+
+  const transparentHeader = revealOnScroll && !scrolled;
 
   return (
-    <header className="site-header" id={id}>
+    <header
+      className={`site-header${revealOnScroll ? " site-header-reveal" : ""}${transparentHeader ? " is-transparent" : ""}`}
+      id={id}
+    >
       <div className="header-inner">
         <Brand href={homeHref} />
         <nav className="desktop-nav" aria-label="Navigasi utama">
@@ -115,7 +135,7 @@ export function SiteHeader({
           <a className="button button-quiet reservation-link" href={reservationHref} aria-current={activeHref === reservationHref ? "page" : undefined}>Cek Reservasi</a>
           <a className="button button-primary reserve-link" href={bookingHref}>Pesan Sekarang</a>
         </div>
-        <button
+        {!transparentHeader && <button
           className="menu-button"
           type="button"
           aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu"}
@@ -123,9 +143,9 @@ export function SiteHeader({
           onClick={() => setMobileMenuOpen((open) => !open)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </button>}
       </div>
-      {mobileMenuOpen && (
+      {!transparentHeader && mobileMenuOpen && (
         <nav className="mobile-nav" id="site-mobile-nav" aria-label="Navigasi seluler">
           {links.map(({ label, href }) => (
             <a key={href} href={href} onClick={() => setMobileMenuOpen(false)}>{label}</a>

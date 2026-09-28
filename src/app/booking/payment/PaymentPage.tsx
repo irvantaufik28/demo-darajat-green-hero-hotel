@@ -137,7 +137,7 @@ export default function PaymentPage({ roomId, roomSelection, checkIn, checkOut, 
           </aside>
         </div>
       </main>
-      <footer className="payment-footer"><div className="container payment-footer-grid"><div><Brand href="/" /><p>Resor peristirahatan dataran tinggi di kawasan Darajat, Garut. Nikmati panorama pegunungan dan air panas alami bersama keluarga.</p></div><div><strong>Jelajahi</strong><a href="/">Home</a><a href="/rooms">Kamar &amp; Suite</a><a href="/facilities">Fasilitas</a></div><div><strong>Kontak</strong><span>Jl. Raya Darajat KM 14, Pasirwangi, Garut</span><span>halo@greenherodarajat.com</span></div></div><div className="container payment-footer-bottom"><span>© 2026 Green Hero Darajat Hotel &amp; Resort.</span><span>Demo frontend · Pembayaran belum aktif</span></div></footer>
+      <footer className="payment-footer theme-footer"><div className="container payment-footer-grid"><div><Brand href="/" /><p>Resor peristirahatan dataran tinggi di kawasan Darajat, Garut. Nikmati panorama pegunungan dan air panas alami bersama keluarga.</p></div><div><strong>Jelajahi</strong><a href="/">Home</a><a href="/rooms">Kamar &amp; Suite</a><a href="/facilities">Fasilitas</a></div><div><strong>Kontak</strong><span>Jl. Raya Darajat KM 14, Pasirwangi, Garut</span><span>halo@greenherodarajat.com</span></div></div><div className="container payment-footer-bottom"><span>© 2026 Green Hero Darajat Hotel &amp; Resort.</span><span>Demo frontend · Pembayaran belum aktif</span></div></footer>
     </div>
   );
 }
