@@ -60,7 +60,7 @@ export default function RoomDetailPage({ roomId, initialCheckIn, initialCheckOut
   const photos = [room.image, room.image, room.image, "/images/hot-spring.webp", room.image];
   const bookingHref = `/booking/extras?${new URLSearchParams({ room: room.id, checkIn, checkOut, guests })}`;
 
-  function checkAvailability(event: FormEvent<HTMLFormElement>) {
+  const checkAvailability = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!checkIn || !checkOut) {
       setMessage("Pilih tanggal check-in dan check-out untuk mengecek ketersediaan.");
@@ -74,7 +74,7 @@ export default function RoomDetailPage({ roomId, initialCheckIn, initialCheckOut
     setMessage(room.available
       ? "Kamar ini ditandai tersedia pada data demo. Reservasi sebenarnya belum terhubung."
       : "Kamar ini masih ditandai tidak tersedia pada data demo. Coba tanggal lain atau hubungi hotel untuk konfirmasi.");
-  }
+  };
 
   return (
     <div className="detail-page">
