@@ -37,16 +37,16 @@ export const defaultLinks: NavLink[] = [
         {
           heading: "DINING",
           items: [
-            { label: "Kambing Guling", href: "#experiences" },
-            { label: "BBQ & Grill", href: "#experiences" },
-            { label: "Ayam Bakar Family Set", href: "#experiences" },
+            { label: "Kambing Guling", href: "/experiences/roast-goat" },
+            { label: "BBQ & Grill", href: "/experiences/bbq-grill" },
+            { label: "Ayam Bakar Family Set", href: "/experiences/grilled-chicken" },
           ],
         },
         {
           heading: "CELEBRATION",
           items: [
-            { label: "Birthday Celebration", href: "#experiences" },
-            { label: "Anniversary Setup", href: "#experiences" },
+            { label: "Birthday Celebration", href: "/experiences/birthday-celebration" },
+            { label: "Anniversary Setup", href: "/experiences/anniversary-setup" },
             { label: "Room Decoration", href: "#experiences" },
           ],
         },
@@ -58,15 +58,17 @@ export const defaultLinks: NavLink[] = [
   { label: "Galeri", href: "/gallery" },
 ];
 
+const resolveInteriorHref = (href: string) => href.startsWith("#") ? `/${href}` : href;
+
 export const interiorLinks: NavLink[] = defaultLinks.map((link) => ({
   ...link,
-  href: link.href === "#home" ? "/" : link.href.startsWith("#") ? `/${link.href}` : link.href,
+  href: link.href === "#home" ? "/" : resolveInteriorHref(link.href),
   dropdown: link.dropdown && {
     ...link.dropdown,
-    footerHref: `/${link.dropdown.footerHref}`,
+    footerHref: resolveInteriorHref(link.dropdown.footerHref),
     columns: link.dropdown.columns.map((column) => ({
       ...column,
-      items: column.items.map((item) => ({ ...item, href: `/${item.href}` })),
+      items: column.items.map((item) => ({ ...item, href: resolveInteriorHref(item.href) })),
     })),
   },
 }));
@@ -97,6 +99,8 @@ export function SiteHeader({
   }, [revealOnScroll]);
 
   const transparentHeader = revealOnScroll && !scrolled;
+  const isNavActive = (href: string, dropdown?: NavLink["dropdown"]) =>
+    activeHref === href || Boolean(dropdown?.columns.some((column) => column.items.some((item) => item.href === activeHref)));
 
   return (
     <header
@@ -108,15 +112,15 @@ export function SiteHeader({
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {links.map(({ label, href, dropdown }) => dropdown ? (
             <div className="nav-dropdown" key={href}>
-              <a className={activeHref === href ? "active" : undefined} href={href}>
+              <button type="button" className={isNavActive(href, dropdown) ? "active" : undefined}>
                 {label}<ChevronDown size={15} />
-              </a>
+              </button>
               <div className="experiences-menu">
                 <div className="experiences-menu-columns">
                   {dropdown.columns.map(({ heading, items }) => (
                     <div className="experiences-menu-column" key={heading}>
                       <span className="experiences-menu-heading">{heading}</span>
-                      {items.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}
+                      {items.map((item) => <a href={item.href} key={item.label} className={activeHref === item.href ? "active" : undefined} aria-current={activeHref === item.href ? "page" : undefined}>{item.label}</a>)}
                     </div>
                   ))}
                 </div>
@@ -147,8 +151,23 @@ export function SiteHeader({
       </div>
       {!transparentHeader && mobileMenuOpen && (
         <nav className="mobile-nav" id="site-mobile-nav" aria-label="Navigasi seluler">
-          {links.map(({ label, href }) => (
-            <a key={href} href={href} onClick={() => setMobileMenuOpen(false)}>{label}</a>
+          {links.map(({ label, href, dropdown }) => dropdown ? (
+            <details className="mobile-experiences" key={href}>
+              <summary className={isNavActive(href, dropdown) ? "active" : undefined}>{label}<ChevronDown size={16} /></summary>
+              <div className="mobile-experiences-content">
+                {dropdown.columns.map(({ heading, items }) => (
+                  <div className="mobile-experiences-column" key={heading}>
+                    <span>{heading}</span>
+                    {items.map((item) => (
+                      <a key={item.label} href={item.href} aria-current={activeHref === item.href ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{item.label}</a>
+                    ))}
+                  </div>
+                ))}
+                <a className="mobile-experiences-all" href={dropdown.footerHref} onClick={() => setMobileMenuOpen(false)}>{dropdown.footerLabel}<ArrowRight size={15} /></a>
+              </div>
+            </details>
+          ) : (
+            <a key={href} href={href} aria-current={activeHref === href ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{label}</a>
           ))}
           <a href={contactHref} aria-current={activeHref === contactHref ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>Hubungi Kami</a>
           <a href={reservationHref} aria-current={activeHref === reservationHref ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>Cek Reservasi</a>

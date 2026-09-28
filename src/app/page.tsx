@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Brand } from "@/components/Brand";
 import { SiteHeader } from "@/components/SiteHeader";
 import { HeroVideo } from "@/components/HeroVideo";
@@ -124,17 +124,60 @@ function SectionEyebrow({ children, gold = false }: { children: React.ReactNode;
 export default function Home() {
   const router = useRouter();
   const [roomIndex, setRoomIndex] = useState(0);
+  const [visibleRoomCount, setVisibleRoomCount] = useState(3);
+  const roomTrackRef = useRef<HTMLDivElement>(null);
   const [bookingMessage, setBookingMessage] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2 Dewasa, 2 Anak");
   const [roomCount, setRoomCount] = useState("1 Kamar");
 
-  const changeRoom = (direction: number) => {
-    setRoomIndex((current) => (current + direction + rooms.length) % rooms.length);
+  useEffect(() => {
+    const tablet = window.matchMedia("(max-width: 900px)");
+    const mobile = window.matchMedia("(max-width: 620px)");
+    const updateRoomLayout = () => {
+      const count = mobile.matches ? 1 : tablet.matches ? 2 : 3;
+      setVisibleRoomCount(count);
+      const track = roomTrackRef.current;
+      if (!track) return;
+      const first = track.children[0] as HTMLElement | undefined;
+      const second = track.children[1] as HTMLElement | undefined;
+      const step = first && second ? second.offsetLeft - first.offsetLeft : track.clientWidth;
+      setRoomIndex(Math.min(rooms.length - count, Math.round(track.scrollLeft / Math.max(1, step))));
+    };
+    updateRoomLayout();
+    tablet.addEventListener("change", updateRoomLayout);
+    mobile.addEventListener("change", updateRoomLayout);
+    return () => {
+      tablet.removeEventListener("change", updateRoomLayout);
+      mobile.removeEventListener("change", updateRoomLayout);
+    };
+  }, []);
+
+  const scrollToRoom = (index: number) => {
+    const track = roomTrackRef.current;
+    const first = track?.children[0] as HTMLElement | undefined;
+    const card = track?.children[index] as HTMLElement | undefined;
+    if (!track || !first || !card) return;
+    track.scrollTo({
+      left: card.offsetLeft - first.offsetLeft,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
   };
 
-  const visibleRooms = [0, 1, 2].map((offset) => rooms[(roomIndex + offset) % rooms.length]);
+  const changeRoom = (direction: number) => {
+    const positions = Math.max(1, rooms.length - visibleRoomCount + 1);
+    scrollToRoom((roomIndex + direction + positions) % positions);
+  };
+
+  const updateRoomPosition = () => {
+    const track = roomTrackRef.current;
+    const first = track?.children[0] as HTMLElement | undefined;
+    const second = track?.children[1] as HTMLElement | undefined;
+    if (!track || !first || !second) return;
+    const step = second.offsetLeft - first.offsetLeft;
+    setRoomIndex(Math.max(0, Math.min(rooms.length - visibleRoomCount, Math.round(track.scrollLeft / Math.max(1, step)))));
+  };
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -224,13 +267,13 @@ export default function Home() {
                 <p>Dirancang mewah, hangat, dan intim untuk kebersamaan keluarga di pelukan sejuknya alam pegunungan Darajat Pass.</p>
               </div>
               <div className="room-actions">
-                <button type="button" onClick={() => changeRoom(-1)} aria-label="Kamar sebelumnya"><ChevronLeft size={21} /></button>
-                <button type="button" onClick={() => changeRoom(1)} aria-label="Kamar berikutnya"><ChevronRight size={21} /></button>
                 <a href="/rooms">Lihat Semua Kamar <ArrowRight size={17} /></a>
               </div>
             </div>
-            <div className="room-grid">
-              {visibleRooms.map((room) => (
+            <div className="room-carousel" role="region" aria-roledescription="carousel" aria-label="Pilihan kamar Green Hero">
+              <button className="room-carousel-arrow previous" type="button" onClick={() => changeRoom(-1)} aria-label="Kamar sebelumnya"><ChevronLeft size={22} /></button>
+              <div className="room-grid" ref={roomTrackRef} onScroll={updateRoomPosition} tabIndex={0} aria-label="Geser untuk melihat pilihan kamar">
+              {rooms.map((room) => (
                 <article className={`room-card${room.available ? "" : " is-unavailable"}`} key={room.name}>
                   <div className="room-photo">
                     <Image src={room.image} alt={room.name} fill sizes="(max-width: 780px) 100vw, 33vw" />
@@ -245,10 +288,12 @@ export default function Home() {
                   </div>
                 </article>
               ))}
+              </div>
+              <button className="room-carousel-arrow next" type="button" onClick={() => changeRoom(1)} aria-label="Kamar berikutnya"><ChevronRight size={22} /></button>
             </div>
             <div className="room-dots" aria-label="Posisi pilihan kamar">
-              {rooms.map((room, index) => (
-                <button key={room.name} className={index === roomIndex ? "active" : ""} type="button" aria-label={`Mulai dari ${room.name}`} onClick={() => setRoomIndex(index)} />
+              {rooms.slice(0, Math.max(1, rooms.length - visibleRoomCount + 1)).map((room, index) => (
+                <button key={room.name} className={index === roomIndex ? "active" : ""} type="button" aria-label={`Mulai dari ${room.name}`} aria-current={index === roomIndex ? "true" : undefined} onClick={() => scrollToRoom(index)} />
               ))}
             </div>
           </div>

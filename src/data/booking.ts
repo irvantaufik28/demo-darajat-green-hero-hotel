@@ -1,4 +1,5 @@
 import { foodPackageLabels, foodPackagePrices } from "./foodPackages";
+import { celebrationCategories, celebrationPackageLabels, celebrationPackagePrices } from "./celebrationPackages";
 import type { RoomSelection } from "./roomSelection";
 
 export const BOOKING_DRAFT_KEY = "green-hero-booking-draft";
@@ -14,26 +15,38 @@ export type GuestDraft = {
 export const bookingExtraPrices = {
   ...foodPackagePrices,
   "extra-bed": 250000,
-  birthday: 200000,
+  ...celebrationPackagePrices,
 } as const;
 
 export const bookingExtraLabels = {
   ...foodPackageLabels,
   "extra-bed": "Extra Bed",
-  birthday: "Birthday Decoration",
+  ...celebrationPackageLabels,
 } as const;
 
 export type PaidExtraId = keyof typeof bookingExtraPrices;
 
 export function getExtraQuantityLimit(id: PaidExtraId) {
-  return id === "extra-bed" || id === "birthday" ? 1 : 10;
+  return id === "extra-bed" || id in celebrationPackagePrices ? 1 : 10;
 }
 
 export function normalizeExtraCounts(counts: Record<string, unknown>) {
-  return Object.fromEntries((Object.keys(bookingExtraPrices) as PaidExtraId[]).map((id) => {
+  const normalized = Object.fromEntries((Object.keys(bookingExtraPrices) as PaidExtraId[]).map((id) => {
     const count = Number(counts[id]);
     return [id, Number.isInteger(count) ? Math.max(0, Math.min(getExtraQuantityLimit(id), count)) : 0];
   })) as Record<PaidExtraId, number>;
+  for (const category of celebrationCategories) {
+    let selected = false;
+    for (const item of category.packages) {
+      if (normalized[item.id] > 0 && !selected) {
+        normalized[item.id] = 1;
+        selected = true;
+      } else {
+        normalized[item.id] = 0;
+      }
+    }
+  }
+  return normalized;
 }
 
 export type BookingDraft = {

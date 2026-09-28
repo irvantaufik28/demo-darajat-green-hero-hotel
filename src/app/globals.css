@@ -124,7 +124,7 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
 .brand-copy strong { font-size: 20px; line-height: 1.05; white-space: nowrap; }
 .brand-copy small { margin-top: 5px; font-size: 9px; letter-spacing: .26em; color: var(--muted); }
 .desktop-nav, .header-actions { display: flex; align-items: center; gap: 27px; }
-.desktop-nav a {
+.desktop-nav a, .nav-dropdown > button {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -136,9 +136,9 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
   white-space: nowrap;
   transition: color .2s ease;
 }
-.desktop-nav a:hover, .desktop-nav a.active { color: var(--forest); }
-.nav-dropdown:hover > a, .nav-dropdown:focus-within > a { color: var(--forest); }
-.nav-dropdown:hover > a::after, .nav-dropdown:focus-within > a::after {
+.desktop-nav a:hover, .desktop-nav a.active, .nav-dropdown > button.active { color: var(--forest); }
+.nav-dropdown:hover > button, .nav-dropdown:focus-within > button { color: var(--forest); }
+.nav-dropdown:hover > button::after, .nav-dropdown:focus-within > button::after {
   content: "";
   position: absolute;
   bottom: 4px;
@@ -147,7 +147,7 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
   height: 2px;
   background: var(--forest);
 }
-.desktop-nav a.active::after {
+.desktop-nav a.active::after, .nav-dropdown > button.active::after {
   content: "";
   position: absolute;
   bottom: 4px;
@@ -156,9 +156,10 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
   height: 2px;
   background: var(--forest);
 }
+.nav-dropdown > button { background: transparent; border: 0; font-family: inherit; cursor: pointer; }
 .nav-dropdown { position: relative; display: flex; align-items: center; align-self: stretch; }
-.nav-dropdown > a svg { transition: transform .2s ease; }
-.nav-dropdown:hover > a svg, .nav-dropdown:focus-within > a svg { transform: rotate(180deg); }
+.nav-dropdown > button svg { transition: transform .2s ease; }
+.nav-dropdown:hover > button svg, .nav-dropdown:focus-within > button svg { transform: rotate(180deg); }
 .experiences-menu {
   position: absolute;
   top: 100%;
@@ -289,7 +290,15 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
 .room-actions button { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid #dce3dc; border-radius: 50%; background: white; color: var(--forest); }
 .room-actions button:hover { background: #eaf2eb; }
 .room-actions a { display: inline-flex; align-items: center; gap: 8px; margin-left: 14px; color: var(--forest); font-size: 13px; font-weight: 700; white-space: nowrap; }
-.room-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 21px; margin-top: 39px; }
+.room-carousel { position: relative; margin-top: 39px; }
+.room-grid { position: relative; display: flex; gap: 21px; overflow-x: auto; padding-block: 8px; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+.room-grid::-webkit-scrollbar { display: none; }
+.room-grid > .room-card { flex: 0 0 calc((100% - 42px) / 3); min-width: 0; scroll-snap-align: start; }
+.room-carousel-arrow { position: absolute; z-index: 3; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--forest); box-shadow: 0 4px 16px rgba(0,0,0,.12); transition: background .2s ease; }
+.room-carousel-arrow.previous { left: -22px; }
+.room-carousel-arrow.next { right: -22px; }
+.room-carousel-arrow:hover { background: var(--cream); }
+.room-carousel-arrow:focus-visible, .room-grid:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
 .room-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e8e6de; border-radius: 13px; background: white; box-shadow: 0 8px 18px rgba(30,44,33,.04); }
 .room-photo { position: relative; height: 245px; overflow: hidden; background: #d8ded4; }
 .room-photo > img { object-fit: cover; transition: transform .5s ease; }
@@ -437,8 +446,7 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
   .booking-submit { grid-column: span 2; margin: 0; }
   .welcome-section, .spring-section, .location-section { grid-template-columns: 1fr; gap: 35px; }
   .welcome-media, .spring-media, .location-map { height: 430px; }
-  .room-grid { grid-template-columns: repeat(2, 1fr); }
-  .room-card:nth-child(3) { display: none; }
+  .room-grid > .room-card { flex-basis: calc((100% - 21px) / 2); }
   .experiences-header { align-items: flex-start; flex-direction: column; gap: 0; }
   .experience-layout { grid-template-columns: 1fr; }
   .experience-feature { height: 430px; }
@@ -486,8 +494,10 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
   .room-header p, .experiences-header > p { font-size: 14px; }
   .room-actions { width: 100%; }
   .room-actions a { margin-left: auto; font-size: 12px; }
-  .room-grid { grid-template-columns: 1fr; margin-top: 24px; }
-  .room-card:nth-child(2), .room-card:nth-child(3) { display: none; }
+  .room-carousel { margin-top: 24px; }
+  .room-grid > .room-card { flex-basis: 100%; }
+  .room-carousel-arrow.previous { left: -12px; }
+  .room-carousel-arrow.next { right: -12px; }
   .room-photo { height: 250px; }
   .experiences-header { gap: 0; }
   .experiences-header h2 { margin-bottom: 14px; }
@@ -626,10 +636,10 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
   border-top: 1px solid rgba(255,255,255,.45);
 }
 .site-header.is-transparent .desktop-nav > a,
-.site-header.is-transparent .nav-dropdown > a { color: rgba(255,255,255,.92); font-size: 13px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; }
+.site-header.is-transparent .nav-dropdown > button { color: rgba(255,255,255,.92); font-size: 13px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; }
 .site-header.is-transparent .desktop-nav > a:hover,
-.site-header.is-transparent .nav-dropdown > a:hover { color: white; }
-.site-header.is-transparent .nav-dropdown > a::after { background: rgba(255,255,255,.85); }
+.site-header.is-transparent .nav-dropdown > button:hover { color: white; }
+.site-header.is-transparent .nav-dropdown > button::after { background: rgba(255,255,255,.85); }
 .site-header.is-transparent .header-actions a:focus-visible,
 .site-header.is-transparent .menu-button:focus-visible { outline: 2px solid white; outline-offset: 5px; }
 .site-header.is-transparent .mobile-nav {
@@ -708,7 +718,7 @@ h1, h2, h3 { font-family: var(--font-heading), Georgia, serif; font-weight: 300;
 /* Shared Raffles-inspired palette from navigation to footer */
 .site-header:not(.is-transparent) { background: var(--surface); }
 .site-header:not(.is-transparent) .mobile-nav { background: var(--surface); }
-.desktop-nav > a, .nav-dropdown > a { font-weight: 400; letter-spacing: .05em; text-transform: uppercase; }
+.desktop-nav > a, .nav-dropdown > button { font-weight: 400; letter-spacing: .05em; text-transform: uppercase; }
 footer.theme-footer {
   background: var(--footer-background);
   color: var(--footer-text);
@@ -735,3 +745,25 @@ footer.theme-footer [class$="-footer-hours"] small { border-top-color: rgba(255,
 footer.theme-footer .button { background: transparent; color: white; border-color: rgba(255, 255, 255, .6); }
 footer.theme-footer .button:hover { background: rgba(255, 255, 255, .1); }
 footer.theme-footer .social-icons a { background: rgba(255, 255, 255, .08); }
+
+/* Experiences navigation links and mobile submenu */
+.desktop-nav .experiences-menu-column a.active { color: var(--forest); background: var(--cream); }
+.site-header.is-transparent .experiences-menu-column a.active { color: white; background: rgba(255, 255, 255, .12); }
+.mobile-experiences summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px; font-size: 14px; font-weight: 400; cursor: pointer; list-style: none; }
+.mobile-experiences summary::-webkit-details-marker { display: none; }
+.mobile-experiences summary.active { color: var(--forest); }
+.mobile-experiences summary svg { transition: transform .2s ease; }
+.mobile-experiences[open] summary svg { transform: rotate(180deg); }
+.mobile-experiences-content { padding: 4px 11px 12px; }
+.mobile-experiences-column { display: flex; flex-direction: column; gap: 2px; padding-block: 8px; }
+.mobile-experiences-column > span { font-size: 10px; color: var(--gold); letter-spacing: .1em; margin-bottom: 4px; }
+.mobile-experiences-column > a { padding: 9px 12px; font-size: 13px; border-radius: 6px; }
+.mobile-experiences-column > a:hover, .mobile-experiences-column > a[aria-current="page"] { background: var(--cream); color: var(--forest); }
+.mobile-experiences-all { display: flex; align-items: center; justify-content: space-between; padding: 12px; border-top: 1px solid var(--line); font-size: 12px; color: var(--forest); }
+.mobile-experiences summary:focus-visible, .mobile-experiences-content a:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+@media (max-width: 900px) {
+  .site-header:not(.is-transparent) .mobile-nav { max-height: calc(100svh - 84px); overflow-y: auto; }
+}
+@media (max-width: 620px) {
+  .site-header:not(.is-transparent) .mobile-nav { max-height: calc(100svh - 70px); }
+}
