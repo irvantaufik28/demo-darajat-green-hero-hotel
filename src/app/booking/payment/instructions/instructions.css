@@ -1,0 +1,119 @@
+.instructions-main { width: min(100% - 96px, 1280px); padding-block: 40px 80px; }
+.instructions-main .booking-progress { margin-bottom: 58px; }
+.instructions-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 26px; margin-bottom: 24px; border-bottom: 1px solid #dedfd6; }
+.instructions-eyebrow { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 100px; background: #ece8df; color: var(--forest); font-size: 11px; font-weight: 700; letter-spacing: .07em; }
+.instructions-eyebrow i, .instructions-pending i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.instructions-intro h1 { margin: 12px 0 9px; color: var(--forest); font-size: 40px; line-height: 1.2; font-weight: 600; letter-spacing: -.01em; }
+.instructions-intro p { max-width: 650px; margin: 0; color: #667069; font-size: 15px; line-height: 1.65; }
+.instructions-identification { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px; min-width: 220px; }
+.instructions-identification > span { display: inline-flex; align-items: center; gap: 7px; padding: 10px 12px; border: 1px solid #dfe1d8; border-radius: 8px; background: #f7f3ea; color: #667069; font-size: 11px; white-space: nowrap; }
+.instructions-identification strong { color: var(--forest); font-size: 12px; }
+.instructions-identification > .instructions-pending { background: #fff8e9; border-color: #e7d3a1; color: #785423; font-weight: 600; }
+.instructions-demo { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 24px; padding: 12px 16px; border: 1px solid #e4d6b7; border-radius: 8px; background: #fff9ec; color: #735d35; font-size: 12px; line-height: 1.6; }
+.instructions-demo svg { flex-shrink: 0; margin-top: 1px; }
+.instructions-layout { display: grid; grid-template-columns: minmax(0, 1fr) 400px; align-items: start; gap: 32px; }
+.instructions-left, .instructions-right { display: grid; gap: 24px; min-width: 0; }
+.instructions-right { position: sticky; top: 108px; }
+.instructions-card { padding: 28px; border: 1px solid #dedfd7; border-radius: 12px; background: #fff; box-shadow: 0 8px 24px -4px rgba(30,37,33,.06); }
+.instructions-card h2 { margin: 0; color: #1e2521; font-size: 22px; font-weight: 500; line-height: 1.4; }
+.instructions-account { position: relative; overflow: hidden; }
+.instructions-account::before { content: ""; position: absolute; inset: 0 0 auto; height: 6px; background: var(--forest); }
+.instructions-account-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px; padding: 4px 0 23px; margin-bottom: 24px; border-bottom: 1px solid #e1e4dc; }
+.instructions-account-heading > div { display: flex; align-items: center; gap: 12px; }
+.instructions-bank { display: grid; place-items: center; width: 48px; height: 36px; border: 1px solid #c6d8e8; border-radius: 8px; background: #e6eff7; color: #005bac; font-size: 17px; font-weight: 800; letter-spacing: -.05em; }
+.instructions-account-heading p, .instructions-guide-heading p { margin: 3px 0 0; color: #667069; font-size: 13px; line-height: 1.6; }
+.instructions-automatic { display: inline-flex; align-items: center; gap: 5px; padding: 6px 9px; border-radius: 100px; background: #e3efe0; color: #546a56; font-size: 10px; font-weight: 600; }
+.instructions-va { padding: 20px; border: 1px solid #e1e1d9; border-radius: 12px; background: #f7f3ea; margin-bottom: 22px; }
+.instructions-va > span { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: #667069; font-size: 11px; }
+.instructions-va small { color: #987838; font-size: 9px; letter-spacing: .06em; }
+.instructions-va > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 10px; }
+.instructions-va strong { color: var(--forest); font-family: monospace; font-size: clamp(20px, 2.1vw, 29px); letter-spacing: .02em; user-select: all; overflow-wrap: anywhere; }
+.instructions-va button { display: flex; justify-content: center; align-items: center; gap: 7px; padding: 10px 13px; border: 1px solid #cfd5ce; border-radius: 8px; background: #fff; color: var(--forest); font-size: 12px; font-weight: 600; cursor: pointer; }
+.instructions-va button:hover { background: #eef3eb; }
+.instructions-account-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 23px; }
+.instructions-account-grid > div { padding: 16px; border: 1px solid #ecebe3; border-radius: 9px; background: #faf7f0; }
+.instructions-account-grid > div > span { display: block; margin-bottom: 7px; color: #667069; font-size: 11px; }
+.instructions-account-grid > div > strong { display: block; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.instructions-amount { display: flex; align-items: center; justify-content: space-between; gap: 7px; }
+.instructions-amount strong { color: var(--forest); font-family: var(--font-playfair), Georgia, serif; font-size: 22px; }
+.instructions-amount button { display: grid; place-items: center; flex-shrink: 0; padding: 6px; border: 0; border-radius: 6px; background: transparent; color: var(--forest); cursor: pointer; }
+.instructions-amount button:hover { background: #e3ece2; }
+.instructions-callout { display: flex; align-items: flex-start; gap: 11px; padding: 15px; border: 1px solid #dfe3dd; border-radius: 8px; background: #f3f4f2; }
+.instructions-callout svg { flex-shrink: 0; color: #b86b35; margin-top: 2px; }
+.instructions-callout p { margin: 0; color: #667069; font-size: 12px; line-height: 1.8; }
+.instructions-callout strong { color: #1e2521; }
+.instructions-guide-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 23px; color: var(--forest); }
+.instructions-guide-heading > svg { flex-shrink: 0; }
+.instructions-accordion { display: grid; gap: 12px; }
+.instructions-guide { overflow: hidden; border: 1px solid #dce1d9; border-radius: 11px; background: #fdf9f0; }
+.instructions-guide h3 { margin: 0; font-family: var(--font-jakarta), sans-serif; }
+.instructions-guide h3 button { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; padding: 16px 18px; border: 0; background: transparent; color: #1e2521; font: inherit; font-size: 13px; font-weight: 600; text-align: left; cursor: pointer; }
+.instructions-guide h3 button:hover { background: #f1eee5; }
+.instructions-guide h3 button > span { display: flex; align-items: center; gap: 12px; }
+.instructions-guide h3 b { display: grid; place-items: center; flex-shrink: 0; width: 27px; height: 27px; border-radius: 50%; background: #eeece3; color: #667069; font-size: 11px; }
+.instructions-guide.is-open h3 b { background: #e4ede3; color: var(--forest); }
+.instructions-guide h3 svg { flex-shrink: 0; color: #717974; transition: transform .2s; }
+.instructions-guide.is-open h3 svg { transform: rotate(180deg); }
+.instructions-guide > div { padding: 9px 22px 20px; border-top: 1px solid #e5e7de; }
+.instructions-guide ol { display: grid; gap: 11px; padding-left: 21px; margin: 9px 0 0; color: #667069; font-size: 13px; line-height: 1.75; }
+.instructions-guide li { padding-left: 4px; }
+.instructions-guide li::marker { color: var(--forest); font-weight: 600; }
+.instructions-guide strong { color: #37483c; }
+.instructions-guide code { padding: 2px 5px; border-radius: 4px; background: #ecefe6; color: var(--forest); font-size: 12px; overflow-wrap: anywhere; }
+.instructions-right .instructions-card { padding: 23px; }
+.instructions-timer-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 16px; }
+.instructions-timer-heading h2 { display: flex; align-items: center; gap: 6px; font-family: var(--font-jakarta), sans-serif; color: #667069; font-size: 11px; font-weight: 600; }
+.instructions-timer-heading svg { color: var(--gold); }
+.instructions-timer-heading > span { color: #b86b35; font-size: 10px; white-space: nowrap; }
+.instructions-deadline { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px; border: 1px solid #e1e1d8; border-radius: 10px; background: #f7f3ea; }
+.instructions-deadline > div { display: grid; gap: 5px; }
+.instructions-deadline span { color: #667069; font-size: 10px; }
+.instructions-deadline strong { font-size: 11px; line-height: 1.6; }
+.instructions-deadline output { flex-shrink: 0; padding: 6px 9px; border: 1px solid #e2e2d7; border-radius: 7px; background: #fdf9f0; color: var(--forest); font-family: monospace; font-size: 23px; font-weight: 700; letter-spacing: .03em; }
+.instructions-deadline output.is-expired { color: #9a6534; }
+.instructions-timer > p { margin: 13px 0 0; color: #667069; font-size: 12px; line-height: 1.7; }
+.instructions-stay { padding-bottom: 20px; }
+.instructions-stay h2 { margin-bottom: 17px; }
+.instructions-room { display: flex; align-items: flex-start; justify-content: space-between; gap: 9px; margin-bottom: 13px; }
+.instructions-room > div { display: grid; gap: 5px; }
+.instructions-room strong { color: var(--forest); font-size: 13px; }
+.instructions-room span { color: #667069; font-size: 12px; }
+.instructions-room small { max-width: 145px; padding: 5px 7px; border-radius: 5px; background: #f1eee5; color: #667069; font-size: 9px; line-height: 1.6; text-align: center; }
+.instructions-stay p { display: flex; align-items: flex-start; gap: 8px; margin: 10px 0 0; color: #667069; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.instructions-stay p svg { flex-shrink: 0; margin-top: 2px; }
+.instructions-extras, .instructions-costs { display: grid; gap: 10px; padding-block: 17px; border-top: 1px solid #e5e7df; }
+.instructions-extras h3 { margin: 0 0 3px; color: #667069; font-family: var(--font-jakarta), sans-serif; font-size: 11px; font-weight: 600; }
+.instructions-extras p { margin: 0; color: #667069; font-size: 12px; }
+.instructions-cost-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; color: #667069; font-size: 12px; line-height: 1.6; }
+.instructions-cost-row strong { flex-shrink: 0; color: #37423b; font-size: 12px; font-weight: 500; white-space: nowrap; }
+.instructions-extras .instructions-cost-row > span { color: #1e2521; }
+.instructions-tax, .instructions-tax strong { color: #4e6451; }
+.instructions-total { padding-top: 18px; border-top: 1px solid #e5e7df; }
+.instructions-total > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+.instructions-total > div:first-child > span { display: grid; gap: 5px; color: #667069; font-size: 11px; }
+.instructions-total small { color: var(--forest); font-size: 9px; line-height: 1.5; }
+.instructions-total > div:first-child > strong { color: var(--forest); font-family: var(--font-playfair), Georgia, serif; font-size: 23px; white-space: nowrap; }
+.instructions-total .button { width: 100%; min-height: 47px; margin-bottom: 12px; font-size: 12px; }
+.instructions-change-method { display: flex; align-items: center; justify-content: center; min-height: 45px; padding: 10px; border: 1px solid #bdccc1; border-radius: 8px; color: var(--forest); font-size: 12px; font-weight: 600; }
+.instructions-change-method:hover { background: #f1f4ed; }
+.instructions-support { margin-top: 22px; padding-top: 19px; border-top: 1px solid #e5e7df; }
+.instructions-support a { display: flex; align-items: center; justify-content: center; gap: 7px; color: #667069; font-size: 10px; line-height: 1.6; }
+.instructions-support svg { flex-shrink: 0; color: #4e6451; }
+.instructions-trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 14px; border: 1px solid #e4e4da; border-radius: 11px; background: #f7f3ea; }
+.instructions-trust > div { display: grid; justify-items: center; gap: 5px; color: var(--forest); }
+.instructions-trust span { color: #667069; font-size: 10px; text-align: center; }
+.instructions-footer { padding-block: 45px 20px; border-top: 1px solid #dedfd5; background: #ece8df; }
+.instructions-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 55px; }
+.instructions-footer-grid p { max-width: 390px; margin: 18px 0 0; color: #667069; font-size: 12px; line-height: 1.8; }
+.instructions-footer-grid h2 { margin: 0 0 19px; color: var(--forest); font-family: var(--font-jakarta), sans-serif; font-size: 13px; font-weight: 700; }
+.instructions-footer-grid > div > a:not(.brand) { display: block; margin-bottom: 13px; color: #667069; font-size: 12px; }
+.instructions-footer-grid a:hover { color: var(--gold); }
+.instructions-footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 35px; padding-top: 20px; border-top: 1px solid #d6d9ce; color: #667069; font-size: 10px; }
+.instructions-toast { position: fixed; z-index: 100; right: 24px; bottom: 24px; display: flex; align-items: flex-start; gap: 10px; max-width: min(480px, calc(100% - 32px)); padding: 16px; border-radius: 10px; background: var(--forest); color: #fff; box-shadow: 0 8px 30px #02322330; font-size: 13px; line-height: 1.6; }
+.instructions-toast svg { flex-shrink: 0; margin-top: 2px; }
+.instructions-toast button { flex-shrink: 0; padding: 0 4px; border: 0; background: transparent; color: #fff; font-size: 20px; cursor: pointer; }
+.payment-instructions-page button:focus-visible, .payment-instructions-page a:focus-visible { outline: 2px solid #6b936f; outline-offset: 3px; }
+@media (max-width: 1120px) { .instructions-layout { grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; } .instructions-card { padding: 23px; } .instructions-intro { align-items: flex-start; } .instructions-intro h1 { font-size: 34px; } }
+@media (max-width: 1023px) { .instructions-layout { grid-template-columns: 1fr; } .instructions-right { position: static; } .instructions-intro { flex-direction: column; gap: 18px; } .instructions-identification { justify-content: flex-start; } .instructions-footer-grid { gap: 30px; } }
+@media (max-width: 620px) { .instructions-main { width: calc(100% - 32px); padding-block: 28px 45px; } .instructions-main .booking-progress { margin-bottom: 36px; } .instructions-intro h1 { font-size: 28px; } .instructions-intro p { font-size: 13px; } .instructions-card, .instructions-right .instructions-card { padding: 19px; } .instructions-account-grid { grid-template-columns: 1fr; } .instructions-va { padding: 15px; } .instructions-va button { width: 100%; } .instructions-va strong { font-size: 22px; } .instructions-card h2 { font-size: 20px; } .instructions-timer-heading h2 { font-size: 11px; } .instructions-guide h3 button { padding: 13px; } .instructions-guide > div { padding: 8px 14px 16px; } .instructions-footer-grid { grid-template-columns: 1fr; } .instructions-footer-bottom { flex-direction: column; align-items: flex-start; } .instructions-toast { right: 16px; bottom: 16px; } }
+@media (prefers-reduced-motion: reduce) { .instructions-guide h3 svg { transition: none; } }
