@@ -65,33 +65,33 @@ const amenities: { icon: LucideIcon; title: string; detail: string }[] = [
 
 const gallery = [
   {
-    image: "/images/sunrise.webp",
-    category: "LANDSCAPE",
-    title: "Pemandangan Sunrise Pegunungan Darajat",
+    image: "/images/gallery-dining-view.webp",
+    category: "DINING",
+    title: "Santap dengan Pemandangan Darajat",
     className: "gallery-large",
   },
   {
-    image: "/images/twilight-pool.webp",
-    category: "RELAXATION",
-    title: "Kolam Air Hangat Alami",
+    image: "/images/green-hero-darajat-evening.webp",
+    category: "RESORT",
+    title: "Green Hero Darajat Saat Senja",
     className: "gallery-tall",
   },
   {
-    image: "/images/warm-room.webp",
-    category: "SUITES",
-    title: "Interior Kamar Hangat",
-    className: "",
-  },
-  {
-    image: "/images/misty-valley.webp",
+    image: "/images/gallery-mountain-sunset.webp",
     category: "NATURE",
-    title: "Kabut Sejuk Dataran Tinggi",
+    title: "Senja di Pegunungan Darajat",
     className: "",
   },
   {
-    image: "/images/family-lounge.webp",
+    image: "/images/gallery-balcony-dusk.webp",
+    category: "MOMENTS",
+    title: "Menikmati Senja dari Balkon",
+    className: "",
+  },
+  {
+    image: "/images/room-mountain-villa-new.webp",
     category: "FAMILY TIME",
-    title: "Lounge Santai Keluarga",
+    title: "Vila Kayu untuk Momen Keluarga",
     className: "",
   },
 ];
@@ -253,7 +253,7 @@ export default function Home() {
             </div>
           </div>
           <div className="welcome-media">
-            <Image src="/images/resort-exterior.webp" alt="Bangunan resor Green Hero di antara bukit dan taman" fill sizes="(max-width: 780px) 100vw, 50vw" />
+            <Image src="/images/green-hero-darajat-evening.webp" alt="Resor Green Hero Darajat dan kolam air hangat saat senja" fill sizes="(max-width: 780px) 100vw, 50vw" />
             <div className="welcome-badge"><UsersRound size={30} /><span><strong>Family Friendly Resort</strong><small>Fasilitas aman & nyaman untuk semua umur</small></span></div>
           </div>
         </section>
@@ -306,7 +306,7 @@ export default function Home() {
           </div>
           <div className="experience-layout">
             <div className="experience-feature image-overlay-card">
-              <Image src="/images/outdoor-dining.webp" alt="Keluarga menikmati makan malam di ruang terbuka pegunungan" fill sizes="(max-width: 780px) 100vw, 40vw" />
+              <Image src="/images/outdoor-highland-dining.jpg" alt="Keluarga menikmati makan malam dan kambing guling di teras terbuka Green Hero Darajat" fill sizes="(max-width: 780px) 100vw, 40vw" />
               <div><span>DINING HIGHLIGHT</span><h3>Outdoor Highland Dining</h3><p>Santap hangat bersama keluarga di udara sejuk Darajat</p></div>
             </div>
             <div className="experience-options">
@@ -345,7 +345,7 @@ export default function Home() {
 
         <section className="spring-section container section-space" id="hot-spring">
           <div className="spring-media">
-            <Image src="/images/hot-spring.webp" alt="Kolam air hangat alami di tengah perbukitan hijau Darajat" fill sizes="(max-width: 780px) 100vw, 55vw" />
+            <Image src="/images/green-hero-warm-pool.webp" alt="Tamu berendam di kolam air hangat Green Hero Darajat dengan pemandangan pegunungan" fill sizes="(max-width: 780px) 100vw, 55vw" />
             <span>Suhu Air Alami: 36°C – 38°C</span>
           </div>
           <div className="spring-copy">

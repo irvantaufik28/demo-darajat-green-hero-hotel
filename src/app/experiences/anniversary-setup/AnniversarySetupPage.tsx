@@ -51,7 +51,7 @@ export default function AnniversarySetupPage() {
       <SiteHeader links={interiorLinks} activeHref="/experiences/anniversary-setup" homeHref="/" bookingHref="/rooms" />
       <main>
         <section className={styles.hero} aria-labelledby="anniversary-title">
-          <Image src="/images/anniversary-hero.webp" alt="Makan malam romantis di teras kayu dengan panorama pegunungan Darajat" fill preload sizes="100vw" className={styles.cover} />
+          <Image src="/images/anniversary-dinner-night.webp" alt="Meja makan malam romantis dengan cahaya lilin di area terbuka Green Hero Darajat" fill preload sizes="100vw" className={styles.cover} />
           <div className={styles.shade} />
           <div className={`${styles.container} ${styles.heroContent}`}>
             <span className={styles.badge}><Sparkles size={15} /> Green Hero Experiences</span>
@@ -67,7 +67,7 @@ export default function AnniversarySetupPage() {
         <section className={styles.section} aria-labelledby="anniversary-intro-title">
           <div className={`${styles.container} ${styles.split}`}>
             <div className={styles.editorialPhoto}>
-              <Image src="/images/anniversary-suite.webp" alt="Kamar hangat dengan dekorasi anniversary dan pemandangan pegunungan" fill sizes="(max-width: 840px) 100vw, 50vw" className={styles.cover} />
+              <Image src="/images/anniversary-room-decor.webp" alt="Kamar Green Hero Darajat dengan dekorasi bunga dan handuk berbentuk hati untuk anniversary" fill sizes="(max-width: 840px) 100vw, 50vw" className={styles.cover} />
               <span className={styles.photoCaption}><Heart size={15} /> Intimate Highland Suite — Suasana Hangat Berdua</span>
             </div>
             <div>

@@ -17,7 +17,7 @@ export const featuredFacilities: FeaturedFacility[] = [
   {
     id: "pools", eyebrow: "REKREASI & HANGATNYA ALAM", title: "Kolam & Relaksasi",
     description: "Area kolam menjadi salah satu pengalaman utama selama menginap, cocok untuk relaksasi maupun waktu bersama keluarga di tengah sejuknya udara pegunungan Darajat.",
-    image: "/images/facilities-pool.jpg", imageAlt: "Kolam air panas alami dikelilingi pepohonan dan gazebo di dataran tinggi Darajat",
+    image: "/images/green-hero-warm-pool.webp", imageAlt: "Tamu berendam di kolam air hangat Green Hero Darajat dengan pemandangan pegunungan",
     compact: true,
     features: [{ icon: Waves, title: "Outdoor swimming pool" }, { icon: Bath, title: "Warm pool (36°C – 38°C)" }, { icon: Waves, title: "Natural Hot tub" }, { icon: Baby, title: "Kids warm pool" }],
     note: "Tidak menyediakan layanan spa. Fokus murni pada kehangatan air belerang alami pegunungan.",
@@ -25,13 +25,13 @@ export const featuredFacilities: FeaturedFacility[] = [
   {
     id: "dining", eyebrow: "KULINER & SANTAP PAGI", title: "Restoran & Sarapan",
     description: "Nikmati makanan dan minuman tanpa harus meninggalkan area hotel. Pilihan sarapan hangat khas Sunda dan hidangan nusantara disajikan segar setiap pagi dengan panorama lembah berkabut.",
-    image: "/images/facilities-dining.jpg", imageAlt: "Restoran resor dengan interior kayu dan jendela menghadap pegunungan",
+    image: "/images/gallery-dining-view.webp", imageAlt: "Hidangan sarapan khas Nusantara di meja dekat jendela dengan pemandangan Darajat",
     features: [{ icon: UtensilsCrossed, title: "Restaurant & Dining Lounge", description: "Tempat bersantap keluarga dengan view pegunungan terbuka" }, { icon: Croissant, title: "Breakfast Buffet & À La Carte", description: "Pilihan menu sarapan Nusantara, bubur lezat, dan teh hangat" }, { icon: Bell, title: "24-Hour Room Service", description: "Pengantaran hidangan panas langsung ke pintu kamar Anda" }],
   },
   {
     id: "family", eyebrow: "RAMAH KELUARGA & ANAK", title: "Nyaman untuk Keluarga",
     description: "Dirancang agar pengalaman menginap tetap nyaman untuk orang tua dan anak. Nikmati area terbuka hijau berlatar kebun teh dan kolam dangkal anak yang aman serta mudah diawasi.",
-    image: "/images/facilities-family.jpg", imageAlt: "Area bermain dan taman hijau untuk keluarga di resor pegunungan",
+    image: "/images/room-mountain-villa-new.webp", imageAlt: "Vila kayu dengan taman dan area bermain anak di Green Hero Darajat",
     features: [{ icon: UsersRound, title: "Family-friendly environment", description: "Kawasan asri, bersih, dan bebas bising untuk rekreasi privat keluarga" }, { icon: Waves, title: "Kids pool kedalaman aman", description: "Air hangat bersuhu nyaman dengan kedalaman ramah anak balita" }, { icon: Trees, title: "Children-friendly open garden & seating", description: "Taman rumput luas untuk si kecil bereksplorasi secara aman" }],
   },
   {

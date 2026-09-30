@@ -21,7 +21,7 @@ export type GalleryPhoto = {
 };
 
 export const galleryPhotos: GalleryPhoto[] = [
-  { id: "thermal-pools", category: "pools", categoryLabel: "Kolam Air Hangat", title: "Kolam Air Hangat Alami Pegunungan", caption: "Sensasi Berendam Hangat di Ketinggian Garut", image: "/images/gallery-00.jpg", alt: "Kolam air hangat alami dengan kabut pegunungan dan lanskap kebun teh" },
+  { id: "thermal-pools", category: "pools", categoryLabel: "Kolam Air Hangat", title: "Kolam Air Hangat Alami Pegunungan", caption: "Sensasi Berendam Hangat di Ketinggian Garut", image: "/images/green-hero-warm-pool.webp", alt: "Tamu menikmati kolam air hangat di depan vila dengan panorama pegunungan" },
   { id: "vip-suite", category: "rooms", categoryLabel: "Kamar & Suite", title: "VIP Suite Panoramic Balcony", caption: "VIP Suite Panoramic Balcony", image: "/images/gallery-01.jpg", alt: "Interior VIP Suite berkayu hangat dengan balkon menghadap perbukitan" },
   { id: "resort-entrance", category: "resort", categoryLabel: "Area Hotel", title: "Suasana Pagi Darajat & Area Resor", caption: "Lobi & Gerbang Masuk Pegunungan", image: "/images/gallery-02.jpg", alt: "Pintu masuk dan area parkir resor di lereng pegunungan Darajat" },
   { id: "family-suite", category: "rooms", categoryLabel: "Kamar & Suite", title: "Family Suite Bunk Bed Wood Interior", caption: "Family Suite dengan Bunk Bed", description: "Kapasitas 4–6 Orang • Pemandangan Lembah", image: "/images/gallery-03.jpg", alt: "Family Suite dengan ranjang bertingkat dan interior kayu" },

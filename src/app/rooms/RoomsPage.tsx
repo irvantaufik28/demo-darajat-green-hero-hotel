@@ -7,8 +7,6 @@ import {
   BedDouble,
   CalendarDays,
   CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
   Clock3,
   Flame,
   Globe2,
@@ -31,12 +29,6 @@ import RoomInfoModal from "./RoomInfoModal";
 import { getNights } from "@/data/booking";
 import { countSelectedRooms, getRoomSelectionTotal, getSelectedRoomItems, normalizeRoomSelection, serializeRoomSelection, type RoomSelection } from "@/data/roomSelection";
 
-const heroSlides = [
-  { image: "/images/hero-resort.webp", alt: "Resor Green Hero Darajat di pegunungan" },
-  { image: "/images/hero-pool.webp", alt: "Kolam air panas Green Hero Darajat" },
-  { image: "/images/hero-suite.webp", alt: "Kamar suite dengan pemandangan pegunungan" },
-];
-
 const benefits = [
   { icon: Clock3, title: "Proses Reservasi Langsung", description: "Pilih kamar langsung dari Green Hero Darajat dengan informasi yang mudah dipahami." },
   { icon: ShieldCheck, title: "Informasi Kamar yang Jelas", description: "Lihat fasilitas, kapasitas tamu, dan tipe ranjang setiap kamar sebelum memilih." },
@@ -52,7 +44,6 @@ function formatSelectionDate(value: string) {
 }
 
 export default function RoomsPage({ initialSelection, initialCheckIn, initialCheckOut, initialGuests }: Props) {
-  const [slide, setSlide] = useState(0);
   const [roomType, setRoomType] = useState("all");
   const [checkIn, setCheckIn] = useState(initialCheckIn);
   const [checkOut, setCheckOut] = useState(initialCheckOut);
@@ -109,9 +100,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
       <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="#availability" contactHref="/contact" />
       <main>
         <section className="rooms-hero" aria-label="Kamar dan Suite Green Hero Darajat">
-          {heroSlides.map((item, index) => (
-            <Image key={item.image} src={item.image} alt={item.alt} fill priority={index === 0} sizes="100vw" className={`rooms-hero-image${slide === index ? " is-active" : ""}`} />
-          ))}
+          <Image src="/images/green-hero-resort-sunset.webp" alt="Green Hero Darajat, kolam air hangat, dan panorama pegunungan saat senja" fill priority sizes="100vw" className="rooms-hero-image" />
           <div className="rooms-hero-shade" />
           <div className="container rooms-hero-content">
             <div>
@@ -119,11 +108,6 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
               <span className="rooms-eyebrow">OUR ROOMS</span>
               <h1>Temukan Kamar yang Sesuai untuk Perjalanan Anda</h1>
               <p>Pilih kamar yang nyaman untuk beristirahat bersama pasangan, keluarga, atau rombongan selama menikmati suasana sejuk dan pemandian air panas alami Darajat.</p>
-            </div>
-            <div className="rooms-hero-controls">
-              <button type="button" aria-label="Slide sebelumnya" onClick={() => setSlide((current) => (current + heroSlides.length - 1) % heroSlides.length)}><ChevronLeft size={20} /></button>
-              <div className="rooms-hero-dots">{heroSlides.map((item, index) => <button type="button" key={item.image} aria-label={`Tampilkan slide ${index + 1}`} aria-current={slide === index ? "true" : undefined} className={slide === index ? "is-active" : ""} onClick={() => setSlide(index)} />)}</div>
-              <button type="button" aria-label="Slide berikutnya" onClick={() => setSlide((current) => (current + 1) % heroSlides.length)}><ChevronRight size={20} /></button>
             </div>
           </div>
         </section>

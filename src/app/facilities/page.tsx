@@ -17,7 +17,7 @@ export default function FacilitiesPage() {
       <SiteHeader id="facilities-header" links={interiorLinks} activeHref="/facilities" homeHref="/" bookingHref="/rooms#availability" contactHref="/contact" />
       <main>
         <section className="facilities-hero" aria-labelledby="facilities-title">
-          <Image src="/images/facilities-hero.jpg" alt="Panorama resor Green Hero Darajat di lereng pegunungan" fill priority sizes="100vw" />
+          <Image src="/images/green-hero-resort-sunset.webp" alt="Green Hero Darajat, kolam air hangat, dan panorama pegunungan saat senja" fill priority sizes="100vw" />
           <div className="facilities-hero-shade" />
           <div className="facilities-hero-content"><nav aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Fasilitas</span></nav><span className="facilities-eyebrow">FASILITAS GREEN HERO</span><h1 id="facilities-title">Fasilitas untuk Menginap Lebih Nyaman</h1><p>Dari kolam air hangat hingga layanan hotel sehari-hari, Green Hero Darajat menyediakan fasilitas yang mendukung waktu menginap bersama keluarga.</p></div>
         </section>

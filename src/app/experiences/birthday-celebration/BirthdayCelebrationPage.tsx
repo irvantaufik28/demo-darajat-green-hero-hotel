@@ -107,8 +107,8 @@ export default function BirthdayCelebrationPage() {
         {/* ── 1. HERO ──────────────────────────────────── */}
         <section className="bc-hero" aria-labelledby="bc-title">
           <Image
-            src="/images/birthday-room.webp"
-            alt="Perayaan ulang tahun keluarga di villa pegunungan Green Hero Darajat"
+            src="/images/birthday-outdoor-celebration.jpg"
+            alt="Keluarga merayakan ulang tahun di teras outdoor Green Hero Darajat"
             fill
             priority
             sizes="100vw"
@@ -153,7 +153,7 @@ export default function BirthdayCelebrationPage() {
               {/* foto kiri */}
               <div className="bc-editorial-photo">
                 <Image
-                  src="/images/birthday-room.webp"
+                  src="/images/birthday-room-decor.webp"
                   alt="Kamar birthday yang hangat dengan dekorasi natural di Green Hero Darajat"
                   fill
                   sizes="(max-width: 1023px) 100vw, 580px"
@@ -307,8 +307,8 @@ export default function BirthdayCelebrationPage() {
               </div>
               <div className="bc-style-photo">
                 <Image
-                  src="/images/birthday-room.webp"
-                  alt="Detail kue ulang tahun artisanal dengan sentuhan floral di meja kayu"
+                  src="/images/birthday-room-decor.webp"
+                  alt="Kue ulang tahun dan dekorasi bunga di kamar Green Hero Darajat"
                   fill
                   sizes="(max-width: 1023px) 100vw, 480px"
                 />

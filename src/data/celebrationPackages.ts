@@ -2,7 +2,7 @@ export const celebrationCategories = [
   {
     id: "birthday", name: "Birthday Celebration",
     description: "Pilihan perayaan ulang tahun yang hangat, dari surprise kecil hingga momen bersama keluarga besar.",
-    image: "/images/birthday-room.webp",
+    image: "/images/birthday-room-decor.webp",
     packages: [
   {
     id: "birthday-simple",
@@ -60,7 +60,7 @@ export const celebrationCategories = [
   "id": "anniversary",
   "name": "Honeymoon / Anniversary",
   "description": "Dari kejutan sederhana di kamar hingga romantic dinner, setiap detail dipersiapkan untuk membuat waktu bersama terasa lebih personal dan berkesan.",
-  "image": "/images/anniversary-suite.webp",
+  "image": "/images/anniversary-room-decor.webp",
   "packages": [
     {
       "id": "anniversary-simple",

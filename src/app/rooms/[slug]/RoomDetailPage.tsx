@@ -57,7 +57,7 @@ export default function RoomDetailPage({ roomId, initialCheckIn, initialCheckOut
 
   const nights = getNightCount(checkIn, checkOut);
   const relatedRooms = rooms.filter((item) => item.id !== room.id).slice(0, 2);
-  const photos = [room.image, room.image, room.image, "/images/hot-spring.webp", room.image];
+  const photos = [room.image, room.image, room.image, "/images/green-hero-warm-pool.webp", room.image];
   const bookingHref = `/booking/extras?${new URLSearchParams({ room: room.id, checkIn, checkOut, guests })}`;
 
   const checkAvailability = (event: FormEvent<HTMLFormElement>) => {
