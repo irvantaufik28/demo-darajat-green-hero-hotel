@@ -10,6 +10,9 @@
   },
   "availability": {
     "ariaLabel": "Cari kamar",
+    "dateRange": "Tanggal Menginap",
+    "selectRangeHint": "Pilih tanggal check-in, lalu tanggal check-out.",
+    "notChecked": "Pilih tanggal untuk melihat ketersediaan",
     "checkIn": "Check-in",
     "checkOut": "Check-out",
     "guests": "Tamu",
@@ -17,6 +20,12 @@
     "allRoomTypes": "Semua Tipe Kamar",
     "unavailableSuffix": " — Tidak tersedia",
     "search": "Cek Ketersediaan",
+    "adults": "Dewasa",
+    "children": "Anak",
+    "searching": "Mencari...",
+    "loading": "Memuat kamar...",
+    "checkingStock": "Memeriksa stok...",
+    "noRooms": "Belum ada tipe kamar aktif.",
     "guestOptions": {
       "twoAdults": "2 Dewasa",
       "fourAdultsFamily": "4 Dewasa (Family)",
@@ -33,8 +42,8 @@
     "eyebrow": "LUXURY HIGHLAND SANCTUARY",
     "title": "Kenyamanan Autentik di Lereng Darajat",
     "description": "Setiap ruang dirancang dengan perpaduan kehangatan kayu jati alami, panorama kabut pegunungan, dan fasilitas pemandian air panas bumi yang menenangkan.",
-    "note": "Akses fasilitas kolam renang air panas alami & sarapan pagi",
-    "priceDisclaimer": "Harga, sisa kamar, ketersediaan, dan kebijakan pembatalan pada halaman ini adalah data contoh."
+    "note": "Fasilitas kamar dan layanan makan tercantum pada detail setiap kamar.",
+    "priceDisclaimer": "Harga dan ketersediaan mengikuti tanggal menginap yang dipilih dan dapat berubah sebelum pemesanan."
   },
   "card": {
     "layoutAriaLabel": "Pilihan kamar dan ringkasan harga",
@@ -59,15 +68,19 @@
     "roomsSelected": "{count} kamar dipilih",
     "included": "Sarapan & akses kolam air panas",
     "roomLine": "{count} Kamar × {price} × {nights} Malam",
+    "roomLineNoPrice": "{count} Kamar × {nights} Malam",
     "removeAriaLabel": "Hapus {name} dari pilihan",
     "remove": "Hapus",
     "emptyTitle": "Belum ada kamar dipilih",
     "emptyDescription": "Pilih tipe kamar dan jumlahnya dari daftar. Anda dapat menambahkan beberapa tipe kamar sekaligus.",
     "roomSubtotal": "Subtotal Kamar",
     "total": "Total",
-    "taxIncluded": "Termasuk pajak & biaya layanan",
+    "taxIncluded": "Biaya akhir dikonfirmasi saat checkout.",
     "continue": "Lanjut ke Pilihan Tambahan",
-    "forwardedNote": "Semua pilihan kamar diteruskan dalam satu booking.",
+    "forwardedNote": "Kamar pilihan Anda akan dibawa ke langkah berikutnya.",
+    "storageError": "Tidak dapat melanjutkan di browser ini. Izinkan penyimpanan sesi lalu coba lagi.",
+    "adjustGuests": "Sesuaikan jumlah tamu dengan kapasitas kamar yang dipilih.",
+    "discount": "Diskon",
     "selectAtLeastOne": "Pilih minimal 1 kamar untuk melanjutkan.",
     "mobileSummary": "{count} Kamar • {price}",
     "mobileViewSummary": "Lihat Ringkasan"
@@ -239,6 +252,7 @@
     "contactEmail": "halo@greenherodarajat.com",
     "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
     "copyrightShort": "© 2026 Green Hero Darajat Hotel & Resort.",
+    "roomDataNote": "Informasi kamar dan ketersediaan dari Green Hero Darajat",
     "demoNote": "Demo frontend · Data & kontak contoh",
     "demoNoteShort": "Demo frontend · Harga & ketersediaan contoh"
   }

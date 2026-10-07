@@ -31,6 +31,9 @@ import { formatRoomPrice, getRoom } from "@/features/rooms/constants/rooms-data"
 import "../styles/booking.css";
 import { countSelectedRooms, getRoomSelectionTotal, serializeRoomSelection, type RoomSelection } from "@/features/rooms/constants/room-selection-data";
 import { BookingRoomSelection } from "@/components/BookingRoomSelection";
+import { LiveBookingRoomSelection } from "../components/LiveBookingRoomSelection";
+import { LIVE_BOOKING_KEY, readLiveBooking, serializeLiveSelection, type LiveRoomBooking } from "@/features/rooms/services/live-booking";
+import { quoteRooms } from "@/features/rooms/services/public-rooms";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
 import id from "../locales/id.json";
@@ -41,6 +44,7 @@ type Props = {
   initialCheckIn: string;
   initialCheckOut: string;
   initialGuests: string;
+  liveMode?: boolean;
 };
 
 type Extra = {
@@ -71,23 +75,45 @@ function validStay(checkIn: string, checkOut: string) {
   return Date.parse(`${checkOut}T00:00:00Z`) > Date.parse(`${checkIn}T00:00:00Z`);
 }
 
-export default function BookingExtrasPage({ roomId, roomSelection, initialCheckIn, initialCheckOut, initialGuests }: Props) {
+export default function BookingExtrasPage({ roomId, roomSelection, initialCheckIn, initialCheckOut, initialGuests, liveMode = false }: Props) {
   const { t } = useTranslations({ en, id });
   const room = getRoom(roomId);
-  const selectionQuery = serializeRoomSelection(roomSelection);
-  const totalRooms = countSelectedRooms(roomSelection);
+  const [liveBooking, setLiveBooking] = useState<LiveRoomBooking | null>(null);
+  const [liveLoading, setLiveLoading] = useState(liveMode);
+  const selectionQuery = liveMode && liveBooking ? serializeLiveSelection(liveBooking.selection) : serializeRoomSelection(roomSelection);
+  const totalRooms = liveMode ? liveBooking?.quote.roomCount ?? 0 : countSelectedRooms(roomSelection);
   const hasStay = validStay(initialCheckIn, initialCheckOut);
-  const checkIn = hasStay ? initialCheckIn : "2026-10-18";
-  const checkOut = hasStay ? initialCheckOut : "2026-10-20";
+  const checkIn = liveBooking?.checkIn ?? (hasStay ? initialCheckIn : "2026-10-18");
+  const checkOut = liveBooking?.checkOut ?? (hasStay ? initialCheckOut : "2026-10-20");
   const nights = getNights(checkIn, checkOut);
   const guests = initialGuests || "2 Dewasa, 1 Anak";
-  const [counts, setCounts] = useState<Record<string, number>>({ "extra-bed": 1 });
+  const [counts, setCounts] = useState<Record<string, number>>(liveMode ? {} : { "extra-bed": 1 });
   const [activeCelebrationCategory, setActiveCelebrationCategory] = useState<CelebrationCategory | null>(null);
   const [activeFoodCategory, setActiveFoodCategory] = useState<FoodCategory | null>(null);
   const [requests, setRequests] = useState<Record<string, boolean>>({});
   const [specialNote, setSpecialNote] = useState("");
 
   useEffect(() => {
+    if (!liveMode) return;
+    const booking = readLiveBooking();
+    if (booking?.checkIn !== initialCheckIn || booking.checkOut !== initialCheckOut || booking.selection[0]?.roomId !== roomId) {
+      setLiveLoading(false);
+      return;
+    }
+    const controller = new AbortController();
+    quoteRooms({ checkInDate: booking.checkIn, checkOutDate: booking.checkOut, totalAdults: booking.adults, totalChildren: booking.children, rooms: booking.allocation }, controller.signal)
+      .then((quote) => {
+        const refreshed = { ...booking, quote };
+        setLiveBooking(refreshed);
+        try { sessionStorage.setItem(LIVE_BOOKING_KEY, JSON.stringify(refreshed)); } catch { /* Display the fresh quote for this page. */ }
+      })
+      .catch(() => { if (!controller.signal.aborted) setLiveBooking(null); })
+      .finally(() => { if (!controller.signal.aborted) setLiveLoading(false); });
+    return () => controller.abort();
+  }, [liveMode, initialCheckIn, initialCheckOut, roomId]);
+
+  useEffect(() => {
+    if (liveMode) return;
     try {
       const saved = sessionStorage.getItem(BOOKING_DRAFT_KEY);
       if (!saved) return;
@@ -100,11 +126,13 @@ export default function BookingExtrasPage({ roomId, roomSelection, initialCheckI
     } catch {
       // Ignore saved demo choices when browser storage is unavailable.
     }
-  }, [selectionQuery, checkIn, checkOut, guests]);
+  }, [selectionQuery, checkIn, checkOut, guests, liveMode]);
 
-  if (!room) return null;
+  if (liveLoading) return <main className="container booking-main" role="status">{t("extras.live.loading")}</main>;
+  if (liveMode && !liveBooking) return <main className="container booking-main"><h1>{t("extras.live.expiredTitle")}</h1><p>{t("extras.live.expiredDescription")}</p><a className="button button-primary" href="/rooms">{t("extras.live.backToRooms")}</a></main>;
+  if (!room && !liveMode) return null;
 
-  const roomTotal = getRoomSelectionTotal(roomSelection, nights);
+  const roomTotal = liveBooking?.quote.roomTotal ?? getRoomSelectionTotal(roomSelection, nights);
   const paidExtras = (Object.keys(bookingExtraPrices) as PaidExtraId[]).filter((id) => counts[id] > 0);
   const extrasTotal = paidExtras.reduce((total, id) => total + getExtraCost(id, counts[id], nights), 0);
   const roomHref = `/rooms?${new URLSearchParams({ rooms: selectionQuery, checkIn, checkOut, guests })}`;
@@ -118,6 +146,11 @@ export default function BookingExtrasPage({ roomId, roomSelection, initialCheckI
   }
 
   function goToGuest(skipExtras: boolean) {
+    if (liveMode && liveBooking) {
+      const params = new URLSearchParams({ source: "website", room: liveBooking.selection[0].roomId, rooms: serializeLiveSelection(liveBooking.selection), checkIn, checkOut, guests });
+      window.location.assign(`/booking/guest-details?${params}`);
+      return;
+    }
     const selectedCounts: Record<string, number> = skipExtras ? {} : normalizeExtraCounts(counts);
     const draft: BookingDraft = {
       roomId, roomSelection, checkIn, checkOut, guests,
@@ -175,10 +208,11 @@ export default function BookingExtrasPage({ roomId, roomSelection, initialCheckI
         </nav>
 
         <div className="booking-intro"><span className="booking-eyebrow">{t("extras.intro.eyebrow")}</span><h1>{t("extras.intro.title")}</h1><p>{t("extras.intro.description")}</p></div>
+        {liveMode && <div className="booking-live-notice" role="status">{t("extras.live.previewNotice")}</div>}
 
         <div className="booking-layout">
-          <div className="booking-options">
-            <div className="booking-stay-banner"><div><strong><BedDouble size={20} /> {t("extras.stayBanner.roomSelection")} <span>{t("extras.stayBanner.roomCount", { count: totalRooms })}</span></strong><p><CalendarDays size={16} /> {t("extras.stayBanner.stayRange", { checkIn: stayDate(checkIn), checkOut: stayDate(checkOut), nights })}</p><p><UsersRound size={16} /> {guests}</p><BookingRoomSelection selection={roomSelection} nights={nights} /><small>{t("extras.stayBanner.roomSubtotal")} <b>{formatRoomPrice(roomTotal)}</b></small></div><a href={roomHref}>{t("extras.stayBanner.changeRoom")} <ArrowRight size={16} /></a></div>
+          <fieldset className="booking-options" disabled={liveMode}>
+            <div className="booking-stay-banner"><div><strong><BedDouble size={20} /> {t("extras.stayBanner.roomSelection")} <span>{t("extras.stayBanner.roomCount", { count: totalRooms })}</span></strong><p><CalendarDays size={16} /> {t("extras.stayBanner.stayRange", { checkIn: stayDate(checkIn), checkOut: stayDate(checkOut), nights })}</p><p><UsersRound size={16} /> {guests}</p>{liveBooking ? <LiveBookingRoomSelection booking={liveBooking} nights={nights} /> : <BookingRoomSelection selection={roomSelection} nights={nights} />}<small>{t("extras.stayBanner.roomSubtotal")} <b>{formatRoomPrice(roomTotal)}</b></small></div><a href={roomHref}>{t("extras.stayBanner.changeRoom")} <ArrowRight size={16} /></a></div>
 
             <section className="booking-section"><div className="booking-food-hero"><Image src="/images/outdoor-dining.webp" alt={t("extras.food.heroAlt")} fill sizes="(max-width: 840px) 100vw, 60vw" /><div><span>{t("extras.food.badge")}</span><h2>{t("extras.food.title")}</h2><p>{t("extras.food.description")}</p></div></div><div className="booking-card-list">{foodCategories.map((category) => {
               const selectedPackages = category.packages.filter((item) => counts[item.id] > 0);
@@ -202,14 +236,14 @@ export default function BookingExtrasPage({ roomId, roomSelection, initialCheckI
             })}</div></section>
 
             <section className="booking-request-section"><div className="booking-section-title"><span>{t("extras.requests.badge")}</span><h2>{t("extras.requests.title")}</h2><p>{t("extras.requests.description")}</p></div><div className="booking-request-grid">{[{ id: "early", labelKey: "extras.requests.earlyCheckIn", icon: <Clock3 size={23} /> }, { id: "late", labelKey: "extras.requests.lateCheckOut", icon: <Clock3 size={23} /> }].map((item) => <div className="booking-request-card" key={item.id}><div>{item.icon}<span><strong>{t(item.labelKey)}</strong><small>{requests[item.id] ? t("extras.requests.requestSubmitted") : t("extras.requests.statusByRequest")}</small></span></div><button type="button" aria-pressed={!!requests[item.id]} onClick={() => toggleRequest(item.id)}>{requests[item.id] ? t("extras.requests.cancel") : t("extras.requests.submitRequest")}</button></div>)}</div><label className="booking-note-label" htmlFor="booking-special-note">{t("extras.requests.noteLabel")}</label><textarea id="booking-special-note" rows={3} value={specialNote} onChange={(event) => setSpecialNote(event.target.value)} placeholder={t("extras.requests.notePlaceholder")} /></section>
-          </div>
+          </fieldset>
 
-          <aside className="booking-summary" id="booking-summary"><div className="booking-summary-header"><h2>{t("extras.summary.title")}</h2><span>{t("extras.summary.step")}</span></div><div className="booking-summary-stay"><strong>{t("extras.summary.stayLine", { count: totalRooms, nights })}</strong><span><CalendarDays size={16} /> {stayDate(checkIn, true)} – {stayDate(checkOut, true)}</span><span><UsersRound size={16} /> {guests}</span></div><div className="booking-summary-cost"><h3>{t("extras.summary.costTitle")}</h3><BookingRoomSelection selection={roomSelection} nights={nights} /><div className="booking-summary-row"><span>{t("extras.summary.roomSubtotal", { count: totalRooms, nights })}</span><strong>{formatRoomPrice(roomTotal)}</strong></div><div className="booking-summary-addons"><h4>{t("extras.summary.addonsTitle")}</h4>{paidExtras.length ? paidExtras.map((id) => <div className="booking-summary-row" key={id}><span>{bookingExtraLabels[id]} {id === "extra-bed" ? t("extras.summary.extraBedUnit", { nights }) : t("extras.summary.countUnit", { count: counts[id] })}</span><strong>{formatRoomPrice(getExtraCost(id, counts[id], nights))}</strong></div>) : <p>{t("extras.summary.noPaidOptions")}</p>}{Object.values(requests).some(Boolean) && <p>{t("extras.summary.otherRequests")}</p>}</div><div className="booking-summary-total"><span><strong>{t("extras.summary.estimatedTotal")}</strong><small>{t("extras.summary.taxIncluded")}</small></span><strong>{formatRoomPrice(roomTotal + extrasTotal)}</strong></div></div><div className="booking-summary-actions"><button type="button" className="button button-primary" onClick={() => goToGuest(false)}>{t("extras.summary.continue")} <ArrowRight size={18} /></button><button type="button" onClick={() => goToGuest(true)}>{t("extras.summary.skip")}</button></div><div className="booking-trust"><ShieldCheck size={19} /><span>{t("extras.summary.trust")}</span></div></aside>
+          <aside className="booking-summary" id="booking-summary"><div className="booking-summary-header"><h2>{t("extras.summary.title")}</h2><span>{t("extras.summary.step")}</span></div><div className="booking-summary-stay"><strong>{t("extras.summary.stayLine", { count: totalRooms, nights })}</strong><span><CalendarDays size={16} /> {stayDate(checkIn, true)} – {stayDate(checkOut, true)}</span><span><UsersRound size={16} /> {guests}</span></div><div className="booking-summary-cost"><h3>{t("extras.summary.costTitle")}</h3>{liveBooking ? <LiveBookingRoomSelection booking={liveBooking} nights={nights} /> : <BookingRoomSelection selection={roomSelection} nights={nights} />}<div className="booking-summary-row"><span>{t("extras.summary.roomSubtotal", { count: totalRooms, nights })}</span><strong>{formatRoomPrice(roomTotal)}</strong></div><div className="booking-summary-addons"><h4>{t("extras.summary.addonsTitle")}</h4>{paidExtras.length ? paidExtras.map((id) => <div className="booking-summary-row" key={id}><span>{bookingExtraLabels[id]} {id === "extra-bed" ? t("extras.summary.extraBedUnit", { nights }) : t("extras.summary.countUnit", { count: counts[id] })}</span><strong>{formatRoomPrice(getExtraCost(id, counts[id], nights))}</strong></div>) : <p>{t("extras.summary.noPaidOptions")}</p>}{Object.values(requests).some(Boolean) && <p>{t("extras.summary.otherRequests")}</p>}</div><div className="booking-summary-total"><span><strong>{t("extras.summary.estimatedTotal")}</strong><small>{t("extras.summary.taxIncluded")}</small></span><strong>{formatRoomPrice(roomTotal + extrasTotal)}</strong></div></div><div className="booking-summary-actions"><button type="button" className="button button-primary" onClick={() => goToGuest(false)}>{t("extras.summary.continue")} <ArrowRight size={18} /></button><button type="button" onClick={() => goToGuest(true)}>{t("extras.summary.skip")}</button></div><div className="booking-trust"><ShieldCheck size={19} /><span>{liveMode ? t("extras.live.trust") : t("extras.summary.trust")}</span></div></aside>
         </div>
       </main>
       {activeCelebrationCategory && <CelebrationPackageModal key={activeCelebrationCategory.id} category={activeCelebrationCategory} counts={counts} onClose={() => setActiveCelebrationCategory(null)} onSave={(selection) => { setCounts((previous) => normalizeExtraCounts({ ...previous, ...selection })); setActiveCelebrationCategory(null); }} />}
       {activeFoodCategory && <FoodPackageModal key={activeFoodCategory.id} category={activeFoodCategory} counts={counts} onClose={() => setActiveFoodCategory(null)} onSave={(selection) => { setCounts((previous) => ({ ...previous, ...selection })); setActiveFoodCategory(null); }} />}
-      <footer className="booking-footer theme-footer"><div className="container booking-footer-inner"><div className="booking-footer-grid"><div className="booking-footer-about"><Brand href="/" /><p>{t("footer.about")}</p><span><MapPin size={17} /> {t("footer.address")}</span></div><div><strong>{t("footer.navTitle")}</strong><a href="/">{t("footer.navAbout")}</a><a href="/rooms">{t("footer.navRooms")}</a><a href="/#location">{t("footer.navRouteGuide")}</a><a href="/rooms">{t("footer.navReservationPolicy")}</a></div><div><strong>{t("footer.helpTitle")}</strong><a href="/contact">{t("footer.helpContact")}</a><a href="/contact">{t("footer.helpPrivacy")}</a><a href="/contact">{t("footer.helpFaq")}</a></div></div><div className="booking-footer-bottom"><span>{t("footer.copyright")}</span><a href="/rooms">{t("footer.backToRooms")} <ChevronRight size={15} /></a></div></div></footer>
+      <footer className="booking-footer theme-footer"><div className="container booking-footer-inner"><div className="booking-footer-grid"><div className="booking-footer-about"><Brand href="/" /><p>{t("footer.about")}</p><span><MapPin size={17} /> {t("footer.address")}</span></div><div><strong>{t("footer.navTitle")}</strong><a href="/">{t("footer.navAbout")}</a><a href="/rooms">{t("footer.navRooms")}</a><a href="/#location">{t("footer.navRouteGuide")}</a><a href="/rooms">{t("footer.navReservationPolicy")}</a></div><div><strong>{t("footer.helpTitle")}</strong><a href="/contact">{t("footer.helpContact")}</a><a href="/contact">{t("footer.helpPrivacy")}</a><a href="/contact">{t("footer.helpFaq")}</a></div></div><div className="booking-footer-bottom"><span>{liveMode ? t("extras.live.footer") : t("footer.copyright")}</span><a href="/rooms">{t("footer.backToRooms")} <ChevronRight size={15} /></a></div></div></footer>
     </div>
   );
 }

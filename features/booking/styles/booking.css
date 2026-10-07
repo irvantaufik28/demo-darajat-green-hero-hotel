@@ -15,6 +15,10 @@
 .booking-intro p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
 .booking-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 385px); align-items: start; gap: 32px; }
 .booking-options { display: grid; gap: 38px; min-width: 0; }
+.booking-options[disabled] { margin: 0; padding: 0; border: 0; }
+.booking-options[disabled] button, .booking-options[disabled] textarea { cursor: not-allowed; }
+.booking-options[disabled] .booking-extra-price { display: none; }
+.booking-live-notice { margin: -12px 0 28px; padding: 14px 18px; border: 1px solid #e7d6a9; border-radius: 9px; background: #fff8e8; color: #7b5b20; font-size: 13px; line-height: 1.5; }
 .booking-stay-banner { display: flex; justify-content: space-between; gap: 20px; padding: 20px; border: 1px solid #e6e7e1; border-radius: 13px; background: #fff; box-shadow: 0 7px 24px rgba(30,37,33,.05); }
 .booking-stay-banner > div { display: grid; gap: 7px; }
 .booking-stay-banner strong, .booking-stay-banner p { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 0; }

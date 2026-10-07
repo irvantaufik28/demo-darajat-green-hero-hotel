@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getNights } from "@/features/booking/constants/booking-data";
-import { parseRoomSelection } from "@/features/rooms/constants/room-selection-data";
 import RoomsPage from "@/features/rooms/pages/RoomsPage";
 
 export const metadata: Metadata = {
@@ -13,6 +12,11 @@ type PageProps = { searchParams: Promise<Record<string, string | string[] | unde
 export default async function Page({ searchParams }: PageProps) {
   const rawParams = await searchParams;
   const params = Object.fromEntries(Object.entries(rawParams).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]));
-  const validDates = getNights(params.checkIn ?? "", params.checkOut ?? "") > 0;
-  return <RoomsPage initialSelection={params.rooms === undefined ? [] : parseRoomSelection(params.rooms)} initialCheckIn={validDates ? params.checkIn! : "2026-10-18"} initialCheckOut={validDates ? params.checkOut! : "2026-10-20"} initialGuests={params.guests ?? "4 Dewasa (Family)"} />;
+  const dateParts = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Jakarta", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
+  const dateValue = (type: string) => dateParts.find((part) => part.type === type)?.value ?? "";
+  const today = `${dateValue("year")}-${dateValue("month")}-${dateValue("day")}`;
+  const tomorrow = new Date(`${today}T00:00:00Z`);
+  tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+  const validDates = (params.checkIn ?? "") >= today && getNights(params.checkIn ?? "", params.checkOut ?? "") > 0;
+  return <RoomsPage initialSelection={[]} initialCheckIn={validDates ? params.checkIn! : today} initialCheckOut={validDates ? params.checkOut! : tomorrow.toISOString().slice(0, 10)} initialMinDate={today} initialGuests={params.guests ?? "2 Dewasa"} />;
 }

@@ -10,6 +10,9 @@
   },
   "availability": {
     "ariaLabel": "Search rooms",
+    "dateRange": "Stay Dates",
+    "selectRangeHint": "Select check-in, then check-out date.",
+    "notChecked": "Select dates to check availability",
     "checkIn": "Check-in",
     "checkOut": "Check-out",
     "guests": "Guests",
@@ -17,6 +20,12 @@
     "allRoomTypes": "All Room Types",
     "unavailableSuffix": " — Unavailable",
     "search": "Check Availability",
+    "adults": "Adults",
+    "children": "Children",
+    "searching": "Searching...",
+    "loading": "Loading rooms...",
+    "checkingStock": "Checking stock...",
+    "noRooms": "No active room types are available.",
     "guestOptions": {
       "twoAdults": "2 Adults",
       "fourAdultsFamily": "4 Adults (Family)",
@@ -33,8 +42,8 @@
     "eyebrow": "LUXURY HIGHLAND SANCTUARY",
     "title": "Authentic Comfort on the Darajat Slopes",
     "description": "Each space is designed with a blend of warm natural teak wood, mountain mist panoramas, and soothing geothermal hot spring facilities.",
-    "note": "Access to natural hot spring pool facilities & morning breakfast",
-    "priceDisclaimer": "The prices, remaining rooms, availability, and cancellation policy on this page are sample data."
+    "note": "Room facilities and meal inclusions are shown in each room's details.",
+    "priceDisclaimer": "Prices and availability are based on your selected stay dates and may change before booking."
   },
   "card": {
     "layoutAriaLabel": "Room choices and price summary",
@@ -59,15 +68,19 @@
     "roomsSelected": "{count} rooms selected",
     "included": "Breakfast & hot spring pool access",
     "roomLine": "{count} Rooms × {price} × {nights} Nights",
+    "roomLineNoPrice": "{count} Rooms × {nights} Nights",
     "removeAriaLabel": "Remove {name} from selection",
     "remove": "Remove",
     "emptyTitle": "No rooms selected yet",
     "emptyDescription": "Choose room types and quantities from the list. You can add several room types at once.",
     "roomSubtotal": "Room Subtotal",
     "total": "Total",
-    "taxIncluded": "Includes tax & service charge",
+    "taxIncluded": "Final charges are confirmed during checkout.",
     "continue": "Continue to Add-ons",
-    "forwardedNote": "All room choices are carried forward in a single booking.",
+    "forwardedNote": "Your selected rooms are carried to the next step.",
+    "storageError": "Unable to continue in this browser. Please allow session storage and try again.",
+    "adjustGuests": "Adjust guest counts to fit the selected rooms.",
+    "discount": "Discount",
     "selectAtLeastOne": "Select at least 1 room to continue.",
     "mobileSummary": "{count} Rooms • {price}",
     "mobileViewSummary": "View Summary"
@@ -239,6 +252,7 @@
     "contactEmail": "halo@greenherodarajat.com",
     "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
     "copyrightShort": "© 2026 Green Hero Darajat Hotel & Resort.",
+    "roomDataNote": "Room information and availability from Green Hero Darajat",
     "demoNote": "Frontend demo · Sample data & contacts",
     "demoNoteShort": "Frontend demo · Sample prices & availability"
   }

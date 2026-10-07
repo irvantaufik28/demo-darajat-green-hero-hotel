@@ -17,6 +17,9 @@ type PageProps = {
 export default async function Page({ searchParams }: PageProps) {
   const rawParams = await searchParams;
   const params = Object.fromEntries(Object.entries(rawParams).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]));
+  if (params.source === "website") {
+    return <BookingGuestPage roomId={params.room ?? ""} roomSelection={[]} checkIn={params.checkIn ?? ""} checkOut={params.checkOut ?? ""} guests={params.guests ?? ""} counts={normalizeExtraCounts({})} liveMode />;
+  }
   const roomSelection = parseRoomSelection(params.rooms, params.room ?? "vip");
   const room = getRoom(roomSelection[0]?.roomId ?? "");
   if (!room || !room.available) notFound();

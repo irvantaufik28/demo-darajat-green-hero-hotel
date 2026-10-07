@@ -10,11 +10,14 @@ export const metadata: Metadata = {
 };
 
 type PageProps = {
-  searchParams: Promise<{ room?: string; checkIn?: string; checkOut?: string; guests?: string; rooms?: string }>;
+  searchParams: Promise<{ source?: string; room?: string; checkIn?: string; checkOut?: string; guests?: string; rooms?: string }>;
 };
 
 export default async function Page({ searchParams }: PageProps) {
   const params = await searchParams;
+  if (params.source === "website") {
+    return <BookingExtrasPage roomId={params.room ?? ""} roomSelection={[]} initialCheckIn={params.checkIn ?? ""} initialCheckOut={params.checkOut ?? ""} initialGuests={params.guests ?? ""} liveMode />;
+  }
   const roomSelection = parseRoomSelection(params.rooms, params.room ?? "vip");
   const room = getRoom(roomSelection[0]?.roomId ?? "");
   if (!room || !room.available) notFound();

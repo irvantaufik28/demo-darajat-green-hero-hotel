@@ -4,6 +4,7 @@ import { normalizeExtraCounts, getNights } from "@/features/booking/constants/bo
 import { getRoom } from "@/features/rooms/constants/rooms-data";
 import { parseRoomSelection } from "@/features/rooms/constants/room-selection-data";
 import PaymentPage from "@/features/booking/pages/PaymentPage";
+import WebsitePaymentPage from "@/features/booking/pages/WebsitePaymentPage";
 
 export const metadata: Metadata = {
   title: "Pembayaran | Green Hero Darajat",
@@ -17,6 +18,9 @@ type PageProps = {
 export default async function Page({ searchParams }: PageProps) {
   const rawParams = await searchParams;
   const params = Object.fromEntries(Object.entries(rawParams).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]));
+  if (params.source === "website") {
+    return <WebsitePaymentPage roomId={params.room ?? ""} checkIn={params.checkIn ?? ""} checkOut={params.checkOut ?? ""} guests={params.guests ?? ""} verifyReturn={params.verify === "1"} bookingCode={params.booking ?? ""} />;
+  }
   const roomSelection = parseRoomSelection(params.rooms, params.room ?? "vip");
   const room = getRoom(roomSelection[0]?.roomId ?? "");
   if (!room || !room.available) notFound();

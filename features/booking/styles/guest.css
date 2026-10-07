@@ -27,6 +27,7 @@
 .guest-field > p svg { flex-shrink: 0; margin-top: 1px; color: #6f8972; }
 .guest-security { display: flex; align-items: center; gap: 10px; padding: 14px; border: 1px solid #e1e5df; border-radius: 11px; background: #f5f5ef; color: #68736b; font-size: 11px; line-height: 1.5; }
 .guest-security svg { flex-shrink: 0; color: var(--forest); }
+.guest-save-message { margin: 0; padding: 12px 14px; border: 1px solid #c9ddcd; border-radius: 9px; background: #eff7ef; color: var(--forest); font-size: 13px; }
 .guest-back-link { display: inline-flex; align-items: center; justify-self: start; gap: 8px; padding: 10px 12px; color: #68746a; font-size: 13px; font-weight: 400; }
 .guest-back-link:hover { color: var(--forest); }
 .guest-resort-note { display: flex; align-items: center; gap: 22px; padding: 20px; border: 1px solid #e0e3dc; border-radius: 15px; background: var(--cream); }
