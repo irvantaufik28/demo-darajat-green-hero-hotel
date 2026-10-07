@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "rooms": "Rooms & Suites",
+    "facilities": "Facilities",
+    "experiences": "Experiences",
+    "gallery": "Gallery"
+  },
+  "experiencesMenu": {
+    "dining": "DINING",
+    "celebration": "CELEBRATION",
+    "roastGoat": "Roast Goat",
+    "bbqGrill": "BBQ & Grill",
+    "grilledChicken": "Grilled Chicken Family Set",
+    "birthdayCelebration": "Birthday Celebration",
+    "anniversarySetup": "Anniversary Setup",
+    "roomDecoration": "Room Decoration",
+    "viewAll": "View All Experiences"
+  },
+  "actions": {
+    "contact": "Contact Us",
+    "checkReservation": "Check Reservation",
+    "bookNow": "Book Now"
+  },
+  "aria": {
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  }
+}

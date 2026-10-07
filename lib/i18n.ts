@@ -72,6 +72,14 @@ export type Messages = { [key: string]: string | Messages };
 /** A bundle holding both language dictionaries for a feature/page. */
 export type MessageBundle = Record<Lang, Messages>;
 
+/**
+ * Loose bundle type that accepts imported JSON modules directly.
+ * TypeScript infers JSON imports as specific literal object types that do not
+ * structurally match the indexed `Messages` type, so the public API accepts
+ * `unknown` dictionaries and narrows them internally.
+ */
+export type LooseBundle = Record<Lang, unknown>;
+
 function resolve(dict: Messages, path: string): string | undefined {
   const value = path.split(".").reduce<unknown>((acc, key) => {
     if (acc && typeof acc === "object" && key in (acc as Messages)) {
@@ -97,11 +105,12 @@ export type Translate = (key: string, vars?: Record<string, string | number>) =>
  * Pass a bundle `{ en, id }` (typically imported from a feature's locales).
  * Falls back to the other language, then to the key itself, if a string is missing.
  */
-export function useTranslations(bundle: MessageBundle): { t: Translate; lang: Lang } {
+export function useTranslations(bundle: LooseBundle): { t: Translate; lang: Lang } {
   const [lang] = useLang();
+  const dicts = bundle as MessageBundle;
   const t: Translate = (key, vars) => {
-    const primary = resolve(bundle[lang], key);
-    const fallback = primary ?? resolve(bundle[lang === "id" ? "en" : "id"], key);
+    const primary = resolve(dicts[lang], key);
+    const fallback = primary ?? resolve(dicts[lang === "id" ? "en" : "id"], key);
     return interpolate(fallback ?? key, vars);
   };
   return { t, lang };

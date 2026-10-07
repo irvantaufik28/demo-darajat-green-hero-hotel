@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "rooms": "Kamar & Suite",
+    "facilities": "Fasilitas",
+    "experiences": "Experiences",
+    "gallery": "Galeri"
+  },
+  "experiencesMenu": {
+    "dining": "DINING",
+    "celebration": "CELEBRATION",
+    "roastGoat": "Kambing Guling",
+    "bbqGrill": "BBQ & Grill",
+    "grilledChicken": "Ayam Bakar Family Set",
+    "birthdayCelebration": "Birthday Celebration",
+    "anniversarySetup": "Anniversary Setup",
+    "roomDecoration": "Room Decoration",
+    "viewAll": "Lihat Semua Experiences"
+  },
+  "actions": {
+    "contact": "Hubungi Kami",
+    "checkReservation": "Cek Reservasi",
+    "bookNow": "Pesan Sekarang"
+  },
+  "aria": {
+    "mainNav": "Navigasi utama",
+    "mobileNav": "Navigasi seluler",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu"
+  }
+}

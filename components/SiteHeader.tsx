@@ -1,15 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, ChevronDown, Globe2, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { Brand } from "./Brand";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useTranslations } from "@/lib/i18n";
+import en from "./locales/en.json";
+import id from "./locales/id.json";
 
 export type NavLink = {
-  label: string;
+  /** i18n key under "nav" (e.g. "home") used to resolve the label. */
+  labelKey: string;
   href: string;
   dropdown?: {
-    columns: { heading: string; items: { label: string; href: string }[] }[];
-    footerLabel: string;
+    columns: { headingKey: string; items: { labelKey: string; href: string }[] }[];
+    footerKey: string;
     footerHref: string;
   };
 };
@@ -26,39 +31,39 @@ type SiteHeaderProps = {
 };
 
 export const defaultLinks: NavLink[] = [
-  { label: "Home", href: "#home" },
-  { label: "Kamar & Suite", href: "/rooms" },
-  { label: "Fasilitas", href: "/facilities" },
+  { labelKey: "nav.home", href: "#home" },
+  { labelKey: "nav.rooms", href: "/rooms" },
+  { labelKey: "nav.facilities", href: "/facilities" },
   {
-    label: "Experiences",
+    labelKey: "nav.experiences",
     href: "#experiences",
     dropdown: {
       columns: [
         {
-          heading: "DINING",
+          headingKey: "experiencesMenu.dining",
           items: [
-            { label: "Kambing Guling", href: "/experiences/roast-goat" },
-            { label: "BBQ & Grill", href: "/experiences/bbq-grill" },
-            { label: "Ayam Bakar Family Set", href: "/experiences/grilled-chicken" },
+            { labelKey: "experiencesMenu.roastGoat", href: "/experiences/roast-goat" },
+            { labelKey: "experiencesMenu.bbqGrill", href: "/experiences/bbq-grill" },
+            { labelKey: "experiencesMenu.grilledChicken", href: "/experiences/grilled-chicken" },
           ],
         },
         {
-          heading: "CELEBRATION",
+          headingKey: "experiencesMenu.celebration",
           items: [
-            { label: "Birthday Celebration", href: "/experiences/birthday-celebration" },
-            { label: "Anniversary Setup", href: "/experiences/anniversary-setup" },
-            { label: "Room Decoration", href: "#experiences" },
+            { labelKey: "experiencesMenu.birthdayCelebration", href: "/experiences/birthday-celebration" },
+            { labelKey: "experiencesMenu.anniversarySetup", href: "/experiences/anniversary-setup" },
+            { labelKey: "experiencesMenu.roomDecoration", href: "#experiences" },
           ],
         },
       ],
-      footerLabel: "Lihat Semua Experiences",
+      footerKey: "experiencesMenu.viewAll",
       footerHref: "#experiences",
     },
   },
-  { label: "Galeri", href: "/gallery" },
+  { labelKey: "nav.gallery", href: "/gallery" },
 ];
 
-const resolveInteriorHref = (href: string) => href.startsWith("#") ? `/${href}` : href;
+const resolveInteriorHref = (href: string) => (href.startsWith("#") ? `/${href}` : href);
 
 export const interiorLinks: NavLink[] = defaultLinks.map((link) => ({
   ...link,
@@ -83,6 +88,7 @@ export function SiteHeader({
   reservationHref = "/reservation-check",
   homeHref = "#home",
 }: SiteHeaderProps) {
+  const { t } = useTranslations({ en, id });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -109,40 +115,40 @@ export function SiteHeader({
     >
       <div className="header-inner">
         <Brand href={homeHref} />
-        <nav className="desktop-nav" aria-label="Navigasi utama">
-          {links.map(({ label, href, dropdown }) => dropdown ? (
+        <nav className="desktop-nav" aria-label={t("aria.mainNav")}>
+          {links.map(({ labelKey, href, dropdown }) => dropdown ? (
             <div className="nav-dropdown" key={href}>
               <button type="button" className={isNavActive(href, dropdown) ? "active" : undefined}>
-                {label}<ChevronDown size={15} />
+                {t(labelKey)}<ChevronDown size={15} />
               </button>
               <div className="experiences-menu">
                 <div className="experiences-menu-columns">
-                  {dropdown.columns.map(({ heading, items }) => (
-                    <div className="experiences-menu-column" key={heading}>
-                      <span className="experiences-menu-heading">{heading}</span>
-                      {items.map((item) => <a href={item.href} key={item.label} className={activeHref === item.href ? "active" : undefined} aria-current={activeHref === item.href ? "page" : undefined}>{item.label}</a>)}
+                  {dropdown.columns.map(({ headingKey, items }) => (
+                    <div className="experiences-menu-column" key={headingKey}>
+                      <span className="experiences-menu-heading">{t(headingKey)}</span>
+                      {items.map((item) => <a href={item.href} key={item.labelKey} className={activeHref === item.href ? "active" : undefined} aria-current={activeHref === item.href ? "page" : undefined}>{t(item.labelKey)}</a>)}
                     </div>
                   ))}
                 </div>
                 <a className="experiences-menu-footer" href={dropdown.footerHref}>
-                  {dropdown.footerLabel}<ArrowRight size={16} />
+                  {t(dropdown.footerKey)}<ArrowRight size={16} />
                 </a>
               </div>
             </div>
           ) : (
-            <a key={href} className={activeHref === href ? "active" : undefined} href={href}>{label}</a>
+            <a key={href} className={activeHref === href ? "active" : undefined} href={href}>{t(labelKey)}</a>
           ))}
         </nav>
         <div className="header-actions">
-          <a className={activeHref === contactHref ? "contact-link is-active" : "contact-link"} href={contactHref} aria-current={activeHref === contactHref ? "page" : undefined}>Hubungi Kami</a>
-          <span className="language-pill"><Globe2 size={17} /> ID</span>
-          <a className="button button-quiet reservation-link" href={reservationHref} aria-current={activeHref === reservationHref ? "page" : undefined}>Cek Reservasi</a>
-          <a className="button button-primary reserve-link" href={bookingHref}>Pesan Sekarang</a>
+          <a className={activeHref === contactHref ? "contact-link is-active" : "contact-link"} href={contactHref} aria-current={activeHref === contactHref ? "page" : undefined}>{t("actions.contact")}</a>
+          <span className="language-switcher-slot"><LanguageSwitcher /></span>
+          <a className="button button-quiet reservation-link" href={reservationHref} aria-current={activeHref === reservationHref ? "page" : undefined}>{t("actions.checkReservation")}</a>
+          <a className="button button-primary reserve-link" href={bookingHref}>{t("actions.bookNow")}</a>
         </div>
         {!transparentHeader && <button
           className="menu-button"
           type="button"
-          aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu"}
+          aria-label={mobileMenuOpen ? t("aria.closeMenu") : t("aria.openMenu")}
           aria-expanded={mobileMenuOpen}
           onClick={() => setMobileMenuOpen((open) => !open)}
         >
@@ -150,28 +156,28 @@ export function SiteHeader({
         </button>}
       </div>
       {!transparentHeader && mobileMenuOpen && (
-        <nav className="mobile-nav" id="site-mobile-nav" aria-label="Navigasi seluler">
-          {links.map(({ label, href, dropdown }) => dropdown ? (
+        <nav className="mobile-nav" id="site-mobile-nav" aria-label={t("aria.mobileNav")}>
+          {links.map(({ labelKey, href, dropdown }) => dropdown ? (
             <details className="mobile-experiences" key={href}>
-              <summary className={isNavActive(href, dropdown) ? "active" : undefined}>{label}<ChevronDown size={16} /></summary>
+              <summary className={isNavActive(href, dropdown) ? "active" : undefined}>{t(labelKey)}<ChevronDown size={16} /></summary>
               <div className="mobile-experiences-content">
-                {dropdown.columns.map(({ heading, items }) => (
-                  <div className="mobile-experiences-column" key={heading}>
-                    <span>{heading}</span>
+                {dropdown.columns.map(({ headingKey, items }) => (
+                  <div className="mobile-experiences-column" key={headingKey}>
+                    <span>{t(headingKey)}</span>
                     {items.map((item) => (
-                      <a key={item.label} href={item.href} aria-current={activeHref === item.href ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{item.label}</a>
+                      <a key={item.labelKey} href={item.href} aria-current={activeHref === item.href ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{t(item.labelKey)}</a>
                     ))}
                   </div>
                 ))}
-                <a className="mobile-experiences-all" href={dropdown.footerHref} onClick={() => setMobileMenuOpen(false)}>{dropdown.footerLabel}<ArrowRight size={15} /></a>
+                <a className="mobile-experiences-all" href={dropdown.footerHref} onClick={() => setMobileMenuOpen(false)}>{t(dropdown.footerKey)}<ArrowRight size={15} /></a>
               </div>
             </details>
           ) : (
-            <a key={href} href={href} aria-current={activeHref === href ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{label}</a>
+            <a key={href} href={href} aria-current={activeHref === href ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{t(labelKey)}</a>
           ))}
-          <a href={contactHref} aria-current={activeHref === contactHref ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>Hubungi Kami</a>
-          <a href={reservationHref} aria-current={activeHref === reservationHref ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>Cek Reservasi</a>
-          <a className="button button-primary" href={bookingHref} onClick={() => setMobileMenuOpen(false)}>Pesan Sekarang</a>
+          <a href={contactHref} aria-current={activeHref === contactHref ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{t("actions.contact")}</a>
+          <a href={reservationHref} aria-current={activeHref === reservationHref ? "page" : undefined} onClick={() => setMobileMenuOpen(false)}>{t("actions.checkReservation")}</a>
+          <a className="button button-primary" href={bookingHref} onClick={() => setMobileMenuOpen(false)}>{t("actions.bookNow")}</a>
         </nav>
       )}
     </header>
