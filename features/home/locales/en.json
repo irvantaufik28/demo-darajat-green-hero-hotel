@@ -1,0 +1,238 @@
+{
+  "hero": {
+    "ariaLabel": "Welcome to Green Hero Darajat",
+    "destinationTitle": "Darajat Garut"
+  },
+  "booking": {
+    "ariaLabel": "Search rooms",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "checkInAriaLabel": "Check-in date",
+    "checkOutAriaLabel": "Check-out date",
+    "guests": "Guests",
+    "guestsAriaLabel": "Number of guests",
+    "rooms": "Rooms",
+    "roomsAriaLabel": "Number of rooms",
+    "submit": "Check Rooms",
+    "guestOptions": {
+      "twoAdultsTwoChildren": "2 Adults, 2 Children",
+      "twoAdults": "2 Adults",
+      "fourAdults": "4 Adults",
+      "fourAdultsTwoChildren": "4 Adults, 2 Children"
+    },
+    "roomOptions": {
+      "one": "1 Room",
+      "two": "2 Rooms",
+      "three": "3 Rooms"
+    },
+    "messages": {
+      "checkoutAfterCheckin": "Check-out date must be after the check-in date."
+    }
+  },
+  "welcome": {
+    "eyebrow": "WELCOME TO GREEN HERO",
+    "title": "A Place to Rest in the Cool Air of Darajat",
+    "description": "Green Hero Darajat offers a comfortable stay for families with a mountain atmosphere and facilities that support a relaxing holiday. Located right in the Garut highlands, fresh air and natural panoramas become the best companions for your rest.",
+    "badgeTitle": "Family Friendly Resort",
+    "badgeDetail": "Safe & comfortable facilities for all ages",
+    "mediaAlt": "Green Hero Darajat resort and warm pool at dusk"
+  },
+  "highlights": {
+    "warmWater": {
+      "title": "Natural Mountain Warm Water",
+      "detail": "Natural sulfur springs with a balanced temperature to relieve body fatigue."
+    },
+    "coolAir": {
+      "title": "Cool & Pollution-Free Air",
+      "detail": "An average temperature of 16°C–20°C, refreshing amid Garut's green plantations."
+    },
+    "valleyView": {
+      "title": "Garut Valley Views",
+      "detail": "Open panoramas of hills and a sea of morning mist straight from the resort grounds."
+    }
+  },
+  "rooms": {
+    "eyebrow": "HIGHLAND SANCTUARY SUITES",
+    "title": "Room Choices for Your Journey",
+    "description": "Designed to be luxurious, warm, and intimate for family togetherness in the embrace of the cool Darajat Pass mountains.",
+    "viewAll": "View All Rooms",
+    "carouselAriaLabel": "Green Hero room selection",
+    "gridAriaLabel": "Swipe to see room choices",
+    "previousAriaLabel": "Previous room",
+    "nextAriaLabel": "Next room",
+    "dotsAriaLabel": "Room selection position",
+    "dotAriaLabel": "Starting from {name}",
+    "unavailable": "Unavailable",
+    "priceFrom": "Starting from",
+    "priceReference": "Reference price",
+    "perNight": "/ night",
+    "viewDetail": "View Detail"
+  },
+  "experiences": {
+    "eyebrow": "GREEN HERO EXPERIENCES",
+    "title": "More Than Just a Stay",
+    "description": "Complete your family time with a selection of experiences and extra services during your stay at Green Hero Darajat.",
+    "feature": {
+      "badge": "DINING HIGHLIGHT",
+      "title": "Outdoor Highland Dining",
+      "detail": "Warm family dining in the cool air of Darajat"
+    },
+    "roastGoat": {
+      "eyebrow": "DINING EXPERIENCE",
+      "title": "Roast Goat",
+      "detail": "A shared dining option for large families, gatherings, or special moments during your stay at Green Hero.",
+      "meta": "Perfect for families & groups"
+    },
+    "bbq": {
+      "badge": "FAMILY DINING",
+      "title": "BBQ & Grill",
+      "detail": "Enjoy relaxing time with family with a grill package in the cool air of Darajat."
+    },
+    "birthday": {
+      "badge": "SPECIAL MOMENT",
+      "title": "Birthday Celebration",
+      "detail": "Make a birthday more memorable with decorations and celebration package options during your stay."
+    },
+    "viewOptions": "View Options",
+    "extrasTitle": "• \u00a0 EXTRA OPTIONS DURING YOUR STAY",
+    "extrasChips": {
+      "chickenFamilySet": "Grilled Chicken Family Set",
+      "anniversarySetup": "Anniversary Setup",
+      "roomDecoration": "Room Decoration",
+      "extraBed": "Extra Bed",
+      "additionalBreakfast": "Additional Breakfast"
+    },
+    "viewAll": "View All Experiences"
+  },
+  "spring": {
+    "mediaBadge": "Natural Water Temperature: 36°C – 38°C",
+    "mediaAlt": "Guests soaking in the Green Hero Darajat warm pool with mountain views",
+    "eyebrow": "NATURAL RELAXATION",
+    "title": "Warmth Amid the Mountain Air",
+    "description": "Enjoy relaxing time with family in the warm pool after taking in the cool Darajat area. Natural warm water at an ideal temperature for relaxing the body amid the cool highland air.",
+    "stats": {
+      "temperature": "36°C – 38°C",
+      "temperatureLabel": "Ideal Temperature",
+      "everyDay": "Every Day",
+      "everyDayLabel": "Open 06.00 – 22.00",
+      "kidFriendly": "Kid Friendly",
+      "kidFriendlyLabel": "Safe Depth"
+    }
+  },
+  "amenities": {
+    "eyebrow": "HOTEL FACILITIES",
+    "title": "Everything You Need for a Comfortable Stay",
+    "description": "Complete facilities to support a relaxing and enjoyable holiday with your beloved family.",
+    "items": {
+      "warmPool": { "title": "Warm Pool", "detail": "Warm Water Pool" },
+      "kidsPool": {
+        "title": "Kids Pool",
+        "detail": "Dedicated Children's Pool"
+      },
+      "wifi": {
+        "title": "Free High-Speed Wi-Fi",
+        "detail": "Fast Connection in Hotel Area"
+      },
+      "parking": {
+        "title": "Spacious & Secure Parking",
+        "detail": "Car & Bus Parking"
+      },
+      "familyFriendly": {
+        "title": "Family Friendly",
+        "detail": "Complete Amenities"
+      },
+      "roomService": {
+        "title": "Room Service",
+        "detail": "Warm Food & Drinks"
+      },
+      "frontDesk": {
+        "title": "24 Hour Front Desk",
+        "detail": "On-Call Reception Service"
+      },
+      "playground": {
+        "title": "Outdoor Playground",
+        "detail": "Open Play Area"
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "PHOTOS & MOMENTS",
+    "title": "Experience Green Hero",
+    "viewFull": "View Full Gallery",
+    "items": {
+      "dining": { "category": "DINING", "title": "Dining with Darajat Views" },
+      "resort": { "category": "RESORT", "title": "Green Hero Darajat at Dusk" },
+      "nature": {
+        "category": "NATURE",
+        "title": "Dusk in the Darajat Mountains"
+      },
+      "moments": {
+        "category": "MOMENTS",
+        "title": "Enjoying Dusk from the Balcony"
+      },
+      "familyTime": {
+        "category": "FAMILY TIME",
+        "title": "Wooden Villa for Family Moments"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "VISITOR REVIEWS",
+    "title": "What Our Guests Say",
+    "starsAriaLabel": "5 out of 5 stars",
+    "items": {
+      "pratama": {
+        "quote": "The atmosphere is very cool and the warm pool is the best for the kids after a day out in Darajat.",
+        "name": "The Pratama Family",
+        "location": "Bandung, West Java"
+      },
+      "hendraMaya": {
+        "quote": "Clean rooms, lovely hill views, and the staff are very friendly. The best choice for a relaxing family holiday.",
+        "name": "Hendra & Maya",
+        "location": "South Jakarta"
+      },
+      "rina": {
+        "quote": "The place is calm, the air is clean, and the warm water facility makes you want to stay longer. We'll definitely come back!",
+        "name": "Rina S.",
+        "location": "Bogor, West Java"
+      }
+    }
+  },
+  "location": {
+    "mapAlt": "Illustration of the route to the Darajat Pass area in Garut",
+    "eyebrow": "ACCESS & DIRECTIONS",
+    "title": "Explore Darajat",
+    "address": "Darajat, Garut, West Java",
+    "description": "Located at the heights of Darajat Pass with smooth paved road access. Surrounded by vegetable plantations and views of geothermal craters, the perfect place to escape the hustle and bustle of the city.",
+    "directions": "Get Directions",
+    "contact": "Contact Us"
+  },
+  "finalCta": {
+    "eyebrow": "PLAN YOUR HOLIDAY",
+    "title": "Ready for Your Stay in Darajat?",
+    "description": "Find the right room and plan your stay with family amid the comfort of the warm pool and the cool mountains.",
+    "action": "Check Availability Now"
+  },
+  "footer": {
+    "about": "A family-friendly hotel & resort in the Darajat Pass highlands, Garut. Combining natural comfort, hot springs, and lush rolling hill panoramas.",
+    "galleryAriaLabel": "View gallery",
+    "locationAriaLabel": "View location",
+    "mapAriaLabel": "View map",
+    "exploreTitle": "Explore",
+    "exploreAbout": "About Us",
+    "exploreRooms": "Rooms & Facilities",
+    "exploreHotSpring": "Hot Spring Pool",
+    "exploreGallery": "Moments Gallery",
+    "helpTitle": "Help & Guides",
+    "helpReservationPolicy": "Reservation Policy",
+    "helpRouteGuide": "Darajat Route Guide",
+    "helpContact": "Contact & Support",
+    "helpPrivacy": "Privacy Policy",
+    "contactTitle": "Contact & Location",
+    "contactAddress": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut Regency, West Java 44161",
+    "contactPhone": "+62 812-3456-7890",
+    "contactEmail": "halo@greenherodarajat.com",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "demoNote": "Frontend demo · Sample data & contacts"
+  }
+}

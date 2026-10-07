@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import BbqGrillPage from "@/features/experiences/components/BbqGrillPage";
+import BbqGrillPage from "@/features/experiences/pages/BbqGrillPage";
 
 export const metadata: Metadata = {
   title: "BBQ & Grill Experience | Green Hero Darajat",

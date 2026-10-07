@@ -1,0 +1,598 @@
+{
+  "common": {
+    "breadcrumbHome": "Home",
+    "breadcrumbExperiences": "Experiences",
+    "experiencesBadge": "GREEN HERO EXPERIENCES",
+    "popularBadge": "Paling Populer",
+    "inclusionsLabel": "Termasuk Dalam Paket:",
+    "pricePerPackage": "/ paket",
+    "selectPackage": "Pilih Paket",
+    "checkAvailability": "Cek Ketersediaan",
+    "askAvailability": "Tanya Ketersediaan",
+    "bookRoom": "Pesan Kamar",
+    "bookRoomNow": "Pesan Kamar Sekarang",
+    "viewOtherExperiences": "Lihat Experiences Lainnya"
+  },
+  "bbqGrill": {
+    "breadcrumbCurrent": "BBQ & Grill",
+    "hero": {
+      "title": "BBQ & Grill di Tengah Udara Sejuk Darajat",
+      "description": "Nikmati waktu bersama keluarga dan teman dengan pilihan grill yang disiapkan untuk melengkapi pengalaman menginap di Green Hero Darajat.",
+      "selectPackage": "Pilih Paket",
+      "checkAvailability": "Cek Ketersediaan",
+      "imageAlt": "Keluarga menikmati BBQ outdoor di area pegunungan Darajat"
+    },
+    "editorial": {
+      "eyebrow": "HIGHLAND DINING EXPERIENCE",
+      "title": "Lebih Hangat Saat Dinikmati Bersama",
+      "description": "Dari makan malam keluarga hingga gathering kecil, BBQ & Grill Green Hero menghadirkan pengalaman santap yang santai di suasana dataran tinggi Darajat. Hangatnya bara api menyempurnakan malam pegunungan Anda.",
+      "chipTitle": "Outdoor Highland Deck",
+      "chipSubtitle": "Pemandangan perbukitan Darajat & kabut sore",
+      "link": "Lihat Pilihan Paket",
+      "photoAlt": "Bahan grill segar di atas panggangan arang Green Hero Darajat",
+      "highlights": {
+        "family": {
+          "title": "Untuk Keluarga & Gathering",
+          "description": "Dirancang fleksibel untuk santap bersama orang terkasih, menciptakan momen keakraban santai tanpa repot."
+        },
+        "prepared": {
+          "title": "Disiapkan untuk Reservasi Anda",
+          "description": "Seluruh bahan baku segar, marinasi spesial, serta peralatan grill dan tungku dipersiapkan higienis sesuai jadwal reservasi Anda."
+        },
+        "mountain": {
+          "title": "Grill dalam Suasana Pegunungan",
+          "description": "Nikmati hidangan panas yang dipanggang sendiri atau dibantu staf di tengah desau angin sejuk lereng gunung Darajat."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PILIHAN PAKET",
+      "title": "Pilih Paket Sesuai Jumlah Tamu",
+      "description": "Pilihan paket dapat disesuaikan dengan kebutuhan keluarga maupun kelompok selama menginap di Green Hero Darajat.",
+      "priceLabel": "Harga Estimasi",
+      "tagHighland": "Porsi Santai",
+      "tagFamily": "Favorit Keluarga",
+      "tagGrand": "Porsi Besar",
+      "note": "Harga pada halaman ini dapat berubah mengikuti pilihan bahan, jumlah tamu, dan kebutuhan acara. Ketersediaan paket mengikuti jadwal reservasi villa/kamar Anda di Green Hero Darajat."
+    },
+    "ingredients": {
+      "eyebrow": "BAHAN & OLAHAN",
+      "title": "Pilihan untuk Meja Anda",
+      "description": "Kualitas bahan segar yang dipotong higienis dan dimarinasi menggunakan rempah aromatik khas pegunungan Parahyangan.",
+      "badge": "100% Halal & Fresh Preparation",
+      "categoryLabel": "KATEGORI {number}",
+      "meat": {
+        "title": "Meat Selection",
+        "description": "Daging sapi pilihan dengan marbling seimbang serta potongan dada dan paha ayam tanpa tulang yang empuk saat dibakar."
+      },
+      "sides": {
+        "title": "Grill Sides & Veggies",
+        "description": "Kombinasi pendamping grill gurih dan sayuran organik segar yang dipetik dari petani sekitar lereng Pasirwangi Garut."
+      },
+      "sauces": {
+        "title": "Sauces & Marinades",
+        "description": "Perpaduan racikan saus modern dan sentuhan cita rasa Sunda otentik yang memperkaya aroma pembakaran arang."
+      }
+    },
+    "cinematic": {
+      "eyebrow": "MOMEN SANTAP HANGAT",
+      "quote": "Hangatnya Grill, Sejuknya Darajat",
+      "description": "Duduk melingkar bersama keluarga, mendengar percikan bara api di udara pegunungan 1.800 mdpl yang berkabut lembut.",
+      "imageAlt": "Bara api menyala di area outdoor pegunungan Darajat"
+    },
+    "addons": {
+      "pill": "Tersedia sebagai tambahan",
+      "title": "Lengkapi BBQ Anda",
+      "description": "Ingin porsi ekstra untuk jenis hidangan tertentu? Anda dapat memilih tambahan berikut saat melakukan pemesanan.",
+      "additionalBeef": "Additional Beef",
+      "additionalBeefSub": "Shortplate 250g",
+      "additionalChicken": "Additional Chicken",
+      "additionalChickenSub": "Fillet Gurih 300g",
+      "mixedSeafood": "Mixed Seafood",
+      "mixedSeafoodSub": "Udang & Cumi Marinasi",
+      "extraVegetables": "Extra Vegetables",
+      "extraVegetablesSub": "Jagung & Jamur Platter",
+      "hotpot": "Hotpot / Suki",
+      "hotpotSub": "Kuah Tomyum / Kaldu",
+      "additionalServing": "Additional Serving",
+      "additionalServingSub": "Bantuan Chef / Staf"
+    },
+    "howTo": {
+      "eyebrow": "PROSES SEDERHANA",
+      "title": "Langkah Pemesanan BBQ",
+      "description": "BBQ & Grill dapat ditambahkan saat proses booking sebagai bagian dari pengalaman eksklusif Green Hero Experiences.",
+      "steps": {
+        "selectPackage": {
+          "title": "Pilih Paket",
+          "description": "Tentukan paket BBQ (Highland Grill, Family Grill, atau Grand Grill) yang paling sesuai dengan jumlah orang rombongan Anda."
+        },
+        "schedule": {
+          "title": "Tentukan Tanggal & Jam",
+          "description": "Pilih waktu penyajian (tersedia sesi santap sore pukul 17:00 atau makan malam pukul 19:00 WIB) di teras villa Anda atau area outdoor deck."
+        },
+        "addToReservation": {
+          "title": "Tambahkan ke Reservasi",
+          "description": "Centang pilihan BBQ pada menu Add-On saat pemesanan kamar atau konfirmasi melalui staf Guest Experience kami sebelum check-in."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "PENGALAMAN TAK TERLUPAKAN",
+      "title": "Buat Malam di Darajat Lebih Hangat",
+      "description": "Pilih kamar favorit Anda dan tambahkan paket BBQ & Grill pada tahap Pilihan Tambahan saat melakukan reservasi online.",
+      "bookRoom": "Pesan Kamar Sekarang",
+      "viewOther": "Lihat Experiences Lainnya"
+    }
+  },
+  "grilledChicken": {
+    "breadcrumbCurrent": "Grilled Chicken",
+    "hero": {
+      "title": "Ayam Bakar Kampung untuk Dinikmati Bersama",
+      "description": "Sajian ayam kampung bakar dengan cita rasa khas Indonesia, disiapkan untuk melengkapi waktu bersama keluarga di sejuknya Darajat.",
+      "selectPackage": "Pilih Paket",
+      "checkAvailability": "Cek Ketersediaan",
+      "imageAlt": "Keluarga menikmati Ayam Bakar Kampung di teras outdoor Green Hero Darajat"
+    },
+    "editorial": {
+      "eyebrow": "CITA RASA NUSANTARA",
+      "title": "Hangat, Sederhana, dan Nikmat Bersama",
+      "description": "Ayam Bakar Kampung Green Hero menghadirkan sajian yang familiar untuk makan bersama keluarga, gathering, dan momen santai selama menginap di dataran tinggi Pasirwangi.",
+      "chip": "Kuliner Tradisi Dataran Tinggi — Gurih Manis Bumbu Rempah",
+      "photoAlt": "Ayam bakar kampung dengan lalapan dan sambal tradisional",
+      "highlights": {
+        "together": {
+          "title": "Cocok untuk Makan Bersama",
+          "description": "Pilihan praktis untuk keluarga dan kelompok dengan porsi yang dirancang pas dan memuaskan."
+        },
+        "prepared": {
+          "title": "Disiapkan Sesuai Reservasi",
+          "description": "Hidangan dipersiapkan higienis mengikuti tanggal dan jumlah tamu agar rasa senantiasa segar saat disajikan."
+        },
+        "sides": {
+          "title": "Lengkap dengan Pendamping",
+          "description": "Disajikan bersama nasi putih pulen, sambal tradisional, lalapan kebun segar, tahu tempe, dan pelengkap."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PILIHAN PAKET",
+      "title": "Pilih Paket Sesuai Jumlah Tamu",
+      "description": "Pilihan paket dapat disesuaikan dengan kebutuhan keluarga maupun kelompok selama menginap di Green Hero Darajat.",
+      "popularBadge": "PALING POPULER",
+      "note": "Harga dapat berubah mengikuti jumlah tamu, pilihan menu pendamping, dan kebutuhan penyajian. Ketersediaan paket mengikuti reservasi kamar atau villa di Green Hero Darajat."
+    },
+    "pendamping": {
+      "eyebrow": "KOMPOSISI SAJIAN MEJA",
+      "title": "Lengkap dengan Pendamping Favorit",
+      "description": "Setiap sajian disiapkan secara higienis menggunakan bahan lokal segar lereng Pasirwangi Garut.",
+      "items": {
+        "grilledChicken": {
+          "title": "Ayam Kampung Bakar",
+          "description": "Daging empuk gurih meresap dengan bumbu olesan rempah manis gurih khas Jawa Barat yang dibakar perlahan di atas arang batok kelapa."
+        },
+        "warmRice": {
+          "title": "Nasi Hangat",
+          "description": "Nasi putih pulen mengepul disajikan dalam bakul anyaman bambu tradisional, menjaga aroma alami dan kehangatan di udara sejuk pegunungan."
+        },
+        "sambal": {
+          "title": "Aneka Sambal",
+          "description": "Sambal terasi ulek segar, sambal dadak tomat hijau, dan sambal kecap cabai rawit pedas manis untuk kombinasi santap yang kaya sensasi."
+        },
+        "lalapan": {
+          "title": "Lalapan Segar",
+          "description": "Mentimun renyah, daun kemangi wangi, kol kubis, dan selada air segar yang dipetik langsung dari kebun hortikultura lereng Garut."
+        },
+        "tahuTempe": {
+          "title": "Tahu & Tempe",
+          "description": "Tahu sutra gurih khas Jawa Barat dan tempe kedelai lokal goreng bumbu ketumbar renyah di luar, lembut di dalam."
+        },
+        "vegetables": {
+          "title": "Sayur Pendamping",
+          "description": "Sayur asem segar berkuah gurih asam pedas atau kuah sup hangat rempah penyejuk malam pegunungan Darajat yang menyegarkan."
+        }
+      }
+    },
+    "cinematic": {
+      "quote": "Rasa Nusantara di Sejuknya Darajat",
+      "description": "Duduk bersama menikmati kehangatan bumbu tradisional di tengah panorama alam 1.800 mdpl.",
+      "imageAlt": "Suasana makan malam outdoor di pegunungan Darajat yang berkabut"
+    },
+    "addons": {
+      "eyebrow": "PELENGKAP TAMBAHAN",
+      "title": "Tambahkan Sesuai Selera",
+      "description": "Tersedia sebagai tambahan untuk menyempurnakan hidangan keluarga Anda.",
+      "tag": "Tersedia sebagai tambahan",
+      "extraChicken": "Extra Ayam Kampung",
+      "extraChickenSub": "1 Ekor Utuh Panggang",
+      "additionalRice": "Additional Rice",
+      "additionalRiceSub": "Bakul Nasi Tambahan",
+      "extraSambal": "Extra Sambal",
+      "extraSambalSub": "Pilihan Sambal Khas",
+      "tahuTempe": "Tahu & Tempe",
+      "tahuTempeSub": "Platter Tambahan",
+      "vegetables": "Sayur Pendamping",
+      "vegetablesSub": "Mangkok Sayur Asem",
+      "drinks": "Additional Drinks",
+      "drinksSub": "Wedang Jahe / Teh Manis"
+    },
+    "howTo": {
+      "eyebrow": "PROSES SEDERHANA",
+      "title": "Langkah Pemesanan Ayam Bakar",
+      "description": "Tiga tahapan ringkas untuk menikmati hidangan hangat khas pegunungan.",
+      "steps": {
+        "selectPackage": {
+          "title": "Pilih Paket",
+          "description": "Sesuaikan paket Family, Gathering, atau Celebration dengan jumlah anggota keluarga dan rombongan Anda."
+        },
+        "schedule": {
+          "title": "Tentukan Tanggal & Jam",
+          "description": "Pilih jadwal penyajian santap sore atau santap malam di teras villa pribadi atau restoran resort."
+        },
+        "addToReservation": {
+          "title": "Tambahkan ke Reservasi",
+          "description": "Centang pilihan Ayam Bakar Kampung pada menu Add-On saat pemesanan kamar atau konfirmasi melalui staf Guest Experience kami."
+        }
+      }
+    },
+    "cta": {
+      "title": "Nikmati Makan Bersama di Green Hero",
+      "description": "Pilih kamar dan tambahkan Ayam Bakar Kampung sebagai bagian dari pengalaman menginap Anda di kesejukan alam Darajat.",
+      "bookRoom": "Pesan Kamar Sekarang",
+      "viewOther": "Lihat Experiences Lainnya"
+    }
+  },
+  "roastGoat": {
+    "breadcrumbCurrent": "Roast Goat",
+    "hero": {
+      "title": "Kambing Guling untuk Momen Bersama",
+      "description": "Nikmati sajian kambing guling hangat untuk melengkapi waktu bersama keluarga, sahabat, maupun acara spesial selama berada di Green Hero Darajat.",
+      "selectPackage": "Pilih Paket",
+      "askAvailability": "Tanya Ketersediaan",
+      "imageAlt": "Kambing guling hangat disajikan di area outdoor Green Hero Darajat"
+    },
+    "editorial": {
+      "eyebrow": "KEHANGATAN TRADISI DATARAN TINGGI",
+      "title": "Sajian Hangat untuk Momen Spesial",
+      "description": "Mulai dari makan bersama keluarga hingga perayaan kecil, Kambing Guling Green Hero dapat ditambahkan sebagai pengalaman khusus selama menginap.",
+      "chip": "Tradisi Kuliner Resor",
+      "photoAlt": "Kambing guling disajikan dengan perlengkapan tradisional khas Sunda",
+      "features": {
+        "family": {
+          "title": "Cocok untuk Keluarga & Gathering",
+          "description": "Porsi dirancang pas untuk dinikmati bersama dalam suasana pegunungan yang sejuk dan hangat."
+        },
+        "prepared": {
+          "title": "Disiapkan untuk Acara Anda",
+          "description": "Diproses dengan pendekatan tradisional dan disajikan untuk momen yang telah Anda rencanakan."
+        },
+        "reservation": {
+          "title": "Tersedia Berdasarkan Reservasi",
+          "description": "Pengalaman ini dapat ditambahkan sesuai jadwal menginap dan ketersediaan layanan."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PILIHAN PAKET",
+      "title": "Pilih Sesuai Jumlah Tamu",
+      "description": "Setiap paket dipersiapkan lengkap dengan perlengkapan saji dan bumbu pendamping khas Sunda Darajat.",
+      "priceLabel": "Harga Paket",
+      "inclusionsLabel": "Inklusi:",
+      "noteLabel": "Catatan:",
+      "note": "Harga dan jumlah porsi dapat menyesuaikan kebutuhan acara. Ketersediaan paket mengikuti tanggal reservasi dan operasional hotel."
+    },
+    "experience": {
+      "eyebrow": "THE EXPERIENCE",
+      "title": "Bukan Hanya Menu Tambahan",
+      "description": "Jadikan makan bersama sebagai bagian dari pengalaman menginap. Paket dapat disiapkan untuk keluarga, gathering, ulang tahun, atau momen spesial lainnya di tengah hawa dingin pegunungan Darajat.",
+      "photoAlt": "Keluarga menikmati santap bersama di area outdoor Green Hero Darajat",
+      "moments": {
+        "familyDinner": "Family Dinner",
+        "gathering": "Gathering",
+        "birthday": "Birthday",
+        "celebration": "Celebration"
+      }
+    },
+    "howTo": {
+      "eyebrow": "LANGKAH SEDERHANA",
+      "title": "Cara Pemesanan",
+      "description": "Green Hero Experiences dapat ditambahkan secara fleksibel selama proses booking kamar berlangsung.",
+      "steps": {
+        "selectPackage": {
+          "title": "Pilih Paket",
+          "description": "Sesuaikan kapasitas paket dengan jumlah tamu yang akan bersantap."
+        },
+        "schedule": {
+          "title": "Tentukan Tanggal & Jam",
+          "description": "Pilih jadwal waktu penyajian yang paling cocok untuk acara keluarga Anda."
+        },
+        "addToReservation": {
+          "title": "Tambahkan ke Reservasi",
+          "description": "Paket akan otomatis terkonfirmasi dan disiapkan hangat oleh tim kami."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "TAMBAHKAN KE PENGALAMAN ANDA",
+      "title": "Tambahkan ke Pengalaman Menginap Anda",
+      "description": "Pilih kamar terlebih dahulu, kemudian tambahkan Kambing Guling pada tahap Pilihan Tambahan saat proses reservasi online.",
+      "bookRoom": "Pesan Kamar",
+      "whatsapp": "Cek Ketersediaan via WhatsApp"
+    }
+  },
+  "birthdayCelebration": {
+    "breadcrumbCurrent": "Birthday Celebration",
+    "hero": {
+      "title": "Rayakan Momen Spesial di Sejuknya Darajat",
+      "description": "Lengkapi waktu menginap Anda dengan perayaan ulang tahun yang hangat, sederhana, dan berkesan di Green Hero Darajat.",
+      "selectPackage": "Pilih Paket",
+      "askAvailability": "Tanya Ketersediaan",
+      "imageAlt": "Keluarga merayakan ulang tahun di teras outdoor Green Hero Darajat"
+    },
+    "editorial": {
+      "eyebrow": "INTIMATE HIGHLAND CELEBRATION",
+      "title": "Perayaan yang Hangat dan Berkesan",
+      "description": "Mulai dari surprise sederhana di kamar hingga perayaan keluarga yang lebih lengkap, Birthday Celebration Green Hero dirancang untuk menghadirkan suasana yang nyaman dan menyenangkan.",
+      "chipLabel": "Atmosphere",
+      "chipTitle": "Tenang & Hangat di Dataran Tinggi",
+      "link": "Lihat Pilihan Paket",
+      "photoAlt": "Kamar birthday yang hangat dengan dekorasi natural di Green Hero Darajat",
+      "highlights": {
+        "family": {
+          "title": "Cocok untuk Keluarga",
+          "description": "Perayaan dirancang agar terasa nyaman untuk pasangan, keluarga, atau tamu terdekat."
+        },
+        "decor": {
+          "title": "Dekorasi Bernuansa Hangat",
+          "description": "Gunakan elemen dekorasi yang natural, lembut, dan selaras dengan suasana resort pegunungan."
+        },
+        "reservation": {
+          "title": "Tersedia Berdasarkan Reservasi",
+          "description": "Setiap setup dipersiapkan khusus sesuai tanggal menginap dan kebutuhan perayaan Anda."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PILIHAN PAKET",
+      "title": "Pilih Paket Sesuai Momen Anda",
+      "description": "Paket dirancang untuk memberikan pengalaman perayaan yang sederhana hingga lebih lengkap, tetap selaras dengan suasana Green Hero Darajat.",
+      "priceLabel": "Mulai Dari",
+      "inclusionsLabel": "Termasuk dalam paket:",
+      "note": "Harga dapat berubah mengikuti jumlah tamu, kebutuhan dekorasi, dan lokasi setup. Ketersediaan paket mengikuti reservasi dan operasional hotel."
+    },
+    "style": {
+      "eyebrow": "HARMONIOUS RESORT AESTHETIC",
+      "title": "Nuansa Perayaan yang Selaras dengan Green Hero",
+      "description": "Perayaan dirancang tetap hangat, natural, dan nyaman, menggunakan pendekatan dekorasi yang tidak berlebihan agar selaras dengan suasana pegunungan Darajat.",
+      "photoLabel": "Organic Minimalist Details",
+      "photoAlt": "Kue ulang tahun dan dekorasi bunga di kamar Green Hero Darajat",
+      "items": {
+        "lighting": {
+          "title": "Warm Lighting",
+          "description": "Lentera lembut dan string lights temaram menyempurnakan udara sejuk."
+        },
+        "tones": {
+          "title": "Natural Tones",
+          "description": "Sentuhan earthy beige, sage green, ivory, dan champagne yang tenang."
+        },
+        "floral": {
+          "title": "Floral & Foliage Accents",
+          "description": "Rangkaian daun eucalyptus segar dan bunga subtil beraroma bersih."
+        },
+        "table": {
+          "title": "Elegant Table Styling",
+          "description": "Peralatan makan linen berkelas dan detail personal kartu ucapan."
+        }
+      }
+    },
+    "moments": {
+      "title": "Cocok untuk Berbagai Momen",
+      "items": {
+        "birthdaySurprise": "Birthday Surprise",
+        "familyCelebration": "Family Celebration",
+        "anniversaryDinner": "Anniversary Dinner",
+        "smallGathering": "Small Gathering",
+        "intimateCelebration": "Intimate Celebration"
+      }
+    },
+    "addons": {
+      "eyebrow": "CUSTOMIZE EXPERIENCE",
+      "title": "Lengkapi Perayaan Anda",
+      "description": "Pilihan pelengkap yang tersedia sebagai tambahan untuk menyempurnakan hari istimewa.",
+      "subLabel": "Tambahan",
+      "cake": "Extra Birthday Cake",
+      "roomDecoration": "Additional Room Decoration",
+      "flower": "Flower Arrangement",
+      "welcomeDrinks": "Welcome Drinks",
+      "diningSetup": "Dining Setup",
+      "photoCorner": "Photo Corner",
+      "bbqPairing": "BBQ / Dining Pairing"
+    },
+    "cinematic": {
+      "eyebrow": "UNFORGETTABLE HIGHLAND NIGHTS",
+      "title": "Celebrate in the Highlands",
+      "description": "Udara sejuk Garut, hangatnya keluarga, dan keheningan alam yang menenangkan jiwa.",
+      "imageAlt": "Villa teras outdoor malam hari berlatar lembah berkabut Darajat"
+    },
+    "howTo": {
+      "eyebrow": "RESERVATION FLOW",
+      "title": "Cara Memesan Paket",
+      "description": "Birthday Celebration dapat ditambahkan saat proses booking kamar atau dikonfirmasi sesuai reservasi.",
+      "steps": {
+        "selectPackage": {
+          "title": "Pilih Paket",
+          "description": "Tentukan paket perayaan yang sesuai dengan jumlah tamu, konsep kejutan, dan preferensi dekorasi Anda."
+        },
+        "detail": {
+          "title": "Tentukan Tanggal & Detail",
+          "description": "Informasikan nama perayaan, usia, request khusus ucapan, dan waktu yang diinginkan untuk setup dekorasi."
+        },
+        "addToReservation": {
+          "title": "Tambahkan ke Reservasi",
+          "description": "Paket akan dikonfirmasi oleh tim reservasi kami dan langsung dipersiapkan di kamar atau venue pilihan sebelum kedatangan Anda."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "MAKE IT MEMORABLE",
+      "title": "Buat Momen Menginap Lebih Berkesan",
+      "description": "Pilih kamar dan tambahkan Birthday Celebration sebagai bagian dari pengalaman menginap Anda di Green Hero Darajat.",
+      "bookRoom": "Pesan Kamar",
+      "viewOther": "Lihat Experiences Lainnya"
+    }
+  },
+  "anniversarySetup": {
+    "badge": "Green Hero Experiences",
+    "hero": {
+      "title": "Rayakan Perjalanan Kalian di Sejuknya Darajat",
+      "description": "Waktu berdua terasa lebih istimewa dengan suasana hangat, dekorasi yang personal, dan ketenangan dataran tinggi Green Hero Darajat.",
+      "selectPackage": "Pilih Paket",
+      "askAvailability": "Tanya Ketersediaan",
+      "imageAlt": "Meja makan malam romantis dengan cahaya lilin di area terbuka Green Hero Darajat"
+    },
+    "intro": {
+      "eyebrow": "A Moment for Two",
+      "title": "Momen yang Lebih Personal untuk Dirayakan Bersama",
+      "link": "Lihat Pilihan Paket",
+      "photoCaption": "Intimate Highland Suite — Suasana Hangat Berdua",
+      "photoAlt": "Kamar Green Hero Darajat dengan dekorasi bunga dan handuk berbentuk hati untuk anniversary",
+      "highlights": {
+        "forTwo": {
+          "title": "Dirancang untuk Berdua",
+          "description": "Setiap setup dibuat untuk menciptakan suasana yang tenang, nyaman, dan personal."
+        },
+        "intimate": {
+          "title": "Detail yang Lebih Intimate",
+          "description": "Gunakan elemen floral, warm lighting, linen, dan dekorasi yang lembut."
+        },
+        "reservation": {
+          "title": "Disiapkan Sesuai Reservasi",
+          "description": "Setup mengikuti tanggal menginap, preferensi tamu, dan ketersediaan hotel."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "Pilihan Paket",
+      "title": "Pilih Cara Merayakan Momen Kalian",
+      "description": "Tiga pilihan pengalaman untuk melengkapi waktu berdua selama menginap di Green Hero Darajat.",
+      "popularBadge": "Paling Populer",
+      "pricePerPackage": "/ paket",
+      "note": "Harga pada prototype dapat berubah mengikuti kebutuhan dekorasi, pilihan dining, dan detail personalisasi. Ketersediaan paket mengikuti reservasi dan operasional hotel."
+    },
+    "dining": {
+      "eyebrow": "Romantic Dining",
+      "title": "Makan Malam Berdua dalam Suasana yang Lebih Intimate",
+      "description": "Lengkapi anniversary dengan dining setup sederhana yang dirancang untuk menikmati waktu berdua tanpa suasana yang berlebihan.",
+      "photoAlt": "Meja makan malam untuk dua orang di balkon dengan panorama Darajat",
+      "items": {
+        "lighting": {
+          "title": "Warm Table Lighting",
+          "description": "Lentera lilin temaram menciptakan kehangatan di udara sejuk dataran tinggi."
+        },
+        "tableware": {
+          "title": "Natural Tableware & Linen",
+          "description": "Tekstur linen alami, keramik porselen halus, dan sentuhan dedaunan segar."
+        },
+        "setup": {
+          "title": "Intimate Balcony or Room Setup",
+          "description": "Pilihan santap malam di balkon privat kamar atau pelataran kayu terbuka."
+        }
+      }
+    },
+    "style": {
+      "eyebrow": "Harmoni dengan Alam",
+      "title": "Nuansa yang Selaras dengan Green Hero",
+      "description": "Dekorasi menggunakan pendekatan yang natural dan tenang agar tetap selaras dengan suasana pegunungan dan karakter Green Hero Darajat.",
+      "items": {
+        "candlelight": {
+          "title": "Warm Candlelight & Fairy Lights",
+          "description": "Pencahayaan temaram hangat 2700K yang menenangkan dan intim."
+        },
+        "flowers": {
+          "title": "Natural Flowers & Foliage",
+          "description": "Bunga putih, eucalyptus, zaitun, dan sentuhan champagne tones segar."
+        },
+        "linen": {
+          "title": "Linen & Rustic Teak Wood",
+          "description": "Tekstur kain linen alami dan kayu jati hangat khas villa pegunungan."
+        },
+        "petals": {
+          "title": "Subtle Petals & Gold Accents",
+          "description": "Aksen kelopak bunga subtil tanpa kesan berlebihan atau artifisial."
+        }
+      }
+    },
+    "personal": {
+      "eyebrow": "Sentuhan Khusus",
+      "title": "Buat Lebih Personal",
+      "description": "Setiap kisah memiliki perjalanan unik. Anda dapat menyesuaikan detail personalisasi sebelum kedatangan:",
+      "items": {
+        "name": {
+          "title": "Nama Pasangan",
+          "description": "Tertulis pada wooden sign"
+        },
+        "message": {
+          "title": "Personalized Message",
+          "description": "Kartu ucapan eksklusif tertulis"
+        },
+        "date": {
+          "title": "Tanggal & Tahun Pernikahan",
+          "description": "Penanda perjalanan cinta kalian"
+        },
+        "time": {
+          "title": "Preferred Setup Time",
+          "description": "Sebelum check-in / malam hari"
+        },
+        "cake": {
+          "title": "Pesan Khusus pada Cake",
+          "description": "Pesan manis di atas artisan cake"
+        },
+        "palette": {
+          "title": "Preferensi Bunga & Warna",
+          "description": "Sentuhan palet lembut selaras"
+        }
+      }
+    },
+    "addons": {
+      "title": "Lengkapi Momen Kalian",
+      "description": "Tersedia sebagai pilihan tambahan untuk menyempurnakan hari istimewa:",
+      "subLabel": "Tersedia tambahan",
+      "cake": "Anniversary Cake",
+      "floral": "Floral Arrangement",
+      "dinner": "Romantic Dinner",
+      "welcomeDrinks": "Welcome Drinks",
+      "roomDecoration": "Room Decoration",
+      "photoCorner": "Photo Corner"
+    },
+    "quiet": {
+      "title": "A Quiet Celebration in the Highlands",
+      "description": "Menikmati keheningan alam pegunungan Garut, hangatnya cahaya lilin, dan waktu berdua yang bermakna.",
+      "imageAlt": "Suasana tenang candlelight dinner di dataran tinggi Darajat"
+    },
+    "order": {
+      "eyebrow": "Proses Sederhana",
+      "title": "Cara Memesan Paket Anniversary",
+      "description": "Tiga langkah mudah untuk mewujudkan kejutan berkesan bagi pasangan Anda.",
+      "note": "Anniversary Setup dapat ditambahkan selama proses booking kamar dan dikonfirmasi berdasarkan ketersediaan.",
+      "steps": {
+        "selectPackage": {
+          "title": "Pilih Paket",
+          "description": "Tentukan paket perayaan yang sesuai dengan preferensi Anda dan pasangan dari 3 pilihan yang tersedia."
+        },
+        "detail": {
+          "title": "Tentukan Tanggal & Detail",
+          "description": "Cantumkan tanggal menginap, ucapan spesial, nama pasangan, dan waktu setup yang diinginkan saat konfirmasi."
+        },
+        "addToReservation": {
+          "title": "Tambahkan ke Reservasi",
+          "description": "Paket dikonfirmasi oleh tim guest experience dan disiapkan rapi di kamar sebelum Anda tiba di resort."
+        }
+      }
+    },
+    "cta": {
+      "title": "Buat Waktu Berdua Lebih Berkesan",
+      "description": "Pilih kamar dan tambahkan Anniversary Setup sebagai bagian dari pengalaman menginap Anda di Green Hero Darajat.",
+      "bookRoom": "Pesan Kamar Sekarang",
+      "viewOther": "Lihat Experiences Lainnya"
+    }
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "list": {
+    "heroAriaLabel": "Kamar dan Suite Green Hero Darajat",
+    "heroImageAlt": "Green Hero Darajat, kolam air hangat, dan panorama pegunungan saat senja",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Kamar & Suite",
+    "eyebrow": "OUR ROOMS",
+    "title": "Temukan Kamar yang Sesuai untuk Perjalanan Anda",
+    "description": "Pilih kamar yang nyaman untuk beristirahat bersama pasangan, keluarga, atau rombongan selama menikmati suasana sejuk dan pemandian air panas alami Darajat."
+  },
+  "availability": {
+    "ariaLabel": "Cari kamar",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Tamu",
+    "rooms": "Kamar",
+    "allRoomTypes": "Semua Tipe Kamar",
+    "unavailableSuffix": " — Tidak tersedia",
+    "search": "Cek Ketersediaan",
+    "guestOptions": {
+      "twoAdults": "2 Dewasa",
+      "fourAdultsFamily": "4 Dewasa (Family)",
+      "group": "Rombongan (5-8 Tamu)",
+      "largeGroup": "Grup Besar (10+ Tamu)"
+    },
+    "messages": {
+      "selectDates": "Pilih tanggal check-in dan check-out terlebih dahulu.",
+      "checkoutAfterCheckin": "Tanggal check-out harus setelah tanggal check-in.",
+      "searchResult": "Pencarian demo: {available} tipe kamar tersedia dan {unavailable} tidak tersedia. Harga yang ditampilkan adalah contoh."
+    }
+  },
+  "intro": {
+    "eyebrow": "LUXURY HIGHLAND SANCTUARY",
+    "title": "Kenyamanan Autentik di Lereng Darajat",
+    "description": "Setiap ruang dirancang dengan perpaduan kehangatan kayu jati alami, panorama kabut pegunungan, dan fasilitas pemandian air panas bumi yang menenangkan.",
+    "note": "Akses fasilitas kolam renang air panas alami & sarapan pagi",
+    "priceDisclaimer": "Harga, sisa kamar, ketersediaan, dan kebijakan pembatalan pada halaman ini adalah data contoh."
+  },
+  "card": {
+    "layoutAriaLabel": "Pilihan kamar dan ringkasan harga",
+    "unavailable": "Tidak Tersedia",
+    "remainingRooms": "Sisa {count} kamar",
+    "priceFrom": "Mulai dari",
+    "priceReference": "Harga referensi",
+    "perNight": "/ malam",
+    "viewDetail": "Lihat Detail",
+    "quantityAriaLabel": "Jumlah {name}",
+    "decreaseAriaLabel": "Kurangi {name}",
+    "increaseAriaLabel": "Tambah {name}",
+    "selectRoom": "Pilih Kamar"
+  },
+  "cart": {
+    "ariaLabel": "Ringkasan pilihan kamar",
+    "eyebrow": "RINGKASAN BOOKING",
+    "brand": "Green Hero Darajat",
+    "nights": "{count} Malam",
+    "selectValidDates": "Pilih tanggal menginap yang valid",
+    "roomHeading": "Kamar",
+    "roomsSelected": "{count} kamar dipilih",
+    "included": "Sarapan & akses kolam air panas",
+    "roomLine": "{count} Kamar × {price} × {nights} Malam",
+    "removeAriaLabel": "Hapus {name} dari pilihan",
+    "remove": "Hapus",
+    "emptyTitle": "Belum ada kamar dipilih",
+    "emptyDescription": "Pilih tipe kamar dan jumlahnya dari daftar. Anda dapat menambahkan beberapa tipe kamar sekaligus.",
+    "roomSubtotal": "Subtotal Kamar",
+    "total": "Total",
+    "taxIncluded": "Termasuk pajak & biaya layanan",
+    "continue": "Lanjut ke Pilihan Tambahan",
+    "forwardedNote": "Semua pilihan kamar diteruskan dalam satu booking.",
+    "selectAtLeastOne": "Pilih minimal 1 kamar untuk melanjutkan.",
+    "mobileSummary": "{count} Kamar • {price}",
+    "mobileViewSummary": "Lihat Ringkasan"
+  },
+  "benefits": {
+    "eyebrow": "KEUNTUNGAN TAMU",
+    "title": "Booking Langsung dengan Lebih Mudah",
+    "items": {
+      "directReservation": {
+        "title": "Proses Reservasi Langsung",
+        "description": "Pilih kamar langsung dari Green Hero Darajat dengan informasi yang mudah dipahami."
+      },
+      "clearInfo": {
+        "title": "Informasi Kamar yang Jelas",
+        "description": "Lihat fasilitas, kapasitas tamu, dan tipe ranjang setiap kamar sebelum memilih."
+      },
+      "staffSupport": {
+        "title": "Dukungan Staff Green Hero",
+        "description": "Tim kami siap membantu kebutuhan menginap dan penataan kamar Anda."
+      }
+    }
+  },
+  "experience": {
+    "photoAlt": "BBQ dan grill untuk pengalaman menginap di Darajat",
+    "photoBadge": "Special Resort Experience",
+    "eyebrow": "KULINER & KEHANGATAN",
+    "title": "Tambahkan Pengalaman Saat Menginap",
+    "description": "Nikmati malam sejuk Darajat bersama keluarga dengan hidangan lezat. Paket Kambing Guling, Ayam Bakar, dan BBQ & Grill dapat ditambahkan saat melakukan booking kamar.",
+    "action": "Lihat Paket Tambahan",
+    "note": "Disediakan lengkap dengan alat pemanggang & api unggun."
+  },
+  "finalCta": {
+    "eyebrow": "RESERVASI MUDAH",
+    "title": "Sudah Menemukan Kamar yang Cocok?",
+    "description": "Pilih tanggal menginap dan cek ketersediaan kamar Green Hero Darajat untuk memastikan liburan keluarga Anda berkesan.",
+    "checkAvailability": "Cek Ketersediaan",
+    "contact": "Hubungi Kami"
+  },
+  "selectionDate": {
+    "placeholder": "Pilih tanggal"
+  },
+  "detail": {
+    "breadcrumbHome": "Home",
+    "breadcrumbRooms": "Kamar & Suite",
+    "galleryAriaLabel": "Foto {name}",
+    "photoLinkAriaLabel": "Buka foto {index} {name}",
+    "photoAlt": "{name}, foto {index}",
+    "unavailableRibbon": "Tidak Tersedia",
+    "viewPhoto": "Lihat Foto",
+    "statusUnavailable": "Tidak Tersedia",
+    "highlights": {
+      "capacity": "Kapasitas",
+      "bed": "Tempat Tidur",
+      "ambiance": "Suasana",
+      "resort": "Resor",
+      "resortValue": "Air Hangat Alami"
+    },
+    "aboutTitle": "Tentang Kamar Ini",
+    "aboutExtra": "Ruang ini menawarkan suasana hangat untuk beristirahat setelah menikmati udara sejuk Darajat dan fasilitas resor bersama orang terdekat.",
+    "amenitiesTitle": "Fasilitas Kamar",
+    "stayInfoTitle": "Informasi Menginap",
+    "stayInfo": {
+      "checkTimesTitle": "Waktu Check-in & Check-out",
+      "checkTimesDetail": "Check-in mulai 14.00 WIB · Check-out hingga 12.00 WIB",
+      "capacityTitle": "Kapasitas Tamu",
+      "bedTitle": "Tempat Tidur"
+    },
+    "cancellationTitle": "Kebijakan Pembatalan",
+    "booking": {
+      "ariaLabel": "Harga dan ketersediaan kamar",
+      "remainingRooms": "Sisa {count} kamar",
+      "unavailable": "Tidak Tersedia",
+      "edit": "Ubah",
+      "priceFrom": "Mulai dari",
+      "priceReference": "Harga referensi",
+      "perNight": "/ malam",
+      "included": "Termasuk akses kolam air panas alami",
+      "stayLabel": "Tanggal Menginap",
+      "nights": "({count} Malam)",
+      "oneRoom": "1 {name}",
+      "formCheckIn": "Check-in",
+      "formCheckOut": "Check-out",
+      "formGuests": "Tamu",
+      "guestOptions": {
+        "twoAdultsOneChild": "2 Dewasa, 1 Anak",
+        "twoAdults": "2 Dewasa",
+        "threeAdults": "3 Dewasa",
+        "fourAdults": "4 Dewasa"
+      },
+      "checkAvailability": "Cek Ketersediaan",
+      "priceSummaryRoom": "Harga Kamar ({nights} Malam x {price})",
+      "priceSummaryTax": "Pajak & Biaya Layanan",
+      "priceSummaryTaxIncluded": "Termasuk",
+      "priceSummaryTotal": "Total Estimasi",
+      "noticeTitle": "Coba tanggal lain",
+      "noticeDetail": "Kamar ini ditandai tidak tersedia pada data demo. Ubah tanggal untuk melihat pilihan, lalu hubungi hotel untuk konfirmasi.",
+      "pick": "Pilih Kamar",
+      "pickUnavailable": "Tidak Tersedia",
+      "editDatesLink": "Ubah tanggal atau tamu",
+      "assuranceReferencePrice": "Harga referensi langsung dari hotel",
+      "assuranceConfirm": "Konfirmasi melalui tim reservasi",
+      "datePromptQuestion": "Belum punya jadwal pasti?",
+      "datePromptAction": "Pilih tanggal lain untuk melihat harga & ketersediaan",
+      "helpQuestion": "Butuh bantuan reservasi khusus?",
+      "helpAction": "Chat Tim Reservasi Hotel"
+    },
+    "messages": {
+      "selectDates": "Pilih tanggal check-in dan check-out untuk mengecek ketersediaan.",
+      "checkoutAfterCheckin": "Tanggal check-out harus setelah tanggal check-in.",
+      "available": "Kamar ini ditandai tersedia pada data demo. Reservasi sebenarnya belum terhubung.",
+      "unavailable": "Kamar ini masih ditandai tidak tersedia pada data demo. Coba tanggal lain atau hubungi hotel untuk konfirmasi."
+    },
+    "extras": {
+      "eyebrow": "TAMBAHAN SAAT MENGINAP",
+      "title": "Lengkapi Pengalaman Menginap Anda",
+      "description": "Pilihan kuliner dapat ditambahkan saat proses reservasi tersedia.",
+      "roastGoatTitle": "Kambing Guling",
+      "roastGoatDescription": "Cocok untuk keluarga besar dan gathering hangat di malam hari.",
+      "chickenTitle": "Ayam Bakar Family Set",
+      "chickenDescription": "Pilihan santap bersama keluarga dengan suasana sejuk Darajat.",
+      "bbqTitle": "BBQ & Grill Set",
+      "bbqDescription": "Paket grill untuk dinikmati bersama di area resor."
+    },
+    "related": {
+      "eyebrow": "EKSPLORASI TIPE LAIN",
+      "title": "Pilihan Kamar Lainnya",
+      "viewAll": "Lihat Semua Kamar & Suite",
+      "perNight": "/ malam",
+      "unavailable": "Tidak Tersedia",
+      "viewDetail": "Lihat Detail"
+    },
+    "finalCta": {
+      "eyebrow": "RESERVASI GREEN HERO DARAJAT",
+      "title": "Siap Menginap di Green Hero Darajat?",
+      "description": "Pilih tanggal menginap dan cek kembali pilihan kamar untuk menikmati liburan pegunungan yang hangat.",
+      "action": "Cek Ketersediaan"
+    }
+  },
+  "modal": {
+    "amenitiesTitle": "Fasilitas Kamar",
+    "cancellationTitle": "Kebijakan Pembatalan",
+    "closeAriaLabel": "Tutup informasi kamar",
+    "close": "Tutup"
+  },
+  "footer": {
+    "aboutList": "Hotel & resor ramah keluarga di kawasan dataran tinggi Darajat Pass, Garut. Menggabungkan kenyamanan alami, kolam air panas, dan panorama perbukitan asri.",
+    "aboutDetail": "Hotel & resor ramah keluarga di kawasan dataran tinggi Darajat Pass, Garut. Nikmati udara sejuk dan kolam air panas alami.",
+    "galleryAriaLabel": "Lihat galeri",
+    "locationAriaLabel": "Lihat lokasi",
+    "mapAriaLabel": "Lihat peta",
+    "exploreTitle": "Eksplorasi",
+    "exploreAbout": "Tentang Kami",
+    "exploreHome": "Home",
+    "exploreRooms": "Kamar & Suite",
+    "exploreHotSpring": "Kolam Air Panas",
+    "exploreGallery": "Galeri Momen",
+    "exploreFacilities": "Fasilitas",
+    "exploreExperiences": "Experiences",
+    "helpTitle": "Bantuan & Panduan",
+    "helpTitleShort": "Bantuan",
+    "helpCheckAvailability": "Cek Ketersediaan",
+    "helpRouteGuide": "Panduan Rute Darajat",
+    "helpRouteGuideShort": "Panduan Rute",
+    "helpContact": "Kontak & Bantuan",
+    "helpContactShort": "Kontak",
+    "contactTitle": "Kontak & Lokasi",
+    "contactAddress": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Kabupaten Garut, Jawa Barat 44161",
+    "contactAddressShort": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut",
+    "contactEmail": "halo@greenherodarajat.com",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
+    "copyrightShort": "© 2026 Green Hero Darajat Hotel & Resort.",
+    "demoNote": "Demo frontend · Data & kontak contoh",
+    "demoNoteShort": "Demo frontend · Harga & ketersediaan contoh"
+  }
+}

@@ -1,0 +1,430 @@
+{
+  "progress": {
+    "ariaLabel": "Tahap pemesanan",
+    "selectRoom": "Pilih Kamar",
+    "addOns": "Pilihan Tambahan",
+    "guestDetails": "Data Tamu",
+    "payment": "Pembayaran"
+  },
+  "extras": {
+    "intro": {
+      "eyebrow": "PILIHAN TAMBAHAN",
+      "title": "Lengkapi Pengalaman Menginap Anda",
+      "description": "Tambahkan pilihan sesuai kebutuhan selama menginap di kawasan sejuk Darajat. Semua tambahan bersifat opsional dan dapat dilewati ke tahap berikutnya."
+    },
+    "stayBanner": {
+      "roomSelection": "Pilihan Kamar",
+      "roomCount": "{count} Kamar",
+      "stayRange": "{checkIn} → {checkOut} ({nights} Malam)",
+      "roomSubtotal": "Subtotal Kamar:",
+      "changeRoom": "Ubah Kamar"
+    },
+    "food": {
+      "badge": "FOOD & GRILL",
+      "title": "Nikmati Waktu Bersama di Udara Sejuk Darajat",
+      "description": "Santap hidangan hangat langsung di teras resor sembari menikmati panorama kabut dataran tinggi Garut bersama keluarga tercinta.",
+      "heroAlt": "Santap bersama di teras resor Green Hero Darajat",
+      "added": "Ditambahkan",
+      "priceFrom": "Mulai dari",
+      "perPackage": "/ paket",
+      "changePackage": "Ubah Paket",
+      "selectPackage": "Pilih Paket",
+      "note": "Pilihan santapan disiapkan segar langsung oleh tim dapur resor."
+    },
+    "roomAddons": {
+      "badge": "ROOM ADD-ONS",
+      "title": "Tambahan untuk Kenyamanan Kamar",
+      "items": {
+        "extraBed": {
+          "name": "Extra Bed",
+          "description": "Tambahan tempat tidur single berkualitas sesuai kapasitas dan kenyamanan istirahat.",
+          "unit": "/ malam",
+          "vipDescription": "Kamar VIP mendukung 1 extra bed. Tambahan tempat tidur single berkualitas sesuai kapasitas dan kenyamanan istirahat."
+        },
+        "extraPerson": {
+          "name": "Extra Person",
+          "note": "Sesuai kapasitas",
+          "description": "Tambahan tamu dengan amenities dasar, sesuai kapasitas maksimal kamar.",
+          "unit": "/ orang",
+          "vipNote": "Maks. 1 tamu tambahan"
+        },
+        "breakfast": {
+          "name": "Additional Breakfast",
+          "description": "Tambahan sarapan buffet khas Nusantara untuk tamu pendamping yang belum termasuk dalam paket reservasi.",
+          "unit": "/ orang"
+        },
+        "babyCot": {
+          "name": "Baby Cot / Crib",
+          "note": "By Request",
+          "description": "Boks bayi dan matras untuk kenyamanan tidur buah hati Anda, sesuai ketersediaan.",
+          "priceLabel": "Sesuai Ketersediaan"
+        }
+      },
+      "added": "Ditambahkan",
+      "requested": "Diajukan",
+      "singleUnitAdded": "1 Unit Ditambahkan",
+      "removeAriaLabel": "Hapus {name}",
+      "add": "Tambahkan",
+      "submit": "Ajukan"
+    },
+    "moments": {
+      "badge": "SPECIAL MOMENTS",
+      "title": "Buat Momen Menginap Lebih Berkesan",
+      "selected": "Dipilih",
+      "priceLabel": "Harga paket",
+      "priceFrom": "Mulai dari",
+      "perPackage": "/ paket",
+      "changePackage": "Ubah Paket",
+      "selectPackage": "Pilih Paket"
+    },
+    "requests": {
+      "badge": "PERMINTAAN TAMBAHAN",
+      "title": "Permintaan Selama Menginap",
+      "description": "Catatan: Permintaan khusus tidak dijamin seketika dan bergantung pada ketersediaan kamar saat check-in.",
+      "earlyCheckIn": "Early Check-in",
+      "lateCheckOut": "Late Check-out",
+      "requestSubmitted": "Permintaan diajukan",
+      "statusByRequest": "Status: By Request",
+      "cancel": "Batalkan",
+      "submitRequest": "Ajukan Permintaan",
+      "noteLabel": "Catatan Khusus (Opsional)",
+      "notePlaceholder": "Contoh: kamar berdekatan dengan keluarga, kebutuhan khusus ramah lansia, atau permintaan waktu penyajian BBQ..."
+    },
+    "summary": {
+      "ariaLabel": "Ringkasan booking",
+      "title": "Ringkasan Booking",
+      "step": "Langkah 2 dari 4",
+      "stayLine": "{count} Kamar ({nights} Malam)",
+      "costTitle": "Rincian Biaya:",
+      "roomSubtotal": "Subtotal {count} Kamar ({nights} Malam)",
+      "addonsTitle": "Pilihan Tambahan:",
+      "extraBedUnit": "({nights} Malam)",
+      "countUnit": "({count}x)",
+      "noPaidOptions": "Belum ada pilihan berbayar.",
+      "otherRequests": "Permintaan lain dikonfirmasi staf hotel.",
+      "estimatedTotal": "Total Estimasi Sementara",
+      "taxIncluded": "Termasuk pajak & layanan",
+      "continue": "Lanjut ke Data Tamu",
+      "skip": "Lewati Pilihan Tambahan",
+      "trust": "Semua tambahan opsional. Pembayaran dan rincian final dikonfirmasi pada tahap berikutnya."
+    }
+  },
+  "guest": {
+    "intro": {
+      "eyebrow": "DATA TAMU",
+      "title": "Lengkapi Data Pemesan",
+      "description": "Data pemesan dummy sudah terisi untuk demo. Anda dapat mengubah data sebelum melanjutkan; data belum dikirim ke server."
+    },
+    "form": {
+      "title": "Kontak Utama Pemesanan",
+      "description": "Data ini digunakan untuk menghubungi pemesan dan menyiapkan informasi menginap.",
+      "fullNameLabel": "Nama Lengkap",
+      "fullNameHint": "Sesuai KTP / Paspor",
+      "fullNamePlaceholder": "Nama sesuai identitas (KTP / Paspor)",
+      "fullNameNote": "Nama yang terdaftar saat proses check-in di resepsionis.",
+      "nationalityLabel": "Nationality / Kewarganegaraan",
+      "nationalityHint": "Kode Negara WhatsApp",
+      "whatsappLabel": "Nomor WhatsApp",
+      "whatsappHint": "Aktif WhatsApp",
+      "whatsappTitle": "Masukkan 6–14 angka tanpa kode negara atau angka 0 di depan",
+      "whatsappNote": "Kode negara mengikuti nationality. Masukkan nomor tanpa kode negara atau angka 0 di depan.",
+      "emailLabel": "Alamat Email",
+      "emailHint": "Untuk Dokumen Reservasi",
+      "emailPlaceholder": "nama@email.com",
+      "emailNote": "Rincian reservasi dapat dikirim ke alamat email ini ketika layanan tersedia.",
+      "security": "Data demo disimpan sementara di browser Anda dan tidak dikirim ke server.",
+      "backLink": "Kembali ke Pilihan Tambahan"
+    },
+    "resortNote": {
+      "imageAlt": "Suasana resor pegunungan Green Hero Darajat",
+      "brand": "GREEN HERO DARAJAT",
+      "text": "Istirahat di udara sejuk pegunungan Garut dengan suasana hangat untuk keluarga."
+    },
+    "summary": {
+      "ariaLabel": "Ringkasan booking",
+      "title": "Ringkasan Booking",
+      "step": "Langkah 3 dari 4",
+      "roomLine": "{count} Kamar ({nights} Malam)",
+      "brand": "Green Hero Darajat",
+      "change": "Ubah",
+      "checkIn": "Check-in",
+      "checkInTime": "Mulai 14:00",
+      "checkOut": "Check-out",
+      "checkOutTime": "Sebelum 12:00",
+      "guestsLine": "{guests} • {count} Kamar",
+      "roomSubtotal": "Subtotal {count} Kamar ({nights} Malam)",
+      "selectedExtrasTitle": "Pilihan Tambahan Terpilih:",
+      "extraBedUnit": "({nights} Malam)",
+      "countUnit": "({count}x)",
+      "noPaidExtras": "Tidak ada tambahan berbayar.",
+      "hotSpring": "Akses Kolam Air Panas Alami Termasuk",
+      "estimatedTotal": "Total Estimasi",
+      "taxIncluded": "Termasuk pajak & biaya layanan",
+      "continue": "Lanjut ke Pembayaran",
+      "policyTitle": "Informasi Reservasi",
+      "policyNote": "Harga dan ketentuan final akan diverifikasi oleh hotel sebelum pembayaran tersedia."
+    },
+    "footer": {
+      "about": "Hotel & resor ramah keluarga di kawasan dataran tinggi Darajat, Garut.",
+      "exploreTitle": "Eksplorasi",
+      "exploreHome": "Home",
+      "exploreRooms": "Kamar & Suite",
+      "exploreFacilities": "Fasilitas",
+      "contactTitle": "Kontak & Bantuan",
+      "contactAddress": "Jl. Raya Darajat KM 14, Pasirwangi, Garut",
+      "contactEmail": "halo@greenherodarajat.com",
+      "bottom": "© 2026 Green Hero Darajat Hotel & Resort. · Demo frontend"
+    }
+  },
+  "payment": {
+    "intro": {
+      "eyebrow": "PEMBAYARAN RESERVASI",
+      "title": "Selesaikan Pembayaran",
+      "description": "Pilih metode pembayaran untuk meninjau reservasi Green Hero Darajat. Pembayaran belum aktif pada halaman demo ini."
+    },
+    "method": {
+      "title": "Pilih Metode Pembayaran",
+      "demoNotice": "Demo hanya bisa BCA Virtual Account.",
+      "tabsAriaLabel": "Kategori metode pembayaran",
+      "disabledTitle": "Demo hanya bisa BCA Virtual Account",
+      "optionsAriaLabel": "Pilihan {label}",
+      "importantInfo": "Informasi Penting"
+    },
+    "tabs": {
+      "hotel": "Bayar di Hotel",
+      "card": "Kartu Kredit",
+      "virtualAccount": "Virtual Account",
+      "wallet": "E-Wallet"
+    },
+    "options": {
+      "hotelPayment": {
+        "label": "Bayar di Hotel",
+        "info1": "Pilihan ini hanya menampilkan alur bayar di hotel pada demo.",
+        "info2": "Reservasi dan ketentuan pembayaran sebenarnya perlu dikonfirmasi langsung oleh hotel."
+      },
+      "noPrepayment": {
+        "label": "Tanpa Pembayaran di Muka",
+        "info1": "Tidak ada pembayaran di muka pada tampilan demo ini.",
+        "info2": "Memilih opsi ini belum membuat atau menahan reservasi kamar."
+      },
+      "creditCard": {
+        "label": "Visa, Mastercard, JCB",
+        "info1": "Informasi kartu tidak diminta atau disimpan pada halaman demo ini.",
+        "info2": "Pembayaran kartu memerlukan payment gateway resmi yang belum terhubung."
+      },
+      "virtualAccountInfo1": "Virtual Account {name} belum diterbitkan pada halaman demo.",
+      "virtualAccountInfo2": "Nomor dan instruksi pembayaran baru tersedia setelah integrasi payment gateway.",
+      "qrisInfo1": "Kode QR belum dibuat pada halaman demo.",
+      "qrisInfo2": "Setelah integrasi, pindai kode QR yang ditampilkan melalui aplikasi pembayaran Anda.",
+      "walletInfo1": "Otorisasi {name} belum tersedia pada halaman demo.",
+      "walletInfo2": "Jangan mengirim pembayaran sebelum menerima instruksi resmi dari hotel."
+    },
+    "trust": {
+      "noTransactionTitle": "Tanpa Transaksi",
+      "noTransactionDetail": "Tidak ada tagihan pada demo",
+      "interactiveTitle": "Pilihan Interaktif",
+      "interactiveDetail": "Metode dapat dipilih",
+      "guestDataTitle": "Data Pemesan",
+      "guestDataDetail": "Tersimpan sementara di browser"
+    },
+    "timer": {
+      "remaining": "SISA WAKTU",
+      "placeholder": "--:--",
+      "note": "Timer akan aktif setelah sistem reservasi tersedia. Kamar belum ditahan pada demo ini."
+    },
+    "summary": {
+      "title": "Ringkasan Reservasi",
+      "badge": "DEMO",
+      "roomType": "Tipe Kamar",
+      "roomValue": "{count} Kamar • {nights} Malam",
+      "schedule": "Jadwal Menginap",
+      "extras": "Tambahan",
+      "extraUnit": "({count}x)",
+      "noExtras": "Tidak ada tambahan",
+      "total": "TOTAL PEMBAYARAN",
+      "totalNote": "Jumlah termasuk kamar dan pilihan tambahan yang dipilih.",
+      "continueInstructions": "Lanjut ke Instruksi Pembayaran",
+      "continueHotel": "Lanjutkan dengan Bayar di Hotel",
+      "payAmount": "Bayar {amount}",
+      "payCaption": "Pembayaran belum diproses pada halaman demo.",
+      "back": "Kembali ke Data Tamu"
+    },
+    "messages": {
+      "simulationOnly": "{method} hanya tersedia sebagai simulasi. Tidak ada transaksi yang dibuat.",
+      "methodFallback": "Metode pembayaran"
+    },
+    "footer": {
+      "about": "Resor peristirahatan dataran tinggi di kawasan Darajat, Garut. Nikmati panorama pegunungan dan air panas alami bersama keluarga.",
+      "exploreTitle": "Jelajahi",
+      "exploreHome": "Home",
+      "exploreRooms": "Kamar & Suite",
+      "exploreFacilities": "Fasilitas",
+      "contactTitle": "Kontak",
+      "contactAddress": "Jl. Raya Darajat KM 14, Pasirwangi, Garut",
+      "contactEmail": "halo@greenherodarajat.com",
+      "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+      "demoNote": "Demo frontend · Pembayaran belum aktif"
+    }
+  },
+  "instructions": {
+    "demoLabel": "CONTOH DEMO",
+    "intro": {
+      "eyebrow": "PEMBAYARAN",
+      "title": "Selesaikan Pembayaran Anda",
+      "description": "Gunakan informasi pembayaran berikut untuk menyelesaikan reservasi sebelum batas waktu pembayaran berakhir.",
+      "reservationNumber": "No. Reservasi:",
+      "expired": "Waktu Demo Berakhir",
+      "pending": "Menunggu Pembayaran"
+    },
+    "demoBanner": "Simulasi pembayaran. Nomor VA adalah contoh. Tidak ada reservasi atau transaksi yang dibuat; jangan transfer ke nomor ini.",
+    "account": {
+      "title": "BCA Virtual Account",
+      "subtitle": "Verifikasi otomatis 24 jam real-time",
+      "autoConfirm": "Konfirmasi Otomatis",
+      "vaLabel": "Nomor Virtual Account",
+      "copyVa": "Salin Nomor VA",
+      "accountNameLabel": "Nama Akun Reservasi",
+      "accountNameValue": "Green Hero Darajat — {name}",
+      "accountNameFallback": "Nama Pemesan",
+      "totalLabel": "Total Pembayaran",
+      "copyAmountAriaLabel": "Salin nominal pembayaran",
+      "calloutTitle": "Catatan Penting:",
+      "calloutText": "Bayar sesuai jumlah yang tertera hingga digit terakhir agar pembayaran dapat diverifikasi secara otomatis tanpa konfirmasi manual saat sistem pembayaran aktif."
+    },
+    "guides": {
+      "title": "Panduan Cara Pembayaran",
+      "subtitle": "Pilih metode transfer yang Anda gunakan di bawah ini",
+      "mbca": {
+        "title": "BCA Mobile (m-BCA)",
+        "step1": "Buka aplikasi BCA Mobile, pilih m-BCA dan masukkan Kode Akses Anda.",
+        "step2": "Pilih menu m-Transfer > BCA Virtual Account.",
+        "step3": "Masukkan 16 digit Nomor Virtual Account: {account} lalu pilih Send.",
+        "step4": "Periksa nama {name} dan total tagihan {total} pada layar konfirmasi.",
+        "step5": "Masukkan PIN m-BCA untuk menyelesaikan pembayaran saat layanan resmi tersedia."
+      },
+      "klikbca": {
+        "title": "KlikBCA (Internet Banking)",
+        "step1": "Masuk ke KlikBCA Individual.",
+        "step2": "Pilih Transfer Dana > Transfer ke BCA Virtual Account.",
+        "step3": "Masukkan nomor Virtual Account {account}, lalu pilih Lanjutkan.",
+        "step4": "Periksa nama penerima dan nominal {total}.",
+        "step5": "Ikuti instruksi KeyBCA pada layar untuk menyelesaikan transaksi."
+      },
+      "atmbca": {
+        "title": "ATM BCA",
+        "step1": "Masukkan kartu ATM BCA dan PIN Anda.",
+        "step2": "Pilih Transaksi Lainnya > Transfer > ke Rekening BCA Virtual Account.",
+        "step3": "Masukkan Nomor Virtual Account {account}.",
+        "step4": "Periksa nama dan nominal {total}, lalu ikuti instruksi pada mesin ATM."
+      },
+      "otherBank": {
+        "title": "Transfer dari Bank Lain (ATM Bersama / Prima / ALTO)",
+        "step1": "Ketersediaan transfer dari bank lain mengikuti ketentuan Virtual Account resmi yang diterbitkan.",
+        "step2": "Pada demo ini, transfer antarbank belum tersedia. Gunakan instruksi resmi dari hotel saat layanan pembayaran aktif."
+      }
+    },
+    "timer": {
+      "title": "Batas Waktu Pembayaran",
+      "timezone": "WIB (GMT+7)",
+      "preparing": "Menyiapkan waktu demo…",
+      "deadlineValue": "{date} • {time} WIB",
+      "endsAt": "Berakhir pada:",
+      "remainingAriaLabel": "Sisa waktu pembayaran demo",
+      "expiredNote": "Waktu simulasi berakhir. Anda dapat kembali memilih metode pembayaran.",
+      "activeNote": "Selesaikan pembayaran sebelum waktu habis agar alokasi kamar tetap terjaga saat sistem reservasi aktif."
+    },
+    "summary": {
+      "title": "Ringkasan Reservasi",
+      "brand": "Green Hero Darajat",
+      "roomValue": "{count} Kamar • {nights} Malam",
+      "guestFilled": "{name} ({whatsapp})",
+      "guestEmpty": "Data pemesan belum diisi",
+      "extrasTitle": "Pilihan Tambahan:",
+      "extraBedUnit": "({nights} Malam)",
+      "noExtras": "Tidak ada tambahan",
+      "roomSubtotal": "Subtotal Kamar ({nights} Malam)",
+      "extrasSubtotal": "Subtotal Fasilitas Tambahan",
+      "tax": "Pajak & Biaya Layanan",
+      "taxIncluded": "Termasuk",
+      "totalLabel": "Total Tagihan",
+      "totalNote": "Sudah termasuk pajak & layanan",
+      "checkStatus": "Cek Status Pembayaran",
+      "changeMethod": "Ganti Metode Pembayaran",
+      "support": "Butuh bantuan pembayaran? Hubungi Tim Hotel"
+    },
+    "trust": {
+      "noTransaction": "Tanpa Transaksi",
+      "vaSimulation": "Simulasi VA",
+      "demoReservation": "Demo Reservasi"
+    },
+    "messages": {
+      "copySuccess": "{label} berhasil disalin.",
+      "copyFail": "Tidak dapat menyalin otomatis. Silakan pilih dan salin {label} secara manual.",
+      "copyVaLabel": "Nomor VA contoh",
+      "copyAmountLabel": "Nominal pembayaran",
+      "expiredStatus": "Waktu simulasi telah berakhir. Pilih kembali metode pembayaran untuk melanjutkan demo.",
+      "pendingStatus": "Pembayaran belum terverifikasi. Ini adalah simulasi; tidak ada transaksi yang diproses.",
+      "closeAriaLabel": "Tutup pemberitahuan"
+    },
+    "footer": {
+      "about": "Resor dataran tinggi di kawasan wisata pemandian air panas alami Pasirwangi, Garut. Menghadirkan kesejukan pegunungan, pemandangan kebun teh asri, dan kenyamanan keluarga.",
+      "address": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Kabupaten Garut, Jawa Barat 44161",
+      "infoTitle": "Informasi & Tautan",
+      "infoAbout": "Tentang Kami",
+      "infoRooms": "Kamar & Fasilitas",
+      "infoReservationPolicy": "Kebijakan Reservasi",
+      "infoPrivacy": "Kebijakan Privasi",
+      "helpTitle": "Bantuan & Dukungan",
+      "helpContact": "Hubungi Kami",
+      "helpFaq": "FAQ & Bantuan",
+      "helpPaymentMethods": "Metode Pembayaran",
+      "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+      "demoNote": "Demo frontend · Pembayaran belum aktif"
+    }
+  },
+  "footer": {
+    "about": "Resor dataran tinggi di lereng vulkanik Darajat, Garut. Menggabungkan kenyamanan alami, kolam air panas bumi murni, dan kehangatan keramahan Sunda untuk momen istirahat keluarga Anda.",
+    "address": "Jl. Darajat KM 14, Karyamekar, Pasirwangi, Garut, Jawa Barat",
+    "navTitle": "Navigasi Resor",
+    "navAbout": "Tentang Kami",
+    "navRooms": "Kamar & Fasilitas",
+    "navRouteGuide": "Panduan Rute Darajat",
+    "navReservationPolicy": "Kebijakan Reservasi",
+    "helpTitle": "Bantuan & Legal",
+    "helpContact": "Kontak & Bantuan",
+    "helpPrivacy": "Kebijakan Privasi",
+    "helpFaq": "F.A.Q.",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+    "backToRooms": "Kembali ke Kamar & Suite"
+  },
+  "foodModal": {
+    "eyebrow": "FOOD & GRILL",
+    "title": "Pilih Paket {name}",
+    "description": "Pilih paket dan jumlah sesuai kebutuhan Anda.",
+    "closeAriaLabel": "Tutup pilihan paket",
+    "popular": "Paling Populer",
+    "perPackage": "/ paket",
+    "decreaseAriaLabel": "Kurangi {name}",
+    "quantityAriaLabel": "Jumlah {name}",
+    "increaseAriaLabel": "Tambah {name}",
+    "selectedCount": "{count} paket dipilih",
+    "cancel": "Batal",
+    "save": "Simpan Pilihan",
+    "grilledChickenAlt": "Suasana santap bersama di Green Hero",
+    "sideDish": "Pendamping sajian"
+  },
+  "celebrationModal": {
+    "eyebrow": "SPECIAL MOMENTS",
+    "title": "Pilih Paket {name}",
+    "description": "Pilih satu paket untuk momen spesial Anda.",
+    "closeAriaLabel": "Tutup pilihan paket",
+    "optionsAriaLabel": "Pilihan paket {name}",
+    "popular": "Paling Populer",
+    "perPackage": "/ paket",
+    "packageContents": "Isi paket",
+    "noPackage": "Tanpa paket {name}",
+    "noneSelected": "Belum ada paket dipilih",
+    "cancel": "Batal",
+    "save": "Simpan Pilihan"
+  }
+}

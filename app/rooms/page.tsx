@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getNights } from "@/features/booking/constants/booking-data";
 import { parseRoomSelection } from "@/features/rooms/constants/room-selection-data";
-import RoomsPage from "@/features/rooms/components/RoomsPage";
+import RoomsPage from "@/features/rooms/pages/RoomsPage";
 
 export const metadata: Metadata = {
   title: "Kamar & Suite | Green Hero Darajat",

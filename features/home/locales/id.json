@@ -1,0 +1,241 @@
+{
+  "hero": {
+    "ariaLabel": "Selamat datang di Green Hero Darajat",
+    "destinationTitle": "Darajat Garut"
+  },
+  "booking": {
+    "ariaLabel": "Cari kamar",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "checkInAriaLabel": "Tanggal check-in",
+    "checkOutAriaLabel": "Tanggal check-out",
+    "guests": "Tamu",
+    "guestsAriaLabel": "Jumlah tamu",
+    "rooms": "Kamar",
+    "roomsAriaLabel": "Jumlah kamar",
+    "submit": "Cek Kamar",
+    "guestOptions": {
+      "twoAdultsTwoChildren": "2 Dewasa, 2 Anak",
+      "twoAdults": "2 Dewasa",
+      "fourAdults": "4 Dewasa",
+      "fourAdultsTwoChildren": "4 Dewasa, 2 Anak"
+    },
+    "roomOptions": {
+      "one": "1 Kamar",
+      "two": "2 Kamar",
+      "three": "3 Kamar"
+    },
+    "messages": {
+      "checkoutAfterCheckin": "Tanggal check-out harus setelah tanggal check-in."
+    }
+  },
+  "welcome": {
+    "eyebrow": "WELCOME TO GREEN HERO",
+    "title": "Tempat Beristirahat di Udara Sejuk Darajat",
+    "description": "Green Hero Darajat menawarkan pengalaman menginap yang nyaman untuk keluarga dengan suasana pegunungan dan fasilitas yang mendukung liburan santai. Berada tepat di kawasan dataran tinggi Garut, udara segar dan panorama alam menjadi teman terbaik istirahat Anda.",
+    "badgeTitle": "Family Friendly Resort",
+    "badgeDetail": "Fasilitas aman & nyaman untuk semua umur",
+    "mediaAlt": "Resor Green Hero Darajat dan kolam air hangat saat senja"
+  },
+  "highlights": {
+    "warmWater": {
+      "title": "Air Hangat Alami Pegunungan",
+      "detail": "Mata air belerang alami bersuhu seimbang untuk meredakan kepenatan tubuh."
+    },
+    "coolAir": {
+      "title": "Udara Sejuk & Asri Bebas Polusi",
+      "detail": "Suhu rata-rata 16°C–20°C yang menyegarkan di keliling perkebunan hijau Garut."
+    },
+    "valleyView": {
+      "title": "Pemandangan Lembah Garut",
+      "detail": "Panorama lepas perbukitan dan lautan kabut pagi langsung dari area resor."
+    }
+  },
+  "rooms": {
+    "eyebrow": "HIGHLAND SANCTUARY SUITES",
+    "title": "Pilihan Kamar untuk Perjalanan Anda",
+    "description": "Dirancang mewah, hangat, dan intim untuk kebersamaan keluarga di pelukan sejuknya alam pegunungan Darajat Pass.",
+    "viewAll": "Lihat Semua Kamar",
+    "carouselAriaLabel": "Pilihan kamar Green Hero",
+    "gridAriaLabel": "Geser untuk melihat pilihan kamar",
+    "previousAriaLabel": "Kamar sebelumnya",
+    "nextAriaLabel": "Kamar berikutnya",
+    "dotsAriaLabel": "Posisi pilihan kamar",
+    "dotAriaLabel": "Mulai dari {name}",
+    "unavailable": "Tidak Tersedia",
+    "priceFrom": "Mulai dari",
+    "priceReference": "Harga referensi",
+    "perNight": "/ malam",
+    "viewDetail": "Lihat Detail"
+  },
+  "experiences": {
+    "eyebrow": "GREEN HERO EXPERIENCES",
+    "title": "Lebih dari Sekadar Menginap",
+    "description": "Lengkapi waktu bersama keluarga dengan pilihan pengalaman dan layanan tambahan selama menginap di Green Hero Darajat.",
+    "feature": {
+      "badge": "DINING HIGHLIGHT",
+      "title": "Outdoor Highland Dining",
+      "detail": "Santap hangat bersama keluarga di udara sejuk Darajat"
+    },
+    "roastGoat": {
+      "eyebrow": "DINING EXPERIENCE",
+      "title": "Kambing Guling",
+      "detail": "Pilihan santap bersama untuk keluarga besar, gathering, atau momen spesial selama menginap di Green Hero.",
+      "meta": "Cocok untuk keluarga & rombongan"
+    },
+    "bbq": {
+      "badge": "FAMILY DINING",
+      "title": "BBQ & Grill",
+      "detail": "Nikmati waktu santai bersama keluarga dengan paket grill di tengah udara sejuk Darajat."
+    },
+    "birthday": {
+      "badge": "SPECIAL MOMENT",
+      "title": "Birthday Celebration",
+      "detail": "Buat momen ulang tahun lebih berkesan dengan dekorasi dan pilihan paket perayaan selama menginap."
+    },
+    "viewOptions": "Lihat Pilihan",
+    "extrasTitle": "• \u00a0 PILIHAN TAMBAHAN SELAMA MENGINAP",
+    "extrasChips": {
+      "chickenFamilySet": "Ayam Bakar Family Set",
+      "anniversarySetup": "Anniversary Setup",
+      "roomDecoration": "Room Decoration",
+      "extraBed": "Extra Bed",
+      "additionalBreakfast": "Sarapan Tambahan"
+    },
+    "viewAll": "Lihat Semua Pengalaman"
+  },
+  "spring": {
+    "mediaBadge": "Suhu Air Alami: 36°C – 38°C",
+    "mediaAlt": "Tamu berendam di kolam air hangat Green Hero Darajat dengan pemandangan pegunungan",
+    "eyebrow": "RELAKSASI ALAMI",
+    "title": "Hangat di Tengah Udara Pegunungan",
+    "description": "Nikmati waktu santai bersama keluarga di kolam air hangat setelah menikmati sejuknya kawasan Darajat. Air hangat alami bersuhu ideal untuk relaksasi tubuh di tengah sejuknya udara dataran tinggi.",
+    "stats": {
+      "temperature": "36°C – 38°C",
+      "temperatureLabel": "Suhu Ideal",
+      "everyDay": "Setiap Hari",
+      "everyDayLabel": "Buka 06.00 – 22.00",
+      "kidFriendly": "Ramah Anak",
+      "kidFriendlyLabel": "Kedalaman Aman"
+    }
+  },
+  "amenities": {
+    "eyebrow": "FASILITAS HOTEL",
+    "title": "Everything You Need for a Comfortable Stay",
+    "description": "Fasilitas lengkap untuk menunjang liburan santai dan menyenangkan bersama keluarga tercinta.",
+    "items": {
+      "warmPool": { "title": "Warm Pool", "detail": "Kolam Air Hangat" },
+      "kidsPool": { "title": "Kids Pool", "detail": "Kolam Khusus Anak" },
+      "wifi": {
+        "title": "Free High-Speed Wi-Fi",
+        "detail": "Koneksi Cepat Area Hotel"
+      },
+      "parking": {
+        "title": "Luas & Aman Parking",
+        "detail": "Parkir Mobil & Bus"
+      },
+      "familyFriendly": {
+        "title": "Family Friendly",
+        "detail": "Perlengkapan Lengkap"
+      },
+      "roomService": {
+        "title": "Room Service",
+        "detail": "Makanan & Minuman Hangat"
+      },
+      "frontDesk": {
+        "title": "24 Hour Front Desk",
+        "detail": "Layanan Resepsionis Siaga"
+      },
+      "playground": {
+        "title": "Outdoor Playground",
+        "detail": "Taman Bermain Terbuka"
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "FOTO & MOMEN",
+    "title": "Experience Green Hero",
+    "viewFull": "Lihat Galeri Lengkap",
+    "items": {
+      "dining": {
+        "category": "DINING",
+        "title": "Santap dengan Pemandangan Darajat"
+      },
+      "resort": {
+        "category": "RESORT",
+        "title": "Green Hero Darajat Saat Senja"
+      },
+      "nature": {
+        "category": "NATURE",
+        "title": "Senja di Pegunungan Darajat"
+      },
+      "moments": {
+        "category": "MOMENTS",
+        "title": "Menikmati Senja dari Balkon"
+      },
+      "familyTime": {
+        "category": "FAMILY TIME",
+        "title": "Vila Kayu untuk Momen Keluarga"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "ULASAN PENGUNJUNG",
+    "title": "What Our Guests Say",
+    "starsAriaLabel": "5 dari 5 bintang",
+    "items": {
+      "pratama": {
+        "quote": "Suasana sangat sejuk dan kolam air hangatnya juara untuk anak-anak setelah seharian jalan-jalan di Darajat.",
+        "name": "Keluarga Pratama",
+        "location": "Bandung, Jawa Barat"
+      },
+      "hendraMaya": {
+        "quote": "Kamar bersih, pemandangan bukit asri, dan stafnya ramah sekali. Pilihan terbaik untuk liburan santai keluarga.",
+        "name": "Hendra & Maya",
+        "location": "Jakarta Selatan"
+      },
+      "rina": {
+        "quote": "Tempatnya tenang, udara bersih, dan fasilitas air hangatnya bikin betah berlama-lama. Pasti kembali lagi!",
+        "name": "Rina S.",
+        "location": "Bogor, Jawa Barat"
+      }
+    }
+  },
+  "location": {
+    "mapAlt": "Ilustrasi rute menuju kawasan Darajat Pass di Garut",
+    "eyebrow": "AKSES & PETUNJUK",
+    "title": "Explore Darajat",
+    "address": "Darajat, Garut, Jawa Barat",
+    "description": "Terletak di ketinggian Darajat Pass dengan akses jalan beraspal yang mulus. Dikelilingi perkebunan sayur dan pemandangan kawah geotermal, tempat yang tepat untuk melarikan diri dari hiruk pikuk perkotaan.",
+    "directions": "Petunjuk Arah",
+    "contact": "Hubungi Kami"
+  },
+  "finalCta": {
+    "eyebrow": "RENCANAKAN LIBURAN ANDA",
+    "title": "Ready for Your Stay in Darajat?",
+    "description": "Temukan kamar yang sesuai dan rencanakan waktu menginap bersama keluarga di tengah kenyamanan kolam air hangat dan sejuknya pegunungan.",
+    "action": "Cek Ketersediaan Sekarang"
+  },
+  "footer": {
+    "about": "Hotel & resor ramah keluarga di kawasan dataran tinggi Darajat Pass, Garut. Menggabungkan kenyamanan alami, kolam air panas, dan panorama perbukitan asri.",
+    "galleryAriaLabel": "Lihat galeri",
+    "locationAriaLabel": "Lihat lokasi",
+    "mapAriaLabel": "Lihat peta",
+    "exploreTitle": "Eksplorasi",
+    "exploreAbout": "Tentang Kami",
+    "exploreRooms": "Kamar & Fasilitas",
+    "exploreHotSpring": "Kolam Air Panas",
+    "exploreGallery": "Galeri Momen",
+    "helpTitle": "Bantuan & Panduan",
+    "helpReservationPolicy": "Kebijakan Reservasi",
+    "helpRouteGuide": "Panduan Rute Darajat",
+    "helpContact": "Kontak & Bantuan",
+    "helpPrivacy": "Kebijakan Privasi",
+    "contactTitle": "Kontak & Lokasi",
+    "contactAddress": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Kabupaten Garut, Jawa Barat 44161",
+    "contactPhone": "+62 812-3456-7890",
+    "contactEmail": "halo@greenherodarajat.com",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
+    "demoNote": "Demo frontend · Data & kontak contoh"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "hero": {
+    "label": "CONTACT GREEN HERO",
+    "title": "We're Ready to Help Plan Your Stay",
+    "description": "Reach out to the Green Hero Darajat team for room information, reservations, facilities, or anything you need during your stay.",
+    "imageAlt": "Panorama of the green mountains around Darajat"
+  },
+  "cards": {
+    "ariaLabel": "Ways to contact the hotel",
+    "whatsapp": {
+      "title": "Chat via WhatsApp",
+      "badge": "Quick Response",
+      "description": "For quick questions about rooms, reservations, and stay requirements.",
+      "value": "{whatsapp} (24-Hour Service)",
+      "action": "Open WhatsApp"
+    },
+    "phone": {
+      "title": "Call the Hotel",
+      "badge": "Front Desk & Hotel",
+      "description": "Speak directly with the Green Hero Darajat reservations and front desk team.",
+      "action": "Call Now"
+    },
+    "email": {
+      "title": "Email Us",
+      "badge": "Official & Groups",
+      "description": "For information needs, group collaborations, or more formal communication.",
+      "action": "Send Email"
+    }
+  },
+  "reservation": {
+    "eyebrow": "QUICK RESERVATION ASSISTANCE",
+    "title": "Need Reservation Help?",
+    "description": "Our team can help with room availability, reservation details, and Green Hero Experiences.",
+    "chatAction": "Chat Reservations",
+    "checkAction": "Check Reservation",
+    "topicsLabel": "Popular Topics:"
+  },
+  "subjects": {
+    "rooms": "Room & Suite Information",
+    "groups": "Group / Extended Family Reservation",
+    "experiences": "Ask About Experience & Dining Packages",
+    "pools": "Hot Spring Pool Facilities",
+    "other": "Other Questions"
+  },
+  "topics": {
+    "roomAvailability": "Room Availability",
+    "reservationChange": "Reservation Changes",
+    "paymentConfirmation": "Payment & Confirmation",
+    "goatRoast": "Roasted Goat",
+    "bbqGrill": "BBQ & Grill",
+    "birthday": "Birthday Celebration",
+    "anniversary": "Anniversary Setup"
+  },
+  "form": {
+    "title": "Send a Message",
+    "description": "Leave your question or stay requirements here. This form is still a demo and does not send messages yet.",
+    "fields": {
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "e.g. Raden Surya",
+      "whatsappLabel": "WhatsApp Number",
+      "whatsappPlaceholder": "+62 812-xxxx-xxxx",
+      "emailLabel": "Email",
+      "emailPlaceholder": "email@you.com",
+      "subjectLabel": "Message Subject",
+      "messageLabel": "Your Message",
+      "messagePlaceholder": "Write your question, planned stay dates, or any special requirements here...",
+      "requiredMark": "*"
+    },
+    "submit": "Send Message",
+    "topicPrefill": "Hello Green Hero Darajat, I'd like to ask about {topic}.",
+    "status": "Simulation complete. Your message was not sent because this is a demo. Contact the hotel team via WhatsApp, phone, or email for direct assistance."
+  },
+  "service": {
+    "eyebrow": "RESORT OPERATIONS",
+    "title": "Service & Operations Information",
+    "description": "Green Hero Darajat is committed to providing excellent service for the comfort of your family holiday in the Darajat Pass area.",
+    "frontDesk": {
+      "title": "Front Desk Service",
+      "detail": "24 Hours Every Day, Non-Stop"
+    },
+    "checkInOut": {
+      "title": "Check-In & Check-Out Hours",
+      "detail": "Check-In: 2:00 PM WIB | Check-Out: 12:00 PM WIB"
+    },
+    "hotSpring": {
+      "title": "Natural Hot Spring Pool",
+      "detail": "06:00 – 22:00 WIB (Temperature 38°C – 41°C)"
+    },
+    "dining": {
+      "title": "Restaurant & Dining Service",
+      "detail": "07:00 – 22:00 WIB (Traditional & Western Menu)"
+    },
+    "concierge": {
+      "title": "WhatsApp Concierge Support",
+      "detail": "Active response 24 hours, ready to assist your trip"
+    },
+    "quote": "“The comfort of Garut's mountain air blends with the warmth of natural hot springs.”",
+    "quoteCite": "— GREEN HERO DARAJAT HOSPITALITY"
+  },
+  "location": {
+    "eyebrow": "ROUTE & LOCATION GUIDE",
+    "title": "Find Us in Darajat",
+    "description": "Strategically located in the Darajat Pass mountain tourism area of Garut, with smooth paved road access and cool mountain air.",
+    "altitude": "1,600 – 1,800 masl",
+    "name": "Green Hero Darajat",
+    "addressLabel": "OFFICIAL ADDRESS",
+    "areaLabel": "AREA DESCRIPTION",
+    "areaDescription": "Located in the Darajat Pass highlands with views of mountains and lush, sprawling tea plantations. Close to active craters and Garut's natural volcanic hot springs.",
+    "travelTimeLabel": "TRAVEL TIME",
+    "travelTimeFromGarut": "± 45 minutes from Garut Town Square / Tarogong",
+    "travelTimeFromBandung": "± 2.5 hours from Bandung City via the Cileunyi Toll Road",
+    "mapsAction": "Open in Google Maps",
+    "photoAlt": "Darajat Pass highland landscape, Garut",
+    "markerArea": "Darajat Pass Crater Tourism Area, Garut",
+    "markerTemperature": "Cool Temperature 16°C – 22°C",
+    "zoomInAria": "Zoom in on location view",
+    "zoomOutAria": "Zoom out on location view"
+  },
+  "booking": {
+    "eyebrow": "EASY & DIRECT RESERVATION",
+    "title": "Ready to Stay?",
+    "description": "Pick your travel dates and find available rooms at Green Hero Darajat. Feel the warmth of the hot springs amid the cool mountains.",
+    "bookNow": "Book Now",
+    "viewRooms": "View Rooms"
+  },
+  "footer": {
+    "about": "A nature-inspired retreat resort in the Garut highlands. Featuring natural hot spring bathing pools, mountain tea garden views, and signature Sundanese hospitality.",
+    "hours": "Front Office & Reservations 24 Hours Every Day",
+    "navTitle": "Navigation",
+    "navAbout": "About Us",
+    "navRooms": "Rooms & Facilities",
+    "navPolicy": "Reservation Policy",
+    "navRoute": "Darajat Route Guide",
+    "navContact": "Contact & Support",
+    "experiencesTitle": "Experiences & Dining",
+    "experienceGoatRoast": "Roasted Goat",
+    "experienceBbq": "BBQ & Grill",
+    "experienceChicken": "Grilled Free-Range Chicken",
+    "experienceBirthday": "Birthday Celebration",
+    "experienceAnniversary": "Anniversary Setup",
+    "contactTitle": "Contact & Location",
+    "conciergeLabel": "24-Hour WhatsApp Concierge: {whatsapp}",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "sitemap": "Sitemap"
+  }
+}

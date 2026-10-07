@@ -1,0 +1,164 @@
+{
+  "intro": {
+    "label": "Your Reservation",
+    "title": "Check Reservation Status",
+    "description": "Enter the reservation code and contact information used at booking to view your booking details."
+  },
+  "lookup": {
+    "ariaLabel": "Reservation search",
+    "fields": {
+      "codeLabel": "Reservation Code",
+      "codePlaceholder": "e.g. GH-260927-001",
+      "contactLabel": "WhatsApp Number or Email",
+      "contactPlaceholder": "Enter the WhatsApp or email used at booking"
+    },
+    "demoHint": "Demo: input can be left empty. The details shown use sample data.",
+    "actions": {
+      "check": "Check Reservation",
+      "checking": "Checking Reservation..."
+    }
+  },
+  "announcement": {
+    "loading": "Searching for demo reservation details.",
+    "found": "Demo reservation details found."
+  },
+  "loading": {
+    "ariaLabel": "Loading reservation details",
+    "title": "Searching for your reservation",
+    "description": "Please wait a moment..."
+  },
+  "result": {
+    "ariaLabel": "Demo reservation details",
+    "status": {
+      "bookingStatusLabel": "Booking Status:",
+      "paid": "Paid",
+      "confirmed": "Confirmed",
+      "bookingCodeLabel": "Booking Code:"
+    },
+    "timeline": {
+      "created": "Reservation Created",
+      "payment": "Payment",
+      "confirmed": "Reservation Confirmed",
+      "confirmedNote": "Room Guaranteed",
+      "checkIn": "Check-in",
+      "checkInNote": "Oct 18, 2026, 14:00"
+    },
+    "confirmation": {
+      "title": "Your Reservation Is Confirmed",
+      "description": "Sample reservation for {guestName}. This is a simulation; no booking, payment, or confirmation message was sent."
+    },
+    "stay": {
+      "heading": "Stay Details",
+      "voucherBadge": "Demo Digital Voucher",
+      "building": "Main Building, 2nd Floor",
+      "roomTitleSuffix": "Panoramic Balcony",
+      "amenityWifi": "Free High-Speed WiFi",
+      "amenityBreakfast": "Free Breakfast",
+      "fields": {
+        "guestName": "Primary Guest Name",
+        "roomCount": "Number of Rooms",
+        "roomCountValue": "1 VIP Room",
+        "capacity": "Guest Capacity",
+        "checkIn": "Check-in Date",
+        "checkInNote": "From 14:00 WIB",
+        "checkOut": "Check-out Date",
+        "checkOutNote": "By 12:00 WIB",
+        "duration": "Length of Stay",
+        "durationValue": "{nights} Nights",
+        "durationNote": "Comfortable Mountain Getaway"
+      }
+    },
+    "experiences": {
+      "heading": "Green Hero Experiences",
+      "description": "Selected add-on services for the comfort of your holiday in Pasirwangi.",
+      "countBadge": "2 Packages",
+      "bbq": {
+        "title": "BBQ & {grillName} Package",
+        "detail": "For {capacity} • {inclusions}",
+        "schedule": "Scheduled: Sunday Night, 19:00 WIB at the Gazebo Balcony Area",
+        "includedNote": "Included in the bill",
+        "imageAlt": "BBQ and Highland Grill package"
+      },
+      "firepit": {
+        "title": "Romantic Firepit & Warm Herbal Tea",
+        "detail": "An outdoor firepit warmer accompanied by Garut's signature mountain spiced tea for the family.",
+        "freeNote": "Complimentary facility for Suite guests",
+        "free": "Free",
+        "complimentary": "Complimentary Hospitality"
+      }
+    },
+    "payment": {
+      "heading": "Payment Summary",
+      "roomLine": "{roomName} ({nights} Nights)",
+      "bbqLine": "BBQ & {grillName} Package",
+      "firepitLine": "Romantic Firepit & Tea",
+      "firepitValue": "Rp 0 (Free)",
+      "taxLine": "Tax & Service Charge",
+      "taxValue": "Included",
+      "totalLabel": "Total Payment",
+      "totalNote": "Net Price (Nett)",
+      "methodLabel": "Payment Method:",
+      "methodValue": "BCA Virtual Account",
+      "transactionTimeLabel": "Transaction Time:",
+      "accountLabel": "Account/VA Number:",
+      "downloadVoucher": "Download E-Voucher & Proof",
+      "contactReceptionist": "Contact Reception via WhatsApp",
+      "security": "Voucher and payment are demo simulation only"
+    },
+    "modification": {
+      "title": "Want to Change Your Dates?",
+      "description": "Rescheduling can be requested at most 3 days before the check-in date. Contact the admin via WhatsApp for quick assistance."
+    }
+  },
+  "help": {
+    "title": "Need Reservation Help?",
+    "description": "The Green Hero Darajat team is ready to assist if you have trouble checking, rescheduling, or confirming a payment transfer.",
+    "action": "Contact Us via WhatsApp"
+  },
+  "voucher": {
+    "pageTitle": "Demo Voucher {code}",
+    "brand": "Green Hero Darajat",
+    "heading": "Demo E-Voucher & Reservation Proof",
+    "disclaimer": "DEMO SIMULATION — not a valid stay voucher or transaction proof.",
+    "codeLabel": "Code:",
+    "guestLabel": "Guest:",
+    "roomLabel": "Room:",
+    "checkInLabel": "Check-in:",
+    "checkOutLabel": "Check-out:",
+    "firepitLine": "Romantic Firepit & Tea",
+    "firepitFree": "Free",
+    "taxLine": "Tax & service",
+    "taxIncluded": "Included",
+    "totalLabel": "Total",
+    "statusLine": "Demo status: Confirmed & Paid",
+    "methodLine": "Method: BCA Virtual Account",
+    "timeLabel": "Time:"
+  },
+  "footer": {
+    "about": "A nature-inspired retreat resort in the cool mountains of the Darajat tourism area, featuring natural hot spring baths sourced directly from Garut's volcanic sulfur crater.",
+    "navTitle": "Main Navigation",
+    "navRooms": "Rooms & Suites",
+    "navHotSpring": "Hot Spring Pool",
+    "navFacilities": "Resort Facilities",
+    "navGallery": "Photo Gallery",
+    "navRoute": "Darajat Route Guide",
+    "navContact": "Contact & Support",
+    "guestServicesTitle": "Guest Services",
+    "serviceCheckStatus": "Check Reservation Status",
+    "servicePolicy": "Reservation & Refund Policy",
+    "serviceCheckInOut": "Check-in / Out Terms",
+    "serviceGroups": "Group & Gathering Packages",
+    "servicePrivacy": "Privacy Policy",
+    "hoursTitle": "Operating Hours",
+    "hoursFrontDeskLabel": "Front Desk Service:",
+    "hoursFrontDeskValue": "24 Hours",
+    "hoursHotSpringLabel": "Hot Spring Bath:",
+    "hoursHotSpringValue": "24 Hours (Staying Guests)",
+    "hoursRestaurantLabel": "Restaurant & Grill:",
+    "hoursRestaurantValue": "06:00 – 22:00 WIB",
+    "hoursTemperature": "Average temperature: 17°C – 22°C (Cool)",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy"
+  }
+}

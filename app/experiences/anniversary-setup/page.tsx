@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AnniversarySetupPage from "@/features/experiences/components/AnniversarySetupPage";
+import AnniversarySetupPage from "@/features/experiences/pages/AnniversarySetupPage";
 
 export const metadata: Metadata = {
   title: "Honeymoon & Anniversary Setup | Green Hero Darajat",

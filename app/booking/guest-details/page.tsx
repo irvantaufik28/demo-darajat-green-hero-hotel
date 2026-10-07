@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { normalizeExtraCounts, getNights } from "@/features/booking/constants/booking-data";
 import { getRoom } from "@/features/rooms/constants/rooms-data";
 import { parseRoomSelection } from "@/features/rooms/constants/room-selection-data";
-import BookingGuestPage from "@/features/booking/components/BookingGuestPage";
+import BookingGuestPage from "@/features/booking/pages/BookingGuestPage";
 
 export const metadata: Metadata = {
   title: "Data Tamu | Green Hero Darajat",

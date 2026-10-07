@@ -1,0 +1,598 @@
+{
+  "common": {
+    "breadcrumbHome": "Home",
+    "breadcrumbExperiences": "Experiences",
+    "experiencesBadge": "GREEN HERO EXPERIENCES",
+    "popularBadge": "Most Popular",
+    "inclusionsLabel": "Included in the Package:",
+    "pricePerPackage": "/ package",
+    "selectPackage": "Choose Package",
+    "checkAvailability": "Check Availability",
+    "askAvailability": "Ask Availability",
+    "bookRoom": "Book a Room",
+    "bookRoomNow": "Book a Room Now",
+    "viewOtherExperiences": "View Other Experiences"
+  },
+  "bbqGrill": {
+    "breadcrumbCurrent": "BBQ & Grill",
+    "hero": {
+      "title": "BBQ & Grill Amid the Cool Darajat Air",
+      "description": "Enjoy quality time with family and friends with grill options prepared to complete your stay at Green Hero Darajat.",
+      "selectPackage": "Choose Package",
+      "checkAvailability": "Check Availability",
+      "imageAlt": "A family enjoying an outdoor BBQ in the Darajat mountain area"
+    },
+    "editorial": {
+      "eyebrow": "HIGHLAND DINING EXPERIENCE",
+      "title": "Warmer When Enjoyed Together",
+      "description": "From family dinners to small gatherings, Green Hero BBQ & Grill delivers a relaxed dining experience in the Darajat highland setting. The warmth of the embers perfects your mountain evening.",
+      "chipTitle": "Outdoor Highland Deck",
+      "chipSubtitle": "Views of the Darajat hills & evening mist",
+      "link": "View Package Options",
+      "photoAlt": "Fresh grill ingredients over charcoal at Green Hero Darajat",
+      "highlights": {
+        "family": {
+          "title": "For Family & Gatherings",
+          "description": "Flexibly designed for dining with loved ones, creating relaxed moments of togetherness without the hassle."
+        },
+        "prepared": {
+          "title": "Prepared for Your Reservation",
+          "description": "All fresh ingredients, special marinades, as well as grill and brazier equipment are hygienically prepared according to your reservation schedule."
+        },
+        "mountain": {
+          "title": "Grilling in a Mountain Atmosphere",
+          "description": "Enjoy hot dishes grilled by yourself or assisted by staff amid the cool breeze of the Darajat mountain slopes."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PACKAGE OPTIONS",
+      "title": "Choose a Package to Match Your Group Size",
+      "description": "Package options can be tailored to the needs of families or groups during your stay at Green Hero Darajat.",
+      "priceLabel": "Estimated Price",
+      "tagHighland": "Relaxed Portion",
+      "tagFamily": "Family Favorite",
+      "tagGrand": "Large Portion",
+      "note": "Prices on this page may change based on ingredient choices, number of guests, and event needs. Package availability follows the reservation schedule of your villa/room at Green Hero Darajat."
+    },
+    "ingredients": {
+      "eyebrow": "INGREDIENTS & PREPARATIONS",
+      "title": "Selections for Your Table",
+      "description": "Quality fresh ingredients cut hygienically and marinated with aromatic spices native to the Parahyangan mountains.",
+      "badge": "100% Halal & Fresh Preparation",
+      "categoryLabel": "CATEGORY {number}",
+      "meat": {
+        "title": "Meat Selection",
+        "description": "Premium beef with balanced marbling along with boneless chicken breast and thigh cuts that stay tender when grilled."
+      },
+      "sides": {
+        "title": "Grill Sides & Veggies",
+        "description": "A combination of savory grill sides and fresh organic vegetables harvested from farmers around the Pasirwangi slopes of Garut."
+      },
+      "sauces": {
+        "title": "Sauces & Marinades",
+        "description": "A blend of modern sauce recipes and authentic Sundanese flavors that enrich the aroma of charcoal grilling."
+      }
+    },
+    "cinematic": {
+      "eyebrow": "WARM DINING MOMENT",
+      "quote": "Warmth of the Grill, Cool of Darajat",
+      "description": "Sitting in a circle with family, listening to the crackle of embers in the gently misted mountain air at 1,800 meters above sea level.",
+      "imageAlt": "Embers glowing in the outdoor area of the Darajat mountains"
+    },
+    "addons": {
+      "pill": "Available as an add-on",
+      "title": "Complete Your BBQ",
+      "description": "Want extra portions of a particular dish? You can select the following add-ons when making your booking.",
+      "additionalBeef": "Additional Beef",
+      "additionalBeefSub": "Shortplate 250g",
+      "additionalChicken": "Additional Chicken",
+      "additionalChickenSub": "Savory Fillet 300g",
+      "mixedSeafood": "Mixed Seafood",
+      "mixedSeafoodSub": "Marinated Shrimp & Squid",
+      "extraVegetables": "Extra Vegetables",
+      "extraVegetablesSub": "Corn & Mushroom Platter",
+      "hotpot": "Hotpot / Suki",
+      "hotpotSub": "Tom Yum / Broth Soup",
+      "additionalServing": "Additional Serving",
+      "additionalServingSub": "Chef / Staff Assistance"
+    },
+    "howTo": {
+      "eyebrow": "A SIMPLE PROCESS",
+      "title": "BBQ Ordering Steps",
+      "description": "BBQ & Grill can be added during the booking process as part of the exclusive Green Hero Experiences.",
+      "steps": {
+        "selectPackage": {
+          "title": "Choose a Package",
+          "description": "Select the BBQ package (Highland Grill, Family Grill, or Grand Grill) that best suits the size of your group."
+        },
+        "schedule": {
+          "title": "Set the Date & Time",
+          "description": "Choose a serving time (an afternoon dining session at 5:00 PM or dinner at 7:00 PM WIB is available) on your villa terrace or the outdoor deck area."
+        },
+        "addToReservation": {
+          "title": "Add to Your Reservation",
+          "description": "Tick the BBQ option in the Add-On menu when booking your room, or confirm with our Guest Experience staff before check-in."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "AN UNFORGETTABLE EXPERIENCE",
+      "title": "Make Your Darajat Night Warmer",
+      "description": "Choose your favorite room and add the BBQ & Grill package at the Add-On step when making your online reservation.",
+      "bookRoom": "Book a Room Now",
+      "viewOther": "View Other Experiences"
+    }
+  },
+  "grilledChicken": {
+    "breadcrumbCurrent": "Grilled Chicken",
+    "hero": {
+      "title": "Free-Range Grilled Chicken to Enjoy Together",
+      "description": "A dish of free-range grilled chicken with distinctive Indonesian flavors, prepared to complete your time with family in the cool air of Darajat.",
+      "selectPackage": "Choose Package",
+      "checkAvailability": "Check Availability",
+      "imageAlt": "A family enjoying Free-Range Grilled Chicken on the outdoor terrace of Green Hero Darajat"
+    },
+    "editorial": {
+      "eyebrow": "ARCHIPELAGO FLAVORS",
+      "title": "Warm, Simple, and Delicious Together",
+      "description": "Green Hero Free-Range Grilled Chicken presents a familiar dish for family meals, gatherings, and relaxed moments during your stay in the Pasirwangi highlands.",
+      "chip": "Highland Traditional Cuisine — Savory and Sweet Spice Flavors",
+      "photoAlt": "Free-range grilled chicken with fresh raw vegetables and traditional sambal",
+      "highlights": {
+        "together": {
+          "title": "Perfect for Dining Together",
+          "description": "A practical choice for families and groups with portions designed to be just right and satisfying."
+        },
+        "prepared": {
+          "title": "Prepared According to Your Reservation",
+          "description": "Dishes are hygienically prepared based on your date and number of guests so the taste is always fresh when served."
+        },
+        "sides": {
+          "title": "Complete with Side Dishes",
+          "description": "Served with fluffy steamed rice, traditional sambal, fresh garden vegetables, tofu and tempeh, and other accompaniments."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PACKAGE OPTIONS",
+      "title": "Choose a Package to Match Your Group Size",
+      "description": "Package options can be tailored to the needs of families or groups during your stay at Green Hero Darajat.",
+      "popularBadge": "MOST POPULAR",
+      "note": "Prices may change based on the number of guests, choice of side dishes, and serving needs. Package availability follows your room or villa reservation at Green Hero Darajat."
+    },
+    "pendamping": {
+      "eyebrow": "TABLE COMPOSITION",
+      "title": "Complete with Favorite Side Dishes",
+      "description": "Every dish is hygienically prepared using fresh local ingredients from the Pasirwangi slopes of Garut.",
+      "items": {
+        "grilledChicken": {
+          "title": "Free-Range Grilled Chicken",
+          "description": "Tender, savory meat infused with West Javanese sweet-savory spice glaze, slowly grilled over coconut-shell charcoal."
+        },
+        "warmRice": {
+          "title": "Warm Rice",
+          "description": "Fluffy steaming white rice served in a traditional woven bamboo basket, preserving its natural aroma and warmth in the cool mountain air."
+        },
+        "sambal": {
+          "title": "Assorted Sambal",
+          "description": "Fresh ground shrimp-paste sambal, green tomato dadak sambal, and sweet-spicy soy-chili sambal for a richly flavorful dining combination."
+        },
+        "lalapan": {
+          "title": "Fresh Raw Vegetables",
+          "description": "Crunchy cucumber, fragrant basil leaves, cabbage, and fresh watercress harvested directly from the horticultural gardens on the Garut slopes."
+        },
+        "tahuTempe": {
+          "title": "Tofu & Tempeh",
+          "description": "Savory West Javanese silken tofu and local soybean tempeh fried with coriander spices, crispy outside and soft inside."
+        },
+        "vegetables": {
+          "title": "Side Vegetables",
+          "description": "Fresh tangy-spicy sayur asem broth or a warm spiced soup to refresh the Darajat mountain evening."
+        }
+      }
+    },
+    "cinematic": {
+      "quote": "Archipelago Flavors in the Cool of Darajat",
+      "description": "Sitting together enjoying the warmth of traditional spices amid natural panoramas at 1,800 meters above sea level.",
+      "imageAlt": "An outdoor dinner atmosphere in the misty Darajat mountains"
+    },
+    "addons": {
+      "eyebrow": "ADDITIONAL EXTRAS",
+      "title": "Add to Your Taste",
+      "description": "Available as add-ons to complete your family's meal.",
+      "tag": "Available as an add-on",
+      "extraChicken": "Extra Free-Range Chicken",
+      "extraChickenSub": "1 Whole Grilled Chicken",
+      "additionalRice": "Additional Rice",
+      "additionalRiceSub": "Extra Rice Basket",
+      "extraSambal": "Extra Sambal",
+      "extraSambalSub": "Choice of Signature Sambal",
+      "tahuTempe": "Tofu & Tempeh",
+      "tahuTempeSub": "Additional Platter",
+      "vegetables": "Side Vegetables",
+      "vegetablesSub": "Bowl of Sayur Asem",
+      "drinks": "Additional Drinks",
+      "drinksSub": "Ginger Tea / Sweet Tea"
+    },
+    "howTo": {
+      "eyebrow": "A SIMPLE PROCESS",
+      "title": "Grilled Chicken Ordering Steps",
+      "description": "Three concise steps to enjoy a warm mountain-style dish.",
+      "steps": {
+        "selectPackage": {
+          "title": "Choose a Package",
+          "description": "Match the Family, Gathering, or Celebration package to the number of family members and guests in your group."
+        },
+        "schedule": {
+          "title": "Set the Date & Time",
+          "description": "Choose an afternoon or evening serving schedule on your private villa terrace or at the resort restaurant."
+        },
+        "addToReservation": {
+          "title": "Add to Your Reservation",
+          "description": "Tick the Free-Range Grilled Chicken option in the Add-On menu when booking your room, or confirm with our Guest Experience staff."
+        }
+      }
+    },
+    "cta": {
+      "title": "Enjoy Dining Together at Green Hero",
+      "description": "Choose a room and add Free-Range Grilled Chicken as part of your stay experience in the cool nature of Darajat.",
+      "bookRoom": "Book a Room Now",
+      "viewOther": "View Other Experiences"
+    }
+  },
+  "roastGoat": {
+    "breadcrumbCurrent": "Roast Goat",
+    "hero": {
+      "title": "Roast Goat for Moments Together",
+      "description": "Enjoy a warm roast goat dish to complete your time with family, friends, or special events during your stay at Green Hero Darajat.",
+      "selectPackage": "Choose Package",
+      "askAvailability": "Ask Availability",
+      "imageAlt": "Warm roast goat served in the outdoor area of Green Hero Darajat"
+    },
+    "editorial": {
+      "eyebrow": "THE WARMTH OF HIGHLAND TRADITION",
+      "title": "A Warm Dish for Special Moments",
+      "description": "From family meals to small celebrations, Green Hero Roast Goat can be added as a special experience during your stay.",
+      "chip": "Resort Culinary Tradition",
+      "photoAlt": "Roast goat served with traditional Sundanese tableware",
+      "features": {
+        "family": {
+          "title": "Perfect for Family & Gatherings",
+          "description": "Portions designed to be just right for sharing in a cool and warm mountain atmosphere."
+        },
+        "prepared": {
+          "title": "Prepared for Your Event",
+          "description": "Processed with a traditional approach and served for the moment you have planned."
+        },
+        "reservation": {
+          "title": "Available by Reservation",
+          "description": "This experience can be added according to your stay schedule and service availability."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PACKAGE OPTIONS",
+      "title": "Choose According to Your Group Size",
+      "description": "Each package is fully prepared with serving equipment and signature Sundanese Darajat accompanying spices.",
+      "priceLabel": "Package Price",
+      "inclusionsLabel": "Inclusions:",
+      "noteLabel": "Note:",
+      "note": "Prices and portion sizes can be adjusted to event needs. Package availability follows the reservation date and hotel operations."
+    },
+    "experience": {
+      "eyebrow": "THE EXPERIENCE",
+      "title": "More Than Just an Add-On Menu",
+      "description": "Make dining together part of your stay experience. The package can be prepared for family, gatherings, birthdays, or other special moments amid the cool air of the Darajat mountains.",
+      "photoAlt": "A family enjoying a meal together in the outdoor area of Green Hero Darajat",
+      "moments": {
+        "familyDinner": "Family Dinner",
+        "gathering": "Gathering",
+        "birthday": "Birthday",
+        "celebration": "Celebration"
+      }
+    },
+    "howTo": {
+      "eyebrow": "SIMPLE STEPS",
+      "title": "How to Order",
+      "description": "Green Hero Experiences can be flexibly added during the room booking process.",
+      "steps": {
+        "selectPackage": {
+          "title": "Choose a Package",
+          "description": "Match the package capacity to the number of guests who will be dining."
+        },
+        "schedule": {
+          "title": "Set the Date & Time",
+          "description": "Choose the serving time that best suits your family event."
+        },
+        "addToReservation": {
+          "title": "Add to Your Reservation",
+          "description": "The package will be confirmed automatically and prepared warm by our team."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "ADD IT TO YOUR EXPERIENCE",
+      "title": "Add It to Your Stay Experience",
+      "description": "Choose your room first, then add Roast Goat at the Add-On step during the online reservation process.",
+      "bookRoom": "Book a Room",
+      "whatsapp": "Check Availability via WhatsApp"
+    }
+  },
+  "birthdayCelebration": {
+    "breadcrumbCurrent": "Birthday Celebration",
+    "hero": {
+      "title": "Celebrate a Special Moment in the Cool of Darajat",
+      "description": "Complete your stay with a warm, simple, and memorable birthday celebration at Green Hero Darajat.",
+      "selectPackage": "Choose Package",
+      "askAvailability": "Ask Availability",
+      "imageAlt": "A family celebrating a birthday on the outdoor terrace of Green Hero Darajat"
+    },
+    "editorial": {
+      "eyebrow": "INTIMATE HIGHLAND CELEBRATION",
+      "title": "A Warm and Memorable Celebration",
+      "description": "From a simple surprise in your room to a more complete family celebration, Green Hero Birthday Celebration is designed to create a comfortable and enjoyable atmosphere.",
+      "chipLabel": "Atmosphere",
+      "chipTitle": "Calm & Warm in the Highlands",
+      "link": "View Package Options",
+      "photoAlt": "A warm birthday room with natural decor at Green Hero Darajat",
+      "highlights": {
+        "family": {
+          "title": "Perfect for Families",
+          "description": "The celebration is designed to feel comfortable for couples, families, or closest guests."
+        },
+        "decor": {
+          "title": "Warmly Toned Decor",
+          "description": "Uses natural, soft decor elements that harmonize with the mountain resort atmosphere."
+        },
+        "reservation": {
+          "title": "Available by Reservation",
+          "description": "Each setup is specially prepared according to your stay date and celebration needs."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "PACKAGE OPTIONS",
+      "title": "Choose a Package to Match Your Moment",
+      "description": "The packages are designed to provide a celebration experience from simple to more complete, while staying in harmony with the Green Hero Darajat atmosphere.",
+      "priceLabel": "Starting From",
+      "inclusionsLabel": "Included in the package:",
+      "note": "Prices may change based on the number of guests, decoration needs, and setup location. Package availability follows reservations and hotel operations."
+    },
+    "style": {
+      "eyebrow": "HARMONIOUS RESORT AESTHETIC",
+      "title": "A Celebration Mood in Harmony with Green Hero",
+      "description": "The celebration is designed to remain warm, natural, and comfortable, using an understated decoration approach to harmonize with the Darajat mountain atmosphere.",
+      "photoLabel": "Organic Minimalist Details",
+      "photoAlt": "A birthday cake and floral decor in a Green Hero Darajat room",
+      "items": {
+        "lighting": {
+          "title": "Warm Lighting",
+          "description": "Soft lanterns and dim string lights perfect the cool air."
+        },
+        "tones": {
+          "title": "Natural Tones",
+          "description": "Calming touches of earthy beige, sage green, ivory, and champagne."
+        },
+        "floral": {
+          "title": "Floral & Foliage Accents",
+          "description": "Arrangements of fresh eucalyptus leaves and subtle, clean-scented flowers."
+        },
+        "table": {
+          "title": "Elegant Table Styling",
+          "description": "Classy linen tableware and personal greeting-card details."
+        }
+      }
+    },
+    "moments": {
+      "title": "Perfect for Various Moments",
+      "items": {
+        "birthdaySurprise": "Birthday Surprise",
+        "familyCelebration": "Family Celebration",
+        "anniversaryDinner": "Anniversary Dinner",
+        "smallGathering": "Small Gathering",
+        "intimateCelebration": "Intimate Celebration"
+      }
+    },
+    "addons": {
+      "eyebrow": "CUSTOMIZE EXPERIENCE",
+      "title": "Complete Your Celebration",
+      "description": "A selection of extras available as add-ons to perfect your special day.",
+      "subLabel": "Add-on",
+      "cake": "Extra Birthday Cake",
+      "roomDecoration": "Additional Room Decoration",
+      "flower": "Flower Arrangement",
+      "welcomeDrinks": "Welcome Drinks",
+      "diningSetup": "Dining Setup",
+      "photoCorner": "Photo Corner",
+      "bbqPairing": "BBQ / Dining Pairing"
+    },
+    "cinematic": {
+      "eyebrow": "UNFORGETTABLE HIGHLAND NIGHTS",
+      "title": "Celebrate in the Highlands",
+      "description": "The cool air of Garut, the warmth of family, and the stillness of nature that soothes the soul.",
+      "imageAlt": "A villa outdoor terrace at night against the misty Darajat valley"
+    },
+    "howTo": {
+      "eyebrow": "RESERVATION FLOW",
+      "title": "How to Order the Package",
+      "description": "Birthday Celebration can be added during the room booking process or confirmed with your reservation.",
+      "steps": {
+        "selectPackage": {
+          "title": "Choose a Package",
+          "description": "Select the celebration package that matches the number of guests, surprise concept, and your decoration preferences."
+        },
+        "detail": {
+          "title": "Set the Date & Details",
+          "description": "Let us know the celebrant's name, age, special greeting requests, and your preferred decoration setup time."
+        },
+        "addToReservation": {
+          "title": "Add to Your Reservation",
+          "description": "The package will be confirmed by our reservation team and prepared in your chosen room or venue before your arrival."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "MAKE IT MEMORABLE",
+      "title": "Make Your Stay More Memorable",
+      "description": "Choose a room and add Birthday Celebration as part of your stay experience at Green Hero Darajat.",
+      "bookRoom": "Book a Room",
+      "viewOther": "View Other Experiences"
+    }
+  },
+  "anniversarySetup": {
+    "badge": "Green Hero Experiences",
+    "hero": {
+      "title": "Celebrate Your Journey in the Cool of Darajat",
+      "description": "Time for two feels more special with a warm atmosphere, personal decoration, and the tranquility of the Green Hero Darajat highlands.",
+      "selectPackage": "Choose Package",
+      "askAvailability": "Ask Availability",
+      "imageAlt": "A romantic candlelit dinner table in the open area of Green Hero Darajat"
+    },
+    "intro": {
+      "eyebrow": "A Moment for Two",
+      "title": "A More Personal Moment to Celebrate Together",
+      "link": "View Package Options",
+      "photoCaption": "Intimate Highland Suite — A Warm Atmosphere for Two",
+      "photoAlt": "A Green Hero Darajat room with floral decor and heart-shaped towels for an anniversary",
+      "highlights": {
+        "forTwo": {
+          "title": "Designed for Two",
+          "description": "Every setup is created to establish a calm, comfortable, and personal atmosphere."
+        },
+        "intimate": {
+          "title": "More Intimate Details",
+          "description": "Uses floral elements, warm lighting, linen, and soft decoration."
+        },
+        "reservation": {
+          "title": "Prepared According to Your Reservation",
+          "description": "The setup follows your stay date, guest preferences, and hotel availability."
+        }
+      }
+    },
+    "packages": {
+      "eyebrow": "Package Options",
+      "title": "Choose How to Celebrate Your Moment",
+      "description": "Three experience options to complete your time for two during your stay at Green Hero Darajat.",
+      "popularBadge": "Most Popular",
+      "pricePerPackage": "/ package",
+      "note": "Prices in this prototype may change based on decoration needs, dining choices, and personalization details. Package availability follows reservations and hotel operations."
+    },
+    "dining": {
+      "eyebrow": "Romantic Dining",
+      "title": "A Dinner for Two in a More Intimate Atmosphere",
+      "description": "Complete your anniversary with a simple dining setup designed to enjoy time together without an overdone atmosphere.",
+      "photoAlt": "A dinner table for two on a balcony with a Darajat panorama",
+      "items": {
+        "lighting": {
+          "title": "Warm Table Lighting",
+          "description": "Dim candle lanterns create warmth in the cool highland air."
+        },
+        "tableware": {
+          "title": "Natural Tableware & Linen",
+          "description": "Natural linen textures, fine porcelain ceramics, and touches of fresh foliage."
+        },
+        "setup": {
+          "title": "Intimate Balcony or Room Setup",
+          "description": "A choice of dinner on your private room balcony or an open wooden deck."
+        }
+      }
+    },
+    "style": {
+      "eyebrow": "Harmony with Nature",
+      "title": "A Mood in Harmony with Green Hero",
+      "description": "The decoration uses a natural and calm approach to stay in harmony with the mountain atmosphere and the character of Green Hero Darajat.",
+      "items": {
+        "candlelight": {
+          "title": "Warm Candlelight & Fairy Lights",
+          "description": "Warm 2700K dim lighting that is soothing and intimate."
+        },
+        "flowers": {
+          "title": "Natural Flowers & Foliage",
+          "description": "White flowers, eucalyptus, olive, and fresh champagne tone touches."
+        },
+        "linen": {
+          "title": "Linen & Rustic Teak Wood",
+          "description": "Natural linen fabric textures and warm teak wood typical of a mountain villa."
+        },
+        "petals": {
+          "title": "Subtle Petals & Gold Accents",
+          "description": "Subtle flower petal accents without an excessive or artificial impression."
+        }
+      }
+    },
+    "personal": {
+      "eyebrow": "Special Touches",
+      "title": "Make It More Personal",
+      "description": "Every story has a unique journey. You can customize the personalization details before arrival:",
+      "items": {
+        "name": {
+          "title": "Couple's Names",
+          "description": "Written on a wooden sign"
+        },
+        "message": {
+          "title": "Personalized Message",
+          "description": "An exclusive handwritten greeting card"
+        },
+        "date": {
+          "title": "Wedding Date & Year",
+          "description": "A marker of your love journey"
+        },
+        "time": {
+          "title": "Preferred Setup Time",
+          "description": "Before check-in / in the evening"
+        },
+        "cake": {
+          "title": "Special Message on the Cake",
+          "description": "A sweet message on top of an artisan cake"
+        },
+        "palette": {
+          "title": "Flower & Color Preference",
+          "description": "A harmonious touch of a soft palette"
+        }
+      }
+    },
+    "addons": {
+      "title": "Complete Your Moment",
+      "description": "Available as optional add-ons to perfect your special day:",
+      "subLabel": "Add-on available",
+      "cake": "Anniversary Cake",
+      "floral": "Floral Arrangement",
+      "dinner": "Romantic Dinner",
+      "welcomeDrinks": "Welcome Drinks",
+      "roomDecoration": "Room Decoration",
+      "photoCorner": "Photo Corner"
+    },
+    "quiet": {
+      "title": "A Quiet Celebration in the Highlands",
+      "description": "Enjoying the stillness of the Garut mountain nature, the warmth of candlelight, and meaningful time for two.",
+      "imageAlt": "A calm candlelight dinner atmosphere in the Darajat highlands"
+    },
+    "order": {
+      "eyebrow": "A Simple Process",
+      "title": "How to Order the Anniversary Package",
+      "description": "Three easy steps to create a memorable surprise for your partner.",
+      "note": "Anniversary Setup can be added during the room booking process and confirmed based on availability.",
+      "steps": {
+        "selectPackage": {
+          "title": "Choose a Package",
+          "description": "Select the celebration package that suits you and your partner from the 3 available options."
+        },
+        "detail": {
+          "title": "Set the Date & Details",
+          "description": "Provide your stay date, special greeting, couple's names, and desired setup time upon confirmation."
+        },
+        "addToReservation": {
+          "title": "Add to Your Reservation",
+          "description": "The package is confirmed by the guest experience team and neatly prepared in your room before you arrive at the resort."
+        }
+      }
+    },
+    "cta": {
+      "title": "Make Your Time for Two More Memorable",
+      "description": "Choose a room and add Anniversary Setup as part of your stay experience at Green Hero Darajat.",
+      "bookRoom": "Book a Room Now",
+      "viewOther": "View Other Experiences"
+    }
+  }
+}

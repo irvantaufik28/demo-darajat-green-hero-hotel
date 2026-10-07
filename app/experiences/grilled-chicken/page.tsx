@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GrilledChickenPage from "@/features/experiences/components/GrilledChickenPage";
+import GrilledChickenPage from "@/features/experiences/pages/GrilledChickenPage";
 
 export const metadata: Metadata = {
   title: "Grilled Chicken (Ayam Bakar Kampung) Experience | Green Hero Darajat",

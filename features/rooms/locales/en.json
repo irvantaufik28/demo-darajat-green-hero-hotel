@@ -1,0 +1,245 @@
+{
+  "list": {
+    "heroAriaLabel": "Green Hero Darajat Rooms and Suites",
+    "heroImageAlt": "Green Hero Darajat, warm pool, and mountain panorama at dusk",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Rooms & Suites",
+    "eyebrow": "OUR ROOMS",
+    "title": "Find the Right Room for Your Journey",
+    "description": "Choose a comfortable room to rest in with your partner, family, or group while enjoying the cool atmosphere and natural hot springs of Darajat."
+  },
+  "availability": {
+    "ariaLabel": "Search rooms",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Guests",
+    "rooms": "Rooms",
+    "allRoomTypes": "All Room Types",
+    "unavailableSuffix": " — Unavailable",
+    "search": "Check Availability",
+    "guestOptions": {
+      "twoAdults": "2 Adults",
+      "fourAdultsFamily": "4 Adults (Family)",
+      "group": "Group (5-8 Guests)",
+      "largeGroup": "Large Group (10+ Guests)"
+    },
+    "messages": {
+      "selectDates": "Please select check-in and check-out dates first.",
+      "checkoutAfterCheckin": "Check-out date must be after the check-in date.",
+      "searchResult": "Demo search: {available} room types available and {unavailable} unavailable. The prices shown are examples."
+    }
+  },
+  "intro": {
+    "eyebrow": "LUXURY HIGHLAND SANCTUARY",
+    "title": "Authentic Comfort on the Darajat Slopes",
+    "description": "Each space is designed with a blend of warm natural teak wood, mountain mist panoramas, and soothing geothermal hot spring facilities.",
+    "note": "Access to natural hot spring pool facilities & morning breakfast",
+    "priceDisclaimer": "The prices, remaining rooms, availability, and cancellation policy on this page are sample data."
+  },
+  "card": {
+    "layoutAriaLabel": "Room choices and price summary",
+    "unavailable": "Unavailable",
+    "remainingRooms": "{count} rooms left",
+    "priceFrom": "Starting from",
+    "priceReference": "Reference price",
+    "perNight": "/ night",
+    "viewDetail": "View Detail",
+    "quantityAriaLabel": "Quantity of {name}",
+    "decreaseAriaLabel": "Decrease {name}",
+    "increaseAriaLabel": "Increase {name}",
+    "selectRoom": "Select Room"
+  },
+  "cart": {
+    "ariaLabel": "Room selection summary",
+    "eyebrow": "BOOKING SUMMARY",
+    "brand": "Green Hero Darajat",
+    "nights": "{count} Nights",
+    "selectValidDates": "Select valid stay dates",
+    "roomHeading": "Rooms",
+    "roomsSelected": "{count} rooms selected",
+    "included": "Breakfast & hot spring pool access",
+    "roomLine": "{count} Rooms × {price} × {nights} Nights",
+    "removeAriaLabel": "Remove {name} from selection",
+    "remove": "Remove",
+    "emptyTitle": "No rooms selected yet",
+    "emptyDescription": "Choose room types and quantities from the list. You can add several room types at once.",
+    "roomSubtotal": "Room Subtotal",
+    "total": "Total",
+    "taxIncluded": "Includes tax & service charge",
+    "continue": "Continue to Add-ons",
+    "forwardedNote": "All room choices are carried forward in a single booking.",
+    "selectAtLeastOne": "Select at least 1 room to continue.",
+    "mobileSummary": "{count} Rooms • {price}",
+    "mobileViewSummary": "View Summary"
+  },
+  "benefits": {
+    "eyebrow": "GUEST BENEFITS",
+    "title": "Direct Booking Made Easier",
+    "items": {
+      "directReservation": {
+        "title": "Direct Reservation Process",
+        "description": "Choose rooms directly from Green Hero Darajat with easy-to-understand information."
+      },
+      "clearInfo": {
+        "title": "Clear Room Information",
+        "description": "See the facilities, guest capacity, and bed type of each room before choosing."
+      },
+      "staffSupport": {
+        "title": "Green Hero Staff Support",
+        "description": "Our team is ready to help with your stay needs and room arrangements."
+      }
+    }
+  },
+  "experience": {
+    "photoAlt": "BBQ and grill for the stay experience in Darajat",
+    "photoBadge": "Special Resort Experience",
+    "eyebrow": "CULINARY & WARMTH",
+    "title": "Add an Experience to Your Stay",
+    "description": "Enjoy the cool Darajat night with family over delicious dishes. Roast Goat, Grilled Chicken, and BBQ & Grill packages can be added when booking your room.",
+    "action": "View Add-on Packages",
+    "note": "Provided complete with grilling equipment & a campfire."
+  },
+  "finalCta": {
+    "eyebrow": "EASY RESERVATION",
+    "title": "Found the Right Room?",
+    "description": "Choose your stay dates and check Green Hero Darajat room availability to make your family holiday memorable.",
+    "checkAvailability": "Check Availability",
+    "contact": "Contact Us"
+  },
+  "selectionDate": {
+    "placeholder": "Select date"
+  },
+  "detail": {
+    "breadcrumbHome": "Home",
+    "breadcrumbRooms": "Rooms & Suites",
+    "galleryAriaLabel": "Photos of {name}",
+    "photoLinkAriaLabel": "Open photo {index} of {name}",
+    "photoAlt": "{name}, photo {index}",
+    "unavailableRibbon": "Unavailable",
+    "viewPhoto": "View Photo",
+    "statusUnavailable": "Unavailable",
+    "highlights": {
+      "capacity": "Capacity",
+      "bed": "Bed",
+      "ambiance": "Ambiance",
+      "resort": "Resort",
+      "resortValue": "Natural Warm Water"
+    },
+    "aboutTitle": "About This Room",
+    "aboutExtra": "This space offers a warm atmosphere to rest in after enjoying the cool Darajat air and resort facilities with your loved ones.",
+    "amenitiesTitle": "Room Facilities",
+    "stayInfoTitle": "Stay Information",
+    "stayInfo": {
+      "checkTimesTitle": "Check-in & Check-out Times",
+      "checkTimesDetail": "Check-in from 14.00 WIB · Check-out until 12.00 WIB",
+      "capacityTitle": "Guest Capacity",
+      "bedTitle": "Bed"
+    },
+    "cancellationTitle": "Cancellation Policy",
+    "booking": {
+      "ariaLabel": "Room price and availability",
+      "remainingRooms": "{count} rooms left",
+      "unavailable": "Unavailable",
+      "edit": "Edit",
+      "priceFrom": "Starting from",
+      "priceReference": "Reference price",
+      "perNight": "/ night",
+      "included": "Includes access to the natural hot spring pool",
+      "stayLabel": "Stay Dates",
+      "nights": "({count} Nights)",
+      "oneRoom": "1 {name}",
+      "formCheckIn": "Check-in",
+      "formCheckOut": "Check-out",
+      "formGuests": "Guests",
+      "guestOptions": {
+        "twoAdultsOneChild": "2 Adults, 1 Child",
+        "twoAdults": "2 Adults",
+        "threeAdults": "3 Adults",
+        "fourAdults": "4 Adults"
+      },
+      "checkAvailability": "Check Availability",
+      "priceSummaryRoom": "Room Price ({nights} Nights x {price})",
+      "priceSummaryTax": "Tax & Service Charge",
+      "priceSummaryTaxIncluded": "Included",
+      "priceSummaryTotal": "Estimated Total",
+      "noticeTitle": "Try other dates",
+      "noticeDetail": "This room is marked unavailable in the demo data. Change the dates to see options, then contact the hotel to confirm.",
+      "pick": "Select Room",
+      "pickUnavailable": "Unavailable",
+      "editDatesLink": "Change dates or guests",
+      "assuranceReferencePrice": "Reference price directly from the hotel",
+      "assuranceConfirm": "Confirmation through the reservation team",
+      "datePromptQuestion": "Don't have a fixed schedule yet?",
+      "datePromptAction": "Choose other dates to see prices & availability",
+      "helpQuestion": "Need special reservation assistance?",
+      "helpAction": "Chat with the Hotel Reservation Team"
+    },
+    "messages": {
+      "selectDates": "Select check-in and check-out dates to check availability.",
+      "checkoutAfterCheckin": "Check-out date must be after the check-in date.",
+      "available": "This room is marked available in the demo data. Actual reservations are not yet connected.",
+      "unavailable": "This room is still marked unavailable in the demo data. Try other dates or contact the hotel to confirm."
+    },
+    "extras": {
+      "eyebrow": "ADD-ONS DURING YOUR STAY",
+      "title": "Complete Your Stay Experience",
+      "description": "Culinary options can be added when the reservation process becomes available.",
+      "roastGoatTitle": "Roast Goat",
+      "roastGoatDescription": "Perfect for large families and warm evening gatherings.",
+      "chickenTitle": "Grilled Chicken Family Set",
+      "chickenDescription": "A shared dining option for family in the cool atmosphere of Darajat.",
+      "bbqTitle": "BBQ & Grill Set",
+      "bbqDescription": "A grill package to enjoy together in the resort area."
+    },
+    "related": {
+      "eyebrow": "EXPLORE OTHER TYPES",
+      "title": "Other Room Choices",
+      "viewAll": "View All Rooms & Suites",
+      "perNight": "/ night",
+      "unavailable": "Unavailable",
+      "viewDetail": "View Detail"
+    },
+    "finalCta": {
+      "eyebrow": "GREEN HERO DARAJAT RESERVATION",
+      "title": "Ready to Stay at Green Hero Darajat?",
+      "description": "Choose your stay dates and review the room choices to enjoy a warm mountain holiday.",
+      "action": "Check Availability"
+    }
+  },
+  "modal": {
+    "amenitiesTitle": "Room Facilities",
+    "cancellationTitle": "Cancellation Policy",
+    "closeAriaLabel": "Close room information",
+    "close": "Close"
+  },
+  "footer": {
+    "aboutList": "A family-friendly hotel & resort in the Darajat Pass highlands, Garut. Combining natural comfort, hot springs, and lush rolling hill panoramas.",
+    "aboutDetail": "A family-friendly hotel & resort in the Darajat Pass highlands, Garut. Enjoy the cool air and natural hot springs.",
+    "galleryAriaLabel": "View gallery",
+    "locationAriaLabel": "View location",
+    "mapAriaLabel": "View map",
+    "exploreTitle": "Explore",
+    "exploreAbout": "About Us",
+    "exploreHome": "Home",
+    "exploreRooms": "Rooms & Suites",
+    "exploreHotSpring": "Hot Spring Pool",
+    "exploreGallery": "Moments Gallery",
+    "exploreFacilities": "Facilities",
+    "exploreExperiences": "Experiences",
+    "helpTitle": "Help & Guides",
+    "helpTitleShort": "Help",
+    "helpCheckAvailability": "Check Availability",
+    "helpRouteGuide": "Darajat Route Guide",
+    "helpRouteGuideShort": "Route Guide",
+    "helpContact": "Contact & Support",
+    "helpContactShort": "Contact",
+    "contactTitle": "Contact & Location",
+    "contactAddress": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut Regency, West Java 44161",
+    "contactAddressShort": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut",
+    "contactEmail": "halo@greenherodarajat.com",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "copyrightShort": "© 2026 Green Hero Darajat Hotel & Resort.",
+    "demoNote": "Frontend demo · Sample data & contacts",
+    "demoNoteShort": "Frontend demo · Sample prices & availability"
+  }
+}

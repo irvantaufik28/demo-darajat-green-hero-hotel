@@ -1,0 +1,430 @@
+{
+  "progress": {
+    "ariaLabel": "Booking stages",
+    "selectRoom": "Select Room",
+    "addOns": "Add-ons",
+    "guestDetails": "Guest Details",
+    "payment": "Payment"
+  },
+  "extras": {
+    "intro": {
+      "eyebrow": "ADD-ONS",
+      "title": "Complete Your Stay Experience",
+      "description": "Add options to suit your needs during your stay in the cool Darajat area. All add-ons are optional and can be skipped to the next step."
+    },
+    "stayBanner": {
+      "roomSelection": "Room Selection",
+      "roomCount": "{count} Rooms",
+      "stayRange": "{checkIn} → {checkOut} ({nights} Nights)",
+      "roomSubtotal": "Room Subtotal:",
+      "changeRoom": "Change Room"
+    },
+    "food": {
+      "badge": "FOOD & GRILL",
+      "title": "Enjoy Time Together in the Cool Air of Darajat",
+      "description": "Enjoy warm dishes right on the resort terrace while taking in the misty panorama of the Garut highlands with your beloved family.",
+      "heroAlt": "Dining together on the Green Hero Darajat resort terrace",
+      "added": "Added",
+      "priceFrom": "Starting from",
+      "perPackage": "/ package",
+      "changePackage": "Change Package",
+      "selectPackage": "Select Package",
+      "note": "Dining options are prepared fresh directly by the resort kitchen team."
+    },
+    "roomAddons": {
+      "badge": "ROOM ADD-ONS",
+      "title": "Add-ons for Room Comfort",
+      "items": {
+        "extraBed": {
+          "name": "Extra Bed",
+          "description": "A quality additional single bed to match capacity and resting comfort.",
+          "unit": "/ night",
+          "vipDescription": "The VIP room supports 1 extra bed. A quality additional single bed to match capacity and resting comfort."
+        },
+        "extraPerson": {
+          "name": "Extra Person",
+          "note": "Subject to capacity",
+          "description": "An additional guest with basic amenities, subject to the room's maximum capacity.",
+          "unit": "/ person",
+          "vipNote": "Max. 1 additional guest"
+        },
+        "breakfast": {
+          "name": "Additional Breakfast",
+          "description": "An additional Nusantara-style buffet breakfast for accompanying guests not included in the reservation package.",
+          "unit": "/ person"
+        },
+        "babyCot": {
+          "name": "Baby Cot / Crib",
+          "note": "By Request",
+          "description": "A baby cot and mattress for your little one's sleeping comfort, subject to availability.",
+          "priceLabel": "Subject to Availability"
+        }
+      },
+      "added": "Added",
+      "requested": "Requested",
+      "singleUnitAdded": "1 Unit Added",
+      "removeAriaLabel": "Remove {name}",
+      "add": "Add",
+      "submit": "Request"
+    },
+    "moments": {
+      "badge": "SPECIAL MOMENTS",
+      "title": "Make Your Stay More Memorable",
+      "selected": "Selected",
+      "priceLabel": "Package price",
+      "priceFrom": "Starting from",
+      "perPackage": "/ package",
+      "changePackage": "Change Package",
+      "selectPackage": "Select Package"
+    },
+    "requests": {
+      "badge": "ADDITIONAL REQUESTS",
+      "title": "Requests During Your Stay",
+      "description": "Note: Special requests are not guaranteed instantly and depend on room availability at check-in.",
+      "earlyCheckIn": "Early Check-in",
+      "lateCheckOut": "Late Check-out",
+      "requestSubmitted": "Request submitted",
+      "statusByRequest": "Status: By Request",
+      "cancel": "Cancel",
+      "submitRequest": "Submit Request",
+      "noteLabel": "Special Note (Optional)",
+      "notePlaceholder": "Example: rooms close to family, special elderly-friendly needs, or a request for BBQ serving time..."
+    },
+    "summary": {
+      "ariaLabel": "Booking summary",
+      "title": "Booking Summary",
+      "step": "Step 2 of 4",
+      "stayLine": "{count} Rooms ({nights} Nights)",
+      "costTitle": "Cost Breakdown:",
+      "roomSubtotal": "Subtotal {count} Rooms ({nights} Nights)",
+      "addonsTitle": "Add-ons:",
+      "extraBedUnit": "({nights} Nights)",
+      "countUnit": "({count}x)",
+      "noPaidOptions": "No paid options yet.",
+      "otherRequests": "Other requests are confirmed by hotel staff.",
+      "estimatedTotal": "Preliminary Estimated Total",
+      "taxIncluded": "Includes tax & service",
+      "continue": "Continue to Guest Details",
+      "skip": "Skip Add-ons",
+      "trust": "All add-ons are optional. Payment and final details are confirmed in the next step."
+    }
+  },
+  "guest": {
+    "intro": {
+      "eyebrow": "GUEST DETAILS",
+      "title": "Complete the Booker's Details",
+      "description": "Dummy booker data is pre-filled for the demo. You can edit the data before continuing; the data is not yet sent to the server."
+    },
+    "form": {
+      "title": "Main Booking Contact",
+      "description": "This data is used to contact the booker and prepare the stay information.",
+      "fullNameLabel": "Full Name",
+      "fullNameHint": "As on ID Card / Passport",
+      "fullNamePlaceholder": "Name as on identity (ID Card / Passport)",
+      "fullNameNote": "The name registered during check-in at the reception.",
+      "nationalityLabel": "Nationality",
+      "nationalityHint": "WhatsApp Country Code",
+      "whatsappLabel": "WhatsApp Number",
+      "whatsappHint": "Active on WhatsApp",
+      "whatsappTitle": "Enter 6–14 digits without a country code or a leading 0",
+      "whatsappNote": "The country code follows the nationality. Enter the number without a country code or a leading 0.",
+      "emailLabel": "Email Address",
+      "emailHint": "For Reservation Documents",
+      "emailPlaceholder": "name@email.com",
+      "emailNote": "Reservation details can be sent to this email address when the service is available.",
+      "security": "Demo data is stored temporarily in your browser and is not sent to the server.",
+      "backLink": "Back to Add-ons"
+    },
+    "resortNote": {
+      "imageAlt": "Green Hero Darajat mountain resort atmosphere",
+      "brand": "GREEN HERO DARAJAT",
+      "text": "Rest in the cool mountain air of Garut with a warm atmosphere for the family."
+    },
+    "summary": {
+      "ariaLabel": "Booking summary",
+      "title": "Booking Summary",
+      "step": "Step 3 of 4",
+      "roomLine": "{count} Rooms ({nights} Nights)",
+      "brand": "Green Hero Darajat",
+      "change": "Edit",
+      "checkIn": "Check-in",
+      "checkInTime": "From 14:00",
+      "checkOut": "Check-out",
+      "checkOutTime": "Before 12:00",
+      "guestsLine": "{guests} • {count} Rooms",
+      "roomSubtotal": "Subtotal {count} Rooms ({nights} Nights)",
+      "selectedExtrasTitle": "Selected Add-ons:",
+      "extraBedUnit": "({nights} Nights)",
+      "countUnit": "({count}x)",
+      "noPaidExtras": "No paid add-ons.",
+      "hotSpring": "Natural Hot Spring Pool Access Included",
+      "estimatedTotal": "Estimated Total",
+      "taxIncluded": "Includes tax & service charge",
+      "continue": "Continue to Payment",
+      "policyTitle": "Reservation Information",
+      "policyNote": "The final price and terms will be verified by the hotel before payment becomes available."
+    },
+    "footer": {
+      "about": "A family-friendly hotel & resort in the Darajat highlands, Garut.",
+      "exploreTitle": "Explore",
+      "exploreHome": "Home",
+      "exploreRooms": "Rooms & Suites",
+      "exploreFacilities": "Facilities",
+      "contactTitle": "Contact & Support",
+      "contactAddress": "Jl. Raya Darajat KM 14, Pasirwangi, Garut",
+      "contactEmail": "halo@greenherodarajat.com",
+      "bottom": "© 2026 Green Hero Darajat Hotel & Resort. · Frontend demo"
+    }
+  },
+  "payment": {
+    "intro": {
+      "eyebrow": "RESERVATION PAYMENT",
+      "title": "Complete Payment",
+      "description": "Choose a payment method to review your Green Hero Darajat reservation. Payment is not yet active on this demo page."
+    },
+    "method": {
+      "title": "Choose Payment Method",
+      "demoNotice": "Demo only supports BCA Virtual Account.",
+      "tabsAriaLabel": "Payment method categories",
+      "disabledTitle": "Demo only supports BCA Virtual Account",
+      "optionsAriaLabel": "{label} options",
+      "importantInfo": "Important Information"
+    },
+    "tabs": {
+      "hotel": "Pay at Hotel",
+      "card": "Credit Card",
+      "virtualAccount": "Virtual Account",
+      "wallet": "E-Wallet"
+    },
+    "options": {
+      "hotelPayment": {
+        "label": "Pay at Hotel",
+        "info1": "This option only shows the pay-at-hotel flow in the demo.",
+        "info2": "The actual reservation and payment terms must be confirmed directly by the hotel."
+      },
+      "noPrepayment": {
+        "label": "No Prepayment",
+        "info1": "There is no prepayment in this demo view.",
+        "info2": "Choosing this option does not yet create or hold a room reservation."
+      },
+      "creditCard": {
+        "label": "Visa, Mastercard, JCB",
+        "info1": "Card information is not requested or stored on this demo page.",
+        "info2": "Card payment requires an official payment gateway that is not yet connected."
+      },
+      "virtualAccountInfo1": "The {name} Virtual Account has not been issued on the demo page.",
+      "virtualAccountInfo2": "The number and payment instructions become available only after payment gateway integration.",
+      "qrisInfo1": "The QR code has not been generated on the demo page.",
+      "qrisInfo2": "After integration, scan the displayed QR code using your payment app.",
+      "walletInfo1": "{name} authorization is not yet available on the demo page.",
+      "walletInfo2": "Do not send payment before receiving official instructions from the hotel."
+    },
+    "trust": {
+      "noTransactionTitle": "No Transaction",
+      "noTransactionDetail": "No charges in the demo",
+      "interactiveTitle": "Interactive Options",
+      "interactiveDetail": "Methods can be selected",
+      "guestDataTitle": "Booker Data",
+      "guestDataDetail": "Stored temporarily in the browser"
+    },
+    "timer": {
+      "remaining": "TIME REMAINING",
+      "placeholder": "--:--",
+      "note": "The timer will activate once the reservation system is available. The room is not held in this demo."
+    },
+    "summary": {
+      "title": "Reservation Summary",
+      "badge": "DEMO",
+      "roomType": "Room Type",
+      "roomValue": "{count} Rooms • {nights} Nights",
+      "schedule": "Stay Schedule",
+      "extras": "Add-ons",
+      "extraUnit": "({count}x)",
+      "noExtras": "No add-ons",
+      "total": "TOTAL PAYMENT",
+      "totalNote": "The amount includes the room and the selected add-ons.",
+      "continueInstructions": "Continue to Payment Instructions",
+      "continueHotel": "Continue with Pay at Hotel",
+      "payAmount": "Pay {amount}",
+      "payCaption": "Payment is not processed on the demo page.",
+      "back": "Back to Guest Details"
+    },
+    "messages": {
+      "simulationOnly": "{method} is only available as a simulation. No transaction is created.",
+      "methodFallback": "Payment method"
+    },
+    "footer": {
+      "about": "A highland retreat resort in the Darajat area, Garut. Enjoy mountain panoramas and natural hot springs with your family.",
+      "exploreTitle": "Explore",
+      "exploreHome": "Home",
+      "exploreRooms": "Rooms & Suites",
+      "exploreFacilities": "Facilities",
+      "contactTitle": "Contact",
+      "contactAddress": "Jl. Raya Darajat KM 14, Pasirwangi, Garut",
+      "contactEmail": "halo@greenherodarajat.com",
+      "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+      "demoNote": "Frontend demo · Payment not yet active"
+    }
+  },
+  "instructions": {
+    "demoLabel": "DEMO SAMPLE",
+    "intro": {
+      "eyebrow": "PAYMENT",
+      "title": "Complete Your Payment",
+      "description": "Use the following payment information to complete your reservation before the payment deadline ends.",
+      "reservationNumber": "Reservation No.:",
+      "expired": "Demo Time Ended",
+      "pending": "Awaiting Payment"
+    },
+    "demoBanner": "Payment simulation. The VA number is a sample. No reservation or transaction is created; do not transfer to this number.",
+    "account": {
+      "title": "BCA Virtual Account",
+      "subtitle": "Automatic 24-hour real-time verification",
+      "autoConfirm": "Automatic Confirmation",
+      "vaLabel": "Virtual Account Number",
+      "copyVa": "Copy VA Number",
+      "accountNameLabel": "Reservation Account Name",
+      "accountNameValue": "Green Hero Darajat — {name}",
+      "accountNameFallback": "Booker Name",
+      "totalLabel": "Total Payment",
+      "copyAmountAriaLabel": "Copy payment amount",
+      "calloutTitle": "Important Note:",
+      "calloutText": "Pay the exact amount shown down to the last digit so the payment can be verified automatically without manual confirmation when the payment system is active."
+    },
+    "guides": {
+      "title": "Payment Method Guide",
+      "subtitle": "Choose the transfer method you use below",
+      "mbca": {
+        "title": "BCA Mobile (m-BCA)",
+        "step1": "Open the BCA Mobile app, select m-BCA and enter your Access Code.",
+        "step2": "Select the m-Transfer menu > BCA Virtual Account.",
+        "step3": "Enter the 16-digit Virtual Account Number: {account} then select Send.",
+        "step4": "Check the name {name} and total bill {total} on the confirmation screen.",
+        "step5": "Enter your m-BCA PIN to complete payment when the official service is available."
+      },
+      "klikbca": {
+        "title": "KlikBCA (Internet Banking)",
+        "step1": "Log in to KlikBCA Individual.",
+        "step2": "Select Fund Transfer > Transfer to BCA Virtual Account.",
+        "step3": "Enter the Virtual Account number {account}, then select Continue.",
+        "step4": "Check the recipient's name and the amount {total}.",
+        "step5": "Follow the KeyBCA instructions on screen to complete the transaction."
+      },
+      "atmbca": {
+        "title": "BCA ATM",
+        "step1": "Insert your BCA ATM card and PIN.",
+        "step2": "Select Other Transactions > Transfer > to a BCA Virtual Account.",
+        "step3": "Enter the Virtual Account Number {account}.",
+        "step4": "Check the name and amount {total}, then follow the instructions on the ATM machine."
+      },
+      "otherBank": {
+        "title": "Transfer from Another Bank (ATM Bersama / Prima / ALTO)",
+        "step1": "Availability of transfers from other banks follows the terms of the official issued Virtual Account.",
+        "step2": "In this demo, interbank transfers are not yet available. Use the hotel's official instructions when the payment service is active."
+      }
+    },
+    "timer": {
+      "title": "Payment Deadline",
+      "timezone": "WIB (GMT+7)",
+      "preparing": "Preparing demo time…",
+      "deadlineValue": "{date} • {time} WIB",
+      "endsAt": "Ends at:",
+      "remainingAriaLabel": "Demo payment time remaining",
+      "expiredNote": "The simulation time has ended. You can go back and choose a payment method.",
+      "activeNote": "Complete the payment before the time runs out so the room allocation stays reserved when the reservation system is active."
+    },
+    "summary": {
+      "title": "Reservation Summary",
+      "brand": "Green Hero Darajat",
+      "roomValue": "{count} Rooms • {nights} Nights",
+      "guestFilled": "{name} ({whatsapp})",
+      "guestEmpty": "Booker data not yet filled in",
+      "extrasTitle": "Add-ons:",
+      "extraBedUnit": "({nights} Nights)",
+      "noExtras": "No add-ons",
+      "roomSubtotal": "Room Subtotal ({nights} Nights)",
+      "extrasSubtotal": "Add-on Facilities Subtotal",
+      "tax": "Tax & Service Charge",
+      "taxIncluded": "Included",
+      "totalLabel": "Total Bill",
+      "totalNote": "Already includes tax & service",
+      "checkStatus": "Check Payment Status",
+      "changeMethod": "Change Payment Method",
+      "support": "Need payment help? Contact the Hotel Team"
+    },
+    "trust": {
+      "noTransaction": "No Transaction",
+      "vaSimulation": "VA Simulation",
+      "demoReservation": "Demo Reservation"
+    },
+    "messages": {
+      "copySuccess": "{label} copied successfully.",
+      "copyFail": "Could not copy automatically. Please select and copy the {label} manually.",
+      "copyVaLabel": "Sample VA Number",
+      "copyAmountLabel": "Payment amount",
+      "expiredStatus": "The simulation time has ended. Choose a payment method again to continue the demo.",
+      "pendingStatus": "Payment has not been verified. This is a simulation; no transaction is processed.",
+      "closeAriaLabel": "Close notification"
+    },
+    "footer": {
+      "about": "A highland resort in the natural hot spring tourism area of Pasirwangi, Garut. Offering mountain coolness, lush tea plantation views, and family comfort.",
+      "address": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut Regency, West Java 44161",
+      "infoTitle": "Information & Links",
+      "infoAbout": "About Us",
+      "infoRooms": "Rooms & Facilities",
+      "infoReservationPolicy": "Reservation Policy",
+      "infoPrivacy": "Privacy Policy",
+      "helpTitle": "Help & Support",
+      "helpContact": "Contact Us",
+      "helpFaq": "FAQ & Help",
+      "helpPaymentMethods": "Payment Methods",
+      "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+      "demoNote": "Frontend demo · Payment not yet active"
+    }
+  },
+  "footer": {
+    "about": "A highland resort on the volcanic slopes of Darajat, Garut. Combining natural comfort, pure geothermal hot springs, and the warmth of Sundanese hospitality for your family's resting moments.",
+    "address": "Jl. Darajat KM 14, Karyamekar, Pasirwangi, Garut, West Java",
+    "navTitle": "Resort Navigation",
+    "navAbout": "About Us",
+    "navRooms": "Rooms & Facilities",
+    "navRouteGuide": "Darajat Route Guide",
+    "navReservationPolicy": "Reservation Policy",
+    "helpTitle": "Help & Legal",
+    "helpContact": "Contact & Support",
+    "helpPrivacy": "Privacy Policy",
+    "helpFaq": "F.A.Q.",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+    "backToRooms": "Back to Rooms & Suites"
+  },
+  "foodModal": {
+    "eyebrow": "FOOD & GRILL",
+    "title": "Choose {name} Package",
+    "description": "Choose the package and quantity to suit your needs.",
+    "closeAriaLabel": "Close package selection",
+    "popular": "Most Popular",
+    "perPackage": "/ package",
+    "decreaseAriaLabel": "Decrease {name}",
+    "quantityAriaLabel": "Quantity of {name}",
+    "increaseAriaLabel": "Increase {name}",
+    "selectedCount": "{count} packages selected",
+    "cancel": "Cancel",
+    "save": "Save Selection",
+    "grilledChickenAlt": "Dining together atmosphere at Green Hero",
+    "sideDish": "Side dish"
+  },
+  "celebrationModal": {
+    "eyebrow": "SPECIAL MOMENTS",
+    "title": "Choose {name} Package",
+    "description": "Choose one package for your special moment.",
+    "closeAriaLabel": "Close package selection",
+    "optionsAriaLabel": "{name} package options",
+    "popular": "Most Popular",
+    "perPackage": "/ package",
+    "packageContents": "Package contents",
+    "noPackage": "No {name} package",
+    "noneSelected": "No package selected yet",
+    "cancel": "Cancel",
+    "save": "Save Selection"
+  }
+}

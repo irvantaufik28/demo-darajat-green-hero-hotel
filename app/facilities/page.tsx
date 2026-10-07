@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import FacilitiesPage from "@/features/facilities/components/FacilitiesPage";
+import FacilitiesPage from "@/features/facilities/pages/FacilitiesPage";
 
 export const metadata: Metadata = {
   title: "Fasilitas Resor | Green Hero Darajat",

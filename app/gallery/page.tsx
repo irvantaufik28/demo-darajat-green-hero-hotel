@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GalleryPage from "@/features/gallery/components/GalleryPage";
+import GalleryPage from "@/features/gallery/pages/GalleryPage";
 
 export const metadata: Metadata = {
   title: "Galeri Resor | Green Hero Darajat",

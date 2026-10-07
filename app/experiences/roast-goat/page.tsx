@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import RoastGoatPage from "@/features/experiences/components/RoastGoatPage";
+import RoastGoatPage from "@/features/experiences/pages/RoastGoatPage";
 
 export const metadata: Metadata = {
   title: "Roast Goat (Kambing Guling) Experience | Green Hero Darajat",

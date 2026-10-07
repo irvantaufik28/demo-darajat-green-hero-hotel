@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContactPage from "@/features/contact/components/ContactPage";
+import ContactPage from "@/features/contact/pages/ContactPage";
 
 export const metadata: Metadata = {
   title: "Hubungi Kami | Green Hero Darajat",

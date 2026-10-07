@@ -1,0 +1,201 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Facilities"
+  },
+  "hero": {
+    "eyebrow": "GREEN HERO FACILITIES",
+    "title": "Facilities for a More Comfortable Stay",
+    "description": "From warm pools to everyday hotel services, Green Hero Darajat provides facilities that support your time staying with family.",
+    "imageAlt": "Green Hero Darajat, the warm pool, and the mountain panorama at dusk"
+  },
+  "noteLabel": "Note:",
+  "featured": {
+    "pools": {
+      "eyebrow": "RECREATION & NATURE'S WARMTH",
+      "title": "Pools & Relaxation",
+      "description": "The pool area is one of the main experiences during your stay, perfect for relaxation and family time amid the cool air of the Darajat mountains.",
+      "imageAlt": "A guest soaking in the warm pool of Green Hero Darajat with mountain views",
+      "note": "No spa service is provided. The focus is purely on the warmth of the natural mountain sulfur water.",
+      "features": {
+        "outdoorPool": "Outdoor swimming pool",
+        "warmPool": "Warm pool (36°C – 38°C)",
+        "hotTub": "Natural Hot tub",
+        "kidsPool": "Kids warm pool"
+      }
+    },
+    "dining": {
+      "eyebrow": "CULINARY & MORNING DINING",
+      "title": "Restaurant & Breakfast",
+      "description": "Enjoy food and drinks without having to leave the hotel area. A selection of warm Sundanese breakfasts and Archipelago dishes is served fresh every morning with a misty valley panorama.",
+      "imageAlt": "An Archipelago-style breakfast dish on a table near the window with a Darajat view",
+      "features": {
+        "restaurant": {
+          "title": "Restaurant & Dining Lounge",
+          "description": "A family dining spot with open mountain views"
+        },
+        "breakfast": {
+          "title": "Breakfast Buffet & À La Carte",
+          "description": "A choice of Archipelago breakfast menus, delicious porridge, and warm tea"
+        },
+        "roomService": {
+          "title": "24-Hour Room Service",
+          "description": "Delivery of hot dishes straight to your room door"
+        }
+      }
+    },
+    "family": {
+      "eyebrow": "FAMILY & CHILD FRIENDLY",
+      "title": "Comfortable for Families",
+      "description": "Designed so the stay experience stays comfortable for parents and children. Enjoy the open green area set against tea plantations and a safe, easily supervised shallow kids' pool.",
+      "imageAlt": "A wooden villa with a garden and children's play area at Green Hero Darajat",
+      "features": {
+        "friendly": {
+          "title": "Family-friendly environment",
+          "description": "A lush, clean, and noise-free area for private family recreation"
+        },
+        "kidsPool": {
+          "title": "Kids pool with safe depth",
+          "description": "Warm water at a comfortable temperature with a toddler-friendly depth"
+        },
+        "garden": {
+          "title": "Children-friendly open garden & seating",
+          "description": "A wide grass garden for little ones to explore safely"
+        }
+      }
+    },
+    "connectivity": {
+      "eyebrow": "ACCESSIBILITY & CONVENIENCE",
+      "title": "Parking & Connectivity",
+      "description": "Basic facilities that help keep your trip practical during your stay in Darajat. Easy vehicle access with a spacious parking area in front of the lobby and a stable internet connection.",
+      "imageAlt": "The parking area and resort entrance surrounded by mountain trees",
+      "features": {
+        "parking": {
+          "title": "Free Guest Parking",
+          "description": "A spacious paved parking area for private vehicles and tourist buses"
+        },
+        "wifi": {
+          "title": "Free High-Speed Wi-Fi",
+          "description": "Fiber-optic internet access throughout all public resort areas"
+        },
+        "roomWifi": {
+          "title": "Wi-Fi in Rooms & Suites",
+          "description": "Stable connectivity inside every room unit for relaxed working comfort"
+        }
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "HOTEL SERVICES",
+    "title": "Services That Help During Your Stay",
+    "description": "Our staff are dedicated to delivering distinctive West Javanese hospitality with prompt service throughout the day.",
+    "items": {
+      "frontDesk": {
+        "title": "24-Hour Front Desk",
+        "description": "A receptionist on standby 24 hours to handle late check-ins, amenity needs, and Darajat tour guidance.",
+        "note": "On Standby Every Day"
+      },
+      "housekeeping": {
+        "title": "Daily Housekeeping",
+        "description": "Daily room cleaning maintains freshness, linen hygiene, and maximum comfort of your rest space.",
+        "note": "Regular Schedule & On-Request"
+      },
+      "luggage": {
+        "title": "Luggage Storage",
+        "description": "Safe storage of your suitcases and belongings before check-in time or after check-out so you can roam freely.",
+        "note": "Free for Guests"
+      },
+      "roomService": {
+        "title": "Room Service",
+        "description": "Delivery service for hot food, afternoon snacks, and warm drinks straight to your room or villa.",
+        "note": "Available Until Late Night"
+      }
+    }
+  },
+  "rooms": {
+    "eyebrow": "IN-ROOM FACILITIES",
+    "title": "Comfort in Every Room",
+    "description": "Every accommodation at Green Hero Darajat is equipped with high-comfort standard facilities to ensure a peaceful rest.",
+    "note": "Some facilities may differ based on room type, stay period, or hotel operational policy. Please check the details on each room when making a reservation.",
+    "items": {
+      "bathroom": {
+        "title": "Private Bathroom",
+        "description": "A clean bathroom with modern sanitary ware and complete bath amenities.",
+        "availability": "Available in all rooms"
+      },
+      "shower": {
+        "title": "Natural Hot Water Shower",
+        "description": "A refreshing flow of natural warm sulfur water from the Darajat crater.",
+        "availability": "Available in all rooms"
+      },
+      "bathtub": {
+        "title": "Soaking Bathtub",
+        "description": "A private soaking tub for maximum relaxation with natural warm water.",
+        "availability": "Select rooms (VIP & Suite)"
+      },
+      "minibar": {
+        "title": "Minibar & Tea/Coffee Maker",
+        "description": "Electric kettle, ceramic cups, bottled mineral water, and a selection of Garut tea.",
+        "availability": "Available in all rooms"
+      },
+      "refrigerator": {
+        "title": "Refrigerator",
+        "description": "A mini fridge to store cold drinks and Garut specialty souvenirs.",
+        "availability": "Available in select room types"
+      },
+      "kitchenette": {
+        "title": "Kitchenette / Mini Kitchen",
+        "description": "A dishwashing area and a simple kitchen counter for the comfort of families on long stays.",
+        "availability": "Family Villa & Penthouse"
+      }
+    }
+  },
+  "experiencesCta": {
+    "eyebrow": "GREEN HERO EXPERIENCES",
+    "title": "Want a More Complete Experience?",
+    "description": "Add Green Hero Experiences options such as a special Roast Goat dish, an evening BBQ & Grill, a Birthday Celebration, or a romantic Room Decoration during your booking process.",
+    "button": "View Green Hero Experiences"
+  },
+  "bookingCta": {
+    "title": "Ready to Stay at Green Hero Darajat?",
+    "description": "Choose your stay dates and find available rooms for your family holiday in the cool air of Garut.",
+    "checkAvailability": "Check Availability",
+    "contactReservation": "Contact Reservations"
+  },
+  "footer": {
+    "about": "A family-friendly mountain resort with natural sulfur hot springs in the Darajat highlands of Pasirwangi, Garut, West Java.",
+    "address": "Jl. Raya Darajat KM 14, Desa Karyamekar, Kec. Pasirwangi, Kabupaten Garut, Jawa Barat 44161",
+    "phone": "+62 812-2345-6789 / (0262) 540-112",
+    "email": "reservation@greenherodarajat.com",
+    "navTitle": "Main Navigation",
+    "nav": {
+      "about": "About Us",
+      "rooms": "Rooms & Facilities",
+      "reservationPolicy": "Reservation Policy",
+      "route": "Darajat Route Guide",
+      "contact": "Contact & Support",
+      "privacy": "Privacy Policy"
+    },
+    "hoursTitle": "Facility Operating Hours",
+    "hours": {
+      "pool": {
+        "title": "Natural Hot Water Pool",
+        "hours": "Open 24 Hours for staying guests only"
+      },
+      "restaurant": {
+        "title": "Sundanese & Archipelago Restaurant",
+        "hours": "06:00 – 22:00 WIB (24-hour room service)"
+      },
+      "frontDesk": {
+        "title": "Front Desk Service",
+        "hours": "On Standby 24 Hours every day"
+      }
+    },
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "bottom": {
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "sitemap": "Site Map"
+    }
+  }
+}

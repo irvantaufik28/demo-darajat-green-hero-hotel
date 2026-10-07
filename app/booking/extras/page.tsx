@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getRoom } from "@/features/rooms/constants/rooms-data";
 import { parseRoomSelection } from "@/features/rooms/constants/room-selection-data";
-import BookingExtrasPage from "@/features/booking/components/BookingExtrasPage";
+import BookingExtrasPage from "@/features/booking/pages/BookingExtrasPage";
 
 export const metadata: Metadata = {
   title: "Pilihan Tambahan | Green Hero Darajat",

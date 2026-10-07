@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import BirthdayCelebrationPage from "@/features/experiences/components/BirthdayCelebrationPage";
+import BirthdayCelebrationPage from "@/features/experiences/pages/BirthdayCelebrationPage";
 
 export const metadata: Metadata = {
   title: "Birthday Celebration Experience | Green Hero Darajat",

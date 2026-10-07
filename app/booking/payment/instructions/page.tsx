@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { normalizeExtraCounts, getNights } from "@/features/booking/constants/booking-data";
 import { getRoom } from "@/features/rooms/constants/rooms-data";
 import { parseRoomSelection } from "@/features/rooms/constants/room-selection-data";
-import PaymentInstructionsPage from "@/features/booking/components/PaymentInstructionsPage";
+import PaymentInstructionsPage from "@/features/booking/pages/PaymentInstructionsPage";
 
 export const metadata: Metadata = {
   title: "Instruksi Pembayaran | Green Hero Darajat",

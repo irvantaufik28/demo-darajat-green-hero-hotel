@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getRoom, rooms } from "@/features/rooms/constants/rooms-data";
-import RoomDetailPage from "@/features/rooms/components/RoomDetailPage";
+import RoomDetailPage from "@/features/rooms/pages/RoomDetailPage";
 
 type DetailPageProps = {
   params: Promise<{ slug: string }>;

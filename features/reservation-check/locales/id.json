@@ -1,0 +1,164 @@
+{
+  "intro": {
+    "label": "Reservasi Anda",
+    "title": "Cek Status Reservasi",
+    "description": "Masukkan kode reservasi dan informasi kontak yang digunakan saat pemesanan untuk melihat detail booking Anda."
+  },
+  "lookup": {
+    "ariaLabel": "Pencarian reservasi",
+    "fields": {
+      "codeLabel": "Kode Reservasi",
+      "codePlaceholder": "Contoh: GH-260927-001",
+      "contactLabel": "Nomor WhatsApp atau Email",
+      "contactPlaceholder": "Masukkan WhatsApp atau email saat booking"
+    },
+    "demoHint": "Demo: input boleh kosong. Detail yang ditampilkan menggunakan data contoh.",
+    "actions": {
+      "check": "Cek Reservasi",
+      "checking": "Mengecek Reservasi..."
+    }
+  },
+  "announcement": {
+    "loading": "Sedang mencari detail reservasi demo.",
+    "found": "Detail reservasi demo ditemukan."
+  },
+  "loading": {
+    "ariaLabel": "Memuat detail reservasi",
+    "title": "Mencari reservasi Anda",
+    "description": "Mohon tunggu sebentar..."
+  },
+  "result": {
+    "ariaLabel": "Detail reservasi demo",
+    "status": {
+      "bookingStatusLabel": "Status Pemesanan:",
+      "paid": "Sudah Dibayar",
+      "confirmed": "Terkonfirmasi",
+      "bookingCodeLabel": "Kode Booking:"
+    },
+    "timeline": {
+      "created": "Reservasi Dibuat",
+      "payment": "Pembayaran",
+      "confirmed": "Reservasi Terkonfirmasi",
+      "confirmedNote": "Kamar Terjamin",
+      "checkIn": "Check-in",
+      "checkInNote": "18 Okt 2026, 14:00"
+    },
+    "confirmation": {
+      "title": "Reservasi Anda Terkonfirmasi",
+      "description": "Contoh reservasi untuk {guestName}. Ini adalah simulasi; tidak ada pemesanan, pembayaran, atau pesan konfirmasi yang dikirim."
+    },
+    "stay": {
+      "heading": "Detail Penginapan",
+      "voucherBadge": "Voucher Digital Demo",
+      "building": "Gedung Utama Lt. 2",
+      "roomTitleSuffix": "Panoramic Balcony",
+      "amenityWifi": "Free High-Speed WiFi",
+      "amenityBreakfast": "Sarapan Gratis",
+      "fields": {
+        "guestName": "Nama Tamu Utama",
+        "roomCount": "Jumlah Kamar",
+        "roomCountValue": "1 Kamar VIP",
+        "capacity": "Kapasitas Tamu",
+        "checkIn": "Tanggal Check-in",
+        "checkInNote": "Mulai 14:00 WIB",
+        "checkOut": "Tanggal Check-out",
+        "checkOutNote": "Maks 12:00 WIB",
+        "duration": "Durasi Menginap",
+        "durationValue": "{nights} Malam",
+        "durationNote": "Liburan Pegunungan Nyaman"
+      }
+    },
+    "experiences": {
+      "heading": "Green Hero Experiences",
+      "description": "Layanan tambahan terpilih untuk kenyamanan liburan Anda di Pasirwangi.",
+      "countBadge": "2 Paket",
+      "bbq": {
+        "title": "Paket BBQ & {grillName}",
+        "detail": "Untuk {capacity} • {inclusions}",
+        "schedule": "Dijadwalkan: Minggu Malam, 19:00 WIB di Area Gazebo Balcony",
+        "includedNote": "Termasuk dalam tagihan",
+        "imageAlt": "Paket BBQ dan Highland Grill"
+      },
+      "firepit": {
+        "title": "Romantic Firepit & Warm Herbal Tea",
+        "detail": "Penghangat api unggun outdoor ditemani teh tubruk rempah khas pegunungan Garut untuk keluarga.",
+        "freeNote": "Fasilitas gratis untuk tamu Suite",
+        "free": "Gratis",
+        "complimentary": "Complimentary Hospitality"
+      }
+    },
+    "payment": {
+      "heading": "Ringkasan Pembayaran",
+      "roomLine": "{roomName} ({nights} Malam)",
+      "bbqLine": "Paket BBQ & {grillName}",
+      "firepitLine": "Romantic Firepit & Tea",
+      "firepitValue": "Rp 0 (Gratis)",
+      "taxLine": "Pajak & Biaya Pelayanan",
+      "taxValue": "Termasuk",
+      "totalLabel": "Total Pembayaran",
+      "totalNote": "Harga Bersih (Nett)",
+      "methodLabel": "Metode Bayar:",
+      "methodValue": "BCA Virtual Account",
+      "transactionTimeLabel": "Waktu Transaksi:",
+      "accountLabel": "Nomor Rek/VA:",
+      "downloadVoucher": "Unduh E-Voucher & Bukti",
+      "contactReceptionist": "Hubungi Resepsionis via WhatsApp",
+      "security": "Voucher dan pembayaran hanya simulasi demo"
+    },
+    "modification": {
+      "title": "Ingin Mengubah Tanggal?",
+      "description": "Reschedule dapat diajukan maksimal H-3 sebelum tanggal check-in. Hubungi admin melalui WhatsApp untuk bantuan cepat."
+    }
+  },
+  "help": {
+    "title": "Butuh Bantuan Reservasi?",
+    "description": "Tim Green Hero Darajat siap membantu jika Anda mengalami kendala pengecekan, perubahan jadwal, atau konfirmasi transfer pembayaran.",
+    "action": "Hubungi Kami via WhatsApp"
+  },
+  "voucher": {
+    "pageTitle": "Voucher Demo {code}",
+    "brand": "Green Hero Darajat",
+    "heading": "E-Voucher & Bukti Reservasi Demo",
+    "disclaimer": "SIMULASI DEMO — bukan voucher menginap atau bukti transaksi yang sah.",
+    "codeLabel": "Kode:",
+    "guestLabel": "Tamu:",
+    "roomLabel": "Kamar:",
+    "checkInLabel": "Check-in:",
+    "checkOutLabel": "Check-out:",
+    "firepitLine": "Romantic Firepit & Tea",
+    "firepitFree": "Gratis",
+    "taxLine": "Pajak & layanan",
+    "taxIncluded": "Termasuk",
+    "totalLabel": "Total",
+    "statusLine": "Status demo: Terkonfirmasi & Lunas",
+    "methodLine": "Metode: BCA Virtual Account",
+    "timeLabel": "Waktu:"
+  },
+  "footer": {
+    "about": "Resort peristirahatan bernuansa alam pegunungan sejuk di kawasan wisata Darajat, dilengkapi pemandian air panas alami langsung dari kawah belerang vulkanik Garut.",
+    "navTitle": "Navigasi Utama",
+    "navRooms": "Kamar & Suite",
+    "navHotSpring": "Kolam Air Panas",
+    "navFacilities": "Fasilitas Resort",
+    "navGallery": "Galeri Foto",
+    "navRoute": "Panduan Rute Darajat",
+    "navContact": "Kontak & Bantuan",
+    "guestServicesTitle": "Layanan Tamu",
+    "serviceCheckStatus": "Cek Status Reservasi",
+    "servicePolicy": "Kebijakan Reservasi & Refund",
+    "serviceCheckInOut": "Ketentuan Check-in / Out",
+    "serviceGroups": "Paket Rombongan & Gathering",
+    "servicePrivacy": "Kebijakan Privasi",
+    "hoursTitle": "Waktu Operasional",
+    "hoursFrontDeskLabel": "Layanan Meja Depan:",
+    "hoursFrontDeskValue": "24 Jam",
+    "hoursHotSpringLabel": "Pemandian Air Panas:",
+    "hoursHotSpringValue": "24 Jam (Tamu Menginap)",
+    "hoursRestaurantLabel": "Restoran & Grill:",
+    "hoursRestaurantValue": "06:00 – 22:00 WIB",
+    "hoursTemperature": "Suhu rata-rata: 17°C – 22°C (Sejuk)",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
+    "terms": "Syarat & Ketentuan",
+    "privacy": "Kebijakan Privasi"
+  }
+}

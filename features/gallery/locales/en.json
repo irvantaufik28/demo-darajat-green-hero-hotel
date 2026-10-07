@@ -1,0 +1,178 @@
+{
+  "intro": {
+    "title": "Resort Elegance & the Quiet Warmth of Darajat",
+    "description": "Explore the rooms, warm pools, hotel areas, and the many moments you can enjoy during your stay in Darajat."
+  },
+  "featured": {
+    "ariaLabel": "Featured resort photos",
+    "leadBadge": "Natural Warm Pool",
+    "stackedBadge": "Darajat Atmosphere",
+    "leadSmall": "TRAVEL HIGHLIGHT"
+  },
+  "browse": {
+    "ariaLabel": "Browse the gallery by category",
+    "filtersGroupLabel": "Photo categories",
+    "status": "{count} photos shown for the {category} category."
+  },
+  "zoomLabel": "Enlarge photo {title}",
+  "culinarySmall": "Resort Signature Menu",
+  "categories": {
+    "all": "All",
+    "rooms": "Rooms",
+    "pools": "Warm Pools",
+    "resort": "Hotel Area",
+    "dining": "Dining",
+    "experiences": "Family & Experience",
+    "landscape": "Scenery"
+  },
+  "photos": {
+    "thermalPools": {
+      "categoryLabel": "Warm Pools",
+      "title": "Natural Mountain Warm Pool",
+      "caption": "The Sensation of a Warm Soak at Garut's Heights",
+      "alt": "A guest enjoying the warm pool in front of the villa with a mountain panorama"
+    },
+    "vipSuite": {
+      "categoryLabel": "Rooms & Suites",
+      "title": "VIP Suite Panoramic Balcony",
+      "caption": "VIP Suite Panoramic Balcony",
+      "alt": "The warm wooden interior of a VIP Suite with a balcony facing the hills"
+    },
+    "resortEntrance": {
+      "categoryLabel": "Hotel Area",
+      "title": "Darajat Morning Atmosphere & Resort Area",
+      "caption": "Lobby & Mountain Entrance Gate",
+      "alt": "The entrance and parking area of the resort on the slopes of the Darajat mountains"
+    },
+    "familySuite": {
+      "categoryLabel": "Rooms & Suites",
+      "title": "Family Suite Bunk Bed Wood Interior",
+      "caption": "Family Suite with Bunk Beds",
+      "description": "Capacity 4–6 People • Valley View",
+      "alt": "A Family Suite with bunk beds and a wooden interior"
+    },
+    "teaLandscape": {
+      "categoryLabel": "Scenery",
+      "title": "Tea Gardens & Resort Spread on the Darajat Slopes",
+      "caption": "Garut Tea Plantation Landscape",
+      "description": "A Cool Elevation of 1,600 meters above sea level",
+      "alt": "A panorama of tea plantations and the resort in the Garut highlands"
+    },
+    "restaurant": {
+      "categoryLabel": "Dining",
+      "title": "Valley-View Restaurant & Traditional Breakfast",
+      "caption": "Pasirwangi Restaurant & Buffet",
+      "description": "Signature Sundanese Menu & Warm Dishes",
+      "alt": "A restaurant with traditional breakfast dishes and a valley view"
+    },
+    "familyGarden": {
+      "categoryLabel": "Family & Experience",
+      "title": "Children's Playground & Natural Wooden Swing",
+      "caption": "Grass Garden & Wooden Swing",
+      "description": "A Child-Friendly Open Green Space",
+      "alt": "A green garden and wooden swing for playing together with family"
+    },
+    "standardRoom": {
+      "categoryLabel": "Rooms & Suites",
+      "title": "Standard Room with Twin Queen Beds",
+      "caption": "Standard Twin Queen Room",
+      "description": "Warm Wooden Floors & Soft Blankets",
+      "alt": "A Standard Room with two queen beds and wooden floors"
+    },
+    "warmPool": {
+      "categoryLabel": "Warm Pools",
+      "title": "24-Hour Natural Warm Pool",
+      "caption": "Natural Sulfur Spring Soaking Pool",
+      "description": "Stable Warm Temperature Without Chlorine",
+      "alt": "A warm soaking pool with natural steam and a valley panorama"
+    },
+    "roastGoat": {
+      "categoryLabel": "Dining",
+      "title": "Traditional Whole Darajat Roast Goat",
+      "caption": "Savory Spiced Roast Goat",
+      "description": "Prepared fresh on an open patio with the atmosphere of a mountain evening bonfire.",
+      "alt": "Traditional roast goat prepared by a chef in an open grilling area"
+    },
+    "satayGrill": {
+      "categoryLabel": "Dining",
+      "title": "Charcoal-Grilled Satay & Pasirwangi Sambal",
+      "caption": "Charcoal-Grilled Chicken & Meat Satay",
+      "alt": "Chicken and meat satay grilled over charcoal"
+    },
+    "celebration": {
+      "categoryLabel": "Family & Experience",
+      "title": "Romantic & Birthday Room Decoration",
+      "caption": "Special Room Decoration Package",
+      "alt": "Celebration decoration in a hotel room with warm lighting"
+    }
+  },
+  "culinarySection": {
+    "leadBadge": "Live Cooking",
+    "bbqBadge": "BBQ & Grill",
+    "celebrationBadge": "Celebration",
+    "eyebrow": "FLAVORS & SPECIAL MOMENTS",
+    "title": "The Warmth of Cuisine & Family Celebrations",
+    "description": "From the savory flavor of traditional roast goat to sweet surprise decorations inside your room."
+  },
+  "experienceSection": {
+    "eyebrow": "GREEN HERO EXPERIENCES",
+    "title": "Moments Worth Remembering",
+    "description": "Complete your family time with a choice of dining and celebration experiences during your stay amid the cool air of Pasirwangi.",
+    "button": "View Experiences",
+    "note": "Roast Goat & Live BBQ Available",
+    "imageAlt": "A family BBQ meal in the open area of the resort"
+  },
+  "bookingSection": {
+    "eyebrow": "DIRECT RESERVATION",
+    "title": "Experience This Atmosphere Firsthand",
+    "description": "Choose your stay dates and find available rooms at Green Hero Darajat. Feel the warmth of the natural sulfur water and the cool of the Garut mountains.",
+    "checkAvailability": "Check Availability",
+    "viewRooms": "View Rooms"
+  },
+  "lightbox": {
+    "ariaLabel": "Enlarge photo",
+    "close": "Close the photo gallery",
+    "prev": "Previous photo",
+    "next": "Next photo",
+    "counter": "{current} / {total}",
+    "hint": "Use the left / right arrow keys on your keyboard to navigate. Press Escape to close."
+  },
+  "footer": {
+    "about": "A resort with a mountain nature feel in the Darajat Garut area, featuring natural hot spring swimming pools and a soothing tea garden landscape.",
+    "address": "Jl. Raya Darajat KM 14, Desa Karyamekar, Pasirwangi, Garut, Jawa Barat 44161",
+    "navTitle": "Main Navigation",
+    "nav": {
+      "about": "About Us",
+      "rooms": "Rooms & Facilities",
+      "reservationPolicy": "Reservation Policy",
+      "route": "Darajat Route Guide",
+      "contact": "Contact & Support",
+      "privacy": "Privacy Policy"
+    },
+    "hoursTitle": "Operating Hours",
+    "hours": {
+      "pool": {
+        "title": "Natural Hot Water Pool",
+        "value": "Open 24 Hours (Every Day)"
+      },
+      "restaurant": {
+        "title": "Sundanese Restaurant & Cafe",
+        "value": "06.00 – 22.00 WIB"
+      },
+      "frontDesk": {
+        "title": "Reception Service",
+        "value": "24 Hours Ready to Serve"
+      }
+    },
+    "contactTitle": "Contact & Reservations",
+    "phone": "+62 812 2345 6789 (WhatsApp)",
+    "email": "reservation@greenherodarajat.com",
+    "contactButton": "Contact Reservations",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "bottom": {
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "sitemap": "Sitemap"
+    }
+  }
+}

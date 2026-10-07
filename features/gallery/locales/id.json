@@ -1,0 +1,178 @@
+{
+  "intro": {
+    "title": "Keanggunan Resor & Kehangatan Sunyi Darajat",
+    "description": "Jelajahi kamar, kolam air hangat, area hotel, dan berbagai momen yang bisa dinikmati selama menginap di Darajat."
+  },
+  "featured": {
+    "ariaLabel": "Foto unggulan resor",
+    "leadBadge": "Kolam Air Hangat Alami",
+    "stackedBadge": "Suasana Darajat",
+    "leadSmall": "HIGHLIGHT WISATA"
+  },
+  "browse": {
+    "ariaLabel": "Jelajahi galeri berdasarkan kategori",
+    "filtersGroupLabel": "Kategori foto",
+    "status": "{count} foto ditampilkan untuk kategori {category}."
+  },
+  "zoomLabel": "Perbesar foto {title}",
+  "culinarySmall": "Menu Signature Resor",
+  "categories": {
+    "all": "Semua",
+    "rooms": "Kamar",
+    "pools": "Kolam Air Hangat",
+    "resort": "Area Hotel",
+    "dining": "Dining",
+    "experiences": "Family & Experience",
+    "landscape": "Pemandangan"
+  },
+  "photos": {
+    "thermalPools": {
+      "categoryLabel": "Kolam Air Hangat",
+      "title": "Kolam Air Hangat Alami Pegunungan",
+      "caption": "Sensasi Berendam Hangat di Ketinggian Garut",
+      "alt": "Tamu menikmati kolam air hangat di depan vila dengan panorama pegunungan"
+    },
+    "vipSuite": {
+      "categoryLabel": "Kamar & Suite",
+      "title": "VIP Suite Panoramic Balcony",
+      "caption": "VIP Suite Panoramic Balcony",
+      "alt": "Interior VIP Suite berkayu hangat dengan balkon menghadap perbukitan"
+    },
+    "resortEntrance": {
+      "categoryLabel": "Area Hotel",
+      "title": "Suasana Pagi Darajat & Area Resor",
+      "caption": "Lobi & Gerbang Masuk Pegunungan",
+      "alt": "Pintu masuk dan area parkir resor di lereng pegunungan Darajat"
+    },
+    "familySuite": {
+      "categoryLabel": "Kamar & Suite",
+      "title": "Family Suite Bunk Bed Wood Interior",
+      "caption": "Family Suite dengan Bunk Bed",
+      "description": "Kapasitas 4–6 Orang • Pemandangan Lembah",
+      "alt": "Family Suite dengan ranjang bertingkat dan interior kayu"
+    },
+    "teaLandscape": {
+      "categoryLabel": "Pemandangan",
+      "title": "Hamparan Kebun Teh & Resor di Lereng Darajat",
+      "caption": "Lansekap Perkebunan Teh Garut",
+      "description": "Ketinggian 1.600 mdpl yang Sejuk",
+      "alt": "Panorama perkebunan teh dan resor di dataran tinggi Garut"
+    },
+    "restaurant": {
+      "categoryLabel": "Dining",
+      "title": "Restoran Pemandangan Lembah & Sarapan Tradisional",
+      "caption": "Restoran Pasirwangi & Buffet",
+      "description": "Menu Khas Sunda & Sajian Hangat",
+      "alt": "Restoran dengan hidangan sarapan tradisional dan pemandangan lembah"
+    },
+    "familyGarden": {
+      "categoryLabel": "Family & Experience",
+      "title": "Taman Bermain Anak & Ayunan Kayu Alami",
+      "caption": "Taman Rumput & Ayunan Kayu",
+      "description": "Ruang Terbuka Hijau yang Ramah Anak",
+      "alt": "Taman hijau dan ayunan kayu untuk bermain bersama keluarga"
+    },
+    "standardRoom": {
+      "categoryLabel": "Kamar & Suite",
+      "title": "Kamar Standard dengan Twin Queen Bed",
+      "caption": "Standard Twin Queen Room",
+      "description": "Lantai Kayu Hangat & Selimut Lembut",
+      "alt": "Kamar Standard dengan dua tempat tidur queen dan lantai kayu"
+    },
+    "warmPool": {
+      "categoryLabel": "Kolam Air Hangat",
+      "title": "Kolam Air Hangat Alami 24 Jam",
+      "caption": "Kolam Rendam Sumber Air Belerang Alami",
+      "description": "Suhu Hangat Stabil Tanpa Kaporit",
+      "alt": "Kolam rendam air hangat dengan uap alami dan panorama lembah"
+    },
+    "roastGoat": {
+      "categoryLabel": "Dining",
+      "title": "Kambing Guling Utuh Tradisional Darajat",
+      "caption": "Kambing Guling Gurih Bumbu Rempah",
+      "description": "Disiapkan segar di pelataran terbuka dengan suasana api unggun malam pegunungan.",
+      "alt": "Kambing guling tradisional disiapkan oleh chef di area panggang terbuka"
+    },
+    "satayGrill": {
+      "categoryLabel": "Dining",
+      "title": "Sate Bakar Arang & Sambal Pasirwangi",
+      "caption": "Sate Ayam & Daging Bakar Arang",
+      "alt": "Sate ayam dan daging dipanggang di atas arang"
+    },
+    "celebration": {
+      "categoryLabel": "Family & Experience",
+      "title": "Dekorasi Kamar Romantis & Ulang Tahun",
+      "caption": "Paket Dekorasi Spesial Kamar",
+      "alt": "Dekorasi perayaan di kamar hotel dengan pencahayaan hangat"
+    }
+  },
+  "culinarySection": {
+    "leadBadge": "Live Cooking",
+    "bbqBadge": "BBQ & Grill",
+    "celebrationBadge": "Celebration",
+    "eyebrow": "CITA RASA & MOMEN SPESIAL",
+    "title": "Kehangatan Kuliner & Perayaan Keluarga",
+    "description": "Dari gurihnya hidangan kambing guling tradisional hingga dekorasi kejutan manis di dalam kamar."
+  },
+  "experienceSection": {
+    "eyebrow": "GREEN HERO EXPERIENCES",
+    "title": "Momen yang Layak Diingat",
+    "description": "Lengkapi waktu bersama keluarga dengan pilihan dining dan celebration experience selama menginap di tengah udara sejuk Pasirwangi.",
+    "button": "Lihat Experiences",
+    "note": "Tersedia Kambing Guling & Live BBQ",
+    "imageAlt": "Santap BBQ bersama keluarga di area terbuka resor"
+  },
+  "bookingSection": {
+    "eyebrow": "RESERVASI LANGSUNG",
+    "title": "Temukan Suasana Ini Secara Langsung",
+    "description": "Pilih tanggal menginap dan temukan kamar yang tersedia di Green Hero Darajat. Rasakan hangatnya air belerang alami dan sejuknya pegunungan Garut.",
+    "checkAvailability": "Cek Ketersediaan",
+    "viewRooms": "Lihat Kamar"
+  },
+  "lightbox": {
+    "ariaLabel": "Perbesar foto",
+    "close": "Tutup galeri foto",
+    "prev": "Foto sebelumnya",
+    "next": "Foto selanjutnya",
+    "counter": "{current} / {total}",
+    "hint": "Gunakan tombol panah kiri / kanan pada keyboard untuk navigasi. Tekan Escape untuk menutup."
+  },
+  "footer": {
+    "about": "Resor bernuansa alam pegunungan di kawasan Darajat Garut dengan fasilitas kolam renang air panas alami dan lanskap kebun teh yang menenangkan.",
+    "address": "Jl. Raya Darajat KM 14, Desa Karyamekar, Pasirwangi, Garut, Jawa Barat 44161",
+    "navTitle": "Navigasi Utama",
+    "nav": {
+      "about": "Tentang Kami",
+      "rooms": "Kamar & Fasilitas",
+      "reservationPolicy": "Kebijakan Reservasi",
+      "route": "Panduan Rute Darajat",
+      "contact": "Kontak & Bantuan",
+      "privacy": "Kebijakan Privasi"
+    },
+    "hoursTitle": "Jam Operasional",
+    "hours": {
+      "pool": {
+        "title": "Kolam Air Panas Alami",
+        "value": "Buka 24 Jam (Setiap Hari)"
+      },
+      "restaurant": {
+        "title": "Restoran Sunda & Kafe",
+        "value": "06.00 – 22.00 WIB"
+      },
+      "frontDesk": {
+        "title": "Layanan Resepsionis",
+        "value": "24 Jam Siap Melayani"
+      }
+    },
+    "contactTitle": "Kontak & Reservasi",
+    "phone": "+62 812 2345 6789 (WhatsApp)",
+    "email": "reservation@greenherodarajat.com",
+    "contactButton": "Hubungi Reservasi",
+    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
+    "bottom": {
+      "terms": "Syarat & Ketentuan",
+      "privacy": "Kebijakan Privasi",
+      "sitemap": "Sitemap"
+    }
+  }
+}

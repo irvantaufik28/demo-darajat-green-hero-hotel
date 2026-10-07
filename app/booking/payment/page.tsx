@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { normalizeExtraCounts, getNights } from "@/features/booking/constants/booking-data";
 import { getRoom } from "@/features/rooms/constants/rooms-data";
 import { parseRoomSelection } from "@/features/rooms/constants/room-selection-data";
-import PaymentPage from "@/features/booking/components/PaymentPage";
+import PaymentPage from "@/features/booking/pages/PaymentPage";
 
 export const metadata: Metadata = {
   title: "Pembayaran | Green Hero Darajat",

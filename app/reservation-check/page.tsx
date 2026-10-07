@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ReservationCheckPage from "@/features/reservation-check/components/ReservationCheckPage";
+import ReservationCheckPage from "@/features/reservation-check/pages/ReservationCheckPage";
 
 export const metadata: Metadata = {
   title: "Cek Status Reservasi | Green Hero Darajat",
