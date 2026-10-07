@@ -30,6 +30,14 @@ function formatStayDate(value: string, language: string) {
   }).format(new Date(`${value}T00:00:00Z`));
 }
 
+function formatPaymentTime(value: string, language: string) {
+  return `${new Intl.DateTimeFormat(language === "id" ? "id-ID" : "en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Asia/Jakarta",
+  }).format(new Date(value))} WIB`;
+}
+
 export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode: string }) {
   const { t, lang } = useTranslations({ en, id });
   const [reservation, setReservation] = useState<WebsiteReservation | null>(null);
@@ -123,6 +131,7 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
   const bookedRooms = [...rooms.values()];
   const roomTotal = bookedRooms.reduce((total, room) => total + room.baseAmount - room.discountAmount, 0);
   const additionalCharges = status ? Math.max(0, status.bookingTotal - roomTotal) : 0;
+  const hasCurrentBreakdown = Boolean(booking && status && booking.quote.bookingTotal === status.bookingTotal);
 
   if (loading) return <PageSkeleton />;
 
@@ -130,14 +139,6 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
     <div className="booking-page payment-page">
       <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="/rooms" contactHref="/contact" />
       <main className="container booking-main payment-success-main reservation-check-page">
-        <nav className="booking-progress" aria-label={t("progress.ariaLabel")}>
-          {["progress.selectRoom", "progress.addOns", "progress.guestDetails", "progress.payment"].map((label, index) => (
-            <div className={`booking-step${index < 3 || paid ? " is-complete" : ""}${index === 3 && !paid ? " is-current" : ""}`} key={label}>
-              <span className="booking-step-circle">{index < 3 || paid ? <Check size={18} /> : 4}</span><span>{t(label)}</span>
-            </div>
-          ))}
-        </nav>
-
         <section className={`payment-success-hero${paid ? " is-paid" : ""}`} aria-live="polite">
           <span className="payment-success-icon">{paid ? <CircleCheck size={34} /> : <Clock3 size={34} />}</span>
           <div>
@@ -195,9 +196,25 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
               <aside className="reservation-check-sidebar">
                 <section className="reservation-check-card reservation-check-payment">
                   <h2>{t("payment.success.paymentTitle")}</h2>
-                  {bookedRooms.length > 0 && <div className="reservation-check-costs">{bookedRooms.map((room) => <div key={room.id}><span>{room.name} × {room.count}</span><strong>{formatRoomPrice(room.baseAmount)}</strong></div>)}{booking && booking.quote.discountTotal > 0 && <div><span>{t("payment.success.discount")}</span><strong>−{formatRoomPrice(booking.quote.discountTotal)}</strong></div>}{additionalCharges > 0 && <div><span>{t("payment.success.additionalCharges")}</span><strong>{formatRoomPrice(additionalCharges)}</strong></div>}</div>}
-                  <div className="reservation-check-total"><div><strong>{t("payment.success.total")}</strong></div><b>{formatRoomPrice(status.bookingTotal)}</b></div>
-                  <div className="reservation-check-payment-info"><div><span>{t("payment.success.paidAmount")}</span><strong>{formatRoomPrice(status.paidAmount)}</strong></div><div><span>{t("payment.success.remaining")}</span><strong>{formatRoomPrice(status.remainingBalance)}</strong></div>{guest?.email && <div><span>{t("payment.success.emailLabel")}</span><strong>{guest.email}</strong></div>}</div>
+                  <div className="reservation-check-costs">
+                    {status.summary ? <>
+                      {status.summary.rooms.map((room, index) => <div key={index}><span>{t("payment.success.roomLine", { roomName: room.name, count: 1, nights: room.nights })}</span><strong>{formatRoomPrice(room.baseAmount)}</strong></div>)}
+                      {status.summary.rooms.some((room) => room.discountAmount > 0) && <div><span>{t("payment.success.discount")}</span><strong>−{formatRoomPrice(status.summary.rooms.reduce((total, room) => total + room.discountAmount, 0))}</strong></div>}
+                      {status.summary.extras.map((extra, index) => <div key={index}><span>{extra.description}{extra.quantity > 1 ? ` × ${extra.quantity}` : ""}</span><strong>{formatRoomPrice(extra.amount)}</strong></div>)}
+                    </> : hasCurrentBreakdown ? <>
+                      {bookedRooms.map((room) => <div key={room.id}><span>{t("payment.success.roomLine", { roomName: room.name, count: room.count, nights: booking!.quote.nights })}</span><strong>{formatRoomPrice(room.baseAmount)}</strong></div>)}
+                      {booking!.quote.discountTotal > 0 && <div><span>{t("payment.success.discount")}</span><strong>−{formatRoomPrice(booking!.quote.discountTotal)}</strong></div>}
+                      {additionalCharges > 0 && <div><span>{t("payment.success.additionalCharges")}</span><strong>{formatRoomPrice(additionalCharges)}</strong></div>}
+                    </> : <div><span>{t("payment.success.bookingAmount")}</span><strong>{formatRoomPrice(status.bookingTotal)}</strong></div>}
+                  </div>
+                  <div className="reservation-check-total"><div><strong>{t("payment.success.total")}</strong><small>{t("payment.success.totalNote")}</small></div><b>{formatRoomPrice(status.bookingTotal)}</b></div>
+                  <div className="reservation-check-payment-info">
+                    <div><span>{t("payment.success.paymentProvider")}</span><strong>{status.summary?.payment?.provider === "xendit" ? "Xendit" : status.summary?.payment?.provider ?? "—"}</strong></div>
+                    {status.summary?.payment?.paidAt && <div><span>{t("payment.success.transactionTime")}</span><strong>{formatPaymentTime(status.summary.payment.paidAt, lang)}</strong></div>}
+                    {status.summary?.payment?.reference && <div><span>{t("payment.success.transactionReference")}</span><strong>{status.summary.payment.reference}</strong></div>}
+                    <div><span>{t("payment.success.paidAmount")}</span><strong>{formatRoomPrice(status.paidAmount)}</strong></div>
+                    <div><span>{t("payment.success.remaining")}</span><strong>{formatRoomPrice(status.remainingBalance)}</strong></div>
+                  </div>
                   <button type="button" className="button button-primary" onClick={() => window.print()}><Printer size={18} />{t("payment.success.printSummary")}</button>
                   <a className="button button-quiet" href={contactDetails.whatsappHref} target="_blank" rel="noreferrer"><MessageCircle size={18} />{t("payment.success.supportAction")}</a>
                   <p className="reservation-check-security"><ShieldCheck size={14} />{t("payment.success.summaryNote")}</p>

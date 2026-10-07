@@ -26,6 +26,11 @@ export type WebsitePaymentStatus = {
   currency: "IDR";
   paymentExpiresAt: string | null;
   paymentSession: { status: string; expiresAt: string } | null;
+  summary?: {
+    rooms: { name: string; nights: number; baseAmount: number; discountAmount: number; finalAmount: number }[];
+    extras: { kind: string; description: string; quantity: number; amount: number }[];
+    payment: { provider: string | null; reference: string | null; paidAt: string | null; amount: number } | null;
+  };
 };
 
 export type WebsiteCheckout = {
