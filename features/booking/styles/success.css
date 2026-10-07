@@ -6,6 +6,8 @@
 .payment-success-result .reservation-check-room > div:last-child { min-width: 0; }
 .payment-success-result .reservation-check-costs strong { text-align: right; }
 .payment-success-result .reservation-check-payment-info strong { overflow-wrap: anywhere; }
+.payment-success-result .reservation-check-payment .button + .button { margin-top: 12px; }
+.payment-success-download-error { color: #b23b32 !important; font-size: 12px !important; margin: 10px 0 0 !important; }
 .payment-success-pending-badge { border: 1px solid #e8d7ac; background: #fff5de; color: #866624; }
 .reservation-check-timeline .payment-success-pending-step > span { background: #ead7a8; color: #73591f; }
 .payment-success-result .reservation-check-help { margin-top: 32px; }

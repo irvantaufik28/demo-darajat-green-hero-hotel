@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { BadgeCheck, BedDouble, CalendarDays, Check, CircleCheck, Clock3, Headphones, Hotel, KeyRound, Mail, MessageCircle, Printer, RefreshCw, ShieldCheck, Ticket } from "lucide-react";
+import { BadgeCheck, BedDouble, CalendarDays, Check, CircleCheck, Clock3, Download, Headphones, Hotel, KeyRound, Mail, MessageCircle, RefreshCw, ShieldCheck, Ticket } from "lucide-react";
 import { Brand } from "@/components/Brand";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
@@ -12,7 +12,7 @@ import { getNights, type GuestDraft } from "../constants/booking-data";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import { listRooms, type PublicRoom } from "@/features/rooms/services/public-rooms";
 import { readLiveBooking, serializeLiveSelection, type LiveRoomBooking } from "@/features/rooms/services/live-booking";
-import { checkoutFingerprint, getWebsitePaymentStatus, readWebsiteCheckout, readWebsiteGuest, type WebsitePaymentStatus, type WebsiteReservation } from "../services/website-checkout";
+import { checkoutFingerprint, downloadWebsiteReservationDocument, getWebsitePaymentStatus, readWebsiteCheckout, readWebsiteGuest, type WebsitePaymentStatus, type WebsiteReservation } from "../services/website-checkout";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
 import id from "../locales/id.json";
@@ -47,6 +47,8 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
   const [roomCatalog, setRoomCatalog] = useState<PublicRoom[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [downloading, setDownloading] = useState<"voucher" | "receipt" | null>(null);
+  const [downloadError, setDownloadError] = useState("");
 
   useEffect(() => {
     const checkout = readWebsiteCheckout();
@@ -97,7 +99,8 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
   }, [bookingCode, lang]);
 
   const paid = status?.paymentStatus === "paid";
-  const confirmed = status?.reservationStatus === "confirmed";
+  const confirmed = ["confirmed", "checked_in", "checked_out"].includes(status?.reservationStatus ?? "");
+  const voucherReady = confirmed;
   const needsReview = paid && status?.reservationStatus === "expired";
 
   useEffect(() => {
@@ -132,6 +135,27 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
   const roomTotal = bookedRooms.reduce((total, room) => total + room.baseAmount - room.discountAmount, 0);
   const additionalCharges = status ? Math.max(0, status.bookingTotal - roomTotal) : 0;
   const hasCurrentBreakdown = Boolean(booking && status && booking.quote.bookingTotal === status.bookingTotal);
+
+  async function handleDownload(type: "voucher" | "receipt") {
+    if (!reservation || downloading) return;
+    setDownloadError("");
+    setDownloading(type);
+    try {
+      const blob = await downloadWebsiteReservationDocument(reservation, type);
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${reservation.bookingCode}-${type}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (cause) {
+      setDownloadError(cause instanceof Error ? cause.message : t("payment.success.downloadError"));
+    } finally {
+      setDownloading(null);
+    }
+  }
 
   if (loading) return <PageSkeleton />;
 
@@ -215,7 +239,9 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
                     <div><span>{t("payment.success.paidAmount")}</span><strong>{formatRoomPrice(status.paidAmount)}</strong></div>
                     <div><span>{t("payment.success.remaining")}</span><strong>{formatRoomPrice(status.remainingBalance)}</strong></div>
                   </div>
-                  <button type="button" className="button button-primary" onClick={() => window.print()}><Printer size={18} />{t("payment.success.printSummary")}</button>
+                  {voucherReady && <button type="button" className="button button-primary" onClick={() => void handleDownload("voucher")} disabled={downloading !== null}><Download size={18} />{downloading === "voucher" ? t("payment.success.downloading") : t("payment.success.downloadVoucher")}</button>}
+                  <button type="button" className={voucherReady ? "button button-quiet" : "button button-primary"} onClick={() => void handleDownload("receipt")} disabled={downloading !== null}><Download size={18} />{downloading === "receipt" ? t("payment.success.downloading") : t("payment.success.downloadReceipt")}</button>
+                  {downloadError && <p className="payment-success-download-error" role="alert">{downloadError}</p>}
                   <a className="button button-quiet" href={contactDetails.whatsappHref} target="_blank" rel="noreferrer"><MessageCircle size={18} />{t("payment.success.supportAction")}</a>
                   <p className="reservation-check-security"><ShieldCheck size={14} />{t("payment.success.summaryNote")}</p>
                 </section>

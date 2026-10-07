@@ -109,3 +109,18 @@ export function getWebsitePaymentStatus(reservation: WebsiteReservation) {
     bearerToken: reservation.checkoutToken,
   });
 }
+
+export async function downloadWebsiteReservationDocument(
+  reservation: WebsiteReservation,
+  type: "voucher" | "receipt",
+) {
+  const response = await fetch(`/api/v1/public/reservations/${reservation.id}/documents/${type}`, {
+    headers: { Authorization: `Bearer ${reservation.checkoutToken}` },
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    const payload = await response.json().catch(() => null) as { error?: { message?: string } } | null;
+    throw new Error(payload?.error?.message ?? "Unable to download PDF document.");
+  }
+  return response.blob();
+}
