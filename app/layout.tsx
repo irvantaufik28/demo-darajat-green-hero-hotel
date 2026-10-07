@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Lato } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const bodyFont = Lato({
+const bodyFont = localFont({
+  src: [
+    { path: "./fonts/Lato-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/Lato-Bold.ttf", weight: "700", style: "normal" },
+  ],
   variable: "--font-body",
-  weight: ["400", "700"],
-  subsets: ["latin"],
   display: "swap",
 });
 
-const headingFont = Cormorant_Garamond({
+const headingFont = localFont({
+  src: [
+    { path: "./fonts/CormorantGaramond-Variable.ttf", weight: "300 700", style: "normal" },
+    { path: "./fonts/CormorantGaramond-Italic-Variable.ttf", weight: "300 700", style: "italic" },
+  ],
   variable: "--font-heading",
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
   display: "swap",
 });
 

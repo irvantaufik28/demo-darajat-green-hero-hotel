@@ -1,6 +1,6 @@
 // Public site API client. Next proxies these requests to the backend API
 // (see next.config.ts rewrites), so the browser only ever talks to this origin.
-const apiBaseUrl = "/api/v1";
+const apiBaseUrl = "/api/v1/public";
 
 type ApiErrorPayload = {
   error?: { code?: string; message?: string };
@@ -9,6 +9,7 @@ type ApiErrorPayload = {
 
 export type ApiRequestOptions = Omit<RequestInit, "body"> & {
   body?: unknown;
+  bearerToken?: string;
 };
 
 export class ApiError extends Error {
@@ -46,8 +47,9 @@ async function readResponse<T>(response: Response): Promise<T> {
 }
 
 export async function apiRequest<T>(path: string, options: ApiRequestOptions = {}): Promise<T> {
-  const { body, headers: suppliedHeaders, ...requestOptions } = options;
+  const { body, bearerToken, headers: suppliedHeaders, ...requestOptions } = options;
   const headers = new Headers(suppliedHeaders);
+  if (bearerToken) headers.set("Authorization", `Bearer ${bearerToken}`);
   const isFormData = typeof FormData !== "undefined" && body instanceof FormData;
   if (body !== undefined && !isFormData && !headers.has("Content-Type")) {
     headers.set("Content-Type", "application/json");

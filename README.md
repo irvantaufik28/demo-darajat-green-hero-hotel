@@ -15,7 +15,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000.
+Set `API_BASE_URL=http://localhost:4000/api/v1` in `.env.local` and run the API locally, then open http://localhost:3000.
 
 ## Manual production build
 
@@ -33,7 +33,7 @@ Builds and testing are performed manually by the project owner.
 3. Use the **Next.js** framework preset and **Node.js 24.x**.
 4. Install with `npm ci` and build with `npm run build`. These commands are defined in `vercel.json`.
 5. Leave the Output Directory at the framework default. Vercel manages the Next.js build output.
-6. No environment variables, database, Stitch API key, or other credentials are required for this demo.
+6. Set `API_BASE_URL` to the API origin plus `/api/v1` (for example, `https://<your-api-domain>/api/v1`). Next.js proxies browser requests to this backend. The URL is configured in the Vercel project environment.
 7. Deploy through Vercel. Future pushes to the connected production branch trigger deployments.
 
 Keep the Next.js framework deployment mode: the application includes dynamic room routes and booking query parameters. Assets are served from `public/images`, and legacy route redirects are defined in `next.config.ts`.
