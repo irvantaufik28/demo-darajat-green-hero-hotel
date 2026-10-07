@@ -1,0 +1,22 @@
+.page-skeleton { min-height: 100vh; background: #f6f5ef; }
+.page-skeleton-header { display: flex; align-items: center; justify-content: space-between; gap: 22px; height: 84px; padding-inline: max(32px, calc((100vw - 1320px) / 2)); background: #fff; box-shadow: 0 1px 5px rgba(23,30,22,.08); }
+.page-skeleton-header i, .page-skeleton-line, .page-skeleton-panel, .page-skeleton-panel i { display: block; border-radius: 8px; background: linear-gradient(100deg, #e7e9e2 20%, #f2f4ed 45%, #e7e9e2 70%); background-size: 200% 100%; animation: page-skeleton-shimmer 1.4s ease-in-out infinite; }
+.page-skeleton-header i:first-child { width: 190px; height: 36px; }
+.page-skeleton-header i:nth-child(2) { width: min(35vw, 390px); height: 16px; }
+.page-skeleton-header i:last-child { width: 90px; height: 35px; }
+.page-skeleton-content { width: min(100% - 64px, 1320px); margin: 0 auto; padding-block: 76px; }
+.page-skeleton-line { height: 18px; margin-bottom: 20px; }
+.page-skeleton-line.is-short { width: 140px; height: 13px; }
+.page-skeleton-line.is-title { width: min(70%, 650px); height: 52px; }
+.page-skeleton-line.is-medium { width: min(80%, 780px); }
+.page-skeleton-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr); gap: 28px; margin-top: 52px; }
+.page-skeleton-panel { min-height: 350px; padding: 34px; background: #fff; border: 1px solid #e5e8e0; }
+.page-skeleton-panel i { width: 80%; height: 18px; margin-bottom: 22px; }
+.page-skeleton-panel i:first-child { width: 55%; height: 28px; }
+.page-skeleton-panel i:last-child { width: 62%; }
+.page-skeleton.is-compact { min-height: 440px; }
+.page-skeleton.is-compact .page-skeleton-header { display: none; }
+.page-skeleton.is-compact .page-skeleton-content { padding-block: 52px; }
+@keyframes page-skeleton-shimmer { to { background-position-x: -200%; } }
+@media (max-width: 700px) { .page-skeleton-header { padding-inline: 20px; } .page-skeleton-header i:nth-child(2) { display: none; } .page-skeleton-content { width: min(100% - 36px, 1320px); padding-block: 45px; } .page-skeleton-grid { grid-template-columns: 1fr; margin-top: 30px; } .page-skeleton-panel { min-height: 230px; } }
+@media (prefers-reduced-motion: reduce) { .page-skeleton-header i, .page-skeleton-line, .page-skeleton-panel, .page-skeleton-panel i { animation: none; } }

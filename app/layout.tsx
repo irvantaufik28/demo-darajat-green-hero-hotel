@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import NavigationSkeleton from "@/components/NavigationSkeleton";
 import "./globals.css";
 
 const bodyFont = localFont({
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="id" className={`${bodyFont.variable} ${headingFont.variable}`}>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning><NavigationSkeleton />{children}</body>
     </html>
   );
 }

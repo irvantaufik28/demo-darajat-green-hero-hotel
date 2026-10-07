@@ -12,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Brand } from "@/components/Brand";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { bookingExtraLabels, bookingExtraPrices, getExtraCost, getNights, type PaidExtraId } from "@/features/booking/constants/booking-data";
 import { formatRoomPrice, getRoom } from "@/features/rooms/constants/rooms-data";
@@ -102,7 +103,7 @@ export default function PaymentPage({ roomId, roomSelection, checkIn, checkOut, 
       const instructionParams = new URLSearchParams({ room: roomId, rooms: selectionQuery, checkIn, checkOut, guests, method: "bca" });
       for (const id of selectedExtras) instructionParams.set(id, String(counts[id]));
       try { sessionStorage.removeItem(`green-hero-demo-payment-deadline:${instructionParams}`); } catch { /* Continue without browser storage. */ }
-      window.location.assign(`/booking/payment/instructions?${instructionParams}`);
+      navigateWithSkeleton(`/booking/payment/instructions?${instructionParams}`);
       return;
     }
     setMessage(t("payment.messages.simulationOnly", { method: selectedOption?.label ?? t("payment.messages.methodFallback") }));

@@ -23,6 +23,8 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Brand } from "@/components/Brand";
+import PageSkeleton from "@/components/PageSkeleton";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { formatRoomPrice, type Room } from "@/features/rooms/constants/rooms-data";
 import RoomInfoModal from "../components/RoomInfoModal";
@@ -179,6 +181,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
     setCheckIn(nextCheckIn);
     setCheckOut(nextCheckOut);
     setSearchedDates({ checkIn: "", checkOut: "" });
+    setSearching(false);
     setAvailability([]);
     setAvailabilityLoaded(false);
     setSelection([]);
@@ -212,7 +215,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
       return;
     }
     const params = new URLSearchParams({ source: "website", room: selection[0].roomId, rooms: serializeLiveSelection(selection), checkIn: searchedDates.checkIn, checkOut: searchedDates.checkOut, guests });
-    window.location.assign(`/booking/extras?${params}`);
+    navigateWithSkeleton(`/booking/extras?${params}`);
   }
 
   function searchRooms(event: FormEvent<HTMLFormElement>) {
@@ -272,7 +275,8 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
 
         <section className="container rooms-booking-layout" id="rooms-list" aria-label={t("card.layoutAriaLabel")}><div className="rooms-list">
           {!loading && !rooms.length && <p role="status">{t("availability.noRooms")}</p>}
-          {visibleRooms.map((room) => (
+          {(loading || searching) && <PageSkeleton compact />}
+          {!loading && !searching && visibleRooms.map((room) => (
             <article className={`rooms-card${availabilityLoaded && !room.available ? " is-unavailable" : ""}`} id={`room-${room.id}`} key={room.id}>
               <div className="rooms-card-photo">
                 <Image src={room.image} alt={room.imageAlt} fill unoptimized sizes="(max-width: 640px) 100vw, (max-width: 1000px) 40vw, 30vw" />

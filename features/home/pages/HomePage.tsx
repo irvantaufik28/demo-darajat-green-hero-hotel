@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { useEffect, useRef, useState } from "react";
 import { Brand } from "@/components/Brand";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -123,7 +123,6 @@ function SectionEyebrow({ children, gold = false }: { children: React.ReactNode;
 
 export default function Home() {
   const { t } = useTranslations({ en, id });
-  const router = useRouter();
   const [roomIndex, setRoomIndex] = useState(0);
   const [visibleRoomCount, setVisibleRoomCount] = useState(3);
   const roomTrackRef = useRef<HTMLDivElement>(null);
@@ -190,7 +189,7 @@ export default function Home() {
     if (checkIn) params.set("checkIn", checkIn);
     if (checkOut) params.set("checkOut", checkOut);
     setBookingMessage("");
-    router.push(`/rooms?${params.toString()}`);
+    navigateWithSkeleton(`/rooms?${params.toString()}`);
   };
 
   return (

@@ -16,6 +16,8 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Brand } from "@/components/Brand";
+import PageSkeleton from "@/components/PageSkeleton";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { GUEST_DRAFT_KEY, bookingExtraLabels, bookingExtraPrices, getExtraCost, getNights, type GuestDraft, type PaidExtraId } from "@/features/booking/constants/booking-data";
 import { formatRoomPrice, getRoom } from "@/features/rooms/constants/rooms-data";
@@ -101,7 +103,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
       // The form remains usable when browser storage is unavailable.
     }
   }, [liveMode]);
-  if (liveLoading) return <main className="container booking-main" role="status">{t("guest.live.loading")}</main>;
+  if (liveLoading) return <PageSkeleton />;
   if (liveMode && !liveBooking) return <main className="container booking-main"><h1>{t("guest.live.expiredTitle")}</h1><p>{t("guest.live.expiredDescription")}</p><a className="button button-primary" href="/rooms">{t("guest.live.backToRooms")}</a></main>;
   if (!room && !liveMode) return null;
 
@@ -122,7 +124,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
       try {
         sessionStorage.setItem(LIVE_GUEST_DRAFT_KEY, JSON.stringify({ bookingKey: liveBookingFingerprint(liveBooking), draft }));
         const params = new URLSearchParams({ source: "website", room: roomId, rooms: selectionQuery, checkIn, checkOut, guests });
-        window.location.assign(`/booking/payment?${params}`);
+        navigateWithSkeleton(`/booking/payment?${params}`);
       } catch {
         setSaveMessage(t("guest.live.saveError"));
       }
@@ -131,7 +133,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
     try { sessionStorage.setItem(GUEST_DRAFT_KEY, JSON.stringify({ fullName, nationality, whatsapp: `${selectedNationality.dialCode}${whatsapp}`, email } satisfies GuestDraft)); } catch { /* The demo flow can continue. */ }
     const params = new URLSearchParams({ room: roomId, rooms: selectionQuery, checkIn, checkOut, guests });
     for (const id of selectedExtras) params.set(id, String(counts[id]));
-    window.location.assign(`/booking/payment?${params}`);
+    navigateWithSkeleton(`/booking/payment?${params}`);
   }
 
   return (

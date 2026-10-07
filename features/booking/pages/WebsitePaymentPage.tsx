@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, Check, Clock3, Info, LockKeyhole, MailCheck, Wallet, Zap } from "lucide-react";
 import { Brand } from "@/components/Brand";
+import PageSkeleton from "@/components/PageSkeleton";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { getNights, type GuestDraft } from "../constants/booking-data";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
@@ -38,6 +40,7 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
   const [availability, setAvailability] = useState<RoomAvailability[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [paymentUncertain, setPaymentUncertain] = useState(false);
   const [message, setMessage] = useState("");
   const [confirmedPriceChange, setConfirmedPriceChange] = useState(false);
   const [now, setNow] = useState(Date.now());
@@ -64,7 +67,22 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
     if (checkout?.fingerprint === checkoutFingerprint(stored, savedGuest) && checkout.reservation) {
       setReservation(checkout.reservation);
       setBooking(stored);
-      setLoading(false);
+      getWebsitePaymentStatus(checkout.reservation)
+        .then((status) => {
+          if (controller.signal.aborted) return;
+          if (status.paymentStatus === "paid") {
+            navigateWithSkeleton(`/booking/payment/success?${new URLSearchParams({ booking: status.bookingCode })}`, true);
+            return;
+          }
+          setPaymentUncertain(false);
+          setLoading(false);
+        })
+        .catch(() => {
+          if (controller.signal.aborted) return;
+          setPaymentUncertain(true);
+          setMessage(t("payment.live.verificationPending"));
+          setLoading(false);
+        });
       return () => controller.abort();
     }
     Promise.all([
@@ -87,9 +105,54 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
   }, [roomId, checkIn, checkOut, lang]);
 
   useEffect(() => {
-    if (!verifyReturn) return;
+    let active = true;
+    let checking = false;
+    async function recheckAfterReturn() {
+      if (checking) return;
+      const stored = readLiveBooking();
+      const savedGuest = stored ? readWebsiteGuest(stored) : null;
+      const checkout = readWebsiteCheckout();
+      if (!stored || !savedGuest || !checkout?.reservation || checkout.fingerprint !== checkoutFingerprint(stored, savedGuest)) return;
+      checking = true;
+      setLoading(true);
+      try {
+        const status = await getWebsitePaymentStatus(checkout.reservation);
+        if (!active) return;
+        if (status.paymentStatus === "paid") {
+          navigateWithSkeleton(`/booking/payment/success?${new URLSearchParams({ booking: status.bookingCode })}`, true);
+          return;
+        }
+        setPaymentUncertain(false);
+        setLoading(false);
+      } catch {
+        if (active) {
+          setPaymentUncertain(true);
+          setMessage(t("payment.live.verificationPending"));
+          setLoading(false);
+        }
+      } finally {
+        checking = false;
+      }
+    }
+    function onPageShow(event: PageTransitionEvent) {
+      if (event.persisted) void recheckAfterReturn();
+    }
+    function onVisibilityChange() {
+      if (document.visibilityState === "visible") void recheckAfterReturn();
+    }
+    window.addEventListener("pageshow", onPageShow);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => {
+      active = false;
+      window.removeEventListener("pageshow", onPageShow);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, [lang]);
+
+  useEffect(() => {
+    if (!verifyReturn && !paymentUncertain) return;
     const saved = readWebsiteCheckout()?.reservation;
-    if (!saved || saved.bookingCode !== bookingCode) {
+    if (!saved || (verifyReturn && saved.bookingCode !== bookingCode)) {
       setMessage(t("payment.live.missingSession"));
       return;
     }
@@ -101,7 +164,7 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
         if (!active) return;
         if (status.paymentStatus === "paid") {
           window.clearInterval(timer);
-          window.location.replace(`/booking/payment/success?${new URLSearchParams({ booking: saved!.bookingCode })}`);
+          navigateWithSkeleton(`/booking/payment/success?${new URLSearchParams({ booking: saved!.bookingCode })}`, true);
           return;
         }
         setMessage(status.reservationStatus === "expired"
@@ -114,7 +177,7 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
     void refresh();
     timer = window.setInterval(() => { void refresh(); }, 5000);
     return () => { active = false; window.clearInterval(timer); };
-  }, [verifyReturn, bookingCode, lang]);
+  }, [verifyReturn, paymentUncertain, bookingCode, lang]);
 
   const secondsRemaining = reservation ? Math.max(0, Math.ceil((Date.parse(reservation.paymentExpiresAt) - now) / 1000)) : null;
   const expired = secondsRemaining === 0;
@@ -123,10 +186,11 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
   const backHref = `/booking/guest-details?${new URLSearchParams({ source: "website", room: roomId, rooms: selection, checkIn, checkOut, guests })}`;
   const total = reservation?.bookingTotal ?? booking?.quote.bookingTotal ?? 0;
   const nights = getNights(checkIn, checkOut);
+  const isVerifying = verifyReturn || paymentUncertain;
 
   function startNewBooking() {
     clearWebsiteCheckout();
-    window.location.assign("/rooms");
+    navigateWithSkeleton("/rooms");
   }
 
   function describeRule(rule: CancellationRule) {
@@ -142,7 +206,7 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
   }
 
   async function handlePay() {
-    if (!booking || !guest || submitting || verifyReturn) return;
+    if (!booking || !guest || submitting || verifyReturn || paymentUncertain) return;
     setSubmitting(true);
     setMessage("");
     try {
@@ -182,8 +246,8 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
         return;
       }
       const status = await getWebsitePaymentStatus(created);
-      if (status.paymentStatus === "paid" || status.reservationStatus === "confirmed") {
-        window.location.assign(`/booking/payment/success?${new URLSearchParams({ booking: created.bookingCode })}`);
+      if (status.paymentStatus === "paid") {
+        navigateWithSkeleton(`/booking/payment/success?${new URLSearchParams({ booking: created.bookingCode })}`, true);
         return;
       }
       if (status.reservationStatus !== "pending" || (status.paymentExpiresAt && Date.parse(status.paymentExpiresAt) <= Date.now())) {
@@ -196,7 +260,7 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
         setMessage(t("payment.live.sessionPending"));
         return;
       }
-      window.location.assign(checkoutUrl);
+      navigateWithSkeleton(checkoutUrl);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : t("payment.live.error"));
     } finally {
@@ -204,7 +268,7 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
     }
   }
 
-  if (loading) return <main className="container booking-main" role="status">{t("payment.live.loading")}</main>;
+  if (loading) return <PageSkeleton />;
   if (!booking || !guest) return <main className="container booking-main"><h1>{t("payment.live.missingTitle")}</h1><p>{message || t("payment.live.missingDescription")}</p><a className="button button-primary" href="/rooms">{t("guest.live.backToRooms")}</a></main>;
 
   return (
@@ -218,10 +282,10 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
             </div>
           ))}
         </nav>
-        <div className="payment-intro"><span className="booking-eyebrow">{t("payment.intro.eyebrow")}</span><h1>{verifyReturn ? t("payment.live.verificationTitle") : t("payment.intro.title")}</h1><p>{verifyReturn ? t("payment.live.verificationDescription") : t("payment.live.description")}</p></div>
+        <div className="payment-intro"><span className="booking-eyebrow">{t("payment.intro.eyebrow")}</span><h1>{isVerifying ? t("payment.live.verificationTitle") : t("payment.intro.title")}</h1><p>{isVerifying ? t("payment.live.verificationDescription") : t("payment.live.description")}</p></div>
         <div className="payment-layout">
           <div className="payment-left">
-            {!verifyReturn && <section className="payment-method-card" aria-labelledby="payment-method-title">
+            {!isVerifying && <section className="payment-method-card" aria-labelledby="payment-method-title">
               <div className="payment-method-heading"><div><Wallet size={25} /><h2 id="payment-method-title">{t("payment.live.methodTitle")}</h2></div><p>{t("payment.live.methodDescription")}</p></div>
               <div className="payment-xendit-notice"><Info size={24} /><div><strong>{t("payment.live.methodNoticeTitle")}</strong><p>{t("payment.live.methodNotice")}</p></div></div>
             </section>}
@@ -259,10 +323,10 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
             <div className="payment-trust-grid"><div><LockKeyhole size={23} /><span><strong>{t("payment.live.secureTitle")}</strong><small>{t("payment.live.secureDetail")}</small></span></div><div><Zap size={23} /><span><strong>{t("payment.live.statusTitle")}</strong><small>{t("payment.live.statusDetail")}</small></span></div><div><MailCheck size={23} /><span><strong>{t("payment.live.guestTitle")}</strong><small>{guest.email}</small></span></div></div>
           </div>
           <aside className="payment-right" id="payment-summary">
-            {verifyReturn
+            {isVerifying
               ? <div className="payment-verification-banner"><Clock3 size={24} /><div><strong>{t("payment.live.verificationTitle")}</strong><p>{t("payment.live.verificationDescription")}</p></div></div>
               : <div className="payment-timer"><Clock3 size={24} /><div><span>{t("payment.timer.remaining")} <strong>{countdown}</strong></span><p>{reservation ? t("payment.live.timerActive") : t("payment.live.timerBefore")}</p></div></div>}
-            <div className="payment-summary-card"><div className="payment-summary-heading"><h2>{t("payment.summary.title")}</h2><span>{reservation?.bookingCode ?? t("payment.live.ready")}</span></div><div className="payment-booking-details"><div><span>{t("payment.summary.roomType")}</span><strong>{t("payment.summary.roomValue", { count: booking.quote.roomCount, nights })}</strong></div><div><span>{t("payment.summary.schedule")}</span><strong>{checkIn} – {checkOut}<small>{guests}</small></strong></div><div><span>{t("payment.summary.extras")}</span><strong>{t("payment.summary.noExtras")}</strong></div></div><LiveBookingRoomSelection booking={booking} nights={nights} /><div className="payment-total"><div><span>{t("payment.summary.total")}</span><strong>{formatRoomPrice(total)}</strong></div><p>{t("payment.live.totalNote")}</p></div><button type="button" className="payment-pay-button" onClick={handlePay} disabled={submitting || expired || verifyReturn}><LockKeyhole size={20} /> {verifyReturn ? t("payment.live.verifying") : submitting ? t("payment.live.processing") : t("payment.live.payNow")}</button>{expired && !verifyReturn && <button type="button" className="payment-restart-button" onClick={startNewBooking}>{t("payment.live.startNew")}</button>}<p className="payment-pay-caption">{verifyReturn ? t("payment.live.verificationDescription") : t("payment.live.payCaption")}</p>{message && <p className="payment-status" role="alert">{message}</p>}{!verifyReturn && <div className="payment-back"><a href={backHref}><ArrowLeft size={18} /> {t("payment.summary.back")}</a></div>}</div>
+            <div className="payment-summary-card"><div className="payment-summary-heading"><h2>{t("payment.summary.title")}</h2><span>{reservation?.bookingCode ?? t("payment.live.ready")}</span></div><div className="payment-booking-details"><div><span>{t("payment.summary.roomType")}</span><strong>{t("payment.summary.roomValue", { count: booking.quote.roomCount, nights })}</strong></div><div><span>{t("payment.summary.schedule")}</span><strong>{checkIn} – {checkOut}<small>{guests}</small></strong></div><div><span>{t("payment.summary.extras")}</span><strong>{t("payment.summary.noExtras")}</strong></div></div><LiveBookingRoomSelection booking={booking} nights={nights} /><div className="payment-total"><div><span>{t("payment.summary.total")}</span><strong>{formatRoomPrice(total)}</strong></div><p>{t("payment.live.totalNote")}</p></div><button type="button" className="payment-pay-button" onClick={handlePay} disabled={submitting || expired || isVerifying}><LockKeyhole size={20} /> {isVerifying ? t("payment.live.verifying") : submitting ? t("payment.live.processing") : t("payment.live.payNow")}</button>{expired && !isVerifying && <button type="button" className="payment-restart-button" onClick={startNewBooking}>{t("payment.live.startNew")}</button>}<p className="payment-pay-caption">{isVerifying ? t("payment.live.verificationDescription") : t("payment.live.payCaption")}</p>{message && <p className="payment-status" role="alert">{message}</p>}{!isVerifying && <div className="payment-back"><a href={backHref}><ArrowLeft size={18} /> {t("payment.summary.back")}</a></div>}</div>
           </aside>
         </div>
       </main>

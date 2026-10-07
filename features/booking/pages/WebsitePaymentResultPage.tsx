@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Check, Clock3, RefreshCw } from "lucide-react";
 import { Brand } from "@/components/Brand";
+import PageSkeleton from "@/components/PageSkeleton";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import { readLiveBooking, serializeLiveSelection } from "@/features/rooms/services/live-booking";
@@ -43,7 +45,7 @@ export default function WebsitePaymentResultPage({ bookingCode }: { bookingCode:
           setStatus(result);
           setError("");
           if (result.paymentStatus === "paid") {
-            window.location.replace(`/booking/payment/success?${new URLSearchParams({ booking: result.bookingCode })}`);
+            navigateWithSkeleton(`/booking/payment/success?${new URLSearchParams({ booking: result.bookingCode })}`, true);
           }
           if (result.paymentStatus === "paid" || result.reservationStatus === "expired") window.clearInterval(timer);
         }
@@ -63,8 +65,10 @@ export default function WebsitePaymentResultPage({ bookingCode }: { bookingCode:
 
   function startNewBooking() {
     clearWebsiteCheckout();
-    window.location.assign("/rooms");
+    navigateWithSkeleton("/rooms");
   }
+
+  if (loading) return <PageSkeleton />;
 
   return (
     <div className="booking-page payment-page">

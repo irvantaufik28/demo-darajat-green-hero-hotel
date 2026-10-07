@@ -24,6 +24,8 @@ body {
   color: var(--ink);
   font-family: var(--font-body), Arial, sans-serif;
 }
+.site-navigation-skeleton { position: fixed; z-index: 9999; inset: 0; overflow: auto; visibility: hidden; opacity: 0; pointer-events: none; transition: opacity .12s ease; }
+.site-is-navigating .site-navigation-skeleton { visibility: visible; opacity: 1; pointer-events: auto; }
 button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 a { color: inherit; text-decoration: none; }

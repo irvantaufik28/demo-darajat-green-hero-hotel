@@ -22,6 +22,8 @@ import {
 } from "lucide-react";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { Brand } from "@/components/Brand";
+import PageSkeleton from "@/components/PageSkeleton";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { BOOKING_DRAFT_KEY, bookingExtraPrices, bookingExtraLabels, normalizeExtraCounts, type PaidExtraId, type BookingDraft, getExtraCost, getNights } from "@/features/booking/constants/booking-data";
 import { foodCategories, type FoodCategory } from "@/features/booking/constants/food-packages-data";
 import FoodPackageModal from "../components/FoodPackageModal";
@@ -128,7 +130,7 @@ export default function BookingExtrasPage({ roomId, roomSelection, initialCheckI
     }
   }, [selectionQuery, checkIn, checkOut, guests, liveMode]);
 
-  if (liveLoading) return <main className="container booking-main" role="status">{t("extras.live.loading")}</main>;
+  if (liveLoading) return <PageSkeleton />;
   if (liveMode && !liveBooking) return <main className="container booking-main"><h1>{t("extras.live.expiredTitle")}</h1><p>{t("extras.live.expiredDescription")}</p><a className="button button-primary" href="/rooms">{t("extras.live.backToRooms")}</a></main>;
   if (!room && !liveMode) return null;
 
@@ -148,7 +150,7 @@ export default function BookingExtrasPage({ roomId, roomSelection, initialCheckI
   function goToGuest(skipExtras: boolean) {
     if (liveMode && liveBooking) {
       const params = new URLSearchParams({ source: "website", room: liveBooking.selection[0].roomId, rooms: serializeLiveSelection(liveBooking.selection), checkIn, checkOut, guests });
-      window.location.assign(`/booking/guest-details?${params}`);
+      navigateWithSkeleton(`/booking/guest-details?${params}`);
       return;
     }
     const selectedCounts: Record<string, number> = skipExtras ? {} : normalizeExtraCounts(counts);
@@ -163,7 +165,7 @@ export default function BookingExtrasPage({ roomId, roomSelection, initialCheckI
     for (const id of Object.keys(bookingExtraPrices) as (keyof typeof bookingExtraPrices)[]) {
       if (selectedCounts[id] > 0) params.set(id, String(selectedCounts[id]));
     }
-    window.location.assign(`/booking/guest-details?${params}`);
+    navigateWithSkeleton(`/booking/guest-details?${params}`);
   }
 
   function extraCard(extra: Extra, icon?: ReactNode) {
