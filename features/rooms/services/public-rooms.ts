@@ -11,7 +11,7 @@ export type PublicRoom = {
   mealTypeName: string | null;
   viewTypeName: string | null;
   images: { id: string; url: string; altText: string | null; isCover: boolean; sortOrder: number }[];
-  amenities: { id: string; name: string }[];
+  amenities: { id: string; name: string; iconKey: string | null }[];
   capacityPatterns: { adults: number; children: number; extraBeds: number }[];
 };
 
@@ -25,7 +25,12 @@ export type RoomAvailability = {
     roomTotal: number;
     discountTotal: number;
     nightly: { stayDate: string; basePrice: number; discountAmount: number; finalPrice: number }[];
-    appliedCampaigns: unknown[];
+    appliedCampaigns: {
+      id: string;
+      name: string;
+      bookingEnd: string | null;
+      stayEnd: string | null;
+    }[];
   } | null;
   cancellationPolicies: {
     id: string | null;

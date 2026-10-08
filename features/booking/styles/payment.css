@@ -14,6 +14,9 @@
 .payment-policy-name { color: var(--forest); font-size: 14px; font-weight: 700; }
 .payment-policy-details { display: grid; gap: 5px; color: #596c5f; font-size: 12px; line-height: 1.5; }
 .payment-policy-details small { font-size: 12px; }
+.payment-policy-option { display: grid; gap: 6px; padding: 11px 12px; border: 1px solid #dce5db; border-radius: 9px; background: white; }
+.payment-policy-option-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 7px; }
+.payment-policy-option-heading > small { padding: 3px 7px; border-radius: 99px; background: #e8f3e8; color: var(--forest); font-size: 10px; }
 .payment-method-heading { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid #e4e5dd; }
 .payment-method-heading > div { display: flex; align-items: center; gap: 10px; }
 .payment-method-heading svg { flex-shrink: 0; color: var(--forest); }

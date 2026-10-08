@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import {
   ArrowRight,
   BedDouble,
@@ -27,6 +27,7 @@ import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { formatRoomPrice, type Room } from "@/features/rooms/constants/rooms-data";
+import { roomAmenityIcon } from "../constants/room-amenity-icons";
 import RoomInfoModal from "../components/RoomInfoModal";
 import StayDateRangePicker from "../components/StayDateRangePicker";
 import "../styles/rooms.css";
@@ -34,6 +35,7 @@ import { getNights } from "@/features/booking/constants/booking-data";
 import { type RoomSelection } from "@/features/rooms/constants/room-selection-data";
 import { listRooms, quoteRooms, searchRooms as searchRoomAvailability, type PublicRoom, type RoomAvailability, type RoomQuote } from "../services/public-rooms";
 import { LIVE_BOOKING_KEY, serializeLiveSelection, type LiveRoomBooking } from "../services/live-booking";
+import { allocateGuests, suggestRoomSelection } from "../utils/guest-room-plan";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
 import id from "../locales/id.json";
@@ -50,25 +52,6 @@ function formatSelectionDate(value: string, placeholder: string) {
   const [year, month, day] = value.split("-").map(Number);
   const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
   return months[month - 1] && day ? `${day} ${months[month - 1]} ${year}` : placeholder;
-}
-
-function allocateGuests(rooms: { roomType: PublicRoom; quantity: number }[], adults: number, children: number) {
-  const units = rooms.flatMap(({ roomType, quantity }) => Array.from({ length: quantity }, () => roomType));
-  const memo = new Set<string>();
-  function assign(index: number, remainingAdults: number, remainingChildren: number): { roomTypeId: string; adults: number; children: number }[] | null {
-    if (index === units.length) return remainingAdults === 0 && remainingChildren === 0 ? [] : null;
-    const key = `${index}:${remainingAdults}:${remainingChildren}`;
-    if (memo.has(key)) return null;
-    for (const pattern of units[index].capacityPatterns) {
-      if (pattern.extraBeds > 0) continue;
-      if (pattern.adults > remainingAdults || pattern.children > remainingChildren) continue;
-      const rest = assign(index + 1, remainingAdults - pattern.adults, remainingChildren - pattern.children);
-      if (rest) return [{ roomTypeId: units[index].id, adults: pattern.adults, children: pattern.children }, ...rest];
-    }
-    memo.add(key);
-    return null;
-  }
-  return assign(0, adults, children);
 }
 
 function displayRoom(room: PublicRoom, availability?: RoomAvailability): Room {
@@ -91,7 +74,7 @@ function displayRoom(room: PublicRoom, availability?: RoomAvailability): Room {
     previewTag: room.name,
     guests: `${Math.max(0, ...room.capacityPatterns.map((pattern) => pattern.adults + pattern.children))} Tamu`,
     feature: room.viewTypeName ?? "",
-    amenities: room.amenities.map((amenity) => ({ icon: BedDouble, label: amenity.name })),
+    amenities: room.amenities.map((amenity) => ({ icon: roomAmenityIcon(amenity.iconKey), label: amenity.name })),
   };
 }
 
@@ -102,9 +85,12 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
   const [checkOut, setCheckOut] = useState(initialCheckOut);
   const [adults, setAdults] = useState(Number.parseInt(initialGuests, 10) || 2);
   const [children, setChildren] = useState(Number(initialGuests.match(/(\d+)\s*(?:Anak|Child)/i)?.[1] ?? 0));
+  const [searchedGuests, setSearchedGuests] = useState({ adults: Number.parseInt(initialGuests, 10) || 2, children: Number(initialGuests.match(/(\d+)\s*(?:Anak|Child)/i)?.[1] ?? 0) });
   const [selection, setSelection] = useState<RoomSelection>(initialSelection);
+  const [draftPlans, setDraftPlans] = useState<Map<string, RoomSelection>>(new Map());
   const [message, setMessage] = useState("");
-  const [activeRoom, setActiveRoom] = useState<Room | null>(null);
+  const [activeRoomId, setActiveRoomId] = useState<string | null>(null);
+  const [expandedAmenities, setExpandedAmenities] = useState<Set<string>>(new Set());
   const [catalog, setCatalog] = useState<PublicRoom[]>([]);
   const [availability, setAvailability] = useState<RoomAvailability[]>([]);
   const [availabilityLoaded, setAvailabilityLoaded] = useState(false);
@@ -135,8 +121,13 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
 
   const availabilityById = new Map(availability.map((item) => [item.roomType.id, item]));
   const rooms = catalog.map((room) => displayRoom(room, availabilityById.get(room.id)));
-
-  const visibleRooms = roomType === "all" ? rooms : rooms.filter((room) => room.id === roomType);
+  const activeRoom = catalog.find((item) => item.id === activeRoomId);
+  const suggestedPlans = useMemo(() => new Map(availability.flatMap((item) => {
+    const plan = suggestRoomSelection(availability, searchedGuests.adults, searchedGuests.children, item.roomType.id);
+    return plan ? [[item.roomType.id, plan] as const] : [];
+  })), [availability, searchedGuests]);
+  const eligibleRooms = availabilityLoaded ? rooms.filter((room) => suggestedPlans.has(room.id)) : [];
+  const visibleRooms = roomType === "all" ? eligibleRooms : eligibleRooms.filter((room) => room.id === roomType);
 
   const selectedRooms = selection.flatMap(({ roomId, quantity }) => {
     const room = rooms.find((item) => item.id === roomId);
@@ -145,7 +136,29 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
   const totalRooms = selectedRooms.reduce((total, item) => total + item.quantity, 0);
   const nights = getNights(searchedDates.checkIn, searchedDates.checkOut);
   const roomTotal = quote?.roomTotal ?? 0;
-  const guests = `${adults} ${t("availability.adults")}${children ? `, ${children} ${t("availability.children")}` : ""}`;
+  const guests = `${searchedGuests.adults} ${t("availability.adults")}${searchedGuests.children ? `, ${searchedGuests.children} ${t("availability.children")}` : ""}`;
+
+  function canAllocateSelection(candidate: RoomSelection) {
+    if (!candidate.length || candidate.reduce((total, item) => total + item.quantity, 0) > 20) return false;
+    const selected = candidate.flatMap(({ roomId, quantity }) => {
+      const available = availabilityById.get(roomId);
+      return available && available.bookable && quantity <= available.availableRooms && quantity > 0
+        ? [{ roomType: available.roomType, quantity }]
+        : [];
+    });
+    return selected.length === candidate.length && Boolean(allocateGuests(selected, searchedGuests.adults, searchedGuests.children));
+  }
+
+  function selectionWithQuantity(roomId: string, quantity: number) {
+    return quantity > 0
+      ? [...selection.filter((item) => item.roomId !== roomId), { roomId, quantity }]
+      : selection.filter((item) => item.roomId !== roomId);
+  }
+
+  useEffect(() => {
+    if (!availabilityLoaded) return;
+    setSelection((current) => current.length && !canAllocateSelection(current) ? [] : current);
+  }, [availabilityLoaded, availability, searchedGuests]);
 
   useEffect(() => {
     setQuote(null);
@@ -156,25 +169,34 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
       return roomType ? [{ roomType, quantity }] : [];
     });
     if (selected.length !== selection.length || selected.some(({ roomType, quantity }) => !availabilityById.get(roomType.id)?.bookable || quantity > (availabilityById.get(roomType.id)?.availableRooms ?? 0))) return;
-    const allocated = allocateGuests(selected, adults, children);
+    const allocated = allocateGuests(selected, searchedGuests.adults, searchedGuests.children);
     if (!allocated) return;
     const controller = new AbortController();
     const timer = window.setTimeout(() => {
       setQuoting(true);
-      quoteRooms({ checkInDate: searchedDates.checkIn, checkOutDate: searchedDates.checkOut, totalAdults: adults, totalChildren: children, rooms: allocated }, controller.signal)
+      quoteRooms({ checkInDate: searchedDates.checkIn, checkOutDate: searchedDates.checkOut, totalAdults: searchedGuests.adults, totalChildren: searchedGuests.children, rooms: allocated }, controller.signal)
         .then((result) => { setQuote(result); setMessage(""); })
         .catch((error) => { if (!controller.signal.aborted) setMessage(error instanceof Error ? error.message : "Gagal menghitung harga."); })
         .finally(() => { if (!controller.signal.aborted) setQuoting(false); });
     }, 250);
     return () => { window.clearTimeout(timer); controller.abort(); };
-  }, [selection, availability, catalog, adults, children, searchedDates.checkIn, searchedDates.checkOut, nights]);
+  }, [selection, availability, catalog, searchedGuests.adults, searchedGuests.children, searchedDates.checkIn, searchedDates.checkOut, nights]);
 
   function changeRoomQuantity(roomId: string, delta: number) {
     setSelection((current) => {
-      if (delta > 0 && current.reduce((total, item) => total + item.quantity, 0) >= 20) return current;
       const quantity = (current.find((item) => item.roomId === roomId)?.quantity ?? 0) + delta;
-      return quantity > 0 ? [...current.filter((item) => item.roomId !== roomId), { roomId, quantity }] : current.filter((item) => item.roomId !== roomId);
+      const candidate = quantity > 0 ? [...current.filter((item) => item.roomId !== roomId), { roomId, quantity }] : current.filter((item) => item.roomId !== roomId);
+      return canAllocateSelection(candidate) ? candidate : current;
     });
+  }
+
+  function changeDraftQuantity(roomId: string, delta: number, plan: RoomSelection) {
+    const quantity = (plan.find((item) => item.roomId === roomId)?.quantity ?? 0) + delta;
+    const candidate = quantity > 0
+      ? [...plan.filter((item) => item.roomId !== roomId), { roomId, quantity }]
+      : plan.filter((item) => item.roomId !== roomId);
+    if (!canAllocateSelection(candidate)) return;
+    setDraftPlans((current) => new Map(current).set(roomId, candidate));
   }
 
   function changeStayDate(nextCheckIn: string, nextCheckOut: string) {
@@ -185,6 +207,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
     setAvailability([]);
     setAvailabilityLoaded(false);
     setSelection([]);
+    setDraftPlans(new Map());
     setQuote(null);
   }
 
@@ -194,7 +217,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
       const roomType = catalog.find((item) => item.id === roomId);
       return roomType ? [{ roomType, quantity }] : [];
     });
-    const allocation = allocateGuests(selected, adults, children);
+    const allocation = allocateGuests(selected, searchedGuests.adults, searchedGuests.children);
     if (!allocation || allocation.length !== totalRooms) {
       setMessage(t("cart.adjustGuests"));
       return;
@@ -202,8 +225,8 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
     const booking: LiveRoomBooking = {
       checkIn: searchedDates.checkIn,
       checkOut: searchedDates.checkOut,
-      adults,
-      children,
+      adults: searchedGuests.adults,
+      children: searchedGuests.children,
       selection,
       allocation,
       quote,
@@ -229,10 +252,13 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
       return;
     }
     setSelection([]);
+    setDraftPlans(new Map());
     setQuote(null);
     setAvailabilityLoaded(false);
     setAvailability([]);
     setSearchedDates({ checkIn, checkOut });
+    setSearchedGuests({ adults, children });
+    setRoomType("all");
     setMessage("");
     document.getElementById("rooms-list")?.scrollIntoView({ behavior: "smooth" });
   }
@@ -259,7 +285,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
             <StayDateRangePicker checkIn={checkIn} checkOut={checkOut} minDate={initialMinDate} language={lang} label={t("availability.dateRange")} checkInLabel={t("availability.checkIn")} checkOutLabel={t("availability.checkOut")} placeholder={t("availability.selectRangeHint")} onChange={changeStayDate} />
             <label><span><UsersRound size={16} /> {t("availability.adults")}</span><input type="number" min="1" max="100" value={adults} onChange={(event) => setAdults(Math.max(1, Number(event.target.value) || 1))} /></label>
             <label><span><UsersRound size={16} /> {t("availability.children")}</span><input type="number" min="0" max="100" value={children} onChange={(event) => setChildren(Math.max(0, Number(event.target.value) || 0))} /></label>
-            <label><span><BedDouble size={16} /> {t("availability.rooms")}</span><select value={roomType} onChange={(event) => setRoomType(event.target.value)}><option value="all">{t("availability.allRoomTypes")}</option>{rooms.map((room) => <option key={room.id} value={room.id}>{room.name}{!availabilityLoaded || room.available ? "" : t("availability.unavailableSuffix")}</option>)}</select></label>
+            <label><span><BedDouble size={16} /> {t("availability.rooms")}</span><select value={roomType} onChange={(event) => setRoomType(event.target.value)}><option value="all">{t("availability.allRoomTypes")}</option>{eligibleRooms.map((room) => <option key={room.id} value={room.id}>{room.name}</option>)}</select></label>
             <button className="button button-primary rooms-search-button" type="submit" disabled={loading || searching}><Search size={18} /> {searching ? t("availability.searching") : t("availability.search")}</button>
           </form>
           {(message || loading) && <p className="rooms-search-message" role="status">{message || t("availability.loading")}</p>}
@@ -275,12 +301,25 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
 
         <section className="container rooms-booking-layout" id="rooms-list" aria-label={t("card.layoutAriaLabel")}><div className="rooms-list">
           {!loading && !rooms.length && <p role="status">{t("availability.noRooms")}</p>}
+          {!loading && !searching && availabilityLoaded && !visibleRooms.length && <p className="rooms-no-match" role="status">{t("availability.noMatchingRooms")}</p>}
+          {!loading && !searching && !availabilityLoaded && rooms.length > 0 && <p className="rooms-no-match" role="status">{t("availability.searchToView")}</p>}
           {(loading || searching) && <PageSkeleton compact />}
-          {!loading && !searching && visibleRooms.map((room) => (
+          {!loading && !searching && visibleRooms.map((room) => {
+            const plan = draftPlans.get(room.id) ?? suggestedPlans.get(room.id)!;
+            const selectedQuantity = selection.find((item) => item.roomId === room.id)?.quantity ?? 0;
+            const suggestedQuantity = plan.find((item) => item.roomId === room.id)?.quantity ?? 0;
+            const otherQuantity = plan.reduce((total, item) => total + (item.roomId === room.id ? 0 : item.quantity), 0);
+            const firstNight = availabilityById.get(room.id)?.pricePreview?.nightly[0];
+            const discountPercent = room.available && firstNight && firstNight.basePrice > firstNight.finalPrice
+              ? Math.max(1, Math.round(((firstNight.basePrice - firstNight.finalPrice) / firstNight.basePrice) * 100))
+              : null;
+            const policies = availabilityById.get(room.id)?.cancellationPolicies ?? [];
+            return (
             <article className={`rooms-card${availabilityLoaded && !room.available ? " is-unavailable" : ""}`} id={`room-${room.id}`} key={room.id}>
               <div className="rooms-card-photo">
                 <Image src={room.image} alt={room.imageAlt} fill unoptimized sizes="(max-width: 640px) 100vw, (max-width: 1000px) 40vw, 30vw" />
                 <span className="rooms-card-badge">{room.badge}</span>
+                {discountPercent !== null && <span className="rooms-discount-badge">−{discountPercent}%</span>}
                 {availabilityLoaded && !room.available && <span className="rooms-unavailable-badge">{t("card.unavailable")}</span>}
               </div>
               <div className="rooms-card-body">
@@ -289,33 +328,84 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
                   <h3>{room.name}</h3>
                   <span className="rooms-card-tagline">{room.tagline}</span>
                   <p>{room.description}</p>
-                  <div className="rooms-card-amenities">{room.amenities.map(({ icon: Icon, label }) => <span key={label}><Icon size={19} /> {label}</span>)}</div>
+                  <div className="rooms-amenities">
+                    <div className="rooms-card-amenities">{room.amenities.slice(0, 4).map(({ icon: Icon, label }) => <span key={label}><Icon size={19} /> {label}</span>)}</div>
+                    {room.amenities.length > 4 && <>
+                      <div id={`room-amenities-${room.id}`} className={`rooms-amenities-expand${expandedAmenities.has(room.id) ? " is-open" : ""}`} aria-hidden={!expandedAmenities.has(room.id)}>
+                        <div className="rooms-card-amenities rooms-card-amenities--extra">{room.amenities.slice(4).map(({ icon: Icon, label }) => <span key={label}><Icon size={19} /> {label}</span>)}</div>
+                      </div>
+                      <button type="button" className="rooms-amenities-toggle" aria-controls={`room-amenities-${room.id}`} aria-expanded={expandedAmenities.has(room.id)} onClick={() => setExpandedAmenities((current) => {
+                        const next = new Set(current);
+                        if (next.has(room.id)) next.delete(room.id);
+                        else next.add(room.id);
+                        return next;
+                      })}>{expandedAmenities.has(room.id) ? t("card.amenitiesSeeLess") : t("card.amenitiesSeeMore", { count: room.amenities.length - 4 })}</button>
+                    </>}
+                  </div>
                   <div className="rooms-card-conditions">
                     <span className={`rooms-stock${availabilityLoaded ? room.remainingRooms === 0 ? " is-empty" : room.remainingRooms <= 2 ? " is-low" : "" : ""}`}><BedDouble size={16} /> {searching ? t("availability.checkingStock") : availabilityLoaded ? t("card.remainingRooms", { count: room.remainingRooms }) : t("availability.notChecked")}</span>
-                    <div className="rooms-cancellation"><ShieldCheck size={17} /><span>{room.cancellationPolicy.summary}</span></div>
                   </div>
+                  <div className="rooms-cancellation-list">
+                    <strong><ShieldCheck size={17} />{t("card.cancellationPolicies")}</strong>
+                    {policies.map((policy, index) => {
+                      const noShow = policy.noShowChargeType === "percentage"
+                        ? `${policy.noShowChargeValue}%`
+                        : policy.noShowChargeType === "first_night"
+                          ? t("card.noShowFirstNight")
+                          : policy.noShowChargeType === "full_stay"
+                            ? t("card.noShowFullStay")
+                            : null;
+                      return <div className="rooms-cancellation-item" key={policy.id ?? `default-${index}`}>
+                        <span>{policy.name}</span>
+                        {policy.rules.length > 0 && <ul className="rooms-cancellation-rules">
+                          {policy.rules.map((rule, ruleIndex) => {
+                            const timing = rule.timingType === "more_than"
+                              ? t("card.ruleMoreThan", { days: rule.daysBefore ?? 0 })
+                              : t("card.ruleWithin", { days: rule.daysBefore ?? 0 });
+                            const charge = rule.chargeValue === 0
+                              ? t("card.ruleFree")
+                              : t("card.ruleCharge", { charge: rule.chargeType === "percentage"
+                                ? `${rule.chargeValue}%`
+                                : rule.chargeType === "nights"
+                                  ? t("card.ruleNights", { nights: rule.chargeValue })
+                                  : formatRoomPrice(rule.chargeValue) });
+                            return <li key={`${rule.timingType}-${rule.daysBefore}-${ruleIndex}`}>{timing}: {charge}</li>;
+                          })}
+                        </ul>}
+                        {noShow && <small>{t("card.noShow", { charge: noShow })}</small>}
+                      </div>;
+                    })}
+                  </div>
+                  <p className="rooms-recommendation">{otherQuantity > 0 ? t("card.mixedSuggestion", { count: suggestedQuantity, others: otherQuantity }) : t("card.suggestedQuantity", { count: suggestedQuantity })}</p>
                 </div>
                 <div className="rooms-card-actions">
-                  <div className="rooms-price"><small>{availabilityLoaded && room.available ? t("card.priceFrom") : t("card.priceReference")}</small><strong>{room.price > 0 ? formatRoomPrice(room.price) : "—"}</strong><span>{t("card.perNight")}</span></div>
+                  <div className="rooms-price"><small>{availabilityLoaded && room.available ? t("card.priceFrom") : t("card.priceReference")}</small>{firstNight && firstNight.basePrice > firstNight.finalPrice && <del>{formatRoomPrice(firstNight.basePrice)}</del>}<strong>{room.price > 0 ? formatRoomPrice(room.price) : "—"}</strong><span>{t("card.perNight")}</span></div>
                   <div>
-                    <button type="button" className="rooms-detail-button" aria-haspopup="dialog" onClick={() => setActiveRoom(room)}>{t("card.viewDetail")}</button>
+                    <button type="button" className="rooms-detail-button" aria-haspopup="dialog" onClick={() => setActiveRoomId(room.id)}>{t("card.viewDetail")}</button>
                     {availabilityLoaded && room.available ? (
-                      (selection.find((item) => item.roomId === room.id)?.quantity ?? 0) > 0 ? (
+                      selectedQuantity > 0 ? (
                         <div className="rooms-quantity" aria-label={t("card.quantityAriaLabel", { name: room.name })}>
-                          <button type="button" aria-label={t("card.decreaseAriaLabel", { name: room.name })} onClick={() => changeRoomQuantity(room.id, -1)}><Minus size={18} /></button>
-                          <output aria-live="polite">{selection.find((item) => item.roomId === room.id)?.quantity ?? 0}</output>
-                          <button type="button" aria-label={t("card.increaseAriaLabel", { name: room.name })} disabled={(selection.find((item) => item.roomId === room.id)?.quantity ?? 0) >= room.remainingRooms} onClick={() => changeRoomQuantity(room.id, 1)}><Plus size={18} /></button>
+                          <button type="button" aria-label={t("card.decreaseAriaLabel", { name: room.name })} disabled={!canAllocateSelection(selectionWithQuantity(room.id, selectedQuantity - 1))} onClick={() => changeRoomQuantity(room.id, -1)}><Minus size={18} /></button>
+                          <output aria-live="polite">{selectedQuantity}</output>
+                          <button type="button" aria-label={t("card.increaseAriaLabel", { name: room.name })} disabled={selectedQuantity >= room.remainingRooms || !canAllocateSelection(selectionWithQuantity(room.id, selectedQuantity + 1))} onClick={() => changeRoomQuantity(room.id, 1)}><Plus size={18} /></button>
                         </div>
-                      ) : <button className="button button-primary" type="button" onClick={() => changeRoomQuantity(room.id, 1)}>{t("card.selectRoom")} <Plus size={17} /></button>
+                      ) : <>
+                        <div className="rooms-quantity" aria-label={t("card.quantityAriaLabel", { name: room.name })}>
+                          <button type="button" aria-label={t("card.decreaseAriaLabel", { name: room.name })} disabled={!canAllocateSelection(plan.flatMap((item) => item.roomId === room.id ? suggestedQuantity > 1 ? [{ ...item, quantity: suggestedQuantity - 1 }] : [] : [item]))} onClick={() => changeDraftQuantity(room.id, -1, plan)}><Minus size={18} /></button>
+                          <output aria-live="polite">{suggestedQuantity}</output>
+                          <button type="button" aria-label={t("card.increaseAriaLabel", { name: room.name })} disabled={suggestedQuantity >= room.remainingRooms || !canAllocateSelection(plan.map((item) => item.roomId === room.id ? { ...item, quantity: suggestedQuantity + 1 } : item))} onClick={() => changeDraftQuantity(room.id, 1, plan)}><Plus size={18} /></button>
+                        </div>
+                        <button className="button button-primary" type="button" onClick={() => setSelection(plan)}>{t("card.selectRoom")} <ArrowRight size={17} /></button>
+                      </>
                     ) : !availabilityLoaded ? <a className="button button-primary" href="#availability">{t("availability.search")}</a> : null}
                   </div>
                 </div>
               </div>
             </article>
-          ))}
+          ); })}
           </div>
           {totalRooms > 0 && <a className="rooms-mobile-summary" href="#rooms-cart"><span>{t("cart.mobileSummary", { count: totalRooms, price: quote ? formatRoomPrice(roomTotal) : "—" })}</span><strong>{t("cart.mobileViewSummary")} <ArrowRight size={16} /></strong></a>}
-          <aside className="rooms-cart" id="rooms-cart" aria-label={t("cart.ariaLabel")}><div className="rooms-cart-heading"><span className="rooms-eyebrow">{t("cart.eyebrow")}</span><h2>{t("cart.brand")}</h2><p><CalendarDays size={16} />{formatSelectionDate(searchedDates.checkIn, t("selectionDate.placeholder"))} – {formatSelectionDate(searchedDates.checkOut, t("selectionDate.placeholder"))}</p><small>{nights > 0 ? t("cart.nights", { count: nights }) : t("cart.selectValidDates")} • {guests}</small></div><div className="rooms-cart-room-heading"><span><BedDouble size={22} /></span><div><h3>{t("cart.roomHeading")}</h3><p>{t("cart.roomsSelected", { count: totalRooms })}</p></div></div><div className="rooms-cart-items">{selectedRooms.length ? selectedRooms.map(({ room, quantity }) => <div className="rooms-cart-item" key={room.id}><div><strong>{room.name}</strong><b>{quote ? formatRoomPrice(quote.rooms.filter((item) => item.roomTypeId === room.id).reduce((total, item) => total + item.baseAmount - item.discountAmount, 0)) : "—"}</b></div><p>{catalog.find((item) => item.id === room.id)?.mealTypeName ?? ""}</p><div><span>{t("cart.roomLineNoPrice", { count: quantity, nights })}</span><button type="button" aria-label={t("cart.removeAriaLabel", { name: room.name })} onClick={() => setSelection((current) => current.filter((item) => item.roomId !== room.id))}><Trash2 size={13} />{t("cart.remove")}</button></div></div>) : <div className="rooms-cart-empty"><BedDouble size={30} /><strong>{t("cart.emptyTitle")}</strong><p>{t("cart.emptyDescription")}</p></div>}</div>{quote && quote.discountTotal > 0 && <div className="rooms-cart-subtotal"><span>{t("cart.discount")}</span><strong>−{formatRoomPrice(quote.discountTotal)}</strong></div>}<div className="rooms-cart-subtotal"><span>{t("cart.roomSubtotal")}</span><strong>{quote ? formatRoomPrice(roomTotal) : "—"}</strong></div><div className="rooms-cart-total"><div aria-live="polite" aria-atomic="true"><h3>{t("cart.total")}</h3><strong>{quote ? formatRoomPrice(quote.bookingTotal) : "—"}</strong></div><p>{t("cart.taxIncluded")}</p><button type="button" className="button button-primary" disabled={!quote || quoting || !totalRooms} onClick={continueBooking}>{t("cart.continue")} <ArrowRight size={18} /></button><small>{totalRooms && !quote ? t("cart.adjustGuests") : totalRooms ? t("cart.forwardedNote") : t("cart.selectAtLeastOne")}</small></div></aside>
+          <aside className="rooms-cart" id="rooms-cart" aria-label={t("cart.ariaLabel")}><div className="rooms-cart-heading"><span className="rooms-eyebrow">{t("cart.eyebrow")}</span><h2>{t("cart.brand")}</h2><p><CalendarDays size={16} />{formatSelectionDate(searchedDates.checkIn, t("selectionDate.placeholder"))} – {formatSelectionDate(searchedDates.checkOut, t("selectionDate.placeholder"))}</p><small>{nights > 0 ? t("cart.nights", { count: nights }) : t("cart.selectValidDates")} • {guests}</small></div><div className="rooms-cart-room-heading"><span><BedDouble size={22} /></span><div><h3>{t("cart.roomHeading")}</h3><p>{t("cart.roomsSelected", { count: totalRooms })}</p></div></div><div className="rooms-cart-items">{selectedRooms.length ? selectedRooms.map(({ room, quantity }) => <div className="rooms-cart-item" key={room.id}><div><strong>{room.name}</strong><b>{quote ? formatRoomPrice(quote.rooms.filter((item) => item.roomTypeId === room.id).reduce((total, item) => total + item.baseAmount - item.discountAmount, 0)) : "—"}</b></div><p>{catalog.find((item) => item.id === room.id)?.mealTypeName ?? ""}</p><div><span>{t("cart.roomLineNoPrice", { count: quantity, nights })}</span><button type="button" aria-label={t("cart.removeAriaLabel", { name: room.name })} disabled={!canAllocateSelection(selection.filter((item) => item.roomId !== room.id))} onClick={() => setSelection((current) => current.filter((item) => item.roomId !== room.id))}><Trash2 size={13} />{t("cart.remove")}</button></div></div>) : <div className="rooms-cart-empty"><BedDouble size={30} /><strong>{t("cart.emptyTitle")}</strong><p>{t("cart.emptyDescription")}</p></div>}</div>{quote && quote.discountTotal > 0 && <div className="rooms-cart-subtotal"><span>{t("cart.discount")}</span><strong>−{formatRoomPrice(quote.discountTotal)}</strong></div>}<div className="rooms-cart-subtotal"><span>{t("cart.roomSubtotal")}</span><strong>{quote ? formatRoomPrice(roomTotal) : "—"}</strong></div><div className="rooms-cart-total"><div aria-live="polite" aria-atomic="true"><h3>{t("cart.total")}</h3><strong>{quote ? formatRoomPrice(quote.bookingTotal) : "—"}</strong></div><p>{t("cart.taxIncluded")}</p><button type="button" className="button button-primary" disabled={!quote || quoting || !totalRooms} onClick={continueBooking}>{t("cart.continue")} <ArrowRight size={18} /></button><small>{totalRooms && !quote ? t("cart.adjustGuests") : totalRooms ? t("cart.forwardedNote") : t("cart.selectAtLeastOne")}</small></div></aside>
         </section>
 
         <section className="container rooms-benefits">
@@ -331,7 +421,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
 
         <section className="container rooms-final-cta" id="booking-section"><div><span className="rooms-eyebrow">{t("finalCta.eyebrow")}</span><h2>{t("finalCta.title")}</h2><p>{t("finalCta.description")}</p><div><a className="button button-white button-lg" href="#availability">{t("finalCta.checkAvailability")}</a><a className="button button-outline-light button-lg" href="/contact"><MessageCircle size={18} /> {t("finalCta.contact")}</a></div></div></section>
       </main>
-      {activeRoom && <RoomInfoModal key={activeRoom.id} room={activeRoom} onClose={() => setActiveRoom(null)} />}
+      {activeRoom && <RoomInfoModal key={activeRoom.id} room={activeRoom} availability={availabilityById.get(activeRoom.id)} onClose={() => setActiveRoomId(null)} />}
 
       <footer className="site-footer theme-footer" id="contact">
           <div className="container footer-grid">

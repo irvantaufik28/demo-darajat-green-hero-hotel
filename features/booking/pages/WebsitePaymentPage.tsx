@@ -296,24 +296,27 @@ export default function WebsitePaymentPage({ roomId, checkIn, checkOut, guests, 
                 <div className="payment-policy-rooms">
                   {booking.allocation.map((room, index) => {
                     const options = availability.find((item) => item.roomType.id === room.roomTypeId)?.cancellationPolicies ?? [];
-                    const selected = options[0];
+                    const selectedId = room.cancellationPolicyId ?? options[0]?.id;
                     return (
                       <div className="payment-policy-room" key={`${room.roomTypeId}-${index}`}>
                         <strong>{t("payment.live.policyRoom", { number: index + 1 })} · {booking.quote.rooms[index]?.roomTypeName ?? availability.find((item) => item.roomType.id === room.roomTypeId)?.roomType.name}</strong>
-                        <span className="payment-policy-name">{selected?.name ?? t("payment.live.policyUnavailable")}</span>
-                        {selected && (
-                          <div className="payment-policy-details">
-                            {selected.policyType && <span>{selected.policyType}</span>}
-                            {selected.rules.map((rule, ruleIndex) => <small key={ruleIndex}>{describeRule(rule)}</small>)}
-                            {selected.noShowChargeType && <small>{t("payment.live.policyNoShow", {
-                              charge: selected.noShowChargeType === "first_night"
-                                ? t("payment.live.policyNoShowFirstNight")
-                                : selected.noShowChargeType === "full_stay"
-                                  ? t("payment.live.policyNoShowFullStay")
-                                  : `${selected.noShowChargeValue}%`,
-                            })}</small>}
+                        {options.length ? options.map((policy, policyIndex) => (
+                          <div className="payment-policy-option" key={policy.id ?? `default-${policyIndex}`}>
+                            <div className="payment-policy-option-heading"><span className="payment-policy-name">{policy.name}</span>{policy.id === selectedId && <small>{t("payment.live.policyApplied")}</small>}</div>
+                            <div className="payment-policy-details">
+                              {policy.policyType && <span>{policy.policyType}</span>}
+                              {policy.rules.length > 1 && <small>{t("payment.live.policyRuleCount", { count: policy.rules.length })}</small>}
+                              {policy.rules.map((rule, ruleIndex) => <small key={ruleIndex}>{describeRule(rule)}</small>)}
+                              {policy.noShowChargeType && <small>{t("payment.live.policyNoShow", {
+                                charge: policy.noShowChargeType === "first_night"
+                                  ? t("payment.live.policyNoShowFirstNight")
+                                  : policy.noShowChargeType === "full_stay"
+                                    ? t("payment.live.policyNoShowFullStay")
+                                    : `${policy.noShowChargeValue}%`,
+                              })}</small>}
+                            </div>
                           </div>
-                        )}
+                        )) : <span className="payment-policy-name">{t("payment.live.policyUnavailable")}</span>}
                       </div>
                     );
                   })}
