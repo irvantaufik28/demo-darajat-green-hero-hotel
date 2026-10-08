@@ -51,7 +51,7 @@ function formatStayDate(value: string) {
 }
 
 export default function BookingGuestPage({ roomId, roomSelection, checkIn, checkOut, guests, counts, liveMode = false }: Props) {
-  const { t } = useTranslations({ en, id });
+  const { t, lang } = useTranslations({ en, id });
   const room = getRoom(roomId);
   const [liveBooking, setLiveBooking] = useState<LiveRoomBooking | null>(null);
   const [liveLoading, setLiveLoading] = useState(liveMode);
@@ -74,7 +74,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
       return;
     }
     const controller = new AbortController();
-    quoteRooms({ checkInDate: booking.checkIn, checkOutDate: booking.checkOut, totalAdults: booking.adults, totalChildren: booking.children, rooms: booking.allocation }, controller.signal)
+    quoteRooms({ checkInDate: booking.checkIn, checkOutDate: booking.checkOut, totalAdults: booking.adults, totalChildren: booking.children, rooms: booking.allocation.map((room, index) => ({ ...room, ...booking.extras?.rooms[index] })), experiences: booking.extras?.experiences }, controller.signal)
       .then((quote) => {
         const refreshed = { ...booking, quote };
         setLiveBooking(refreshed);
@@ -110,7 +110,12 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
   const nights = getNights(checkIn, checkOut);
   const selectedExtras = (Object.keys(bookingExtraPrices) as PaidExtraId[]).filter((id) => counts[id] > 0);
   const roomTotal = liveBooking?.quote.roomTotal ?? getRoomSelectionTotal(roomSelection, nights);
-  const extrasTotal = selectedExtras.reduce((total, id) => total + getExtraCost(id, counts[id], nights), 0);
+  const extrasTotal = liveBooking ? liveBooking.quote.bookingTotal - liveBooking.quote.roomTotal : selectedExtras.reduce((total, id) => total + getExtraCost(id, counts[id], nights), 0);
+  const liveExtraLines = liveBooking ? [
+    { label: "Extra Bed", amount: liveBooking.quote.extraBedTotal ?? 0 },
+    { label: lang === "en" ? "Breakfast" : "Sarapan", amount: liveBooking.quote.breakfastTotal ?? 0 },
+    { label: "Experiences", amount: liveBooking.quote.experienceTotal ?? 0 },
+  ].filter((item) => item.amount > 0) : [];
   const step2Params = new URLSearchParams({ room: roomId, rooms: selectionQuery, checkIn, checkOut, guests });
   if (liveMode) step2Params.set("source", "website");
   const backHref = `/booking/extras?${step2Params}`;
@@ -170,7 +175,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
           </div>
 
           <aside className="guest-summary" id="guest-summary" aria-label={t("guest.summary.ariaLabel")}><div className="guest-summary-header"><h2>{t("guest.summary.title")}</h2><span>{t("guest.summary.step")}</span></div><div className="guest-summary-content"><div className="guest-summary-stay"><div className="guest-summary-room"><div><h3>{t("guest.summary.roomLine", { count: totalRooms, nights })}</h3><p>{t("guest.summary.brand")}</p></div><a href={roomHref}>{t("guest.summary.change")}</a></div><div className="guest-schedule"><div><span>{t("guest.summary.checkIn")}</span><strong>{formatStayDate(checkIn)}</strong>{!liveMode && <small>{t("guest.summary.checkInTime")}</small>}</div><div><span>{t("guest.summary.checkOut")}</span><strong>{formatStayDate(checkOut)}</strong>{!liveMode && <small>{t("guest.summary.checkOutTime")}</small>}</div></div><p><UsersRound size={16} /> {t("guest.summary.guestsLine", { guests, count: totalRooms })}</p></div>
-            {liveBooking ? <LiveBookingRoomSelection booking={liveBooking} nights={nights} /> : <BookingRoomSelection selection={roomSelection} nights={nights} />}<div className="guest-summary-prices"><div className="guest-price-row"><span>{t("guest.summary.roomSubtotal", { count: totalRooms, nights })}</span><strong>{formatRoomPrice(roomTotal)}</strong></div><div className="guest-selected-extras"><h4>{t("guest.summary.selectedExtrasTitle")}</h4>{selectedExtras.length ? selectedExtras.map((id) => <div className="guest-price-row" key={id}><span>{bookingExtraLabels[id]} {id === "extra-bed" ? t("guest.summary.extraBedUnit", { nights }) : counts[id] > 1 ? t("guest.summary.countUnit", { count: counts[id] }) : ""}</span><strong>{formatRoomPrice(getExtraCost(id, counts[id], nights))}</strong></div>) : <p>{t("guest.summary.noPaidExtras")}</p>}</div>{!liveMode && <div className="guest-hot-spring"><Flame size={18} /> {t("guest.summary.hotSpring")}</div>}</div>
+            {liveBooking ? <LiveBookingRoomSelection booking={liveBooking} nights={nights} /> : <BookingRoomSelection selection={roomSelection} nights={nights} />}<div className="guest-summary-prices"><div className="guest-price-row"><span>{t("guest.summary.roomSubtotal", { count: totalRooms, nights })}</span><strong>{formatRoomPrice(roomTotal)}</strong></div><div className="guest-selected-extras"><h4>{t("guest.summary.selectedExtrasTitle")}</h4>{liveMode ? liveExtraLines.length ? liveExtraLines.map((item) => <div className="guest-price-row" key={item.label}><span>{item.label}</span><strong>{formatRoomPrice(item.amount)}</strong></div>) : <p>{t("guest.summary.noPaidExtras")}</p> : selectedExtras.length ? selectedExtras.map((id) => <div className="guest-price-row" key={id}><span>{bookingExtraLabels[id]} {id === "extra-bed" ? t("guest.summary.extraBedUnit", { nights }) : counts[id] > 1 ? t("guest.summary.countUnit", { count: counts[id] }) : ""}</span><strong>{formatRoomPrice(getExtraCost(id, counts[id], nights))}</strong></div>) : <p>{t("guest.summary.noPaidExtras")}</p>}</div>{!liveMode && <div className="guest-hot-spring"><Flame size={18} /> {t("guest.summary.hotSpring")}</div>}</div>
             <div className="guest-total"><div><span>{t("guest.summary.estimatedTotal")}</span><strong>{formatRoomPrice(roomTotal + extrasTotal)}</strong></div><small>{liveMode ? t("guest.live.totalNote") : t("guest.summary.taxIncluded")}</small></div><button type="submit" form="guest-form" className="button button-primary guest-continue">{liveMode ? t("guest.live.save") : t("guest.summary.continue")} <ArrowRight size={19} /></button><div className="guest-policy-note"><BadgeCheck size={20} /><span><strong>{t("guest.summary.policyTitle")}</strong>{liveMode ? t("guest.live.policyNote") : t("guest.summary.policyNote")}</span></div></div></aside>
         </div>
       </main>

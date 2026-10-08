@@ -1,5 +1,5 @@
 import type { RoomSelection } from "../constants/room-selection-data";
-import type { PublicRoom, RoomAvailability } from "../services/public-rooms";
+import { selectableRoomCount, type PublicRoom, type RoomAvailability } from "../services/public-rooms";
 
 export function allocateGuests(
   rooms: { roomType: PublicRoom; quantity: number }[],
@@ -31,7 +31,7 @@ function findPlan(items: RoomAvailability[], adults: number, children: number, t
   let states = new Map<string, PlanState>([["0:0:0", initial]]);
   for (const [index, item] of items.entries()) {
     const patterns = item.roomType.capacityPatterns.filter((pattern) => pattern.extraBeds === 0 && pattern.adults + pattern.children > 0);
-    for (let unit = 0; unit < Math.min(item.availableRooms, 20); unit += 1) {
+    for (let unit = 0; unit < Math.min(selectableRoomCount(item), 20); unit += 1) {
       const next = new Map(states);
       for (const state of states.values()) {
         if (state.roomCount >= 20) continue;
@@ -56,7 +56,7 @@ function findPlan(items: RoomAvailability[], adults: number, children: number, t
 }
 
 export function suggestRoomSelection(availability: RoomAvailability[], adults: number, children: number, targetId: string): RoomSelection | null {
-  const eligible = availability.filter((item) => item.bookable && item.availableRooms > 0 && item.roomType.capacityPatterns.some((pattern) => pattern.extraBeds === 0 && pattern.adults + pattern.children > 0));
+  const eligible = availability.filter((item) => selectableRoomCount(item) > 0 && item.roomType.capacityPatterns.some((pattern) => pattern.extraBeds === 0 && pattern.adults + pattern.children > 0));
   const target = eligible.find((item) => item.roomType.id === targetId);
   if (!target || adults + children < 1) return null;
   const direct = findPlan([target], adults, children, targetId);

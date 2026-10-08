@@ -39,6 +39,7 @@ import { quoteRooms } from "@/features/rooms/services/public-rooms";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
 import id from "../locales/id.json";
+import LiveBookingExtrasPage from "./LiveBookingExtrasPage";
 
 type Props = {
   roomId: string;
@@ -77,7 +78,12 @@ function validStay(checkIn: string, checkOut: string) {
   return Date.parse(`${checkOut}T00:00:00Z`) > Date.parse(`${checkIn}T00:00:00Z`);
 }
 
-export default function BookingExtrasPage({ roomId, roomSelection, initialCheckIn, initialCheckOut, initialGuests, liveMode = false }: Props) {
+export default function BookingExtrasPage(props: Props) {
+  if (props.liveMode) return <LiveBookingExtrasPage roomId={props.roomId} checkIn={props.initialCheckIn} checkOut={props.initialCheckOut} guests={props.initialGuests} />;
+  return <DemoBookingExtrasPage {...props} />;
+}
+
+function DemoBookingExtrasPage({ roomId, roomSelection, initialCheckIn, initialCheckOut, initialGuests, liveMode = false }: Props) {
   const { t } = useTranslations({ en, id });
   const room = getRoom(roomId);
   const [liveBooking, setLiveBooking] = useState<LiveRoomBooking | null>(null);

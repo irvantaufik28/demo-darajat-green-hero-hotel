@@ -23,6 +23,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Brand } from "@/components/Brand";
+import { ApiError } from "@/lib/api/client";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
@@ -33,7 +34,7 @@ import StayDateRangePicker from "../components/StayDateRangePicker";
 import "../styles/rooms.css";
 import { getNights } from "@/features/booking/constants/booking-data";
 import { type RoomSelection } from "@/features/rooms/constants/room-selection-data";
-import { listRooms, quoteRooms, searchRooms as searchRoomAvailability, type PublicRoom, type RoomAvailability, type RoomQuote } from "../services/public-rooms";
+import { listRooms, quoteRooms, searchRooms as searchRoomAvailability, selectableRoomCount, type PublicRoom, type RoomAvailability, type RoomQuote } from "../services/public-rooms";
 import { LIVE_BOOKING_KEY, serializeLiveSelection, type LiveRoomBooking } from "../services/live-booking";
 import { allocateGuests, suggestRoomSelection } from "../utils/guest-room-plan";
 import { useTranslations } from "@/lib/i18n";
@@ -63,7 +64,7 @@ function displayRoom(room: PublicRoom, availability?: RoomAvailability): Room {
     name: room.name,
     price: firstNight?.finalPrice ?? 0,
     available: availability?.bookable ?? false,
-    remainingRooms: availability?.availableRooms ?? 0,
+    remainingRooms: selectableRoomCount(availability),
     cancellationPolicy: { summary: policy?.name ?? "Kebijakan pembatalan tersedia setelah memilih tanggal", description: policy?.policyType ?? "" },
     tagline: room.viewTypeName ?? room.bedTypeName ?? "Green Hero Darajat",
     eyebrow: "ROOMS & SUITES",
@@ -89,7 +90,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
   const [children, setChildren] = useState(initialChildren);
   const [searchedGuests, setSearchedGuests] = useState({ adults: initialAdults, children: initialChildren });
   const [selection, setSelection] = useState<RoomSelection>(initialSelection);
-  const [draftPlans, setDraftPlans] = useState<Map<string, RoomSelection>>(new Map());
+  const [draftPlans, setDraftPlans] = useState<Map<string, number>>(new Map());
   const [message, setMessage] = useState("");
   const [activeRoomId, setActiveRoomId] = useState<string | null>(null);
   const [expandedAmenities, setExpandedAmenities] = useState<Set<string>>(new Set());
@@ -97,6 +98,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
   const [availability, setAvailability] = useState<RoomAvailability[]>([]);
   const [availabilityLoaded, setAvailabilityLoaded] = useState(false);
   const [quote, setQuote] = useState<RoomQuote | null>(null);
+  const [quotedSelectionKey, setQuotedSelectionKey] = useState("");
   const [loading, setLoading] = useState(true);
   const [searching, setSearching] = useState(false);
   const [quoting, setQuoting] = useState(false);
@@ -139,14 +141,21 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
   const nights = getNights(searchedDates.checkIn, searchedDates.checkOut);
   const roomTotal = quote?.roomTotal ?? 0;
   const guests = `${searchedGuests.adults} ${t("availability.adults")}${searchedGuests.children ? `, ${searchedGuests.children} ${t("availability.children")}` : ""}`;
+  const selectionKey = JSON.stringify({ selection, searchedDates, searchedGuests });
+
+  function canEditSelection(candidate: RoomSelection) {
+    if (candidate.reduce((total, item) => total + item.quantity, 0) > 20) return false;
+    return candidate.every(({ roomId, quantity }) => {
+      const available = availabilityById.get(roomId);
+      return quantity > 0 && quantity <= selectableRoomCount(available);
+    });
+  }
 
   function canAllocateSelection(candidate: RoomSelection) {
-    if (!candidate.length || candidate.reduce((total, item) => total + item.quantity, 0) > 20) return false;
+    if (!candidate.length || !canEditSelection(candidate)) return false;
     const selected = candidate.flatMap(({ roomId, quantity }) => {
       const available = availabilityById.get(roomId);
-      return available && available.bookable && quantity <= available.availableRooms && quantity > 0
-        ? [{ roomType: available.roomType, quantity }]
-        : [];
+      return available ? [{ roomType: available.roomType, quantity }] : [];
     });
     return selected.length === candidate.length && Boolean(allocateGuests(selected, searchedGuests.adults, searchedGuests.children));
   }
@@ -159,26 +168,44 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
 
   useEffect(() => {
     if (!availabilityLoaded) return;
-    setSelection((current) => current.length && !canAllocateSelection(current) ? [] : current);
+    setSelection((current) => {
+      const next = current.flatMap(({ roomId, quantity }) => {
+        const allowed = selectableRoomCount(availabilityById.get(roomId));
+        return allowed > 0 ? [{ roomId, quantity: Math.min(quantity, allowed) }] : [];
+      });
+      return JSON.stringify(next) === JSON.stringify(current) ? current : next;
+    });
   }, [availabilityLoaded, availability, searchedGuests]);
 
   useEffect(() => {
     setQuote(null);
+    setQuotedSelectionKey("");
     setQuoting(false);
     if (!selection.length || !availability.length || !nights) return;
     const selected = selection.flatMap(({ roomId, quantity }) => {
       const roomType = catalog.find((item) => item.id === roomId);
       return roomType ? [{ roomType, quantity }] : [];
     });
-    if (selected.length !== selection.length || selected.some(({ roomType, quantity }) => !availabilityById.get(roomType.id)?.bookable || quantity > (availabilityById.get(roomType.id)?.availableRooms ?? 0))) return;
+    if (selected.length !== selection.length || selected.some(({ roomType, quantity }) => quantity > selectableRoomCount(availabilityById.get(roomType.id)))) return;
     const allocated = allocateGuests(selected, searchedGuests.adults, searchedGuests.children);
     if (!allocated) return;
     const controller = new AbortController();
     const timer = window.setTimeout(() => {
       setQuoting(true);
       quoteRooms({ checkInDate: searchedDates.checkIn, checkOutDate: searchedDates.checkOut, totalAdults: searchedGuests.adults, totalChildren: searchedGuests.children, rooms: allocated }, controller.signal)
-        .then((result) => { setQuote(result); setMessage(""); })
-        .catch((error) => { if (!controller.signal.aborted) setMessage(error instanceof Error ? error.message : "Gagal menghitung harga."); })
+        .then((result) => { setQuote(result); setQuotedSelectionKey(selectionKey); setMessage(""); })
+        .catch(async (error) => {
+          if (controller.signal.aborted) return;
+          setMessage(error instanceof Error ? error.message : "Gagal menghitung harga.");
+          if (!(error instanceof ApiError) || error.status !== 409) return;
+          try {
+            const refreshed = await searchRoomAvailability(searchedDates.checkIn, searchedDates.checkOut, controller.signal);
+            if (controller.signal.aborted) return;
+            setAvailability((current) => JSON.stringify(current) === JSON.stringify(refreshed.items) ? current : refreshed.items);
+          } catch {
+            // Keep the quote error visible; the next manual search can retry availability.
+          }
+        })
         .finally(() => { if (!controller.signal.aborted) setQuoting(false); });
     }, 250);
     return () => { window.clearTimeout(timer); controller.abort(); };
@@ -188,17 +215,29 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
     setSelection((current) => {
       const quantity = (current.find((item) => item.roomId === roomId)?.quantity ?? 0) + delta;
       const candidate = quantity > 0 ? [...current.filter((item) => item.roomId !== roomId), { roomId, quantity }] : current.filter((item) => item.roomId !== roomId);
-      return canAllocateSelection(candidate) ? candidate : current;
+      return canEditSelection(candidate) ? candidate : current;
     });
   }
 
-  function changeDraftQuantity(roomId: string, delta: number, plan: RoomSelection) {
-    const quantity = (plan.find((item) => item.roomId === roomId)?.quantity ?? 0) + delta;
-    const candidate = quantity > 0
-      ? [...plan.filter((item) => item.roomId !== roomId), { roomId, quantity }]
-      : plan.filter((item) => item.roomId !== roomId);
-    if (!canAllocateSelection(candidate)) return;
-    setDraftPlans((current) => new Map(current).set(roomId, candidate));
+  function changeDraftQuantity(roomId: string, delta: number, suggestedQuantity: number) {
+    const quantity = suggestedQuantity + delta;
+    if (quantity < 1 || !canEditSelection([...selection, { roomId, quantity }])) return;
+    setDraftPlans((current) => new Map(current).set(roomId, quantity));
+  }
+
+  function selectRoom(roomId: string, suggestedQuantity: number, plan: RoomSelection) {
+    setSelection((current) => {
+      const planQuantity = plan.find((item) => item.roomId === roomId)?.quantity ?? 0;
+      const candidate = current.length
+        ? [...current, { roomId, quantity: suggestedQuantity }]
+        : suggestedQuantity === planQuantity ? plan : [{ roomId, quantity: suggestedQuantity }];
+      return canEditSelection(candidate) ? candidate : current;
+    });
+    setDraftPlans((current) => {
+      const next = new Map(current);
+      next.delete(roomId);
+      return next;
+    });
   }
 
   function changeStayDate(nextCheckIn: string, nextCheckOut: string) {
@@ -223,7 +262,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
   }
 
   function continueBooking() {
-    if (!quote || quoting || !totalRooms) return;
+    if (!quote || quotedSelectionKey !== selectionKey || quoting || !totalRooms || !canAllocateSelection(selection)) return;
     const selected = selection.flatMap(({ roomId, quantity }) => {
       const roomType = catalog.find((item) => item.id === roomId);
       return roomType ? [{ roomType, quantity }] : [];
@@ -241,6 +280,10 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
       selection,
       allocation,
       quote,
+      roomImages: Object.fromEntries(selected.map(({ roomType }) => {
+        const cover = roomType.images.find((image) => image.isCover) ?? roomType.images[0];
+        return [roomType.id, { url: cover?.url ?? "/images/room-standard-new.webp", altText: cover?.altText ?? roomType.name }];
+      })),
     };
     try {
       sessionStorage.setItem(LIVE_BOOKING_KEY, JSON.stringify(booking));
@@ -315,10 +358,14 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
           {!loading && !searching && !availabilityLoaded && rooms.length > 0 && <p className="rooms-no-match" role="status">{t("availability.searchToView")}</p>}
           {(loading || searching) && <PageSkeleton compact />}
           {!loading && !searching && visibleRooms.map((room) => {
-            const plan = draftPlans.get(room.id) ?? suggestedPlans.get(room.id)!;
+            const plan = suggestedPlans.get(room.id)!;
             const selectedQuantity = selection.find((item) => item.roomId === room.id)?.quantity ?? 0;
-            const suggestedQuantity = plan.find((item) => item.roomId === room.id)?.quantity ?? 0;
-            const otherQuantity = plan.reduce((total, item) => total + (item.roomId === room.id ? 0 : item.quantity), 0);
+            const planQuantity = plan.find((item) => item.roomId === room.id)?.quantity ?? 1;
+            const suggestedQuantity = draftPlans.get(room.id) ?? (selection.length ? 1 : planQuantity);
+            const otherQuantity = selection.length || suggestedQuantity !== planQuantity ? 0 : plan.reduce((total, item) => total + (item.roomId === room.id ? 0 : item.quantity), 0);
+            const draftCandidate = selection.length
+              ? [...selection, { roomId: room.id, quantity: suggestedQuantity }]
+              : suggestedQuantity === planQuantity ? plan : [{ roomId: room.id, quantity: suggestedQuantity }];
             const firstNight = availabilityById.get(room.id)?.pricePreview?.nightly[0];
             const discountPercent = room.available && firstNight && firstNight.basePrice > firstNight.finalPrice
               ? Math.max(1, Math.round(((firstNight.basePrice - firstNight.finalPrice) / firstNight.basePrice) * 100))
@@ -386,7 +433,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
                       </div>;
                     })}
                   </div>
-                  <p className="rooms-recommendation">{otherQuantity > 0 ? t("card.mixedSuggestion", { count: suggestedQuantity, others: otherQuantity }) : t("card.suggestedQuantity", { count: suggestedQuantity })}</p>
+                  <p className="rooms-recommendation">{selection.length && !selectedQuantity ? t("card.addToSelection", { count: suggestedQuantity }) : otherQuantity > 0 ? t("card.mixedSuggestion", { count: suggestedQuantity, others: otherQuantity }) : t("card.suggestedQuantity", { count: suggestedQuantity })}</p>
                   {otherQuantity > 0 && <ul className="rooms-plan-breakdown">{plan.map((item) => <li key={item.roomId}>{item.quantity} × {catalog.find((type) => type.id === item.roomId)?.name ?? room.name}</li>)}</ul>}
                 </div>
                 <div className="rooms-card-actions">
@@ -396,17 +443,17 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
                     {availabilityLoaded && room.available ? (
                       selectedQuantity > 0 ? (
                         <div className="rooms-quantity" aria-label={t("card.quantityAriaLabel", { name: room.name })}>
-                          <button type="button" aria-label={t("card.decreaseAriaLabel", { name: room.name })} disabled={!canAllocateSelection(selectionWithQuantity(room.id, selectedQuantity - 1))} onClick={() => changeRoomQuantity(room.id, -1)}><Minus size={18} /></button>
+                          <button type="button" aria-label={t("card.decreaseAriaLabel", { name: room.name })} disabled={!canEditSelection(selectionWithQuantity(room.id, selectedQuantity - 1))} onClick={() => changeRoomQuantity(room.id, -1)}><Minus size={18} /></button>
                           <output aria-live="polite">{selectedQuantity}</output>
-                          <button type="button" aria-label={t("card.increaseAriaLabel", { name: room.name })} disabled={selectedQuantity >= room.remainingRooms || !canAllocateSelection(selectionWithQuantity(room.id, selectedQuantity + 1))} onClick={() => changeRoomQuantity(room.id, 1)}><Plus size={18} /></button>
+                          <button type="button" aria-label={t("card.increaseAriaLabel", { name: room.name })} disabled={selectedQuantity >= room.remainingRooms || !canEditSelection(selectionWithQuantity(room.id, selectedQuantity + 1))} onClick={() => changeRoomQuantity(room.id, 1)}><Plus size={18} /></button>
                         </div>
                       ) : <>
                         <div className="rooms-quantity" aria-label={t("card.quantityAriaLabel", { name: room.name })}>
-                          <button type="button" aria-label={t("card.decreaseAriaLabel", { name: room.name })} disabled={!canAllocateSelection(plan.flatMap((item) => item.roomId === room.id ? suggestedQuantity > 1 ? [{ ...item, quantity: suggestedQuantity - 1 }] : [] : [item]))} onClick={() => changeDraftQuantity(room.id, -1, plan)}><Minus size={18} /></button>
+                          <button type="button" aria-label={t("card.decreaseAriaLabel", { name: room.name })} disabled={suggestedQuantity <= 1} onClick={() => changeDraftQuantity(room.id, -1, suggestedQuantity)}><Minus size={18} /></button>
                           <output aria-live="polite">{suggestedQuantity}</output>
-                          <button type="button" aria-label={t("card.increaseAriaLabel", { name: room.name })} disabled={suggestedQuantity >= room.remainingRooms || !canAllocateSelection(plan.map((item) => item.roomId === room.id ? { ...item, quantity: suggestedQuantity + 1 } : item))} onClick={() => changeDraftQuantity(room.id, 1, plan)}><Plus size={18} /></button>
+                          <button type="button" aria-label={t("card.increaseAriaLabel", { name: room.name })} disabled={suggestedQuantity >= room.remainingRooms || !canEditSelection([...selection, { roomId: room.id, quantity: suggestedQuantity + 1 }])} onClick={() => changeDraftQuantity(room.id, 1, suggestedQuantity)}><Plus size={18} /></button>
                         </div>
-                        <button className="button button-primary" type="button" onClick={() => setSelection(plan)}>{t("card.selectRoom")} <ArrowRight size={17} /></button>
+                        <button className="button button-primary" type="button" disabled={!canEditSelection(draftCandidate)} onClick={() => selectRoom(room.id, suggestedQuantity, plan)}>{t("card.selectRoom")} <ArrowRight size={17} /></button>
                       </>
                     ) : !availabilityLoaded ? <a className="button button-primary" href="#availability">{t("availability.search")}</a> : null}
                   </div>
@@ -416,7 +463,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
           ); })}
           </div>
           {totalRooms > 0 && <a className="rooms-mobile-summary" href="#rooms-cart"><span>{t("cart.mobileSummary", { count: totalRooms, price: quote ? formatRoomPrice(roomTotal) : "—" })}</span><strong>{t("cart.mobileViewSummary")} <ArrowRight size={16} /></strong></a>}
-          <aside className="rooms-cart" id="rooms-cart" aria-label={t("cart.ariaLabel")}><div className="rooms-cart-heading"><span className="rooms-eyebrow">{t("cart.eyebrow")}</span><h2>{t("cart.brand")}</h2><p><CalendarDays size={16} />{formatSelectionDate(searchedDates.checkIn, t("selectionDate.placeholder"))} – {formatSelectionDate(searchedDates.checkOut, t("selectionDate.placeholder"))}</p><small>{nights > 0 ? t("cart.nights", { count: nights }) : t("cart.selectValidDates")} • {guests}</small></div><div className="rooms-cart-room-heading"><span><BedDouble size={22} /></span><div><h3>{t("cart.roomHeading")}</h3><p>{t("cart.roomsSelected", { count: totalRooms })}</p></div></div><div className="rooms-cart-items">{selectedRooms.length ? selectedRooms.map(({ room, quantity }) => <div className="rooms-cart-item" key={room.id}><div><strong>{room.name}</strong><b>{quote ? formatRoomPrice(quote.rooms.filter((item) => item.roomTypeId === room.id).reduce((total, item) => total + item.baseAmount - item.discountAmount, 0)) : "—"}</b></div><p>{catalog.find((item) => item.id === room.id)?.mealTypeName ?? ""}</p><div><span>{t("cart.roomLineNoPrice", { count: quantity, nights })}</span><button type="button" aria-label={t("cart.removeAriaLabel", { name: room.name })} disabled={!canAllocateSelection(selection.filter((item) => item.roomId !== room.id))} onClick={() => setSelection((current) => current.filter((item) => item.roomId !== room.id))}><Trash2 size={13} />{t("cart.remove")}</button></div></div>) : <div className="rooms-cart-empty"><BedDouble size={30} /><strong>{t("cart.emptyTitle")}</strong><p>{t("cart.emptyDescription")}</p></div>}</div>{quote && quote.discountTotal > 0 && <div className="rooms-cart-subtotal"><span>{t("cart.discount")}</span><strong>−{formatRoomPrice(quote.discountTotal)}</strong></div>}<div className="rooms-cart-subtotal"><span>{t("cart.roomSubtotal")}</span><strong>{quote ? formatRoomPrice(roomTotal) : "—"}</strong></div><div className="rooms-cart-total"><div aria-live="polite" aria-atomic="true"><h3>{t("cart.total")}</h3><strong>{quote ? formatRoomPrice(quote.bookingTotal) : "—"}</strong></div><p>{t("cart.taxIncluded")}</p><button type="button" className="button button-primary" disabled={!quote || quoting || !totalRooms} onClick={continueBooking}>{t("cart.continue")} <ArrowRight size={18} /></button><small>{totalRooms && !quote ? t("cart.adjustGuests") : totalRooms ? t("cart.forwardedNote") : t("cart.selectAtLeastOne")}</small></div></aside>
+          <aside className="rooms-cart" id="rooms-cart" aria-label={t("cart.ariaLabel")}><div className="rooms-cart-heading"><span className="rooms-eyebrow">{t("cart.eyebrow")}</span><h2>{t("cart.brand")}</h2><p><CalendarDays size={16} />{formatSelectionDate(searchedDates.checkIn, t("selectionDate.placeholder"))} – {formatSelectionDate(searchedDates.checkOut, t("selectionDate.placeholder"))}</p><small>{nights > 0 ? t("cart.nights", { count: nights }) : t("cart.selectValidDates")} • {guests}</small></div><div className="rooms-cart-room-heading"><span><BedDouble size={22} /></span><div><h3>{t("cart.roomHeading")}</h3><p>{t("cart.roomsSelected", { count: totalRooms })}</p></div></div><div className="rooms-cart-items">{selectedRooms.length ? selectedRooms.map(({ room, quantity }) => <div className="rooms-cart-item" key={room.id}><div><strong>{room.name}</strong><b>{quote ? formatRoomPrice(quote.rooms.filter((item) => item.roomTypeId === room.id).reduce((total, item) => total + item.baseAmount - item.discountAmount, 0)) : "—"}</b></div><p>{catalog.find((item) => item.id === room.id)?.mealTypeName ?? ""}</p><div><span>{t("cart.roomLineNoPrice", { count: quantity, nights })}</span><button type="button" aria-label={t("cart.removeAriaLabel", { name: room.name })} onClick={() => setSelection((current) => current.filter((item) => item.roomId !== room.id))}><Trash2 size={13} />{t("cart.remove")}</button></div></div>) : <div className="rooms-cart-empty"><BedDouble size={30} /><strong>{t("cart.emptyTitle")}</strong><p>{t("cart.emptyDescription")}</p></div>}</div>{quote && quote.discountTotal > 0 && <div className="rooms-cart-subtotal"><span>{t("cart.discount")}</span><strong>−{formatRoomPrice(quote.discountTotal)}</strong></div>}<div className="rooms-cart-subtotal"><span>{t("cart.roomSubtotal")}</span><strong>{quote ? formatRoomPrice(roomTotal) : "—"}</strong></div><div className="rooms-cart-total"><div aria-live="polite" aria-atomic="true"><h3>{t("cart.total")}</h3><strong>{quote ? formatRoomPrice(quote.bookingTotal) : "—"}</strong></div><p>{t("cart.taxIncluded")}</p><button type="button" className="button button-primary" disabled={!quote || quoting || !totalRooms} onClick={continueBooking}>{t("cart.continue")} <ArrowRight size={18} /></button><small>{totalRooms && !quote ? t("cart.adjustGuests") : totalRooms ? t("cart.forwardedNote") : t("cart.selectAtLeastOne")}</small></div></aside>
         </section>
 
         <section className="container rooms-benefits">

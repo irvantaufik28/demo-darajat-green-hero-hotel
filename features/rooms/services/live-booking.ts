@@ -11,6 +11,14 @@ export type LiveRoomBooking = {
   selection: { roomId: string; quantity: number }[];
   allocation: { roomTypeId: string; adults: number; children: number; cancellationPolicyId?: string | null }[];
   quote: RoomQuote;
+  roomImages?: Record<string, { url: string; altText: string }>;
+  extras?: {
+    rooms: { extraBeds: number; adultBreakfasts: number; childBreakfasts: number }[];
+    experiences: { variantId: string; quantity: number }[];
+    specialRequests: string;
+    requestCodes?: string[];
+    note?: string;
+  };
 };
 
 export function serializeLiveSelection(selection: LiveRoomBooking["selection"]) {

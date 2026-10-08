@@ -2,6 +2,8 @@
 .booking-room-selection-row { display: flex; align-items: start; justify-content: space-between; gap: 14px; border-bottom: 1px dashed #dce2d8; padding-bottom: 12px; color: var(--forest); }
 .booking-room-selection-row:last-child { border-bottom: 0; padding-bottom: 0; }
 .booking-room-selection-row > div { min-width: 0; }
+.booking-room-selection-photo { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 8px; object-fit: cover; }
+.booking-room-selection-details { flex: 1 1 auto; }
 .booking-room-selection-row strong { display: block; font-size: 13px; font-weight: 700; line-height: 1.5; }
 .booking-room-selection-row span { display: block; color: #69756c; font-size: 11px; line-height: 1.6; margin-top: 4px; }
 .booking-room-selection-row b { font-size: 12px; font-weight: 700; flex-shrink: 0; line-height: 1.6; }

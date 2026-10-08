@@ -18,6 +18,8 @@ export type PublicRoom = {
 export type RoomAvailability = {
   roomType: PublicRoom;
   availableRooms: number;
+  readyRoomCount?: number;
+  maxBookableRooms?: number;
   bookable: boolean;
   unavailableReasons: string[];
   nightlyRates: { stayDate: string; basePrice: number | null }[];
@@ -42,12 +44,20 @@ export type RoomAvailability = {
   }[];
 };
 
+export function selectableRoomCount(availability?: RoomAvailability): number {
+  return availability?.bookable ? (availability.maxBookableRooms ?? availability.availableRooms) : 0;
+}
+
 export type RoomQuote = {
   nights: number;
   roomCount: number;
   roomTotal: number;
   discountTotal: number;
   bookingTotal: number;
+  extraBedTotal?: number;
+  breakfastTotal?: number;
+  experienceTotal?: number;
+  experiences?: { name: string; quantity: number; totalAmount: number }[];
   rooms: { roomIndex: number; roomTypeId: string; roomTypeName: string; baseAmount: number; discountAmount: number }[];
   appliedCampaigns: unknown[];
 };
@@ -67,7 +77,8 @@ export function quoteRooms(
     checkOutDate: string;
     totalAdults: number;
     totalChildren: number;
-    rooms: { roomTypeId: string; adults: number; children: number; cancellationPolicyId?: string | null }[];
+    rooms: { roomTypeId: string; adults: number; children: number; cancellationPolicyId?: string | null; extraBeds?: number; adultBreakfasts?: number; childBreakfasts?: number }[];
+    experiences?: { variantId: string; quantity: number }[];
   },
   signal?: AbortSignal,
 ) {

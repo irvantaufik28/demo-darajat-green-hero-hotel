@@ -55,7 +55,7 @@ export function readWebsiteGuest(booking: LiveRoomBooking): GuestDraft | null {
 
 export function checkoutFingerprint(booking: LiveRoomBooking, guest: GuestDraft) {
   const policies = booking.allocation.map((room) => room.cancellationPolicyId ?? "default").join(",");
-  return `${liveBookingFingerprint(booking)}|${policies}|${guest.fullName.trim()}|${guest.whatsapp.trim()}|${guest.email.trim()}|${guest.nationality}`;
+  return `${liveBookingFingerprint(booking)}|${policies}|${JSON.stringify(booking.extras ?? null)}|${guest.fullName.trim()}|${guest.whatsapp.trim()}|${guest.email.trim()}|${guest.nationality}`;
 }
 
 export function readWebsiteCheckout(): WebsiteCheckout | null {
@@ -85,7 +85,12 @@ export function createWebsiteReservation(booking: LiveRoomBooking, guest: GuestD
       checkOutDate: booking.checkOut,
       totalAdults: booking.adults,
       totalChildren: booking.children,
-      rooms: booking.allocation,
+      rooms: booking.allocation.map((room, index) => ({
+        ...room,
+        ...booking.extras?.rooms[index],
+      })),
+      experiences: booking.extras?.experiences ?? [],
+      specialRequests: booking.extras?.specialRequests || null,
       guest: {
         fullName: guest.fullName.trim(),
         phone: guest.whatsapp.trim(),

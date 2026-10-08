@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { BedDouble, ChevronLeft, ChevronRight, ShieldCheck, X } from "lucide-react";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import { roomAmenityIcon } from "../constants/room-amenity-icons";
-import type { PublicRoom, RoomAvailability } from "../services/public-rooms";
+import { selectableRoomCount, type PublicRoom, type RoomAvailability } from "../services/public-rooms";
 import "./room-info-modal.css";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
@@ -85,7 +85,7 @@ export default function RoomInfoModal({ room, availability, onClose }: Props) {
                 {room.bedTypeName && <div><dt>{t("modal.bed")}</dt><dd><BedDouble size={17} />{room.bedCount ? `${room.bedCount} × ` : ""}{room.bedTypeName}</dd></div>}
                 {room.viewTypeName && <div><dt>{t("modal.view")}</dt><dd>{room.viewTypeName}</dd></div>}
                 {room.mealTypeName && <div><dt>{t("modal.meal")}</dt><dd>{room.mealTypeName}</dd></div>}
-                {availability && <div><dt>{t("modal.availableRooms")}</dt><dd>{availability.availableRooms}</dd></div>}
+                {availability && <div><dt>{t("modal.availableRooms")}</dt><dd>{selectableRoomCount(availability)}</dd></div>}
               </dl>
             </section>
 

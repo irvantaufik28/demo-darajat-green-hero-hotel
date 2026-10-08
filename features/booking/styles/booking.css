@@ -75,6 +75,22 @@
 .booking-moment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .booking-room-grid .booking-extra-card, .booking-moment-grid .booking-extra-card { min-height: 180px; flex-direction: column; }
 .booking-room-grid .booking-extra-actions, .booking-moment-grid .booking-extra-actions { justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 10px; border-top: 1px solid #e6e9e3; }
+.booking-live-room-grid { grid-template-columns: 1fr; }
+.booking-live-room-grid .booking-extra-card { min-height: 0; }
+.booking-live-room-grid .booking-extra-copy { display: flex; align-items: center; width: 100%; min-width: 0; overflow-x: auto; }
+.booking-live-room-label { flex: 0 0 180px; min-width: 0; padding-right: 14px; }
+.booking-live-room-grid .booking-extra-actions { flex: 1 0 205px; justify-content: space-between; flex-wrap: nowrap; gap: 8px; min-width: 0; padding: 0 0 0 14px; border-top: 0; border-left: 1px solid #e6e9e3; }
+.booking-live-addon-label { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.booking-live-addon-label > span { display: grid; gap: 2px; min-width: 0; }
+.booking-live-addon-label strong { font-size: 12px; line-height: 1.2; }
+.booking-live-addon-label small { color: var(--muted); font-size: 10px; white-space: nowrap; }
+.booking-live-room-grid .booking-quantity { flex-shrink: 0; }
+@media (max-width: 760px) {
+  .booking-live-room-grid .booking-extra-copy { flex-direction: column; align-items: stretch; overflow-x: visible; }
+  .booking-live-room-label { flex: none; width: 100%; padding: 0 0 6px; }
+  .booking-live-room-grid .booking-extra-actions { flex: none; width: 100%; min-width: 0; padding: 12px 0 0; border-top: 1px solid #e6e9e3; border-left: 0; }
+  .booking-live-addon-label small { white-space: normal; }
+}
 .booking-moment-top { display: flex; justify-content: space-between; align-items: center; min-height: 25px; margin-bottom: 8px; color: #4e6451; }
 .booking-moment-grid .booking-extra-price { font-size: 12px; }
 .booking-request-section { padding: 23px; border: 1px solid #e1e5de; border-radius: 13px; background: #fff; }
