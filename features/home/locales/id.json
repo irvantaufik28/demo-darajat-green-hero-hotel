@@ -61,7 +61,13 @@
     "priceFrom": "Mulai dari",
     "priceReference": "Harga referensi",
     "perNight": "/ malam",
-    "viewDetail": "Lihat Detail"
+    "viewDetail": "Lihat Detail",
+    "guests": "Hingga {count} tamu",
+    "size": "{size} m²",
+    "priceUnavailable": "Harga belum tersedia",
+    "loading": "Memuat pilihan kamar...",
+    "empty": "Belum ada kamar pilihan yang ditampilkan.",
+    "loadError": "Pilihan kamar belum dapat dimuat."
   },
   "experiences": {
     "eyebrow": "GREEN HERO EXPERIENCES",

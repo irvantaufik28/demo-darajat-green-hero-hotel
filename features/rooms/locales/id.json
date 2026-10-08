@@ -158,6 +158,8 @@
     "aboutTitle": "Tentang Kamar Ini",
     "aboutExtra": "Ruang ini menawarkan suasana hangat untuk beristirahat setelah menikmati udara sejuk Darajat dan fasilitas resor bersama orang terdekat.",
     "amenitiesTitle": "Fasilitas Kamar",
+    "amenitiesSeeMore": "Lihat {count} fasilitas lainnya",
+    "amenitiesSeeLess": "Tampilkan lebih sedikit",
     "stayInfoTitle": "Informasi Menginap",
     "stayInfo": {
       "checkTimesTitle": "Waktu Check-in & Check-out",
@@ -208,7 +210,21 @@
       "selectDates": "Pilih tanggal check-in dan check-out untuk mengecek ketersediaan.",
       "checkoutAfterCheckin": "Tanggal check-out harus setelah tanggal check-in.",
       "available": "Kamar ini ditandai tersedia pada data demo. Reservasi sebenarnya belum terhubung.",
-      "unavailable": "Kamar ini masih ditandai tidak tersedia pada data demo. Coba tanggal lain atau hubungi hotel untuk konfirmasi."
+      "unavailable": "Kamar tidak tersedia untuk tanggal dan jumlah tamu yang dipilih. Coba pilihan lain.",
+      "loadError": "Gagal memuat detail kamar.",
+      "notFound": "Kamar tidak ditemukan.",
+      "availabilityError": "Gagal mengecek ketersediaan kamar.",
+      "pastDate": "Tanggal check-in tidak boleh sebelum hari ini.",
+      "noPhotos": "Foto kamar belum tersedia.",
+      "noDescription": "Deskripsi kamar belum tersedia.",
+      "notSpecified": "Belum tersedia",
+      "maxGuests": "Hingga {count} tamu",
+      "checkTimes": "Waktu check-in dan check-out mengikuti ketentuan hotel.",
+      "checking": "Memeriksa ketersediaan...",
+      "checkAvailability": "Cek ketersediaan",
+      "priceByDate": "Harga mengikuti tanggal menginap",
+      "roomPriceNights": "Harga kamar untuk {nights} malam",
+      "guestChoice": "{adults} Dewasa, {children} Anak"
     },
     "extras": {
       "eyebrow": "TAMBAHAN SAAT MENGINAP",

@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getRoom, rooms } from "@/features/rooms/constants/rooms-data";
 import RoomDetailPage from "@/features/rooms/pages/RoomDetailPage";
 
 type DetailPageProps = {
@@ -8,22 +6,22 @@ type DetailPageProps = {
   searchParams: Promise<{ checkIn?: string; checkOut?: string }>;
 };
 
-export function generateStaticParams() {
-  return rooms.map((room) => ({ slug: room.id }));
-}
-
 export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const room = getRoom(slug);
-  if (!room) return { title: "Kamar tidak ditemukan | Green Hero Darajat" };
-  return { title: `${room.name} | Green Hero Darajat`, description: room.description };
+  const apiBase = (process.env.API_BASE_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL)?.replace(/\/+$/, "");
+  if (!apiBase) return { title: "Kamar | Green Hero Darajat" };
+  try {
+    const response = await fetch(`${apiBase}/public/rooms/${encodeURIComponent(slug)}`, { cache: "no-store" });
+    if (!response.ok) return { title: "Kamar | Green Hero Darajat" };
+    const data = await response.json() as { roomType: { name: string; description: string | null } };
+    return { title: `${data.roomType.name} | Green Hero Darajat`, description: data.roomType.description ?? undefined };
+  } catch {
+    return { title: "Kamar | Green Hero Darajat" };
+  }
 }
 
 export default async function Page({ params, searchParams }: DetailPageProps) {
   const { slug } = await params;
-  const room = getRoom(slug);
-  if (!room) notFound();
-
   const dates = await searchParams;
-  return <RoomDetailPage roomId={room.id} initialCheckIn={dates.checkIn ?? ""} initialCheckOut={dates.checkOut ?? ""} />;
+  return <RoomDetailPage slug={slug} initialCheckIn={dates.checkIn ?? ""} initialCheckOut={dates.checkOut ?? ""} />;
 }

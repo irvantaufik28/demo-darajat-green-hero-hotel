@@ -6,9 +6,10 @@ import { useEffect, useRef, useState } from "react";
 import { Brand } from "@/components/Brand";
 import { SiteHeader } from "@/components/SiteHeader";
 import { HeroVideo } from "@/components/HeroVideo";
-import { rooms, formatRoomPrice } from "@/features/rooms/constants/rooms-data";
+import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import StayDateRangePicker from "@/features/rooms/components/StayDateRangePicker";
 import { listRooms, type PublicRoom } from "@/features/rooms/services/public-rooms";
+import { listFeaturedRooms, type FeaturedRoom } from "../services/featured-rooms";
 import "../styles/home.css";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
@@ -141,10 +142,28 @@ export default function Home() {
   const [children, setChildren] = useState(2);
   const [roomTypeId, setRoomTypeId] = useState("all");
   const [roomTypes, setRoomTypes] = useState<PublicRoom[]>([]);
+  const [featuredRooms, setFeaturedRooms] = useState<FeaturedRoom[]>([]);
+  const [featuredRoomsLoading, setFeaturedRoomsLoading] = useState(true);
+  const [featuredRoomsError, setFeaturedRoomsError] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
     listRooms(controller.signal).then((result) => setRoomTypes(result.items)).catch(() => {});
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    listFeaturedRooms(controller.signal)
+      .then((result) => {
+        if (!controller.signal.aborted) setFeaturedRooms(result.items);
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setFeaturedRoomsError(true);
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setFeaturedRoomsLoading(false);
+      });
     return () => controller.abort();
   }, []);
 
@@ -159,7 +178,7 @@ export default function Home() {
       const first = track.children[0] as HTMLElement | undefined;
       const second = track.children[1] as HTMLElement | undefined;
       const step = first && second ? second.offsetLeft - first.offsetLeft : track.clientWidth;
-      setRoomIndex(Math.min(rooms.length - count, Math.round(track.scrollLeft / Math.max(1, step))));
+      setRoomIndex(Math.max(0, Math.min(featuredRooms.length - count, Math.round(track.scrollLeft / Math.max(1, step)))));
     };
     updateRoomLayout();
     tablet.addEventListener("change", updateRoomLayout);
@@ -168,7 +187,7 @@ export default function Home() {
       tablet.removeEventListener("change", updateRoomLayout);
       mobile.removeEventListener("change", updateRoomLayout);
     };
-  }, []);
+  }, [featuredRooms.length]);
 
   const scrollToRoom = (index: number) => {
     const track = roomTrackRef.current;
@@ -182,7 +201,7 @@ export default function Home() {
   };
 
   const changeRoom = (direction: number) => {
-    const positions = Math.max(1, rooms.length - visibleRoomCount + 1);
+    const positions = Math.max(1, featuredRooms.length - visibleRoomCount + 1);
     scrollToRoom((roomIndex + direction + positions) % positions);
   };
 
@@ -192,7 +211,7 @@ export default function Home() {
     const second = track?.children[1] as HTMLElement | undefined;
     if (!track || !first || !second) return;
     const step = second.offsetLeft - first.offsetLeft;
-    setRoomIndex(Math.max(0, Math.min(rooms.length - visibleRoomCount, Math.round(track.scrollLeft / Math.max(1, step)))));
+    setRoomIndex(Math.max(0, Math.min(featuredRooms.length - visibleRoomCount, Math.round(track.scrollLeft / Math.max(1, step)))));
   };
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
@@ -290,31 +309,37 @@ export default function Home() {
               </div>
             </div>
             <div className="room-carousel" role="region" aria-roledescription="carousel" aria-label={t("rooms.carouselAriaLabel")}>
-              <button className="room-carousel-arrow previous" type="button" onClick={() => changeRoom(-1)} aria-label={t("rooms.previousAriaLabel")}><ChevronLeft size={22} /></button>
+              {featuredRooms.length > visibleRoomCount && <button className="room-carousel-arrow previous" type="button" onClick={() => changeRoom(-1)} aria-label={t("rooms.previousAriaLabel")}><ChevronLeft size={22} /></button>}
               <div className="room-grid" ref={roomTrackRef} onScroll={updateRoomPosition} tabIndex={0} aria-label={t("rooms.gridAriaLabel")}>
-              {rooms.map((room) => (
-                <article className={`room-card${room.available ? "" : " is-unavailable"}`} key={room.name}>
+              {featuredRooms.map((room) => (
+                <article className="room-card" key={room.roomTypeId}>
                   <div className="room-photo">
-                    <Image src={room.image} alt={room.name} fill sizes="(max-width: 780px) 100vw, 33vw" />
-                    <span>{room.previewTag}</span>
-                    {!room.available && <span className="room-unavailable">{t("rooms.unavailable")}</span>}
+                    {room.coverImage && <Image src={room.coverImage.url} alt={room.coverImage.altText || room.name} fill unoptimized sizes="(max-width: 780px) 100vw, 33vw" />}
                   </div>
                   <div className="room-content">
                     <h3>{room.name}</h3>
-                    <p>{room.description}</p>
-                    <div className="room-facts"><span><UsersRound size={16} /> {room.guests}</span><span><Mountain size={16} /> {room.feature}</span></div>
-                    <div className="room-bottom"><span>{room.available ? t("rooms.priceFrom") : t("rooms.priceReference")} {formatRoomPrice(room.price)} {t("rooms.perNight")}</span><a href={`/rooms/${room.id}`}>{t("rooms.viewDetail")} <ArrowRight size={17} /></a></div>
+                    <p>{room.description || "—"}</p>
+                    <div className="room-facts">
+                      {room.maxGuests !== null && <span><UsersRound size={16} /> {t("rooms.guests", { count: room.maxGuests })}</span>}
+                      {room.sizeSqm && <span>{t("rooms.size", { size: room.sizeSqm })}</span>}
+                    </div>
+                    <div className="room-bottom">
+                      <span>{room.startingPrice !== null ? `${t("rooms.priceFrom")} ${formatRoomPrice(room.startingPrice)} ${t("rooms.perNight")}` : t("rooms.priceUnavailable")}</span>
+                      <a href={`/rooms/${encodeURIComponent(room.slug)}`} onClick={(event) => { event.preventDefault(); navigateWithSkeleton(`/rooms/${encodeURIComponent(room.slug)}`); }}>{t("rooms.viewDetail")} <ArrowRight size={17} /></a>
+                    </div>
                   </div>
                 </article>
               ))}
+              {!featuredRoomsLoading && featuredRooms.length === 0 && <p className="room-section-message" role={featuredRoomsError ? "alert" : "status"}>{t(featuredRoomsError ? "rooms.loadError" : "rooms.empty")}</p>}
+              {featuredRoomsLoading && <p className="room-section-message" role="status">{t("rooms.loading")}</p>}
               </div>
-              <button className="room-carousel-arrow next" type="button" onClick={() => changeRoom(1)} aria-label={t("rooms.nextAriaLabel")}><ChevronRight size={22} /></button>
+              {featuredRooms.length > visibleRoomCount && <button className="room-carousel-arrow next" type="button" onClick={() => changeRoom(1)} aria-label={t("rooms.nextAriaLabel")}><ChevronRight size={22} /></button>}
             </div>
-            <div className="room-dots" aria-label={t("rooms.dotsAriaLabel")}>
-              {rooms.slice(0, Math.max(1, rooms.length - visibleRoomCount + 1)).map((room, index) => (
-                <button key={room.name} className={index === roomIndex ? "active" : ""} type="button" aria-label={t("rooms.dotAriaLabel", { name: room.name })} aria-current={index === roomIndex ? "true" : undefined} onClick={() => scrollToRoom(index)} />
+            {featuredRooms.length > visibleRoomCount && <div className="room-dots" aria-label={t("rooms.dotsAriaLabel")}>
+              {featuredRooms.slice(0, Math.max(1, featuredRooms.length - visibleRoomCount + 1)).map((room, index) => (
+                <button key={room.roomTypeId} className={index === roomIndex ? "active" : ""} type="button" aria-label={t("rooms.dotAriaLabel", { name: room.name })} aria-current={index === roomIndex ? "true" : undefined} onClick={() => scrollToRoom(index)} />
               ))}
-            </div>
+            </div>}
           </div>
         </section>
 

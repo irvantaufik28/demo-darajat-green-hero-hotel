@@ -18,3 +18,9 @@
   .hero .booking-card--range .rooms-date-range-trigger { font-size: 12px; }
   .hero .booking-card--range .rooms-date-range-popover { width: min(340px, calc(100vw - 64px)); }
 }
+.room-section-message {
+  width: 100%;
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+}

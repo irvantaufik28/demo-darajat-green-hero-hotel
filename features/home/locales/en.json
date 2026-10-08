@@ -61,7 +61,13 @@
     "priceFrom": "Starting from",
     "priceReference": "Reference price",
     "perNight": "/ night",
-    "viewDetail": "View Detail"
+    "viewDetail": "View Detail",
+    "guests": "Up to {count} guests",
+    "size": "{size} m²",
+    "priceUnavailable": "Price unavailable",
+    "loading": "Loading featured rooms...",
+    "empty": "No featured rooms are displayed yet.",
+    "loadError": "Featured rooms could not be loaded."
   },
   "experiences": {
     "eyebrow": "GREEN HERO EXPERIENCES",

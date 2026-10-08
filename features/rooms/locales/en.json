@@ -158,6 +158,8 @@
     "aboutTitle": "About This Room",
     "aboutExtra": "This space offers a warm atmosphere to rest in after enjoying the cool Darajat air and resort facilities with your loved ones.",
     "amenitiesTitle": "Room Facilities",
+    "amenitiesSeeMore": "See {count} more facilities",
+    "amenitiesSeeLess": "See less",
     "stayInfoTitle": "Stay Information",
     "stayInfo": {
       "checkTimesTitle": "Check-in & Check-out Times",
@@ -208,7 +210,21 @@
       "selectDates": "Select check-in and check-out dates to check availability.",
       "checkoutAfterCheckin": "Check-out date must be after the check-in date.",
       "available": "This room is marked available in the demo data. Actual reservations are not yet connected.",
-      "unavailable": "This room is still marked unavailable in the demo data. Try other dates or contact the hotel to confirm."
+      "unavailable": "This room is unavailable for the selected dates and guest count. Try another option.",
+      "loadError": "Could not load room details.",
+      "notFound": "Room not found.",
+      "availabilityError": "Could not check room availability.",
+      "pastDate": "Check-in cannot be before today.",
+      "noPhotos": "Room photos are not available yet.",
+      "noDescription": "Room description is not available yet.",
+      "notSpecified": "Not available",
+      "maxGuests": "Up to {count} guests",
+      "checkTimes": "Check-in and check-out times follow hotel policy.",
+      "checking": "Checking availability...",
+      "checkAvailability": "Check availability",
+      "priceByDate": "Price depends on stay dates",
+      "roomPriceNights": "Room price for {nights} nights",
+      "guestChoice": "{adults} Adults, {children} Children"
     },
     "extras": {
       "eyebrow": "ADD-ONS DURING YOUR STAY",

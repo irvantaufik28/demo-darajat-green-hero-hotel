@@ -66,6 +66,28 @@ export function listRooms(signal?: AbortSignal) {
   return apiRequest<{ items: PublicRoom[] }>("rooms", { signal });
 }
 
+export function getRoomBySlug(slug: string, signal?: AbortSignal) {
+  return apiRequest<{ roomType: PublicRoom }>(`rooms/${encodeURIComponent(slug)}`, { signal });
+}
+
+export function getRoomAvailability(
+  roomTypeId: string,
+  checkInDate: string,
+  checkOutDate: string,
+  adults: number,
+  children: number,
+  signal?: AbortSignal,
+) {
+  const query = new URLSearchParams({
+    roomTypeId,
+    checkInDate,
+    checkOutDate,
+    adults: String(adults),
+    children: String(children),
+  });
+  return apiRequest<{ items: RoomAvailability[] }>(`rooms/availability?${query}`, { signal });
+}
+
 export function searchRooms(checkInDate: string, checkOutDate: string, signal?: AbortSignal) {
   const query = new URLSearchParams({ checkInDate, checkOutDate });
   return apiRequest<{ items: RoomAvailability[] }>(`rooms/availability?${query}`, { signal });
