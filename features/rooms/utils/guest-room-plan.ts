@@ -60,7 +60,6 @@ export function suggestRoomSelection(availability: RoomAvailability[], adults: n
   const target = eligible.find((item) => item.roomType.id === targetId);
   if (!target || adults + children < 1) return null;
   const direct = findPlan([target], adults, children, targetId);
-  const mixed = findPlan([target, ...eligible.filter((item) => item.roomType.id !== targetId)], adults, children, targetId);
-  const count = (selection: RoomSelection) => selection.reduce((total, item) => total + item.quantity, 0);
-  return mixed && (!direct || count(mixed) < count(direct)) ? mixed : direct;
+  if (direct) return direct;
+  return findPlan([target, ...eligible.filter((item) => item.roomType.id !== targetId)], adults, children, targetId);
 }

@@ -7,6 +7,9 @@ import { Brand } from "@/components/Brand";
 import { SiteHeader } from "@/components/SiteHeader";
 import { HeroVideo } from "@/components/HeroVideo";
 import { rooms, formatRoomPrice } from "@/features/rooms/constants/rooms-data";
+import StayDateRangePicker from "@/features/rooms/components/StayDateRangePicker";
+import { listRooms, type PublicRoom } from "@/features/rooms/services/public-rooms";
+import "../styles/home.css";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
 import id from "../locales/id.json";
@@ -14,7 +17,6 @@ import {
   ArrowRight,
   Bath,
   BedDouble,
-  CalendarDays,
   Camera,
   ChevronLeft,
   ChevronRight,
@@ -121,16 +123,30 @@ function SectionEyebrow({ children, gold = false }: { children: React.ReactNode;
   return <span className={`section-eyebrow${gold ? " gold" : ""}`}>{children}</span>;
 }
 
+function jakartaToday() {
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Jakarta", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
+  const part = (type: string) => parts.find((item) => item.type === type)?.value ?? "";
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+
 export default function Home() {
-  const { t } = useTranslations({ en, id });
+  const { t, lang } = useTranslations({ en, id });
   const [roomIndex, setRoomIndex] = useState(0);
   const [visibleRoomCount, setVisibleRoomCount] = useState(3);
   const roomTrackRef = useRef<HTMLDivElement>(null);
   const [bookingMessage, setBookingMessage] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [guests, setGuests] = useState("2 Dewasa, 2 Anak");
-  const [roomCount, setRoomCount] = useState("1 Kamar");
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(2);
+  const [roomTypeId, setRoomTypeId] = useState("all");
+  const [roomTypes, setRoomTypes] = useState<PublicRoom[]>([]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    listRooms(controller.signal).then((result) => setRoomTypes(result.items)).catch(() => {});
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     const tablet = window.matchMedia("(max-width: 900px)");
@@ -181,11 +197,16 @@ export default function Home() {
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (checkIn && !checkOut) {
+      setBookingMessage(t("booking.messages.selectBothDates"));
+      return;
+    }
     if (checkIn && checkOut && checkOut <= checkIn) {
       setBookingMessage(t("booking.messages.checkoutAfterCheckin"));
       return;
     }
-    const params = new URLSearchParams({ guests });
+    const params = new URLSearchParams({ guests: `${adults} Dewasa, ${children} Anak` });
+    if (roomTypeId !== "all") params.set("roomTypeId", roomTypeId);
     if (checkIn) params.set("checkIn", checkIn);
     if (checkOut) params.set("checkOut", checkOut);
     setBookingMessage("");
@@ -203,30 +224,28 @@ export default function Home() {
           <section className="booking-section" id="booking" aria-label={t("booking.ariaLabel")}>
             <h1 className="hero-destination-title">{t("hero.destinationTitle")}</h1>
             <div className="container">
-              <form className="booking-card" onSubmit={handleSearch}>
+              <form className="booking-card booking-card--range" onSubmit={handleSearch}>
+                <StayDateRangePicker checkIn={checkIn} checkOut={checkOut} minDate={jakartaToday()} language={lang}
+                  label={t("booking.dateRange")} checkInLabel={t("booking.checkIn")} checkOutLabel={t("booking.checkOut")}
+                  placeholder={t("booking.selectRangeHint")}
+                  onChange={(nextCheckIn, nextCheckOut) => { setCheckIn(nextCheckIn); setCheckOut(nextCheckOut); setBookingMessage(""); }} />
                 <label className="booking-field">
-                  <span><CalendarDays size={19} /> {t("booking.checkIn")}</span>
-                  <input aria-label={t("booking.checkInAriaLabel")} type="date" value={checkIn} onChange={(event) => setCheckIn(event.target.value)} />
-                </label>
-                <label className="booking-field">
-                  <span><CalendarDays size={19} /> {t("booking.checkOut")}</span>
-                  <input aria-label={t("booking.checkOutAriaLabel")} type="date" value={checkOut} min={checkIn || undefined} onChange={(event) => setCheckOut(event.target.value)} />
-                </label>
-                <label className="booking-field">
-                  <span><UsersRound size={20} /> {t("booking.guests")}</span>
-                  <select aria-label={t("booking.guestsAriaLabel")} value={guests} onChange={(event) => setGuests(event.target.value)}>
-                    <option value="2 Dewasa, 2 Anak">{t("booking.guestOptions.twoAdultsTwoChildren")}</option>
-                    <option value="2 Dewasa">{t("booking.guestOptions.twoAdults")}</option>
-                    <option value="4 Dewasa">{t("booking.guestOptions.fourAdults")}</option>
-                    <option value="4 Dewasa, 2 Anak">{t("booking.guestOptions.fourAdultsTwoChildren")}</option>
+                  <span><UsersRound size={20} /> {t("booking.adults")}</span>
+                  <select aria-label={t("booking.adultsAriaLabel")} value={adults} onChange={(event) => setAdults(Number(event.target.value))}>
+                    {Array.from({ length: 14 }, (_, index) => index + 1).map((count) => <option key={count} value={count}>{count}</option>)}
                   </select>
                 </label>
                 <label className="booking-field">
-                  <span><BedDouble size={20} /> {t("booking.rooms")}</span>
-                  <select aria-label={t("booking.roomsAriaLabel")} value={roomCount} onChange={(event) => setRoomCount(event.target.value)}>
-                    <option value="1 Kamar">{t("booking.roomOptions.one")}</option>
-                    <option value="2 Kamar">{t("booking.roomOptions.two")}</option>
-                    <option value="3 Kamar">{t("booking.roomOptions.three")}</option>
+                  <span><UsersRound size={20} /> {t("booking.children")}</span>
+                  <select aria-label={t("booking.childrenAriaLabel")} value={children} onChange={(event) => setChildren(Number(event.target.value))}>
+                    {Array.from({ length: 15 }, (_, count) => count).map((count) => <option key={count} value={count}>{count}</option>)}
+                  </select>
+                </label>
+                <label className="booking-field">
+                  <span><BedDouble size={20} /> {t("booking.roomType")}</span>
+                  <select aria-label={t("booking.roomTypeAriaLabel")} value={roomTypeId} onChange={(event) => setRoomTypeId(event.target.value)}>
+                    <option value="all">{t("booking.allRoomTypes")}</option>
+                    {roomTypes.map((room) => <option key={room.id} value={room.id}>{room.name}</option>)}
                   </select>
                 </label>
                 <button className="button button-primary booking-submit" type="submit">{t("booking.submit")}</button>

@@ -9,24 +9,19 @@
     "checkOut": "Check-out",
     "checkInAriaLabel": "Tanggal check-in",
     "checkOutAriaLabel": "Tanggal check-out",
-    "guests": "Tamu",
-    "guestsAriaLabel": "Jumlah tamu",
-    "rooms": "Kamar",
-    "roomsAriaLabel": "Jumlah kamar",
+    "dateRange": "Tanggal Menginap",
+    "selectRangeHint": "Pilih tanggal check-in, lalu tanggal check-out.",
+    "adults": "Dewasa",
+    "adultsAriaLabel": "Jumlah dewasa",
+    "children": "Anak",
+    "childrenAriaLabel": "Jumlah anak",
+    "roomType": "Tipe Kamar",
+    "roomTypeAriaLabel": "Pilih tipe kamar",
+    "allRoomTypes": "Semua Tipe Kamar",
     "submit": "Cek Kamar",
-    "guestOptions": {
-      "twoAdultsTwoChildren": "2 Dewasa, 2 Anak",
-      "twoAdults": "2 Dewasa",
-      "fourAdults": "4 Dewasa",
-      "fourAdultsTwoChildren": "4 Dewasa, 2 Anak"
-    },
-    "roomOptions": {
-      "one": "1 Kamar",
-      "two": "2 Kamar",
-      "three": "3 Kamar"
-    },
     "messages": {
-      "checkoutAfterCheckin": "Tanggal check-out harus setelah tanggal check-in."
+      "checkoutAfterCheckin": "Tanggal check-out harus setelah tanggal check-in.",
+      "selectBothDates": "Pilih juga tanggal check-out sebelum mencari kamar."
     }
   },
   "welcome": {

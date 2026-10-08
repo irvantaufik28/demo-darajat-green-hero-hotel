@@ -9,24 +9,19 @@
     "checkOut": "Check-out",
     "checkInAriaLabel": "Check-in date",
     "checkOutAriaLabel": "Check-out date",
-    "guests": "Guests",
-    "guestsAriaLabel": "Number of guests",
-    "rooms": "Rooms",
-    "roomsAriaLabel": "Number of rooms",
+    "dateRange": "Stay Dates",
+    "selectRangeHint": "Select a check-in date, then a check-out date.",
+    "adults": "Adults",
+    "adultsAriaLabel": "Number of adults",
+    "children": "Children",
+    "childrenAriaLabel": "Number of children",
+    "roomType": "Room Type",
+    "roomTypeAriaLabel": "Choose room type",
+    "allRoomTypes": "All Room Types",
     "submit": "Check Rooms",
-    "guestOptions": {
-      "twoAdultsTwoChildren": "2 Adults, 2 Children",
-      "twoAdults": "2 Adults",
-      "fourAdults": "4 Adults",
-      "fourAdultsTwoChildren": "4 Adults, 2 Children"
-    },
-    "roomOptions": {
-      "one": "1 Room",
-      "two": "2 Rooms",
-      "three": "3 Rooms"
-    },
     "messages": {
-      "checkoutAfterCheckin": "Check-out date must be after the check-in date."
+      "checkoutAfterCheckin": "Check-out date must be after the check-in date.",
+      "selectBothDates": "Select a check-out date before searching rooms."
     }
   },
   "welcome": {

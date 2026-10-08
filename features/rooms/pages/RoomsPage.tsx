@@ -46,7 +46,7 @@ const benefits = [
   { icon: Headphones, titleKey: "benefits.items.staffSupport.title", descriptionKey: "benefits.items.staffSupport.description" },
 ];
 
-type Props = { initialSelection: RoomSelection; initialCheckIn: string; initialCheckOut: string; initialMinDate: string; initialGuests: string };
+type Props = { initialSelection: RoomSelection; initialCheckIn: string; initialCheckOut: string; initialMinDate: string; initialGuests: string; initialRoomType: string };
 
 function formatSelectionDate(value: string, placeholder: string) {
   const [year, month, day] = value.split("-").map(Number);
@@ -78,14 +78,16 @@ function displayRoom(room: PublicRoom, availability?: RoomAvailability): Room {
   };
 }
 
-export default function RoomsPage({ initialSelection, initialCheckIn, initialCheckOut, initialMinDate, initialGuests }: Props) {
+export default function RoomsPage({ initialSelection, initialCheckIn, initialCheckOut, initialMinDate, initialGuests, initialRoomType }: Props) {
   const { t, lang } = useTranslations({ en, id });
-  const [roomType, setRoomType] = useState("all");
+  const [roomType, setRoomType] = useState(initialRoomType);
   const [checkIn, setCheckIn] = useState(initialCheckIn);
   const [checkOut, setCheckOut] = useState(initialCheckOut);
-  const [adults, setAdults] = useState(Number.parseInt(initialGuests, 10) || 2);
-  const [children, setChildren] = useState(Number(initialGuests.match(/(\d+)\s*(?:Anak|Child)/i)?.[1] ?? 0));
-  const [searchedGuests, setSearchedGuests] = useState({ adults: Number.parseInt(initialGuests, 10) || 2, children: Number(initialGuests.match(/(\d+)\s*(?:Anak|Child)/i)?.[1] ?? 0) });
+  const initialAdults = Math.min(15, Math.max(1, Number.parseInt(initialGuests, 10) || 2));
+  const initialChildren = Math.min(15, Math.max(0, Number(initialGuests.match(/(\d+)\s*(?:Anak|Child)/i)?.[1] ?? 0)));
+  const [adults, setAdults] = useState(initialAdults);
+  const [children, setChildren] = useState(initialChildren);
+  const [searchedGuests, setSearchedGuests] = useState({ adults: initialAdults, children: initialChildren });
   const [selection, setSelection] = useState<RoomSelection>(initialSelection);
   const [draftPlans, setDraftPlans] = useState<Map<string, RoomSelection>>(new Map());
   const [message, setMessage] = useState("");
@@ -211,6 +213,15 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
     setQuote(null);
   }
 
+  function changeGuests(nextAdults: number, nextChildren: number) {
+    setAdults(nextAdults);
+    setChildren(nextChildren);
+    setSearchedGuests({ adults: nextAdults, children: nextChildren });
+    setSelection([]);
+    setDraftPlans(new Map());
+    setQuote(null);
+  }
+
   function continueBooking() {
     if (!quote || quoting || !totalRooms) return;
     const selected = selection.flatMap(({ roomId, quantity }) => {
@@ -258,7 +269,6 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
     setAvailability([]);
     setSearchedDates({ checkIn, checkOut });
     setSearchedGuests({ adults, children });
-    setRoomType("all");
     setMessage("");
     document.getElementById("rooms-list")?.scrollIntoView({ behavior: "smooth" });
   }
@@ -283,9 +293,9 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
         <section className="container rooms-availability" id="availability" aria-label={t("availability.ariaLabel")}>
           <form className="rooms-search" onSubmit={searchRooms}>
             <StayDateRangePicker checkIn={checkIn} checkOut={checkOut} minDate={initialMinDate} language={lang} label={t("availability.dateRange")} checkInLabel={t("availability.checkIn")} checkOutLabel={t("availability.checkOut")} placeholder={t("availability.selectRangeHint")} onChange={changeStayDate} />
-            <label><span><UsersRound size={16} /> {t("availability.adults")}</span><input type="number" min="1" max="100" value={adults} onChange={(event) => setAdults(Math.max(1, Number(event.target.value) || 1))} /></label>
-            <label><span><UsersRound size={16} /> {t("availability.children")}</span><input type="number" min="0" max="100" value={children} onChange={(event) => setChildren(Math.max(0, Number(event.target.value) || 0))} /></label>
-            <label><span><BedDouble size={16} /> {t("availability.rooms")}</span><select value={roomType} onChange={(event) => setRoomType(event.target.value)}><option value="all">{t("availability.allRoomTypes")}</option>{eligibleRooms.map((room) => <option key={room.id} value={room.id}>{room.name}</option>)}</select></label>
+            <label><span><UsersRound size={16} /> {t("availability.adults")}</span><select value={adults} onChange={(event) => changeGuests(Number(event.target.value), children)}>{Array.from({ length: 15 }, (_, index) => index + 1).map((count) => <option key={count} value={count}>{count}</option>)}</select></label>
+            <label><span><UsersRound size={16} /> {t("availability.children")}</span><select value={children} onChange={(event) => changeGuests(adults, Number(event.target.value))}>{Array.from({ length: 16 }, (_, count) => count).map((count) => <option key={count} value={count}>{count}</option>)}</select></label>
+            <label><span><BedDouble size={16} /> {t("availability.rooms")}</span><select value={roomType} onChange={(event) => setRoomType(event.target.value)}><option value="all">{t("availability.allRoomTypes")}</option>{catalog.map((room) => <option key={room.id} value={room.id}>{room.name}</option>)}</select></label>
             <button className="button button-primary rooms-search-button" type="submit" disabled={loading || searching}><Search size={18} /> {searching ? t("availability.searching") : t("availability.search")}</button>
           </form>
           {(message || loading) && <p className="rooms-search-message" role="status">{message || t("availability.loading")}</p>}
@@ -377,6 +387,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
                     })}
                   </div>
                   <p className="rooms-recommendation">{otherQuantity > 0 ? t("card.mixedSuggestion", { count: suggestedQuantity, others: otherQuantity }) : t("card.suggestedQuantity", { count: suggestedQuantity })}</p>
+                  {otherQuantity > 0 && <ul className="rooms-plan-breakdown">{plan.map((item) => <li key={item.roomId}>{item.quantity} × {catalog.find((type) => type.id === item.roomId)?.name ?? room.name}</li>)}</ul>}
                 </div>
                 <div className="rooms-card-actions">
                   <div className="rooms-price"><small>{availabilityLoaded && room.available ? t("card.priceFrom") : t("card.priceReference")}</small>{firstNight && firstNight.basePrice > firstNight.finalPrice && <del>{formatRoomPrice(firstNight.basePrice)}</del>}<strong>{room.price > 0 ? formatRoomPrice(room.price) : "—"}</strong><span>{t("card.perNight")}</span></div>

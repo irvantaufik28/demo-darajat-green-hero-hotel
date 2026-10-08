@@ -18,5 +18,5 @@ export default async function Page({ searchParams }: PageProps) {
   const tomorrow = new Date(`${today}T00:00:00Z`);
   tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
   const validDates = (params.checkIn ?? "") >= today && getNights(params.checkIn ?? "", params.checkOut ?? "") > 0;
-  return <RoomsPage initialSelection={[]} initialCheckIn={validDates ? params.checkIn! : today} initialCheckOut={validDates ? params.checkOut! : tomorrow.toISOString().slice(0, 10)} initialMinDate={today} initialGuests={params.guests ?? "2 Dewasa"} />;
+  return <RoomsPage initialSelection={[]} initialCheckIn={validDates ? params.checkIn! : today} initialCheckOut={validDates ? params.checkOut! : tomorrow.toISOString().slice(0, 10)} initialMinDate={today} initialGuests={params.guests ?? "2 Dewasa"} initialRoomType={params.roomTypeId ?? "all"} />;
 }

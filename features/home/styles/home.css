@@ -1,0 +1,20 @@
+.hero .booking-card.booking-card--range { grid-template-columns: minmax(250px, 1.7fr) repeat(2, minmax(90px, .7fr)) minmax(160px, 1.2fr) 170px; }
+.hero .booking-card--range .rooms-date-range { padding: 1px 23px 1px 7px; border-right: 1px solid rgba(255, 255, 255, .22); }
+.hero .booking-card--range .rooms-date-range-label { margin-bottom: 7px; color: rgba(255, 255, 255, .7); font-size: 12px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.hero .booking-card--range .rooms-date-range-label svg { color: rgba(255, 255, 255, .85); }
+.hero .booking-card--range .rooms-date-range-trigger { height: 25px; padding: 0; border: 0; border-radius: 0; background: transparent; color: white; font-family: var(--font-body), sans-serif; font-size: 14px; font-weight: 400; }
+.hero .booking-card--range .rooms-date-range-trigger:hover, .hero .booking-card--range .rooms-date-range-trigger:focus-visible { border: 0; outline: 2px solid white; outline-offset: 3px; }
+.hero .booking-card--range .rooms-date-range-divider { color: rgba(255, 255, 255, .65); }
+.hero .booking-card--range .rooms-date-range-popover { top: auto; bottom: calc(100% + 12px); color: #26342a; text-align: left; }
+.hero:has(.rooms-date-range-popover) { overflow: visible; }
+@media (max-width: 900px) {
+  .hero .booking-card.booking-card--range { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero .booking-card--range .rooms-date-range { grid-column: 1 / -1; padding-inline: 11px; border-right: 0; }
+  .hero .booking-card--range .booking-field:nth-child(2) { border-right: 1px solid rgba(255, 255, 255, .22); }
+  .hero .booking-card--range .booking-field:nth-child(3) { border-right: 0; }
+  .hero .booking-card--range .booking-field:nth-child(4) { grid-column: 1 / -1; border-right: 0; }
+}
+@media (max-width: 620px) {
+  .hero .booking-card--range .rooms-date-range-trigger { font-size: 12px; }
+  .hero .booking-card--range .rooms-date-range-popover { width: min(340px, calc(100vw - 64px)); }
+}

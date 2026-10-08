@@ -1,0 +1,26 @@
+.rooms-date-range { position: relative; min-width: 0; }
+.rooms-date-range-label { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.rooms-date-range-label svg { color: var(--forest); }
+.rooms-date-range-trigger { display: flex; align-items: center; justify-content: space-between; gap: 5px; width: 100%; height: 43px; padding: 0 11px; border: 1px solid #d8ddd6; border-radius: 7px; background: var(--cream); color: #26342a; font-size: 12px; white-space: nowrap; cursor: pointer; }
+.rooms-date-range-trigger:hover, .rooms-date-range-trigger:focus-visible { border-color: var(--forest); outline: 2px solid rgba(2,50,35,.12); }
+.rooms-date-range-divider { color: var(--muted); }
+.rooms-date-range-popover { position: absolute; z-index: 8; top: calc(100% + 8px); left: 0; width: min(660px, calc(100vw - 36px)); padding: 16px; border: 1px solid #d8ddd6; border-radius: 12px; background: #fff; box-shadow: 0 18px 45px rgba(22,43,32,.2); }
+.rooms-date-range-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--forest); }
+.rooms-date-range-heading button { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #d8ddd6; border-radius: 7px; background: #fff; color: var(--forest); cursor: pointer; }
+.rooms-date-range-heading button:disabled { opacity: .35; cursor: not-allowed; }
+.rooms-date-range-popover > p { margin: 10px 0; color: var(--muted); font-size: 11px; }
+.rooms-date-range-months { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.rooms-date-range-month h3 { margin: 3px 0 9px; color: var(--forest); font-size: 13px; font-weight: 700; text-align: center; }
+.rooms-date-range-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; text-align: center; }
+.rooms-date-range-weekday { padding: 7px 0; color: var(--muted); font-size: 10px; font-weight: 700; }
+.rooms-date-range-grid button { width: 100%; aspect-ratio: 1; border: 0; border-radius: 7px; background: transparent; color: #26342a; font-size: 12px; cursor: pointer; }
+.rooms-date-range-grid button:hover:not(:disabled), .rooms-date-range-grid button:focus-visible { background: #e5f0e8; outline: 2px solid var(--forest); }
+.rooms-date-range-grid button.is-in-range { border-radius: 0; background: #e5f0e8; }
+.rooms-date-range-grid button.is-preview-range { border-radius: 0; background: #d9ebdd; }
+.rooms-date-range-grid button.is-preview-end { background: #4d7a59; color: #fff; font-weight: 700; }
+.rooms-date-range-grid button.is-selected { background: var(--forest); color: #fff; font-weight: 700; }
+.rooms-date-range-grid button:disabled { color: #b4bcb5; cursor: not-allowed; }
+@media (max-width: 620px) {
+  .rooms-date-range-popover { width: min(340px, calc(100vw - 36px)); max-height: min(70dvh, 650px); overflow-y: auto; }
+  .rooms-date-range-months { grid-template-columns: 1fr; gap: 18px; }
+}
