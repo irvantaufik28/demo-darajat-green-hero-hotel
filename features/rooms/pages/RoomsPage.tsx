@@ -6,7 +6,6 @@ import {
   ArrowRight,
   BedDouble,
   CalendarDays,
-  CheckCircle2,
   Clock3,
   Flame,
   Globe2,
@@ -344,14 +343,6 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
           {(message || loading) && <p className="rooms-search-message" role="status">{message || t("availability.loading")}</p>}
         </section>
 
-        <section className="container rooms-intro">
-          <span className="rooms-eyebrow">{t("intro.eyebrow")}</span>
-          <h2>{t("intro.title")}</h2>
-          <p>{t("intro.description")}</p>
-          <div className="rooms-intro-note"><CheckCircle2 size={18} /> {t("intro.note")}</div>
-          <small className="rooms-price-disclaimer">{t("intro.priceDisclaimer")}</small>
-        </section>
-
         <section className="container rooms-booking-layout" id="rooms-list" aria-label={t("card.layoutAriaLabel")}><div className="rooms-list">
           {!loading && !rooms.length && <p role="status">{t("availability.noRooms")}</p>}
           {!loading && !searching && availabilityLoaded && !visibleRooms.length && <p className="rooms-no-match" role="status">{t("availability.noMatchingRooms")}</p>}
@@ -384,7 +375,6 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
                   <span className="rooms-card-eyebrow">{room.eyebrow}</span>
                   <h3>{room.name}</h3>
                   <span className="rooms-card-tagline">{room.tagline}</span>
-                  <p>{room.description}</p>
                   <div className="rooms-amenities">
                     <div className="rooms-card-amenities">{room.amenities.slice(0, 4).map(({ icon: Icon, label }) => <span key={label}><Icon size={19} /> {label}</span>)}</div>
                     {room.amenities.length > 4 && <>
@@ -400,7 +390,7 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
                     </>}
                   </div>
                   <div className="rooms-card-conditions">
-                    <span className={`rooms-stock${availabilityLoaded ? room.remainingRooms === 0 ? " is-empty" : room.remainingRooms <= 2 ? " is-low" : "" : ""}`}><BedDouble size={16} /> {searching ? t("availability.checkingStock") : availabilityLoaded ? t("card.remainingRooms", { count: room.remainingRooms }) : t("availability.notChecked")}</span>
+                    <span className={`rooms-stock${availabilityLoaded && room.remainingRooms <= 2 ? " is-low" : ""}`}>{searching ? t("availability.checkingStock") : availabilityLoaded ? t("card.remainingRooms", { count: room.remainingRooms }) : t("availability.notChecked")}</span>
                   </div>
                   <div className="rooms-cancellation-list">
                     <strong><ShieldCheck size={17} />{t("card.cancellationPolicies")}</strong>
@@ -433,7 +423,6 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
                       </div>;
                     })}
                   </div>
-                  <p className="rooms-recommendation">{selection.length && !selectedQuantity ? t("card.addToSelection", { count: suggestedQuantity }) : otherQuantity > 0 ? t("card.mixedSuggestion", { count: suggestedQuantity, others: otherQuantity }) : t("card.suggestedQuantity", { count: suggestedQuantity })}</p>
                   {otherQuantity > 0 && <ul className="rooms-plan-breakdown">{plan.map((item) => <li key={item.roomId}>{item.quantity} × {catalog.find((type) => type.id === item.roomId)?.name ?? room.name}</li>)}</ul>}
                 </div>
                 <div className="rooms-card-actions">

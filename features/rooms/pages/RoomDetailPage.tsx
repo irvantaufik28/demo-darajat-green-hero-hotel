@@ -19,12 +19,15 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Brand } from "@/components/Brand";
+import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import PageSkeleton from "@/components/PageSkeleton";
 import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { getPublicBookingExtras, type PublicBookingExtras } from "@/features/booking/services/public-booking-extras";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import { roomAmenityIcon } from "../constants/room-amenity-icons";
-import { getRoomAvailability, getRoomBySlug, listRooms, type PublicRoom, type RoomAvailability } from "../services/public-rooms";
+import { getRoomAvailability, getRoomBySlug, listRooms, quoteRooms, type PublicRoom, type RoomAvailability } from "../services/public-rooms";
+import { LIVE_BOOKING_KEY, serializeLiveSelection, type LiveRoomBooking } from "../services/live-booking";
+import { allocateGuests } from "../utils/guest-room-plan";
 import "../styles/detail.css";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
@@ -82,6 +85,7 @@ export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }
   const [availabilityQuery, setAvailabilityQuery] = useState({ checkIn, checkOut, guests });
   const [experiences, setExperiences] = useState<PublicBookingExtras["experiences"]>([]);
   const [amenitiesExpanded, setAmenitiesExpanded] = useState(false);
+  const [bookingLoading, setBookingLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -157,8 +161,6 @@ export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }
   const roomTotal = currentAvailability?.pricePreview?.roomTotal ?? null;
   const discountTotal = currentAvailability?.pricePreview?.discountTotal ?? 0;
   const policy = currentAvailability?.cancellationPolicies[0];
-  const bookingHref = `/rooms?${new URLSearchParams({ roomTypeId: room.id, checkIn, checkOut, guests: guestLabel })}`;
-
   const checkAvailability = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!checkIn || !checkOut) {
@@ -177,6 +179,44 @@ export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }
     setMessage("");
     setAvailability(null);
     setAvailabilityQuery({ checkIn, checkOut, guests });
+  };
+
+  const continueBooking = async () => {
+    if (!available || !currentAvailability || bookingLoading) return;
+    const allocation = allocateGuests([{ roomType: room, quantity: 1 }], guestAdults, guestChildren);
+    if (!allocation) {
+      setMessage(t("cart.adjustGuests"));
+      return;
+    }
+    setBookingLoading(true);
+    setMessage("");
+    try {
+      const rooms = allocation.map((item) => ({ ...item, cancellationPolicyId: policy?.id }));
+      const quote = await quoteRooms({
+        checkInDate: checkIn,
+        checkOutDate: checkOut,
+        totalAdults: guestAdults,
+        totalChildren: guestChildren,
+        rooms,
+      });
+      const selection = [{ roomId: room.id, quantity: 1 }];
+      const booking: LiveRoomBooking = {
+        checkIn,
+        checkOut,
+        adults: guestAdults,
+        children: guestChildren,
+        selection,
+        allocation: rooms,
+        quote,
+        roomImages: { [room.id]: { url: cover?.url ?? "/images/room-standard-new.webp", altText: cover?.altText ?? room.name } },
+      };
+      sessionStorage.setItem(LIVE_BOOKING_KEY, JSON.stringify(booking));
+      const params = new URLSearchParams({ source: "website", room: room.id, rooms: serializeLiveSelection(selection), checkIn, checkOut, guests: guestLabel });
+      navigateWithSkeleton(`/booking/extras?${params}`);
+    } catch (cause) {
+      setMessage(cause instanceof Error ? cause.message : t("cart.storageError"));
+      setBookingLoading(false);
+    }
   };
 
   return (
@@ -241,7 +281,7 @@ export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }
             </form>}
             {roomTotal !== null && <div className="detail-price-summary"><div><span>{t("detail.messages.roomPriceNights", { nights })}</span><strong>{formatRoomPrice(roomTotal + discountTotal)}</strong></div>{discountTotal > 0 && <div><span>{t("modal.discountTotal")}</span><span>−{formatRoomPrice(discountTotal)}</span></div>}<div className="detail-price-total"><strong>{t("detail.booking.priceSummaryTotal")}</strong><strong>{formatRoomPrice(roomTotal)}</strong></div></div>}
             {currentAvailability && !available && <div className="detail-date-notice"><CalendarDays size={20} /><p><strong>{t("detail.booking.noticeTitle")}</strong>{t("detail.messages.unavailable")}</p></div>}
-            {available ? <a href={bookingHref} className="button button-primary detail-pick-button">{t("detail.booking.pick")} <ArrowRight size={18} /></a> : <button type="button" className="detail-pick-button detail-pick-unavailable" disabled>{t("detail.booking.pickUnavailable")}</button>}
+            {available ? <button type="button" className="button button-primary detail-pick-button" disabled={bookingLoading} onClick={continueBooking}>{bookingLoading ? t("availability.searching") : t("detail.booking.pick")} <ArrowRight size={18} /></button> : <button type="button" className="detail-pick-button detail-pick-unavailable" disabled>{t("detail.booking.pickUnavailable")}</button>}
             <button type="button" className="detail-edit-link" onClick={() => setEditingStay(!editingStay)} aria-expanded={editingStay} aria-controls="detail-edit-stay"><CalendarDays size={17} /> {t("detail.booking.editDatesLink")}</button>
             {message && <p className="detail-result" role="status">{message}</p>}
             <div className="detail-booking-assurances"><span><ShieldCheck size={19} /> {t("detail.messages.priceByDate")}</span>{policy && <span><CalendarDays size={19} /> {policy.name}</span>}<span><CheckCircle2 size={19} /> {t("detail.booking.assuranceConfirm")}</span></div>

@@ -137,9 +137,8 @@
 }
 
 .rooms-card-conditions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
-.rooms-stock { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; padding: 7px 10px; border: 1px solid #cbdccd; border-radius: 7px; background: #eef5ed; color: #466b4d; font-size: 11px; font-weight: 700; }
-.rooms-stock.is-low { border-color: #e3d1a5; background: #fff7e6; color: #946c29; }
-.rooms-stock.is-empty { border-color: #e3c4bf; background: #fbefec; color: #a45045; }
+.rooms-stock { flex-shrink: 0; color: #466b4d; font-size: 11px; font-weight: 700; }
+.rooms-stock.is-low { color: #b33b2e; }
 .rooms-cancellation { display: flex; align-items: flex-start; gap: 7px; flex: 1 1 200px; color: #4e7155; font-size: 11px; font-weight: 400; line-height: 1.65; }
 .rooms-cancellation svg { flex-shrink: 0; margin-top: 1px; }
 .rooms-cancellation-list { display: grid; gap: 7px; margin-top: 14px; }
@@ -151,7 +150,7 @@
 .rooms-cancellation-rules li + li { margin-top: 3px; }
 
 /* Multiple room selection and booking price panel. */
-.rooms-booking-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; scroll-margin-top: 110px; }
+.rooms-booking-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; margin-top: clamp(40px, 6vw, 72px); scroll-margin-top: 110px; }
 .rooms-booking-layout .rooms-list { min-width: 0; gap: 28px; padding-block: 0; }
 .rooms-booking-layout .rooms-card { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); min-height: 380px; border-radius: 18px; }
 .rooms-booking-layout .rooms-card-photo { min-height: 350px; }
@@ -172,7 +171,6 @@
 .rooms-quantity button:hover { background: #eaf1e8; }
 .rooms-quantity button:disabled { color: #a0aaa1; cursor: default; background: var(--cream); }
 .rooms-quantity output { min-width: 36px; text-align: center; font-size: 15px; font-weight: 700; color: var(--forest); }
-.rooms-recommendation { margin: 12px 0 0 !important; color: var(--forest) !important; font-size: 12px !important; font-weight: 700; }
 .rooms-no-match { padding: 28px; border: 1px solid #dce2d8; border-radius: 12px; background: #fff; color: #5f6f61; font-size: 14px; line-height: 1.6; }
 .rooms-cart { position: sticky; top: 105px; max-height: calc(100dvh - 125px); overflow-y: auto; background: white; border: 1px solid #dce2d8; border-radius: 18px; box-shadow: 0 10px 30px #0c1f1e08; scroll-margin-top: 110px; }
 .rooms-cart-heading { padding: 24px; border-bottom: 1px solid #e1e6dd; }
