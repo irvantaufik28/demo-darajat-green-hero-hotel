@@ -12,15 +12,21 @@
       "contactLabel": "Nomor WhatsApp atau Email",
       "contactPlaceholder": "Masukkan WhatsApp atau email saat booking"
     },
-    "demoHint": "Demo: input boleh kosong. Detail yang ditampilkan menggunakan data contoh.",
+    "hint": "Gunakan kode reservasi dan kontak yang sama dengan data pemesanan.",
+    "errors": {
+      "required": "Kode reservasi dan informasi kontak wajib diisi.",
+      "notFound": "Reservasi belum terdaftar.",
+      "failed": "Reservasi belum dapat diperiksa. Silakan coba lagi.",
+      "document": "E-voucher belum dapat diunduh. Silakan coba lagi atau hubungi resepsionis."
+    },
     "actions": {
       "check": "Cek Reservasi",
       "checking": "Mengecek Reservasi..."
     }
   },
   "announcement": {
-    "loading": "Sedang mencari detail reservasi demo.",
-    "found": "Detail reservasi demo ditemukan."
+    "loading": "Sedang mencari detail reservasi.",
+    "found": "Detail reservasi ditemukan."
   },
   "loading": {
     "ariaLabel": "Memuat detail reservasi",
@@ -28,11 +34,13 @@
     "description": "Mohon tunggu sebentar..."
   },
   "result": {
-    "ariaLabel": "Detail reservasi demo",
+    "ariaLabel": "Detail reservasi",
     "status": {
       "bookingStatusLabel": "Status Pemesanan:",
       "paid": "Sudah Dibayar",
+      "unpaid": "Belum Lunas",
       "confirmed": "Terkonfirmasi",
+      "pending": "Menunggu Konfirmasi",
       "bookingCodeLabel": "Kode Booking:"
     },
     "timeline": {
@@ -45,11 +53,14 @@
     },
     "confirmation": {
       "title": "Reservasi Anda Terkonfirmasi",
-      "description": "Contoh reservasi untuk {guestName}. Ini adalah simulasi; tidak ada pemesanan, pembayaran, atau pesan konfirmasi yang dikirim."
+      "pendingTitle": "Reservasi Anda Sedang Diproses",
+      "description": "Detail reservasi atas nama {guestName}. Hubungi tim reservasi jika Anda memerlukan bantuan."
     },
     "stay": {
       "heading": "Detail Penginapan",
-      "voucherBadge": "Voucher Digital Demo",
+      "voucherBadge": "Voucher Digital",
+      "roomNumber": "Kamar {count}",
+      "bedNotSpecified": "Konfigurasi tempat tidur belum dicantumkan",
       "building": "Gedung Utama Lt. 2",
       "roomTitleSuffix": "Panoramic Balcony",
       "amenityWifi": "Free High-Speed WiFi",
@@ -58,6 +69,9 @@
         "guestName": "Nama Tamu Utama",
         "roomCount": "Jumlah Kamar",
         "roomCountValue": "1 Kamar VIP",
+        "roomCountDynamic": "{count} Kamar",
+        "guestAdults": "{count} Dewasa",
+        "guestChildren": "{count} Anak",
         "capacity": "Kapasitas Tamu",
         "checkIn": "Tanggal Check-in",
         "checkInNote": "Mulai 14:00 WIB",
@@ -72,6 +86,8 @@
       "heading": "Green Hero Experiences",
       "description": "Layanan tambahan terpilih untuk kenyamanan liburan Anda di Pasirwangi.",
       "countBadge": "2 Paket",
+      "dynamicCount": "{count} Paket",
+      "noDescription": "Pilihan tambahan untuk reservasi Anda.",
       "bbq": {
         "title": "Paket BBQ & {grillName}",
         "detail": "Untuk {capacity} • {inclusions}",
@@ -97,13 +113,20 @@
       "taxValue": "Termasuk",
       "totalLabel": "Total Pembayaran",
       "totalNote": "Harga Bersih (Nett)",
+      "bookingTotal": "Total Reservasi",
+      "paidAmount": "Sudah Dibayar",
+      "remainingBalance": "Sisa Tagihan",
       "methodLabel": "Metode Bayar:",
       "methodValue": "BCA Virtual Account",
       "transactionTimeLabel": "Waktu Transaksi:",
       "accountLabel": "Nomor Rek/VA:",
+      "referenceLabel": "Referensi Transaksi:",
+      "notAvailable": "Belum tersedia",
+      "manualReference": "Pembayaran dicatat manual",
       "downloadVoucher": "Unduh E-Voucher & Bukti",
+      "downloading": "Mengunduh...",
       "contactReceptionist": "Hubungi Resepsionis via WhatsApp",
-      "security": "Voucher dan pembayaran hanya simulasi demo"
+      "security": "Data reservasi dilindungi dengan verifikasi kode booking dan kontak"
     },
     "modification": {
       "title": "Ingin Mengubah Tanggal?",

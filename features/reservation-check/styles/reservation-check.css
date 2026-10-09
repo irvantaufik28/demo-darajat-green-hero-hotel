@@ -24,6 +24,7 @@
 .reservation-check-form-actions p svg { flex-shrink: 0; }
 .reservation-check-form-actions .button { flex-shrink: 0; padding-inline: 28px; }
 .reservation-check-announcement { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.reservation-check-announcement.is-error { position: static; width: auto; height: auto; margin: 14px 0 0; padding: 12px 15px; overflow: visible; clip-path: none; border: 1px solid #e5c2bc; border-radius: 9px; background: #fff2ef; color: #a33d31; font-size: 12px; font-weight: 600; line-height: 1.5; white-space: normal; }
 .reservation-check-loading { border: 1px solid #e0e4db; padding: 32px; border-radius: 16px; background: white; }
 .reservation-check-loading-label { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
 .reservation-check-loading-label strong { font-size: 15px; }

@@ -12,15 +12,21 @@
       "contactLabel": "WhatsApp Number or Email",
       "contactPlaceholder": "Enter the WhatsApp or email used at booking"
     },
-    "demoHint": "Demo: input can be left empty. The details shown use sample data.",
+    "hint": "Use the reservation code and contact information from your booking.",
+    "errors": {
+      "required": "Reservation code and contact information are required.",
+      "notFound": "Reservation is not registered yet.",
+      "failed": "The reservation cannot be checked right now. Please try again.",
+      "document": "The e-voucher cannot be downloaded yet. Please try again or contact reception."
+    },
     "actions": {
       "check": "Check Reservation",
       "checking": "Checking Reservation..."
     }
   },
   "announcement": {
-    "loading": "Searching for demo reservation details.",
-    "found": "Demo reservation details found."
+    "loading": "Searching for reservation details.",
+    "found": "Reservation details found."
   },
   "loading": {
     "ariaLabel": "Loading reservation details",
@@ -28,11 +34,13 @@
     "description": "Please wait a moment..."
   },
   "result": {
-    "ariaLabel": "Demo reservation details",
+    "ariaLabel": "Reservation details",
     "status": {
       "bookingStatusLabel": "Booking Status:",
       "paid": "Paid",
+      "unpaid": "Outstanding",
       "confirmed": "Confirmed",
+      "pending": "Awaiting Confirmation",
       "bookingCodeLabel": "Booking Code:"
     },
     "timeline": {
@@ -45,11 +53,14 @@
     },
     "confirmation": {
       "title": "Your Reservation Is Confirmed",
-      "description": "Sample reservation for {guestName}. This is a simulation; no booking, payment, or confirmation message was sent."
+      "pendingTitle": "Your Reservation Is Being Processed",
+      "description": "Reservation details for {guestName}. Contact the reservation team if you need assistance."
     },
     "stay": {
       "heading": "Stay Details",
-      "voucherBadge": "Demo Digital Voucher",
+      "voucherBadge": "Digital Voucher",
+      "roomNumber": "Room {count}",
+      "bedNotSpecified": "Bed configuration is not specified",
       "building": "Main Building, 2nd Floor",
       "roomTitleSuffix": "Panoramic Balcony",
       "amenityWifi": "Free High-Speed WiFi",
@@ -58,6 +69,9 @@
         "guestName": "Primary Guest Name",
         "roomCount": "Number of Rooms",
         "roomCountValue": "1 VIP Room",
+        "roomCountDynamic": "{count} Rooms",
+        "guestAdults": "{count} Adults",
+        "guestChildren": "{count} Children",
         "capacity": "Guest Capacity",
         "checkIn": "Check-in Date",
         "checkInNote": "From 14:00 WIB",
@@ -72,6 +86,8 @@
       "heading": "Green Hero Experiences",
       "description": "Selected add-on services for the comfort of your holiday in Pasirwangi.",
       "countBadge": "2 Packages",
+      "dynamicCount": "{count} Packages",
+      "noDescription": "An add-on selected for your reservation.",
       "bbq": {
         "title": "BBQ & {grillName} Package",
         "detail": "For {capacity} • {inclusions}",
@@ -97,13 +113,20 @@
       "taxValue": "Included",
       "totalLabel": "Total Payment",
       "totalNote": "Net Price (Nett)",
+      "bookingTotal": "Reservation Total",
+      "paidAmount": "Amount Paid",
+      "remainingBalance": "Remaining Balance",
       "methodLabel": "Payment Method:",
       "methodValue": "BCA Virtual Account",
       "transactionTimeLabel": "Transaction Time:",
       "accountLabel": "Account/VA Number:",
+      "referenceLabel": "Transaction Reference:",
+      "notAvailable": "Not available yet",
+      "manualReference": "Payment recorded manually",
       "downloadVoucher": "Download E-Voucher & Proof",
+      "downloading": "Downloading...",
       "contactReceptionist": "Contact Reception via WhatsApp",
-      "security": "Voucher and payment are demo simulation only"
+      "security": "Reservation data is protected by booking-code and contact verification"
     },
     "modification": {
       "title": "Want to Change Your Dates?",
