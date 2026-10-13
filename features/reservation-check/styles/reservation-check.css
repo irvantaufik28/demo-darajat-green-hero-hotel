@@ -195,3 +195,97 @@
 @media (prefers-reduced-motion: reduce) {
   .reservation-check-spinner, .reservation-check-skeleton, .reservation-check-result { animation: none; }
 }
+
+/* Darajat Pass reservation lookup */
+.reservation-check-shell {
+  --forest: #173f33;
+  --forest-soft: #245440;
+  --cream: #f4f0e6;
+  --gold: #e5b23e;
+  --line: #d4d9cc;
+  --surface: #fffdf7;
+  min-height: 100vh;
+  background: #f7f4ec;
+}
+.reservation-check-shell .reservation-check-container { width: min(100% - 80px, 1280px); max-width: 1280px; }
+.reservation-check-shell .reservation-check-page { padding-top: 142px; padding-bottom: 96px; }
+.reservation-check-shell .reservation-check-intro { max-width: 760px; margin-bottom: 44px; }
+.reservation-check-shell .reservation-check-label { padding: 0; border: 0; border-radius: 0; background: transparent; color: #775b19; font-weight: 700; letter-spacing: .09em; }
+.reservation-check-shell .reservation-check-label i { width: 18px; height: 2px; border-radius: 0; background: var(--gold); }
+.reservation-check-shell .reservation-check-intro h1 { margin-bottom: 16px; color: var(--forest); font-size: clamp(44px, 5vw, 68px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
+.reservation-check-shell .reservation-check-intro p { max-width: 650px; margin-inline: auto; color: #536158; font-size: 15px; }
+.reservation-check-shell .reservation-check-card,
+.reservation-check-shell .reservation-check-loading,
+.reservation-check-shell .reservation-check-confirmation,
+.reservation-check-shell .reservation-check-room,
+.reservation-check-shell .reservation-check-stay-grid > div,
+.reservation-check-shell .reservation-check-experiences article,
+.reservation-check-shell .reservation-check-extra-image,
+.reservation-check-shell .reservation-check-firepit,
+.reservation-check-shell .reservation-check-payment-info,
+.reservation-check-shell .reservation-check-modification,
+.reservation-check-shell .reservation-check-help { border-radius: 4px; box-shadow: none; }
+.reservation-check-shell .reservation-check-card { border-color: var(--line); background: var(--surface); }
+.reservation-check-shell .reservation-check-lookup { max-width: 900px; padding: 36px; border-top: 4px solid var(--forest); }
+.reservation-check-shell .reservation-check-inputs { gap: 20px; }
+.reservation-check-shell .reservation-check-inputs label { color: var(--forest); font-weight: 700; }
+.reservation-check-shell .reservation-check-input input { min-height: 52px; border-color: #aebbad; border-radius: 3px; background: #fff; color: #173f33; font-size: 14px; }
+.reservation-check-shell .reservation-check-input svg { top: 16px; color: var(--forest); }
+.reservation-check-shell .reservation-check-form-actions { padding-top: 24px; border-top: 1px solid var(--line); }
+.reservation-check-shell .reservation-check-form-actions p { max-width: 470px; color: #59675e; }
+.reservation-check-shell .reservation-check-form-actions .button { min-height: 50px; border-radius: 3px; background: var(--forest); color: white; }
+.reservation-check-shell .reservation-check-form-actions .button:hover { background: var(--forest-soft); }
+.reservation-check-shell .reservation-check-announcement.is-error { max-width: 900px; margin: 16px auto 0; border-radius: 3px; }
+.reservation-check-shell .reservation-check-loading { padding: 36px; border-color: var(--line); background: var(--surface); }
+.reservation-check-shell .reservation-check-skeleton { border-radius: 2px; }
+.reservation-check-shell .reservation-check-timeline-card { border-top: 4px solid var(--forest); }
+.reservation-check-shell .reservation-check-status-row strong { border-radius: 3px; }
+.reservation-check-shell .reservation-check-status-row .reservation-check-booking-code { border-radius: 3px; background: var(--cream); }
+.reservation-check-shell .reservation-check-timeline::before { background: linear-gradient(90deg, var(--forest) 68%, #ded8c9 68%); }
+.reservation-check-shell .reservation-check-timeline .complete > span { background: var(--forest); }
+.reservation-check-shell .reservation-check-timeline .current > span { background: var(--gold); color: #173f33; box-shadow: none; }
+.reservation-check-shell .reservation-check-confirmation { border-color: #b9cbb9; background: #e8f0e5; }
+.reservation-check-shell .reservation-check-confirmation > span { border-radius: 3px; background: var(--forest); }
+.reservation-check-shell .reservation-check-room,
+.reservation-check-shell .reservation-check-experiences article { border-color: var(--line); background: var(--cream); }
+.reservation-check-shell .reservation-check-room-image { border-radius: 2px; background: #dce3d5; }
+.reservation-check-shell .reservation-check-room h3 { color: var(--forest); font-size: 23px; font-weight: 500; }
+.reservation-check-shell .reservation-check-stay-grid > div { border-color: var(--line); }
+.reservation-check-shell .reservation-check-payment { border: 0; background: var(--forest); color: white; }
+.reservation-check-shell .reservation-check-payment h2,
+.reservation-check-shell .reservation-check-payment .reservation-check-costs strong,
+.reservation-check-shell .reservation-check-payment .reservation-check-total b,
+.reservation-check-shell .reservation-check-payment-info strong { color: white; }
+.reservation-check-shell .reservation-check-payment h2,
+.reservation-check-shell .reservation-check-payment .reservation-check-total,
+.reservation-check-shell .reservation-check-payment .reservation-check-security { border-color: rgba(255,255,255,.2); }
+.reservation-check-shell .reservation-check-payment .reservation-check-costs span,
+.reservation-check-shell .reservation-check-payment .reservation-check-total small,
+.reservation-check-shell .reservation-check-payment-info span,
+.reservation-check-shell .reservation-check-payment .reservation-check-security { color: #d1ddd3; }
+.reservation-check-shell .reservation-check-payment-info { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.09); }
+.reservation-check-shell .reservation-check-payment .button-primary { border-radius: 3px; background: var(--gold); color: #173f33; }
+.reservation-check-shell .reservation-check-payment .button-primary:hover { background: #f0c662; }
+.reservation-check-shell .reservation-check-payment .button-quiet { border-color: #93a99a; border-radius: 3px; color: white; }
+.reservation-check-shell .reservation-check-modification { border-color: #d6c9aa; background: #eee6d4; }
+.reservation-check-shell .reservation-check-help { margin-top: 56px; border-color: var(--line); background: #ece5d5; }
+.reservation-check-shell .reservation-check-help > span { border-radius: 3px; background: var(--forest); }
+.reservation-check-shell .reservation-check-help .button { border-radius: 3px; background: var(--forest); color: white; }
+.reservation-check-shell .reservation-check-help .button:hover { background: var(--forest-soft); }
+.reservation-check-shell .reservation-check-result:focus { outline: 3px solid var(--gold); outline-offset: 5px; }
+.reservation-check-shell :is(input, button, a):focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .reservation-check-shell .reservation-check-container { width: min(100% - 48px, 1280px); }
+}
+@media (max-width: 800px) {
+  .reservation-check-shell .reservation-check-page { padding-top: 120px; padding-bottom: 72px; }
+}
+@media (max-width: 600px) {
+  .reservation-check-shell .reservation-check-container { width: min(100% - 32px, 1280px); }
+  .reservation-check-shell .reservation-check-page { padding-top: 106px; }
+  .reservation-check-shell .reservation-check-intro { text-align: left; }
+  .reservation-check-shell .reservation-check-intro h1 { font-size: clamp(40px, 12vw, 52px); }
+  .reservation-check-shell .reservation-check-intro p { margin-inline: 0; }
+  .reservation-check-shell .reservation-check-lookup { padding: 24px; }
+}

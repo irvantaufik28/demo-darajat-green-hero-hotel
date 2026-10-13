@@ -2,7 +2,7 @@
   "common": {
     "breadcrumbHome": "Home",
     "breadcrumbExperiences": "Experiences",
-    "experiencesBadge": "GREEN HERO EXPERIENCES",
+    "experiencesBadge": "DARAJAT PASS EXPERIENCES",
     "popularBadge": "Most Popular",
     "inclusionsLabel": "Included in the Package:",
     "pricePerPackage": "/ package",
@@ -17,7 +17,7 @@
     "breadcrumbCurrent": "BBQ & Grill",
     "hero": {
       "title": "BBQ & Grill Amid the Cool Darajat Air",
-      "description": "Enjoy quality time with family and friends with grill options prepared to complete your stay at Green Hero Darajat.",
+      "description": "Enjoy quality time with family and friends with grill options prepared to complete your stay at Hotel Darajat Pass.",
       "selectPackage": "Choose Package",
       "checkAvailability": "Check Availability",
       "imageAlt": "A family enjoying an outdoor BBQ in the Darajat mountain area"
@@ -25,11 +25,11 @@
     "editorial": {
       "eyebrow": "HIGHLAND DINING EXPERIENCE",
       "title": "Warmer When Enjoyed Together",
-      "description": "From family dinners to small gatherings, Green Hero BBQ & Grill delivers a relaxed dining experience in the Darajat highland setting. The warmth of the embers perfects your mountain evening.",
+      "description": "From family dinners to small gatherings, Darajat Pass BBQ & Grill delivers a relaxed dining experience in the Darajat highland setting. The warmth of the embers perfects your mountain evening.",
       "chipTitle": "Outdoor Highland Deck",
       "chipSubtitle": "Views of the Darajat hills & evening mist",
       "link": "View Package Options",
-      "photoAlt": "Fresh grill ingredients over charcoal at Green Hero Darajat",
+      "photoAlt": "Fresh grill ingredients over charcoal at Hotel Darajat Pass",
       "highlights": {
         "family": {
           "title": "For Family & Gatherings",
@@ -48,12 +48,12 @@
     "packages": {
       "eyebrow": "PACKAGE OPTIONS",
       "title": "Choose a Package to Match Your Group Size",
-      "description": "Package options can be tailored to the needs of families or groups during your stay at Green Hero Darajat.",
+      "description": "Package options can be tailored to the needs of families or groups during your stay at Hotel Darajat Pass.",
       "priceLabel": "Estimated Price",
       "tagHighland": "Relaxed Portion",
       "tagFamily": "Family Favorite",
       "tagGrand": "Large Portion",
-      "note": "Prices on this page may change based on ingredient choices, number of guests, and event needs. Package availability follows the reservation schedule of your villa/room at Green Hero Darajat."
+      "note": "Prices on this page may change based on ingredient choices, number of guests, and event needs. Package availability follows the reservation schedule of your villa/room at Hotel Darajat Pass."
     },
     "ingredients": {
       "eyebrow": "INGREDIENTS & PREPARATIONS",
@@ -100,7 +100,7 @@
     "howTo": {
       "eyebrow": "A SIMPLE PROCESS",
       "title": "BBQ Ordering Steps",
-      "description": "BBQ & Grill can be added during the booking process as part of the exclusive Green Hero Experiences.",
+      "description": "BBQ & Grill can be added during the booking process as part of the exclusive Darajat Pass Experiences.",
       "steps": {
         "selectPackage": {
           "title": "Choose a Package",
@@ -131,12 +131,12 @@
       "description": "A dish of free-range grilled chicken with distinctive Indonesian flavors, prepared to complete your time with family in the cool air of Darajat.",
       "selectPackage": "Choose Package",
       "checkAvailability": "Check Availability",
-      "imageAlt": "A family enjoying Free-Range Grilled Chicken on the outdoor terrace of Green Hero Darajat"
+      "imageAlt": "A family enjoying Free-Range Grilled Chicken on the outdoor terrace of Hotel Darajat Pass"
     },
     "editorial": {
       "eyebrow": "ARCHIPELAGO FLAVORS",
       "title": "Warm, Simple, and Delicious Together",
-      "description": "Green Hero Free-Range Grilled Chicken presents a familiar dish for family meals, gatherings, and relaxed moments during your stay in the Pasirwangi highlands.",
+      "description": "Darajat Pass Free-Range Grilled Chicken presents a familiar dish for family meals, gatherings, and relaxed moments during your stay in the Pasirwangi highlands.",
       "chip": "Highland Traditional Cuisine — Savory and Sweet Spice Flavors",
       "photoAlt": "Free-range grilled chicken with fresh raw vegetables and traditional sambal",
       "highlights": {
@@ -157,9 +157,9 @@
     "packages": {
       "eyebrow": "PACKAGE OPTIONS",
       "title": "Choose a Package to Match Your Group Size",
-      "description": "Package options can be tailored to the needs of families or groups during your stay at Green Hero Darajat.",
+      "description": "Package options can be tailored to the needs of families or groups during your stay at Hotel Darajat Pass.",
       "popularBadge": "MOST POPULAR",
-      "note": "Prices may change based on the number of guests, choice of side dishes, and serving needs. Package availability follows your room or villa reservation at Green Hero Darajat."
+      "note": "Prices may change based on the number of guests, choice of side dishes, and serving needs. Package availability follows your room or villa reservation at Hotel Darajat Pass."
     },
     "pendamping": {
       "eyebrow": "TABLE COMPOSITION",
@@ -235,7 +235,7 @@
       }
     },
     "cta": {
-      "title": "Enjoy Dining Together at Green Hero",
+      "title": "Enjoy Dining Together at Darajat Pass",
       "description": "Choose a room and add Free-Range Grilled Chicken as part of your stay experience in the cool nature of Darajat.",
       "bookRoom": "Book a Room Now",
       "viewOther": "View Other Experiences"
@@ -245,15 +245,15 @@
     "breadcrumbCurrent": "Roast Goat",
     "hero": {
       "title": "Roast Goat for Moments Together",
-      "description": "Enjoy a warm roast goat dish to complete your time with family, friends, or special events during your stay at Green Hero Darajat.",
+      "description": "Enjoy a warm roast goat dish to complete your time with family, friends, or special events during your stay at Hotel Darajat Pass.",
       "selectPackage": "Choose Package",
       "askAvailability": "Ask Availability",
-      "imageAlt": "Warm roast goat served in the outdoor area of Green Hero Darajat"
+      "imageAlt": "Warm roast goat served in the outdoor area of Hotel Darajat Pass"
     },
     "editorial": {
       "eyebrow": "THE WARMTH OF HIGHLAND TRADITION",
       "title": "A Warm Dish for Special Moments",
-      "description": "From family meals to small celebrations, Green Hero Roast Goat can be added as a special experience during your stay.",
+      "description": "From family meals to small celebrations, Darajat Pass Roast Goat can be added as a special experience during your stay.",
       "chip": "Resort Culinary Tradition",
       "photoAlt": "Roast goat served with traditional Sundanese tableware",
       "features": {
@@ -284,7 +284,7 @@
       "eyebrow": "THE EXPERIENCE",
       "title": "More Than Just an Add-On Menu",
       "description": "Make dining together part of your stay experience. The package can be prepared for family, gatherings, birthdays, or other special moments amid the cool air of the Darajat mountains.",
-      "photoAlt": "A family enjoying a meal together in the outdoor area of Green Hero Darajat",
+      "photoAlt": "A family enjoying a meal together in the outdoor area of Hotel Darajat Pass",
       "moments": {
         "familyDinner": "Family Dinner",
         "gathering": "Gathering",
@@ -295,7 +295,7 @@
     "howTo": {
       "eyebrow": "SIMPLE STEPS",
       "title": "How to Order",
-      "description": "Green Hero Experiences can be flexibly added during the room booking process.",
+      "description": "Darajat Pass Experiences can be flexibly added during the room booking process.",
       "steps": {
         "selectPackage": {
           "title": "Choose a Package",
@@ -323,19 +323,19 @@
     "breadcrumbCurrent": "Birthday Celebration",
     "hero": {
       "title": "Celebrate a Special Moment in the Cool of Darajat",
-      "description": "Complete your stay with a warm, simple, and memorable birthday celebration at Green Hero Darajat.",
+      "description": "Complete your stay with a warm, simple, and memorable birthday celebration at Hotel Darajat Pass.",
       "selectPackage": "Choose Package",
       "askAvailability": "Ask Availability",
-      "imageAlt": "A family celebrating a birthday on the outdoor terrace of Green Hero Darajat"
+      "imageAlt": "A family celebrating a birthday on the outdoor terrace of Hotel Darajat Pass"
     },
     "editorial": {
       "eyebrow": "INTIMATE HIGHLAND CELEBRATION",
       "title": "A Warm and Memorable Celebration",
-      "description": "From a simple surprise in your room to a more complete family celebration, Green Hero Birthday Celebration is designed to create a comfortable and enjoyable atmosphere.",
+      "description": "From a simple surprise in your room to a more complete family celebration, Darajat Pass Birthday Celebration is designed to create a comfortable and enjoyable atmosphere.",
       "chipLabel": "Atmosphere",
       "chipTitle": "Calm & Warm in the Highlands",
       "link": "View Package Options",
-      "photoAlt": "A warm birthday room with natural decor at Green Hero Darajat",
+      "photoAlt": "A warm birthday room with natural decor at Hotel Darajat Pass",
       "highlights": {
         "family": {
           "title": "Perfect for Families",
@@ -354,17 +354,17 @@
     "packages": {
       "eyebrow": "PACKAGE OPTIONS",
       "title": "Choose a Package to Match Your Moment",
-      "description": "The packages are designed to provide a celebration experience from simple to more complete, while staying in harmony with the Green Hero Darajat atmosphere.",
+      "description": "The packages are designed to provide a celebration experience from simple to more complete, while staying in harmony with the Hotel Darajat Pass atmosphere.",
       "priceLabel": "Starting From",
       "inclusionsLabel": "Included in the package:",
       "note": "Prices may change based on the number of guests, decoration needs, and setup location. Package availability follows reservations and hotel operations."
     },
     "style": {
       "eyebrow": "HARMONIOUS RESORT AESTHETIC",
-      "title": "A Celebration Mood in Harmony with Green Hero",
+      "title": "A Celebration Mood in Harmony with Darajat Pass",
       "description": "The celebration is designed to remain warm, natural, and comfortable, using an understated decoration approach to harmonize with the Darajat mountain atmosphere.",
       "photoLabel": "Organic Minimalist Details",
-      "photoAlt": "A birthday cake and floral decor in a Green Hero Darajat room",
+      "photoAlt": "A birthday cake and floral decor in a Hotel Darajat Pass room",
       "items": {
         "lighting": {
           "title": "Warm Lighting",
@@ -435,26 +435,26 @@
     "cta": {
       "eyebrow": "MAKE IT MEMORABLE",
       "title": "Make Your Stay More Memorable",
-      "description": "Choose a room and add Birthday Celebration as part of your stay experience at Green Hero Darajat.",
+      "description": "Choose a room and add Birthday Celebration as part of your stay experience at Hotel Darajat Pass.",
       "bookRoom": "Book a Room",
       "viewOther": "View Other Experiences"
     }
   },
   "anniversarySetup": {
-    "badge": "Green Hero Experiences",
+    "badge": "Darajat Pass Experiences",
     "hero": {
       "title": "Celebrate Your Journey in the Cool of Darajat",
-      "description": "Time for two feels more special with a warm atmosphere, personal decoration, and the tranquility of the Green Hero Darajat highlands.",
+      "description": "Time for two feels more special with a warm atmosphere, personal decoration, and the tranquility of the Hotel Darajat Pass highlands.",
       "selectPackage": "Choose Package",
       "askAvailability": "Ask Availability",
-      "imageAlt": "A romantic candlelit dinner table in the open area of Green Hero Darajat"
+      "imageAlt": "A romantic candlelit dinner table in the open area of Hotel Darajat Pass"
     },
     "intro": {
       "eyebrow": "A Moment for Two",
       "title": "A More Personal Moment to Celebrate Together",
       "link": "View Package Options",
       "photoCaption": "Intimate Highland Suite — A Warm Atmosphere for Two",
-      "photoAlt": "A Green Hero Darajat room with floral decor and heart-shaped towels for an anniversary",
+      "photoAlt": "A Hotel Darajat Pass room with floral decor and heart-shaped towels for an anniversary",
       "highlights": {
         "forTwo": {
           "title": "Designed for Two",
@@ -473,7 +473,7 @@
     "packages": {
       "eyebrow": "Package Options",
       "title": "Choose How to Celebrate Your Moment",
-      "description": "Three experience options to complete your time for two during your stay at Green Hero Darajat.",
+      "description": "Three experience options to complete your time for two during your stay at Hotel Darajat Pass.",
       "popularBadge": "Most Popular",
       "pricePerPackage": "/ package",
       "note": "Prices in this prototype may change based on decoration needs, dining choices, and personalization details. Package availability follows reservations and hotel operations."
@@ -500,8 +500,8 @@
     },
     "style": {
       "eyebrow": "Harmony with Nature",
-      "title": "A Mood in Harmony with Green Hero",
-      "description": "The decoration uses a natural and calm approach to stay in harmony with the mountain atmosphere and the character of Green Hero Darajat.",
+      "title": "A Mood in Harmony with Darajat Pass",
+      "description": "The decoration uses a natural and calm approach to stay in harmony with the mountain atmosphere and the character of Hotel Darajat Pass.",
       "items": {
         "candlelight": {
           "title": "Warm Candlelight & Fairy Lights",
@@ -590,7 +590,7 @@
     },
     "cta": {
       "title": "Make Your Time for Two More Memorable",
-      "description": "Choose a room and add Anniversary Setup as part of your stay experience at Green Hero Darajat.",
+      "description": "Choose a room and add Anniversary Setup as part of your stay experience at Hotel Darajat Pass.",
       "bookRoom": "Book a Room Now",
       "viewOther": "View Other Experiences"
     }

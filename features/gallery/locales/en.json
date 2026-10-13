@@ -115,7 +115,7 @@
     "description": "From the savory flavor of traditional roast goat to sweet surprise decorations inside your room."
   },
   "experienceSection": {
-    "eyebrow": "GREEN HERO EXPERIENCES",
+    "eyebrow": "DARAJAT PASS EXPERIENCES",
     "title": "Moments Worth Remembering",
     "description": "Complete your family time with a choice of dining and celebration experiences during your stay amid the cool air of Pasirwangi.",
     "button": "View Experiences",
@@ -125,7 +125,7 @@
   "bookingSection": {
     "eyebrow": "DIRECT RESERVATION",
     "title": "Experience This Atmosphere Firsthand",
-    "description": "Choose your stay dates and find available rooms at Green Hero Darajat. Feel the warmth of the natural sulfur water and the cool of the Garut mountains.",
+    "description": "Choose your stay dates and find available rooms at Hotel Darajat Pass. Feel the warmth of the natural sulfur water and the cool of the Garut mountains.",
     "checkAvailability": "Check Availability",
     "viewRooms": "View Rooms"
   },
@@ -166,9 +166,9 @@
     },
     "contactTitle": "Contact & Reservations",
     "phone": "+62 812 2345 6789 (WhatsApp)",
-    "email": "reservation@greenherodarajat.com",
+    "email": "reservation@darajatpass.com",
     "contactButton": "Contact Reservations",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "copyright": "© 2026 Hotel Darajat Pass. All Rights Reserved.",
     "bottom": {
       "terms": "Terms & Conditions",
       "privacy": "Privacy Policy",

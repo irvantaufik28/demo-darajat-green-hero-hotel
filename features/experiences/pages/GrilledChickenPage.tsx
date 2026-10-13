@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { CheckCircle2, Info, Utensils } from "lucide-react";
 import { ExperienceFooter } from "@/components/ExperienceFooter";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { foodCategories } from "@/features/booking/constants/food-packages-data";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
@@ -45,15 +45,8 @@ const steps = [
 export default function GrilledChickenPage() {
   const { t } = useTranslations({ en, id });
   return (
-    <div className="ab-page">
-      <SiteHeader
-        id="ab-header"
-        links={interiorLinks}
-        activeHref="/experiences/grilled-chicken"
-        homeHref="/"
-        bookingHref="/rooms"
-        contactHref="/contact"
-      />
+    <div className="dp-home experience-page ab-page">
+      <DarajatHeader interior solid bookingHref="/rooms" />
 
       <main>
         {/* ── 1. HERO ──────────────────────────────────── */}

@@ -13,7 +13,7 @@ import {
   UtensilsCrossed,
 } from "lucide-react";
 import { ExperienceFooter } from "@/components/ExperienceFooter";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { celebrationCategories } from "@/features/booking/constants/celebration-packages-data";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
@@ -88,15 +88,8 @@ const editorialHighlights = [
 export default function BirthdayCelebrationPage() {
   const { t } = useTranslations({ en, id });
   return (
-    <div className="bc-page">
-      <SiteHeader
-        id="bc-header"
-        links={interiorLinks}
-        activeHref="/experiences/birthday-celebration"
-        homeHref="/"
-        bookingHref="/rooms"
-        contactHref="/contact"
-      />
+    <div className="dp-home experience-page bc-page">
+      <DarajatHeader interior solid bookingHref="/rooms" />
 
       <main>
         {/* ── 1. HERO ──────────────────────────────────── */}

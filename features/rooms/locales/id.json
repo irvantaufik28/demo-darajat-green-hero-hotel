@@ -1,12 +1,12 @@
 {
   "list": {
-    "heroAriaLabel": "Kamar dan Suite Green Hero Darajat",
-    "heroImageAlt": "Green Hero Darajat, kolam air hangat, dan panorama pegunungan saat senja",
+    "heroAriaLabel": "Pilihan kamar dan bungalow Darajat Pass",
+    "heroImageAlt": "Bangunan Hotel Darajat Pass dan area kolam di bawah langit cerah",
     "breadcrumbHome": "Home",
-    "breadcrumbCurrent": "Kamar & Suite",
-    "eyebrow": "OUR ROOMS",
-    "title": "Temukan Kamar yang Sesuai untuk Perjalanan Anda",
-    "description": "Pilih kamar yang nyaman untuk beristirahat bersama pasangan, keluarga, atau rombongan selama menikmati suasana sejuk dan pemandian air panas alami Darajat."
+    "breadcrumbCurrent": "Kamar & Bungalow",
+    "eyebrow": "MENGINAP DI DARAJAT",
+    "title": "Pilih ruang untuk beristirahat bersama.",
+    "description": "Dari perjalanan berdua hingga rombongan keluarga, temukan pilihan menginap yang sesuai untuk menikmati udara sejuk dan air panas Darajat."
   },
   "availability": {
     "ariaLabel": "Cari kamar",
@@ -78,7 +78,7 @@
   "cart": {
     "ariaLabel": "Ringkasan pilihan kamar",
     "eyebrow": "RINGKASAN BOOKING",
-    "brand": "Green Hero Darajat",
+    "brand": "Darajat Pass",
     "nights": "{count} Malam",
     "selectValidDates": "Pilih tanggal menginap yang valid",
     "roomHeading": "Kamar",
@@ -108,15 +108,15 @@
     "items": {
       "directReservation": {
         "title": "Proses Reservasi Langsung",
-        "description": "Pilih kamar langsung dari Green Hero Darajat dengan informasi yang mudah dipahami."
+        "description": "Pilih kamar Darajat Pass dengan tanggal, kapasitas, dan harga yang mudah dipahami."
       },
       "clearInfo": {
         "title": "Informasi Kamar yang Jelas",
         "description": "Lihat fasilitas, kapasitas tamu, dan tipe ranjang setiap kamar sebelum memilih."
       },
       "staffSupport": {
-        "title": "Dukungan Staff Green Hero",
-        "description": "Tim kami siap membantu kebutuhan menginap dan penataan kamar Anda."
+        "title": "Dukungan Tim Reservasi",
+        "description": "Tim reservasi siap membantu kebutuhan menginap dan penataan kamar Anda."
       }
     }
   },
@@ -132,7 +132,7 @@
   "finalCta": {
     "eyebrow": "RESERVASI MUDAH",
     "title": "Sudah Menemukan Kamar yang Cocok?",
-    "description": "Pilih tanggal menginap dan cek ketersediaan kamar Green Hero Darajat untuk memastikan liburan keluarga Anda berkesan.",
+    "description": "Pilih tanggal menginap dan cek ketersediaan kamar Darajat Pass untuk merencanakan waktu bersama di Garut.",
     "checkAvailability": "Cek Ketersediaan",
     "contact": "Hubungi Kami"
   },
@@ -246,8 +246,8 @@
       "viewDetail": "Lihat Detail"
     },
     "finalCta": {
-      "eyebrow": "RESERVASI GREEN HERO DARAJAT",
-      "title": "Siap Menginap di Green Hero Darajat?",
+      "eyebrow": "RESERVASI HOTEL DARAJAT PASS",
+      "title": "Siap Menginap di Hotel Darajat Pass?",
       "description": "Pilih tanggal menginap dan cek kembali pilihan kamar untuk menikmati liburan pegunungan yang hangat.",
       "action": "Cek Ketersediaan"
     }
@@ -305,10 +305,10 @@
     "contactTitle": "Kontak & Lokasi",
     "contactAddress": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Kabupaten Garut, Jawa Barat 44161",
     "contactAddressShort": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut",
-    "contactEmail": "halo@greenherodarajat.com",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
-    "copyrightShort": "© 2026 Green Hero Darajat Hotel & Resort.",
-    "roomDataNote": "Informasi kamar dan ketersediaan dari Green Hero Darajat",
+    "contactEmail": "halo@darajatpass.com",
+    "copyright": "© 2026 Hotel Darajat Pass. Seluruh Hak Cipta Dilindungi.",
+    "copyrightShort": "© 2026 Hotel Darajat Pass.",
+    "roomDataNote": "Informasi kamar dan ketersediaan dari Hotel Darajat Pass",
     "demoNote": "Demo frontend · Data & kontak contoh",
     "demoNoteShort": "Demo frontend · Harga & ketersediaan contoh"
   }

@@ -5,8 +5,8 @@ import { parseRoomSelection } from "@/features/rooms/constants/room-selection-da
 import BookingExtrasPage from "@/features/booking/pages/BookingExtrasPage";
 
 export const metadata: Metadata = {
-  title: "Pilihan Tambahan | Green Hero Darajat",
-  description: "Lengkapi pengalaman menginap Anda dengan pilihan tambahan di Green Hero Darajat.",
+  title: "Pilihan Tambahan | Darajat Pass",
+  description: "Pilih kebutuhan tambahan untuk masa menginap Anda di Darajat Pass.",
 };
 
 type PageProps = {

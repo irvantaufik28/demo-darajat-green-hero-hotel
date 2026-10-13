@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BadgeCheck, CalendarDays, Check, ChevronDown, Clock3, Copy, Info, LockKeyhole, Mail, MessageCircle, RefreshCw, UsersRound, UserRound, Wallet, Zap } from "lucide-react";
-import { Brand } from "@/components/Brand";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { GUEST_DRAFT_KEY, bookingExtraLabels, bookingExtraPrices, getExtraCost, getNights, type GuestDraft, type PaidExtraId } from "@/features/booking/constants/booking-data";
 import { formatRoomPrice, getRoom } from "@/features/rooms/constants/rooms-data";
 import { countSelectedRooms, getRoomSelectionTotal, serializeRoomSelection, type RoomSelection } from "@/features/rooms/constants/room-selection-data";
@@ -95,8 +94,8 @@ export default function PaymentInstructionsPage({ roomId, roomSelection, checkIn
   ];
 
   return (
-    <div className="booking-page payment-instructions-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="/rooms" contactHref="/contact" />
+    <div className="dp-home booking-page payment-instructions-page">
+      <DarajatHeader interior solid bookingHref="/rooms" />
       <main className="container booking-main instructions-main">
         <nav className="booking-progress" aria-label={t("progress.ariaLabel")}>{["progress.selectRoom", "progress.addOns", "progress.guestDetails", "progress.payment"].map((label, index) => <div key={label} className={`booking-step${index < 3 ? " is-complete" : " is-current"}`} aria-current={index === 3 ? "step" : undefined}><span className="booking-step-circle">{index < 3 ? <Check size={18} /> : 4}</span><span>{t(label)}</span></div>)}</nav>
         <header className="instructions-intro"><div><span className="instructions-eyebrow"><i /> {t("instructions.intro.eyebrow")}</span><h1>{t("instructions.intro.title")}</h1><p>{t("instructions.intro.description")}</p></div><div className="instructions-identification"><span>{t("instructions.intro.reservationNumber")} <strong>{reservationNumber}</strong></span><span className="instructions-pending"><i /> {expired ? t("instructions.intro.expired") : t("instructions.intro.pending")}</span></div></header>
@@ -118,7 +117,7 @@ export default function PaymentInstructionsPage({ roomId, roomSelection, checkIn
           </aside>
         </div>
       </main>
-      <footer className="instructions-footer theme-footer"><div className="container instructions-footer-grid"><div><Brand href="/" /><p>{t("instructions.footer.about")}</p><p>{t("instructions.footer.address")}</p></div><div><h2>{t("instructions.footer.infoTitle")}</h2><a href="/">{t("instructions.footer.infoAbout")}</a><a href="/rooms">{t("instructions.footer.infoRooms")}</a><a href="/contact">{t("instructions.footer.infoReservationPolicy")}</a><a href="/contact">{t("instructions.footer.infoPrivacy")}</a></div><div><h2>{t("instructions.footer.helpTitle")}</h2><a href="/contact">{t("instructions.footer.helpContact")}</a><a href="/contact">{t("instructions.footer.helpFaq")}</a><a href={paymentHref}>{t("instructions.footer.helpPaymentMethods")}</a></div></div><div className="container instructions-footer-bottom"><span>{t("instructions.footer.copyright")}</span><span>{t("instructions.footer.demoNote")}</span></div></footer>
+      <DarajatFooter />
       {message && <div className="instructions-toast" role="status"><Info size={18} /><span>{message}</span><button type="button" onClick={() => setMessage("")} aria-label={t("instructions.messages.closeAriaLabel")}>×</button></div>}
     </div>
   );

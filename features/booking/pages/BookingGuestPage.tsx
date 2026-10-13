@@ -15,10 +15,10 @@ import {
   UserRound,
   UsersRound,
 } from "lucide-react";
-import { Brand } from "@/components/Brand";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
+import { darajatMedia } from "@/features/home/constants/darajat-media";
 import { GUEST_DRAFT_KEY, bookingExtraLabels, bookingExtraPrices, getExtraCost, getNights, type GuestDraft, type PaidExtraId } from "@/features/booking/constants/booking-data";
 import { formatRoomPrice, getRoom } from "@/features/rooms/constants/rooms-data";
 import { countSelectedRooms, getRoomSelectionTotal, serializeRoomSelection, type RoomSelection } from "@/features/rooms/constants/room-selection-data";
@@ -142,8 +142,8 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
   }
 
   return (
-    <div className="booking-page guest-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="#guest-summary" contactHref="/contact" />
+    <div className="dp-home booking-page guest-page">
+      <DarajatHeader interior solid bookingHref="#guest-summary" />
       <main className="container booking-main guest-main">
         <nav className="booking-progress" aria-label={t("progress.ariaLabel")}>
           {["progress.selectRoom", "progress.addOns", "progress.guestDetails", "progress.payment"].map((label, index) => (
@@ -153,7 +153,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
           ))}
         </nav>
 
-        <div className="guest-intro"><span className="booking-eyebrow">{t("guest.intro.eyebrow")}</span><h1>{t("guest.intro.title")}</h1><p>{liveMode ? t("guest.live.description") : t("guest.intro.description")}</p></div>
+        <div className="guest-intro"><h1>{t("guest.intro.title")}</h1><p>{liveMode ? t("guest.live.description") : t("guest.intro.description")}</p></div>
 
         <div className="guest-layout">
           <div className="guest-left">
@@ -171,7 +171,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
 
             <a className="guest-back-link" href={backHref}><ArrowLeft size={19} /> {t("guest.form.backLink")}</a>
 
-            <div className="guest-resort-note"><div className="guest-resort-photo"><Image src="/images/hero-resort.webp" alt={t("guest.resortNote.imageAlt")} fill sizes="(max-width: 640px) 100vw, 180px" /></div><div><span>{t("guest.resortNote.brand")}</span><p>{t("guest.resortNote.text")}</p></div></div>
+            <div className="guest-resort-note"><div className="guest-resort-photo"><Image src={darajatMedia.bungalow} alt={t("guest.resortNote.imageAlt")} fill unoptimized sizes="(max-width: 640px) 100vw, 180px" /></div><div><span>{t("guest.resortNote.brand")}</span><p>{t("guest.resortNote.text")}</p></div></div>
           </div>
 
           <aside className="guest-summary" id="guest-summary" aria-label={t("guest.summary.ariaLabel")}><div className="guest-summary-header"><h2>{t("guest.summary.title")}</h2><span>{t("guest.summary.step")}</span></div><div className="guest-summary-content"><div className="guest-summary-stay"><div className="guest-summary-room"><div><h3>{t("guest.summary.roomLine", { count: totalRooms, nights })}</h3><p>{t("guest.summary.brand")}</p></div><a href={roomHref}>{t("guest.summary.change")}</a></div><div className="guest-schedule"><div><span>{t("guest.summary.checkIn")}</span><strong>{formatStayDate(checkIn)}</strong>{!liveMode && <small>{t("guest.summary.checkInTime")}</small>}</div><div><span>{t("guest.summary.checkOut")}</span><strong>{formatStayDate(checkOut)}</strong>{!liveMode && <small>{t("guest.summary.checkOutTime")}</small>}</div></div><p><UsersRound size={16} /> {t("guest.summary.guestsLine", { guests, count: totalRooms })}</p></div>
@@ -179,7 +179,7 @@ export default function BookingGuestPage({ roomId, roomSelection, checkIn, check
             <div className="guest-total"><div><span>{t("guest.summary.estimatedTotal")}</span><strong>{formatRoomPrice(roomTotal + extrasTotal)}</strong></div><small>{liveMode ? t("guest.live.totalNote") : t("guest.summary.taxIncluded")}</small></div><button type="submit" form="guest-form" className="button button-primary guest-continue">{liveMode ? t("guest.live.save") : t("guest.summary.continue")} <ArrowRight size={19} /></button><div className="guest-policy-note"><BadgeCheck size={20} /><span><strong>{t("guest.summary.policyTitle")}</strong>{liveMode ? t("guest.live.policyNote") : t("guest.summary.policyNote")}</span></div></div></aside>
         </div>
       </main>
-      <footer className="guest-footer theme-footer"><div className="container guest-footer-grid"><div><Brand href="/" /><p>{t("guest.footer.about")}</p></div><div><strong>{t("guest.footer.exploreTitle")}</strong><a href="/">{t("guest.footer.exploreHome")}</a><a href="/rooms">{t("guest.footer.exploreRooms")}</a><a href="/facilities">{t("guest.footer.exploreFacilities")}</a></div><div><strong>{t("guest.footer.contactTitle")}</strong><span>{t("guest.footer.contactAddress")}</span><span>{t("guest.footer.contactEmail")}</span></div></div><div className="container guest-footer-bottom">{liveMode ? t("guest.live.footer") : t("guest.footer.bottom")}</div></footer>
+      <DarajatFooter />
     </div>
   );
 }

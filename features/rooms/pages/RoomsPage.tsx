@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import {
   ArrowRight,
@@ -8,11 +9,7 @@ import {
   CalendarDays,
   Clock3,
   Flame,
-  Globe2,
   Headphones,
-  Mail,
-  Map as MapIcon,
-  MapPin,
   MessageCircle,
   Minus,
   Plus,
@@ -21,11 +18,10 @@ import {
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
-import { Brand } from "@/components/Brand";
 import { ApiError } from "@/lib/api/client";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { formatRoomPrice, type Room } from "@/features/rooms/constants/rooms-data";
 import { roomAmenityIcon } from "../constants/room-amenity-icons";
 import RoomInfoModal from "../components/RoomInfoModal";
@@ -65,8 +61,8 @@ function displayRoom(room: PublicRoom, availability?: RoomAvailability): Room {
     available: availability?.bookable ?? false,
     remainingRooms: selectableRoomCount(availability),
     cancellationPolicy: { summary: policy?.name ?? "Kebijakan pembatalan tersedia setelah memilih tanggal", description: policy?.policyType ?? "" },
-    tagline: room.viewTypeName ?? room.bedTypeName ?? "Green Hero Darajat",
-    eyebrow: "ROOMS & SUITES",
+    tagline: room.viewTypeName ?? room.bedTypeName ?? "Darajat Pass",
+    eyebrow: "DARAJAT PASS",
     badge: [room.bedCount && `${room.bedCount} ${room.bedTypeName ?? "Bed"}`, room.sizeSqm && `${room.sizeSqm} m²`].filter(Boolean).join(" · ") || room.name,
     image: cover?.url ?? "/images/room-standard-new.webp",
     imageAlt: cover?.altText ?? room.name,
@@ -316,15 +312,15 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
   }
 
   return (
-    <div className="rooms-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="#availability" contactHref="/contact" />
+    <div className="dp-home rooms-page">
+      <DarajatHeader interior solid bookingHref="#availability" />
       <main>
         <section className="rooms-hero" aria-label={t("list.heroAriaLabel")}>
-          <Image src="/images/green-hero-resort-sunset.webp" alt={t("list.heroImageAlt")} fill priority sizes="100vw" className="rooms-hero-image" />
+          <Image src="/images/hero/darajat-pass-hero-02.png" alt={t("list.heroImageAlt")} fill priority sizes="100vw" className="rooms-hero-image" />
           <div className="rooms-hero-shade" />
           <div className="container rooms-hero-content">
             <div>
-              <nav className="rooms-breadcrumb" aria-label="Breadcrumb"><a href="/">{t("list.breadcrumbHome")}</a><span>/</span><span>{t("list.breadcrumbCurrent")}</span></nav>
+              <nav className="rooms-breadcrumb" aria-label="Breadcrumb"><Link href="/">{t("list.breadcrumbHome")}</Link><span>/</span><span>{t("list.breadcrumbCurrent")}</span></nav>
               <span className="rooms-eyebrow">{t("list.eyebrow")}</span>
               <h1>{t("list.title")}</h1>
               <p>{t("list.description")}</p>
@@ -463,22 +459,14 @@ export default function RoomsPage({ initialSelection, initialCheckIn, initialChe
 
         <section className="container rooms-experience">
           <div className="rooms-experience-photo"><Image src="/images/bbq-grill.webp" alt={t("experience.photoAlt")} fill sizes="(max-width: 800px) 100vw, 40vw" /><span>{t("experience.photoBadge")}</span></div>
-          <div className="rooms-experience-copy"><span className="rooms-eyebrow"><Flame size={17} /> {t("experience.eyebrow")}</span><h2>{t("experience.title")}</h2><p>{t("experience.description")}</p><a className="button button-primary" href="/#experiences">{t("experience.action")} <ArrowRight size={18} /></a><small>{t("experience.note")}</small></div>
+          <div className="rooms-experience-copy"><span className="rooms-eyebrow"><Flame size={17} /> {t("experience.eyebrow")}</span><h2>{t("experience.title")}</h2><p>{t("experience.description")}</p><Link className="button button-primary" href="/#experiences">{t("experience.action")} <ArrowRight size={18} /></Link><small>{t("experience.note")}</small></div>
         </section>
 
-        <section className="container rooms-final-cta" id="booking-section"><div><span className="rooms-eyebrow">{t("finalCta.eyebrow")}</span><h2>{t("finalCta.title")}</h2><p>{t("finalCta.description")}</p><div><a className="button button-white button-lg" href="#availability">{t("finalCta.checkAvailability")}</a><a className="button button-outline-light button-lg" href="/contact"><MessageCircle size={18} /> {t("finalCta.contact")}</a></div></div></section>
+        <section className="container rooms-final-cta" id="booking-section"><div><span className="rooms-eyebrow">{t("finalCta.eyebrow")}</span><h2>{t("finalCta.title")}</h2><p>{t("finalCta.description")}</p><div><a className="button button-white button-lg" href="#availability">{t("finalCta.checkAvailability")}</a><Link className="button button-outline-light button-lg" href="/contact"><MessageCircle size={18} /> {t("finalCta.contact")}</Link></div></div></section>
       </main>
       {activeRoom && <RoomInfoModal key={activeRoom.id} room={activeRoom} availability={availabilityById.get(activeRoom.id)} onClose={() => setActiveRoomId(null)} />}
 
-      <footer className="site-footer theme-footer" id="contact">
-          <div className="container footer-grid">
-          <div className="footer-about"><Brand href="/" /><p>{t("footer.aboutList")}</p><div className="social-icons"><a href="/gallery" aria-label={t("footer.galleryAriaLabel")}><Globe2 size={20} /></a><a href="/#location" aria-label={t("footer.locationAriaLabel")}><MapIcon size={20} /></a></div></div>
-          <div><h3>{t("footer.exploreTitle")}</h3><a href="/">{t("footer.exploreAbout")}</a><a href="/rooms">{t("footer.exploreRooms")}</a><a href="/#hot-spring">{t("footer.exploreHotSpring")}</a><a href="/gallery">{t("footer.exploreGallery")}</a></div>
-          <div><h3>{t("footer.helpTitle")}</h3><a href="#availability">{t("footer.helpCheckAvailability")}</a><a href="/#location">{t("footer.helpRouteGuide")}</a><a href="/contact">{t("footer.helpContact")}</a></div>
-          <div><h3>{t("footer.contactTitle")}</h3><span><MapPin size={20} /> {t("footer.contactAddress")}</span><span><Mail size={20} /> {t("footer.contactEmail")}</span></div>
-        </div>
-        <div className="container footer-bottom"><span>{t("footer.copyright")}</span><span>{t("footer.roomDataNote")}</span></div>
-      </footer>
+      <DarajatFooter />
 
     </div>
   );

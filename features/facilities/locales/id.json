@@ -4,10 +4,10 @@
     "current": "Fasilitas"
   },
   "hero": {
-    "eyebrow": "FASILITAS GREEN HERO",
+    "eyebrow": "FASILITAS DARAJAT PASS",
     "title": "Fasilitas untuk Menginap Lebih Nyaman",
-    "description": "Dari kolam air hangat hingga layanan hotel sehari-hari, Green Hero Darajat menyediakan fasilitas yang mendukung waktu menginap bersama keluarga.",
-    "imageAlt": "Green Hero Darajat, kolam air hangat, dan panorama pegunungan saat senja"
+    "description": "Dari kolam air hangat hingga layanan hotel sehari-hari, Hotel Darajat Pass menyediakan fasilitas yang mendukung waktu menginap bersama keluarga.",
+    "imageAlt": "Panorama kawasan Darajat Pass di tengah perbukitan hijau"
   },
   "noteLabel": "Catatan:",
   "featured": {
@@ -15,7 +15,7 @@
       "eyebrow": "REKREASI & HANGATNYA ALAM",
       "title": "Kolam & Relaksasi",
       "description": "Area kolam menjadi salah satu pengalaman utama selama menginap, cocok untuk relaksasi maupun waktu bersama keluarga di tengah sejuknya udara pegunungan Darajat.",
-      "imageAlt": "Tamu berendam di kolam air hangat Green Hero Darajat dengan pemandangan pegunungan",
+      "imageAlt": "Area kolam Hotel Darajat Pass di bawah langit pegunungan yang cerah",
       "note": "Tidak menyediakan layanan spa. Fokus murni pada kehangatan air belerang alami pegunungan.",
       "features": {
         "outdoorPool": "Outdoor swimming pool",
@@ -48,7 +48,7 @@
       "eyebrow": "RAMAH KELUARGA & ANAK",
       "title": "Nyaman untuk Keluarga",
       "description": "Dirancang agar pengalaman menginap tetap nyaman untuk orang tua dan anak. Nikmati area terbuka hijau berlatar kebun teh dan kolam dangkal anak yang aman serta mudah diawasi.",
-      "imageAlt": "Vila kayu dengan taman dan area bermain anak di Green Hero Darajat",
+      "imageAlt": "Kawasan rekreasi keluarga dan waterpark Hotel Darajat Pass dilihat dari udara",
       "features": {
         "friendly": {
           "title": "Family-friendly environment",
@@ -68,7 +68,7 @@
       "eyebrow": "AKSESIBILITAS & KELANCARAN",
       "title": "Parkir & Konektivitas",
       "description": "Fasilitas dasar yang membantu perjalanan tetap praktis selama berada di Darajat. Akses kendaraan mudah dengan area parkir luas di depan lobby serta koneksi internet stabil.",
-      "imageAlt": "Area parkir dan pintu masuk resor yang dikelilingi pepohonan pegunungan",
+      "imageAlt": "Kawasan Hotel Darajat Pass dan aksesnya di tengah perbukitan hijau",
       "features": {
         "parking": {
           "title": "Free Guest Parking",
@@ -115,7 +115,7 @@
   "rooms": {
     "eyebrow": "FASILITAS DI DALAM KAMAR",
     "title": "Kenyamanan di Setiap Kamar",
-    "description": "Setiap akomodasi di Green Hero Darajat dilengkapi fasilitas standar kenyamanan tinggi untuk memastikan waktu istirahat yang tenteram.",
+    "description": "Setiap akomodasi di Hotel Darajat Pass dilengkapi fasilitas standar kenyamanan tinggi untuk memastikan waktu istirahat yang tenteram.",
     "note": "Beberapa fasilitas dapat berbeda berdasarkan tipe kamar, periode menginap, atau kebijakan operasional hotel. Silakan periksa rincian pada detail masing-masing kamar saat melakukan reservasi.",
     "items": {
       "bathroom": {
@@ -151,13 +151,13 @@
     }
   },
   "experiencesCta": {
-    "eyebrow": "GREEN HERO EXPERIENCES",
+    "eyebrow": "DARAJAT PASS EXPERIENCES",
     "title": "Ingin Pengalaman yang Lebih Lengkap?",
-    "description": "Tambahkan pilihan Green Hero Experiences seperti hidangan Kambing Guling spesial, BBQ & Grill malam hari, Birthday Celebration, atau Room Decoration romantis saat proses pemesanan Anda.",
-    "button": "Lihat Green Hero Experiences"
+    "description": "Tambahkan pilihan Darajat Pass Experiences seperti hidangan Kambing Guling spesial, BBQ & Grill malam hari, Birthday Celebration, atau Room Decoration romantis saat proses pemesanan Anda.",
+    "button": "Lihat Darajat Pass Experiences"
   },
   "bookingCta": {
-    "title": "Siap Menginap di Green Hero Darajat?",
+    "title": "Siap Menginap di Hotel Darajat Pass?",
     "description": "Pilih tanggal menginap dan temukan kamar yang tersedia untuk liburan keluarga Anda di udara sejuk Garut.",
     "checkAvailability": "Cek Ketersediaan",
     "contactReservation": "Hubungi Reservasi"
@@ -166,7 +166,7 @@
     "about": "Resort pegunungan ramah keluarga dengan pemandian air panas alami belerang di kawasan dataran tinggi Darajat, Pasirwangi, Garut, Jawa Barat.",
     "address": "Jl. Raya Darajat KM 14, Desa Karyamekar, Kec. Pasirwangi, Kabupaten Garut, Jawa Barat 44161",
     "phone": "+62 812-2345-6789 / (0262) 540-112",
-    "email": "reservation@greenherodarajat.com",
+    "email": "reservation@darajatpass.com",
     "navTitle": "Navigasi Utama",
     "nav": {
       "about": "Tentang Kami",
@@ -191,7 +191,7 @@
         "hours": "Siaga 24 Jam setiap hari"
       }
     },
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
+    "copyright": "© 2026 Hotel Darajat Pass. Seluruh Hak Cipta Dilindungi.",
     "bottom": {
       "terms": "Syarat & Ketentuan",
       "privacy": "Kebijakan Privasi",

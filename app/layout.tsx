@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import NavigationSkeleton from "@/components/NavigationSkeleton";
 import "./globals.css";
+import "@/features/home/styles/home.css";
+import "@/features/home/styles/darajat-interior.css";
+import "@/features/contact/styles/contact.css";
 
 const bodyFont = localFont({
   src: [
@@ -22,9 +25,9 @@ const headingFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Green Hero Darajat | Resort & Hot Spring",
+  title: "Hotel Darajat Pass | Resort & Hot Spring",
   description:
-    "Nikmati udara sejuk Darajat, kamar hangat, dan kolam air hangat alami untuk liburan keluarga di Green Hero Darajat.",
+    "Nikmati udara sejuk Darajat, kamar nyaman, dan kolam air hangat alami untuk liburan keluarga di Hotel Darajat Pass.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

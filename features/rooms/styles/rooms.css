@@ -233,3 +233,77 @@
   .rooms-booking-layout .rooms-card-actions > div:last-child { flex-wrap: nowrap; }
   .rooms-cart-total strong { font-size: 26px; }
 }
+
+/* Darajat Pass room catalogue */
+.rooms-page {
+  --forest: #173f33;
+  --forest-soft: #245440;
+  --cream: #f4f0e6;
+  --gold: #e5b23e;
+  --line: #d4d9cc;
+  --surface: #fffdf7;
+  background: var(--surface);
+}
+.rooms-page .rooms-hero { height: 620px; min-height: 620px; }
+.rooms-page .rooms-hero-image { object-position: center 58%; }
+.rooms-page .rooms-hero-shade { background: linear-gradient(90deg, rgba(8,31,23,.86), rgba(8,31,23,.5) 58%, rgba(8,31,23,.18)), linear-gradient(0deg, rgba(5,24,17,.5), transparent 54%); }
+.rooms-page .rooms-hero-content { padding-bottom: 126px; }
+.rooms-page .rooms-breadcrumb { margin-bottom: 20px; }
+.rooms-page .rooms-hero h1 { max-width: 760px; margin-block: 14px 16px; font-size: clamp(44px, 5vw, 70px); line-height: 1.03; }
+.rooms-page .rooms-hero p { max-width: 620px; }
+.rooms-page .rooms-availability { width: min(90%, 1240px); margin-top: -68px; }
+.rooms-page .rooms-search { grid-template-columns: minmax(250px, 1.65fr) repeat(2, minmax(78px, .55fr)) minmax(160px, 1fr) 170px; gap: 0; padding: 24px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); box-shadow: 0 14px 35px rgba(23,63,51,.12); color: var(--forest); }
+.rooms-page .rooms-search label { gap: 4px; padding-inline: 16px; border-right: 1px solid var(--line); }
+.rooms-page .rooms-search label > span, .rooms-page .rooms-search .rooms-date-range-label { color: #586259; }
+.rooms-page .rooms-search label > span svg, .rooms-page .rooms-search .rooms-date-range-label svg { color: var(--forest); }
+.rooms-page .rooms-search input, .rooms-page .rooms-search select, .rooms-page .rooms-search .rooms-date-range-trigger { height: 44px; min-height: 44px; padding-inline: 0; border: 0; border-radius: 0; background: transparent; color: var(--forest); color-scheme: light; font-size: 14px; font-weight: 700; }
+.rooms-page .rooms-search select option { color: var(--forest); background: white; }
+.rooms-page .rooms-search .rooms-date-range { padding-inline: 0 16px; }
+.rooms-page .rooms-search .rooms-date-range-trigger:hover { border-color: transparent; }
+.rooms-page .rooms-search .rooms-date-range-popover { color: #26342a; text-align: left; }
+.rooms-page .rooms-search-button { height: 52px; margin-left: 16px; border-radius: 4px; background: var(--forest); color: white; }
+.rooms-page .rooms-search-button:hover { background: var(--forest-soft); }
+.rooms-page .rooms-search-message { border-radius: 4px; }
+.rooms-page .rooms-booking-layout { width: min(100% - 40px, 1240px); margin-top: clamp(58px, 7vw, 92px); }
+.rooms-page .rooms-booking-layout .rooms-card { border-radius: 4px; border-color: var(--line); background: var(--surface); box-shadow: none; }
+.rooms-page .rooms-card:hover { box-shadow: 0 12px 32px rgba(23,63,51,.1); }
+.rooms-page .rooms-card-badge, .rooms-page .rooms-discount-badge { border-radius: 3px; }
+.rooms-page .rooms-card-eyebrow { color: #79601f; }
+.rooms-page .rooms-detail-button, .rooms-page .rooms-quantity { border-radius: 4px; }
+.rooms-page .rooms-card-actions .button { border-radius: 4px; background: var(--forest); }
+.rooms-page .rooms-cart { top: 104px; border-radius: 4px; border-color: var(--line); box-shadow: none; }
+.rooms-page .rooms-cart-heading { background: var(--forest); color: white; }
+.rooms-page .rooms-cart-heading h2, .rooms-page .rooms-cart-heading p, .rooms-page .rooms-cart-heading small, .rooms-page .rooms-cart-heading .rooms-eyebrow { color: white; }
+.rooms-page .rooms-cart-total .button { border-radius: 4px; background: var(--forest); }
+.rooms-page .rooms-benefits { border-width: 1px 0; border-radius: 0; background: var(--cream); }
+.rooms-page .rooms-benefit-icon { border-radius: 4px; box-shadow: none; }
+.rooms-page .rooms-experience { border-radius: 4px; box-shadow: none; }
+.rooms-page .rooms-experience-photo span { border-radius: 3px; color: #173526; }
+.rooms-page .rooms-experience .button { border-radius: 4px; }
+.rooms-page .rooms-final-cta { border-radius: 4px; }
+.rooms-page .rooms-no-match, .rooms-page .rooms-cancellation-item { border-radius: 4px; }
+
+@media (max-width: 1100px) {
+  .rooms-page .rooms-search { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 0; }
+  .rooms-page .rooms-search label:nth-of-type(2) { border-right: 0; }
+  .rooms-page .rooms-search-button { margin: 0 16px; }
+}
+@media (max-width: 900px) {
+  .rooms-page .rooms-hero { height: 590px; min-height: 590px; }
+  .rooms-page .rooms-hero-content { padding-bottom: 116px; }
+  .rooms-page .rooms-cart { margin-top: 20px; }
+}
+@media (max-width: 620px) {
+  .rooms-page .rooms-hero { height: 600px; min-height: 600px; }
+  .rooms-page .rooms-hero-content { padding-bottom: 116px; }
+  .rooms-page .rooms-hero h1 { font-size: 43px; }
+  .rooms-page .rooms-availability { width: calc(100% - 40px); margin-top: -88px; }
+  .rooms-page .rooms-search { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; padding: 20px 16px; }
+  .rooms-page .rooms-search .rooms-date-range { grid-column: 1 / -1; padding: 0; border: 0; }
+  .rooms-page .rooms-search label { padding: 0; border: 0; }
+  .rooms-page .rooms-search label:nth-of-type(3) { grid-column: 1 / -1; }
+  .rooms-page .rooms-search input, .rooms-page .rooms-search select, .rooms-page .rooms-search .rooms-date-range-trigger { padding-inline: 8px; border: 1px solid #7a8578; border-radius: 4px; }
+  .rooms-page .rooms-search-button { grid-column: 1 / -1; width: 100%; margin: 0; }
+  .rooms-page .rooms-booking-layout { margin-top: 58px; }
+  .rooms-page .rooms-card-photo { min-height: 270px; }
+}

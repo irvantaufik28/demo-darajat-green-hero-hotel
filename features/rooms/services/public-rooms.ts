@@ -1,4 +1,5 @@
 import { apiRequest } from "@/lib/api/client";
+import { staticRoomImagesById } from "../constants/static-room-media";
 
 export type PublicRoom = {
   id: string;
@@ -62,15 +63,26 @@ export type RoomQuote = {
   appliedCampaigns: unknown[];
 };
 
-export function listRooms(signal?: AbortSignal) {
-  return apiRequest<{ items: PublicRoom[] }>("rooms", { signal });
+function applyStaticRoomImages(room: PublicRoom): PublicRoom {
+  const images = staticRoomImagesById[room.id as keyof typeof staticRoomImagesById];
+  return images ? { ...room, images } : room;
 }
 
-export function getRoomBySlug(slug: string, signal?: AbortSignal) {
-  return apiRequest<{ roomType: PublicRoom }>(`rooms/${encodeURIComponent(slug)}`, { signal });
+function applyStaticAvailabilityImages(item: RoomAvailability): RoomAvailability {
+  return { ...item, roomType: applyStaticRoomImages(item.roomType) };
 }
 
-export function getRoomAvailability(
+export async function listRooms(signal?: AbortSignal) {
+  const result = await apiRequest<{ items: PublicRoom[] }>("rooms", { signal });
+  return { ...result, items: result.items.map(applyStaticRoomImages) };
+}
+
+export async function getRoomBySlug(slug: string, signal?: AbortSignal) {
+  const result = await apiRequest<{ roomType: PublicRoom }>(`rooms/${encodeURIComponent(slug)}`, { signal });
+  return { ...result, roomType: applyStaticRoomImages(result.roomType) };
+}
+
+export async function getRoomAvailability(
   roomTypeId: string,
   checkInDate: string,
   checkOutDate: string,
@@ -85,12 +97,14 @@ export function getRoomAvailability(
     adults: String(adults),
     children: String(children),
   });
-  return apiRequest<{ items: RoomAvailability[] }>(`rooms/availability?${query}`, { signal });
+  const result = await apiRequest<{ items: RoomAvailability[] }>(`rooms/availability?${query}`, { signal });
+  return { ...result, items: result.items.map(applyStaticAvailabilityImages) };
 }
 
-export function searchRooms(checkInDate: string, checkOutDate: string, signal?: AbortSignal) {
+export async function searchRooms(checkInDate: string, checkOutDate: string, signal?: AbortSignal) {
   const query = new URLSearchParams({ checkInDate, checkOutDate });
-  return apiRequest<{ items: RoomAvailability[] }>(`rooms/availability?${query}`, { signal });
+  const result = await apiRequest<{ items: RoomAvailability[] }>(`rooms/availability?${query}`, { signal });
+  return { ...result, items: result.items.map(applyStaticAvailabilityImages) };
 }
 
 export function quoteRooms(

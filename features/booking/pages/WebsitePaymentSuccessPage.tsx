@@ -1,12 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { BadgeCheck, BedDouble, CalendarDays, Check, CircleCheck, Clock3, Download, Headphones, Hotel, KeyRound, Mail, MessageCircle, RefreshCw, ShieldCheck, Ticket } from "lucide-react";
-import { Brand } from "@/components/Brand";
+import { useEffect, useRef, useState } from "react";
+import { BadgeCheck, BedDouble, CalendarDays, Check, CircleCheck, Clock3, Download, Headphones, Hotel, Info, KeyRound, Mail, MessageCircle, RefreshCw, ShieldCheck, Ticket } from "lucide-react";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { contactDetails } from "@/features/contact/constants/contact-data";
 import { getNights, type GuestDraft } from "../constants/booking-data";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
@@ -38,7 +37,7 @@ function formatPaymentTime(value: string, language: string) {
   }).format(new Date(value))} WIB`;
 }
 
-export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode: string }) {
+export default function WebsitePaymentSuccessPage({ bookingCode, demoMode = false }: { bookingCode: string; demoMode?: boolean }) {
   const { t, lang } = useTranslations({ en, id });
   const [reservation, setReservation] = useState<WebsiteReservation | null>(null);
   const [booking, setBooking] = useState<LiveRoomBooking | null>(null);
@@ -49,8 +48,30 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
   const [error, setError] = useState("");
   const [downloading, setDownloading] = useState<"voucher" | "receipt" | null>(null);
   const [downloadError, setDownloadError] = useState("");
+  const [demoDownloadType, setDemoDownloadType] = useState<"voucher" | "receipt" | null>(null);
+  const demoDownloadTrigger = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
+    if (demoMode) {
+      const savedBooking = readLiveBooking();
+      const savedGuest = savedBooking ? readWebsiteGuest(savedBooking) : null;
+      if (savedBooking) setBooking(savedBooking);
+      if (savedGuest) setGuest(savedGuest);
+      setStatus({
+        id: "demo",
+        bookingCode,
+        reservationStatus: "confirmed",
+        paymentStatus: "paid",
+        bookingTotal: savedBooking?.quote.bookingTotal ?? 0,
+        paidAmount: savedBooking?.quote.bookingTotal ?? 0,
+        remainingBalance: 0,
+        currency: "IDR",
+        paymentExpiresAt: null,
+        paymentSession: null,
+      });
+      setLoading(false);
+      return;
+    }
     const checkout = readWebsiteCheckout();
     const saved = checkout?.reservation;
     if (!saved || saved.bookingCode !== bookingCode) {
@@ -96,7 +117,7 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
     void refresh();
     timer = window.setInterval(() => { void refresh(); }, 5000);
     return () => { active = false; window.clearInterval(timer); };
-  }, [bookingCode, lang]);
+  }, [bookingCode, demoMode, lang]);
 
   const paid = status?.paymentStatus === "paid";
   const confirmed = ["confirmed", "checked_in", "checked_out"].includes(status?.reservationStatus ?? "");
@@ -106,8 +127,8 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
   useEffect(() => {
     if (!paid) return;
     const currentState = window.history.state;
-    if (!currentState?.greenHeroPaymentSuccessGuard) {
-      window.history.pushState({ ...currentState, greenHeroPaymentSuccessGuard: true }, "", window.location.href);
+    if (!currentState?.darajatPassPaymentSuccessGuard) {
+      window.history.pushState({ ...currentState, darajatPassPaymentSuccessGuard: true }, "", window.location.href);
     }
     function returnHome() {
       navigateWithSkeleton("/", true);
@@ -123,6 +144,15 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
     return () => controller.abort();
   }, [status?.paymentStatus, booking]);
 
+  useEffect(() => {
+    if (!demoDownloadType) return;
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") closeDemoDownload();
+    }
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [demoDownloadType]);
+
   const rooms = new Map<string, { id: string; name: string; count: number; baseAmount: number; discountAmount: number }>();
   for (const room of booking?.quote.rooms ?? []) {
     const group = rooms.get(room.roomTypeId) ?? { id: room.roomTypeId, name: room.roomTypeName, count: 0, baseAmount: 0, discountAmount: 0 };
@@ -137,6 +167,10 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
   const hasCurrentBreakdown = Boolean(booking && status && booking.quote.bookingTotal === status.bookingTotal);
 
   async function handleDownload(type: "voucher" | "receipt") {
+    if (demoMode) {
+      setDemoDownloadType(type);
+      return;
+    }
     if (!reservation || downloading) return;
     setDownloadError("");
     setDownloading(type);
@@ -157,16 +191,20 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
     }
   }
 
+  function closeDemoDownload() {
+    setDemoDownloadType(null);
+    window.setTimeout(() => demoDownloadTrigger.current?.focus(), 0);
+  }
+
   if (loading) return <PageSkeleton />;
 
   return (
-    <div className="booking-page payment-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="/rooms" contactHref="/contact" />
+    <div className="dp-home booking-page payment-page payment-success-page">
+      <DarajatHeader interior solid bookingHref="/rooms" />
       <main className="container booking-main payment-success-main reservation-check-page">
         <section className={`payment-success-hero${paid ? " is-paid" : ""}`} aria-live="polite">
           <span className="payment-success-icon">{paid ? <CircleCheck size={34} /> : <Clock3 size={34} />}</span>
           <div>
-            <span className="booking-eyebrow">{t("payment.success.eyebrow")}</span>
             <h1>{paid ? t("payment.success.title") : loading ? t("payment.success.checkingTitle") : t("payment.success.waitingTitle")}</h1>
             <p>{paid
               ? needsReview ? t("payment.success.reviewDescription") : confirmed ? t("payment.success.confirmedDescription") : t("payment.success.pendingConfirmationDescription")
@@ -233,14 +271,14 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
                   </div>
                   <div className="reservation-check-total"><div><strong>{t("payment.success.total")}</strong><small>{t("payment.success.totalNote")}</small></div><b>{formatRoomPrice(status.bookingTotal)}</b></div>
                   <div className="reservation-check-payment-info">
-                    <div><span>{t("payment.success.paymentProvider")}</span><strong>{status.summary?.payment?.provider === "xendit" ? "Xendit" : status.summary?.payment?.provider ?? "—"}</strong></div>
+                    <div><span>{t("payment.success.paymentProvider")}</span><strong>{demoMode ? t("payment.success.demoProvider") : status.summary?.payment?.provider === "xendit" ? "Xendit" : status.summary?.payment?.provider ?? "—"}</strong></div>
                     {status.summary?.payment?.paidAt && <div><span>{t("payment.success.transactionTime")}</span><strong>{formatPaymentTime(status.summary.payment.paidAt, lang)}</strong></div>}
                     {status.summary?.payment?.reference && <div><span>{t("payment.success.transactionReference")}</span><strong>{status.summary.payment.reference}</strong></div>}
                     <div><span>{t("payment.success.paidAmount")}</span><strong>{formatRoomPrice(status.paidAmount)}</strong></div>
                     <div><span>{t("payment.success.remaining")}</span><strong>{formatRoomPrice(status.remainingBalance)}</strong></div>
                   </div>
-                  {voucherReady && <button type="button" className="button button-primary" onClick={() => void handleDownload("voucher")} disabled={downloading !== null}><Download size={18} />{downloading === "voucher" ? t("payment.success.downloading") : t("payment.success.downloadVoucher")}</button>}
-                  <button type="button" className={voucherReady ? "button button-quiet" : "button button-primary"} onClick={() => void handleDownload("receipt")} disabled={downloading !== null}><Download size={18} />{downloading === "receipt" ? t("payment.success.downloading") : t("payment.success.downloadReceipt")}</button>
+                  {voucherReady && <button type="button" className="button button-primary" onClick={(event) => { demoDownloadTrigger.current = event.currentTarget; void handleDownload("voucher"); }} disabled={downloading !== null}><Download size={18} />{downloading === "voucher" ? t("payment.success.downloading") : t("payment.success.downloadVoucher")}</button>}
+                  <button type="button" className={voucherReady ? "button button-quiet" : "button button-primary"} onClick={(event) => { demoDownloadTrigger.current = event.currentTarget; void handleDownload("receipt"); }} disabled={downloading !== null}><Download size={18} />{downloading === "receipt" ? t("payment.success.downloading") : t("payment.success.downloadReceipt")}</button>
                   {downloadError && <p className="payment-success-download-error" role="alert">{downloadError}</p>}
                   <a className="button button-quiet" href={contactDetails.whatsappHref} target="_blank" rel="noreferrer"><MessageCircle size={18} />{t("payment.success.supportAction")}</a>
                   <p className="reservation-check-security"><ShieldCheck size={14} />{t("payment.success.summaryNote")}</p>
@@ -258,7 +296,15 @@ export default function WebsitePaymentSuccessPage({ bookingCode }: { bookingCode
           </section>
         )}
       </main>
-      <footer className="payment-footer theme-footer"><div className="container payment-footer-grid"><div><Brand href="/" /><p>{t("payment.footer.about")}</p></div></div></footer>
+      <DarajatFooter />
+      {demoDownloadType && <div className="payment-demo-modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) closeDemoDownload(); }}>
+        <section className="payment-demo-modal" role="dialog" aria-modal="true" aria-labelledby="payment-demo-modal-title" aria-describedby="payment-demo-modal-description">
+          <span className="payment-demo-modal-icon"><Info size={24} /></span>
+          <h2 id="payment-demo-modal-title">{t("payment.success.demoDownloadTitle")}</h2>
+          <p id="payment-demo-modal-description">{t(demoDownloadType === "voucher" ? "payment.success.demoVoucherDescription" : "payment.success.demoReceiptDescription")}</p>
+          <button type="button" className="button button-primary" onClick={closeDemoDownload} autoFocus>{t("payment.success.demoDownloadClose")}</button>
+        </section>
+      </div>}
     </div>
   );
 }

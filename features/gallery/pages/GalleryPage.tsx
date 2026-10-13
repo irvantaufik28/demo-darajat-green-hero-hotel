@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowRight, ArrowUpRight, CalendarDays, Flame, Headphones, Mail, MapPin, MessageCircle, Phone, UtensilsCrossed, Waves, ZoomIn } from "lucide-react";
-import { Brand } from "@/components/Brand";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { ArrowRight, ArrowUpRight, CalendarDays, Flame, Waves, ZoomIn } from "lucide-react";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { galleryCategories, galleryPhotos, type GalleryCategoryId, type GalleryPhoto } from "@/features/gallery/constants/gallery-data";
 import GalleryLightbox from "../components/GalleryLightbox";
 import { useTranslations } from "@/lib/i18n";
@@ -55,8 +54,8 @@ export default function GalleryPage() {
   }
 
   return (
-    <div className="resort-gallery-page">
-      <SiteHeader id="gallery-header" links={interiorLinks} activeHref="/gallery" homeHref="/" bookingHref="/rooms#availability" contactHref="/contact" />
+    <div className="dp-home resort-gallery-page">
+      <DarajatHeader interior solid bookingHref="/rooms" />
       <main>
         <section className="resort-gallery-intro"><div className="resort-gallery-container"><h1>{t("intro.title")}</h1><p>{t("intro.description")}</p></div></section>
         <section className="resort-gallery-container resort-gallery-featured" aria-label={t("featured.ariaLabel")}>{photoCard(localizedPhotos[0], "lead", t("featured.leadBadge"))}<div className="resort-gallery-stack">{photoCard(localizedPhotos[1], "stacked")}{photoCard(localizedPhotos[2], "stacked", t("featured.stackedBadge"))}</div></section>
@@ -65,7 +64,7 @@ export default function GalleryPage() {
         <section className="resort-gallery-container resort-gallery-culinary"><div className="resort-gallery-section-heading"><div><span>{t("culinarySection.eyebrow")}</span><h2>{t("culinarySection.title")}</h2></div><p>{t("culinarySection.description")}</p></div><div className="resort-gallery-culinary-grid">{photoCard(localizedPhotos[9], "culinary", t("culinarySection.leadBadge"))}<div className="resort-gallery-stack">{photoCard(localizedPhotos[10], "stacked", t("culinarySection.bbqBadge"))}{photoCard(localizedPhotos[11], "stacked", t("culinarySection.celebrationBadge"))}</div></div></section>
         <section className="resort-gallery-container resort-gallery-booking"><div><span className="resort-gallery-eyebrow">{t("bookingSection.eyebrow")}</span><h2>{t("bookingSection.title")}</h2><p>{t("bookingSection.description")}</p><div><a className="button resort-gallery-light-button" href="/rooms#availability"><CalendarDays size={18} /> {t("bookingSection.checkAvailability")}</a><a className="button resort-gallery-outline-button" href="/rooms">{t("bookingSection.viewRooms")}</a></div></div></section>
       </main>
-      <footer className="resort-gallery-footer theme-footer"><div className="resort-gallery-container"><div className="resort-gallery-footer-grid"><div><Brand href="/" /><p>{t("footer.about")}</p><p className="resort-gallery-footer-address"><MapPin size={18} />{t("footer.address")}</p></div><div><h2>{t("footer.navTitle")}</h2><a href="/#about">{t("footer.nav.about")}</a><a href="/rooms">{t("footer.nav.rooms")}</a><a href="/contact">{t("footer.nav.reservationPolicy")}</a><a href="/#location">{t("footer.nav.route")}</a><a href="/contact">{t("footer.nav.contact")}</a><a href="/contact">{t("footer.nav.privacy")}</a></div><div><h2>{t("footer.hoursTitle")}</h2><div className="resort-gallery-footer-hours"><div><Waves size={20} /><span><strong>{t("footer.hours.pool.title")}</strong>{t("footer.hours.pool.value")}</span></div><div><UtensilsCrossed size={20} /><span><strong>{t("footer.hours.restaurant.title")}</strong>{t("footer.hours.restaurant.value")}</span></div><div><Headphones size={20} /><span><strong>{t("footer.hours.frontDesk.title")}</strong>{t("footer.hours.frontDesk.value")}</span></div></div></div><div><h2>{t("footer.contactTitle")}</h2><div className="resort-gallery-footer-contact"><span><Phone size={20} />{t("footer.phone")}</span><span><Mail size={20} />{t("footer.email")}</span></div><a className="button button-primary" href="/contact"><MessageCircle size={16} /> {t("footer.contactButton")}</a></div></div><div className="resort-gallery-footer-bottom"><span>{t("footer.copyright")}</span><div><a href="/contact">{t("footer.bottom.terms")}</a><a href="/contact">{t("footer.bottom.privacy")}</a><a href="/">{t("footer.bottom.sitemap")}</a></div></div></div></footer>
+      <DarajatFooter />
       {viewer && <GalleryLightbox photos={viewer.photos} startIndex={viewer.startIndex} onClose={() => setViewer(null)} />}
     </div>
   );

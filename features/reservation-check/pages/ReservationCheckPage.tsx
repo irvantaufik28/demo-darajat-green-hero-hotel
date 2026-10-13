@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   BadgeCheck,
@@ -17,17 +16,14 @@ import {
   KeyRound,
   LoaderCircle,
   Mail,
-  MapPin,
   MessageCircle,
   CalendarDays,
-  Phone,
   Search,
   ShieldCheck,
-  Thermometer,
   Ticket,
 } from "lucide-react";
-import { Brand } from "@/components/Brand";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
+import { darajatCopy } from "@/features/home/constants/darajat-copy";
 import { contactDetails } from "@/features/contact/constants/contact-data";
 import {
   downloadReservationDocument,
@@ -44,6 +40,7 @@ import "../styles/reservation-check.css";
 
 export default function ReservationCheckPage() {
   const { t, lang } = useTranslations({ en, id });
+  const pageCopy = darajatCopy[lang];
   const [lookupStatus, setLookupStatus] = useState<
     "idle" | "loading" | "found" | "error"
   >("idle");
@@ -183,15 +180,10 @@ export default function ReservationCheckPage() {
   }
 
   return (
-    <>
-      <SiteHeader
-        id="reservation-header"
-        links={interiorLinks}
-        activeHref="/reservation-check"
-        homeHref="/"
-        bookingHref="/rooms#availability"
-      />
-      <main className="reservation-check-page reservation-check-container">
+    <div className="dp-home reservation-check-shell">
+      <a className="dp-skip" href="#reservation-check-main">{pageCopy.skip}</a>
+      <DarajatHeader interior solid bookingHref="/rooms" />
+      <main className="reservation-check-page reservation-check-container" id="reservation-check-main">
         <section className="reservation-check-intro">
           <span className="reservation-check-label">
             <i />
@@ -615,79 +607,7 @@ export default function ReservationCheckPage() {
           </a>
         </section>
       </main>
-      <footer className="reservation-check-footer theme-footer">
-        <div className="reservation-check-container">
-          <div className="reservation-check-footer-grid">
-            <div>
-              <Brand href="/" />
-              <p>{t("footer.about")}</p>
-              <p className="reservation-check-footer-contact">
-                <MapPin size={18} />
-                {contactDetails.address}
-              </p>
-              <a
-                className="reservation-check-footer-contact"
-                href={contactDetails.phoneHref}
-              >
-                <Phone size={18} />
-                {contactDetails.phone}
-              </a>
-              <a
-                className="reservation-check-footer-contact"
-                href={`mailto:${contactDetails.email}`}
-              >
-                <Mail size={18} />
-                {contactDetails.email}
-              </a>
-            </div>
-            <div>
-              <h2>{t("footer.navTitle")}</h2>
-              <Link href="/rooms">{t("footer.navRooms")}</Link>
-              <a href="/facilities">{t("footer.navHotSpring")}</a>
-              <a href="/facilities">{t("footer.navFacilities")}</a>
-              <a href="/gallery">{t("footer.navGallery")}</a>
-              <a href="/contact#location">{t("footer.navRoute")}</a>
-              <a href="/contact">{t("footer.navContact")}</a>
-            </div>
-            <div>
-              <h2>{t("footer.guestServicesTitle")}</h2>
-              <a href="/reservation-check" aria-current="page">
-                {t("footer.serviceCheckStatus")}
-              </a>
-              <Link href="/rooms">{t("footer.servicePolicy")}</Link>
-              <a href="/contact">{t("footer.serviceCheckInOut")}</a>
-              <a href="/contact">{t("footer.serviceGroups")}</a>
-              <a href="/contact">{t("footer.servicePrivacy")}</a>
-            </div>
-            <div>
-              <h2>{t("footer.hoursTitle")}</h2>
-              <div className="reservation-check-footer-hours">
-                <p>
-                  <span>{t("footer.hoursFrontDeskLabel")}</span>
-                  <strong>{t("footer.hoursFrontDeskValue")}</strong>
-                </p>
-                <p>
-                  <span>{t("footer.hoursHotSpringLabel")}</span>
-                  <strong>{t("footer.hoursHotSpringValue")}</strong>
-                </p>
-                <p>
-                  <span>{t("footer.hoursRestaurantLabel")}</span>
-                  <strong>{t("footer.hoursRestaurantValue")}</strong>
-                </p>
-                <small>
-                  <Thermometer size={16} />
-                  {t("footer.hoursTemperature")}
-                </small>
-              </div>
-            </div>
-          </div>
-          <div className="reservation-check-footer-bottom">
-            <span>{t("footer.copyright")}</span>
-            <a href="/contact">{t("footer.terms")}</a>
-            <a href="/contact">{t("footer.privacy")}</a>
-          </div>
-        </div>
-      </footer>
-    </>
+      <DarajatFooter />
+    </div>
   );
 }

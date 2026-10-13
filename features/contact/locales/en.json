@@ -1,8 +1,8 @@
 {
   "hero": {
-    "label": "CONTACT GREEN HERO",
+    "label": "CONTACT DARAJAT PASS",
     "title": "We're Ready to Help Plan Your Stay",
-    "description": "Reach out to the Green Hero Darajat team for room information, reservations, facilities, or anything you need during your stay.",
+    "description": "Reach out to the Hotel Darajat Pass team for room information, reservations, facilities, or anything you need during your stay.",
     "imageAlt": "Panorama of the green mountains around Darajat"
   },
   "cards": {
@@ -17,7 +17,7 @@
     "phone": {
       "title": "Call the Hotel",
       "badge": "Front Desk & Hotel",
-      "description": "Speak directly with the Green Hero Darajat reservations and front desk team.",
+      "description": "Speak directly with the Hotel Darajat Pass reservations and front desk team.",
       "action": "Call Now"
     },
     "email": {
@@ -30,7 +30,7 @@
   "reservation": {
     "eyebrow": "QUICK RESERVATION ASSISTANCE",
     "title": "Need Reservation Help?",
-    "description": "Our team can help with room availability, reservation details, and Green Hero Experiences.",
+    "description": "Our team can help with room availability, reservation details, and Darajat Pass Experiences.",
     "chatAction": "Chat Reservations",
     "checkAction": "Check Reservation",
     "topicsLabel": "Popular Topics:"
@@ -67,13 +67,13 @@
       "requiredMark": "*"
     },
     "submit": "Send Message",
-    "topicPrefill": "Hello Green Hero Darajat, I'd like to ask about {topic}.",
+    "topicPrefill": "Hello Hotel Darajat Pass, I'd like to ask about {topic}.",
     "status": "Simulation complete. Your message was not sent because this is a demo. Contact the hotel team via WhatsApp, phone, or email for direct assistance."
   },
   "service": {
     "eyebrow": "RESORT OPERATIONS",
     "title": "Service & Operations Information",
-    "description": "Green Hero Darajat is committed to providing excellent service for the comfort of your family holiday in the Darajat Pass area.",
+    "description": "Hotel Darajat Pass is committed to providing excellent service for the comfort of your family holiday in the Darajat Pass area.",
     "frontDesk": {
       "title": "Front Desk Service",
       "detail": "24 Hours Every Day, Non-Stop"
@@ -95,14 +95,14 @@
       "detail": "Active response 24 hours, ready to assist your trip"
     },
     "quote": "“The comfort of Garut's mountain air blends with the warmth of natural hot springs.”",
-    "quoteCite": "— GREEN HERO DARAJAT HOSPITALITY"
+    "quoteCite": "— HOTEL DARAJAT PASS"
   },
   "location": {
     "eyebrow": "ROUTE & LOCATION GUIDE",
     "title": "Find Us in Darajat",
     "description": "Strategically located in the Darajat Pass mountain tourism area of Garut, with smooth paved road access and cool mountain air.",
     "altitude": "1,600 – 1,800 masl",
-    "name": "Green Hero Darajat",
+    "name": "Hotel Darajat Pass",
     "addressLabel": "OFFICIAL ADDRESS",
     "areaLabel": "AREA DESCRIPTION",
     "areaDescription": "Located in the Darajat Pass highlands with views of mountains and lush, sprawling tea plantations. Close to active craters and Garut's natural volcanic hot springs.",
@@ -119,7 +119,7 @@
   "booking": {
     "eyebrow": "EASY & DIRECT RESERVATION",
     "title": "Ready to Stay?",
-    "description": "Pick your travel dates and find available rooms at Green Hero Darajat. Feel the warmth of the hot springs amid the cool mountains.",
+    "description": "Pick your travel dates and find available rooms at Hotel Darajat Pass. Feel the warmth of the hot springs amid the cool mountains.",
     "bookNow": "Book Now",
     "viewRooms": "View Rooms"
   },
@@ -140,7 +140,7 @@
     "experienceAnniversary": "Anniversary Setup",
     "contactTitle": "Contact & Location",
     "conciergeLabel": "24-Hour WhatsApp Concierge: {whatsapp}",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "copyright": "© 2026 Hotel Darajat Pass. All Rights Reserved.",
     "sitemap": "Sitemap"
   }
 }

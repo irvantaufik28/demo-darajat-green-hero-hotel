@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import WebsitePaymentResultPage from "@/features/booking/pages/WebsitePaymentResultPage";
 
 export const metadata: Metadata = {
-  title: "Status Pembayaran | Green Hero Darajat",
-  description: "Periksa status pembayaran reservasi Green Hero Darajat.",
+  title: "Status Pembayaran | Hotel Darajat Pass",
+  description: "Periksa status pembayaran reservasi Hotel Darajat Pass.",
 };
 
 type Props = {

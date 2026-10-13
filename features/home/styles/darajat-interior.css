@@ -1,0 +1,83 @@
+.dp-home.facilities-page,
+.dp-home.resort-gallery-page,
+.dp-home.contact-shell,
+.dp-home.experience-page,
+.dp-home.payment-instructions-page,
+.dp-home.payment-result-page {
+  --dp-forest: #173f33;
+  --dp-forest-deep: #0f2f27;
+  --dp-gold: #e5b23e;
+  --dp-cream: #f7f4ec;
+  --dp-surface: #fffdf7;
+  --dp-ink: #19251f;
+  background: var(--dp-cream);
+  color: var(--dp-ink);
+}
+
+.dp-home.facilities-page > main,
+.dp-home.resort-gallery-page > main,
+.dp-home.contact-shell > main,
+.dp-home.experience-page > main,
+.dp-home.payment-instructions-page > main,
+.dp-home.payment-result-page > main {
+  padding-top: 86px;
+}
+
+.dp-home.facilities-page .facilities-hero,
+.dp-home.contact-shell .resort-contact-hero {
+  margin-top: -86px;
+  padding-top: 86px;
+}
+
+.dp-home :is(.button-primary, .facilities-booking-button) {
+  background: var(--dp-forest);
+  border-color: var(--dp-forest);
+}
+
+.dp-home :is(.button-primary, .facilities-booking-button):hover {
+  background: var(--dp-forest-deep);
+  border-color: var(--dp-forest-deep);
+}
+
+.dp-home :is(
+  .facilities-service-card,
+  .facilities-room-card,
+  .resort-contact-card,
+  .instructions-card,
+  .payment-method-card
+) {
+  border-radius: 4px;
+  box-shadow: 0 16px 40px rgb(15 47 39 / 8%);
+}
+
+.dp-home :is(
+  .facilities-eyebrow,
+  .resort-gallery-eyebrow,
+  .resort-contact-eyebrow,
+  .instructions-eyebrow,
+  .booking-eyebrow
+) {
+  color: var(--dp-forest);
+  letter-spacing: .14em;
+}
+
+.dp-home :is(.facilities-feature-photo, .resort-gallery-photo, .resort-gallery-experience) {
+  border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+  .dp-home.facilities-page > main,
+  .dp-home.resort-gallery-page > main,
+  .dp-home.contact-shell > main,
+  .dp-home.experience-page > main,
+  .dp-home.payment-instructions-page > main,
+  .dp-home.payment-result-page > main {
+    padding-top: 72px;
+  }
+
+  .dp-home.facilities-page .facilities-hero,
+  .dp-home.contact-shell .resort-contact-hero {
+    margin-top: -72px;
+    padding-top: 72px;
+  }
+}

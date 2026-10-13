@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
 import {
   ArrowRight,
@@ -10,18 +11,14 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock3,
-  Globe2,
-  Mail,
-  Map,
-  MapPin,
   Mountain,
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
-import { Brand } from "@/components/Brand";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import PageSkeleton from "@/components/PageSkeleton";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
+import { darajatCopy } from "@/features/home/constants/darajat-copy";
 import { getPublicBookingExtras, type PublicBookingExtras } from "@/features/booking/services/public-booking-extras";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import { roomAmenityIcon } from "../constants/room-amenity-icons";
@@ -68,7 +65,8 @@ function nextDate(date: string) {
 }
 
 export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }: RoomDetailPageProps) {
-  const { t } = useTranslations({ en, id });
+  const { t, lang } = useTranslations({ en, id });
+  const pageCopy = darajatCopy[lang];
   const today = todayJakarta();
   const hasInitialStay = initialCheckIn >= today && getNightCount(initialCheckIn, initialCheckOut) > 0;
   const [checkIn, setCheckIn] = useState(hasInitialStay ? initialCheckIn : today);
@@ -143,7 +141,7 @@ export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }
   }, [room, availabilityQuery]);
 
   if (loading) return <PageSkeleton />;
-  if (!room) return <div className="detail-page"><SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="/rooms" contactHref="/contact" /><main className="container detail-content"><div role="alert">{loadError || t("detail.messages.notFound")} <a href="/rooms">{t("detail.breadcrumbRooms")}</a></div></main></div>;
+  if (!room) return <div className="dp-home detail-page"><DarajatHeader interior solid bookingHref="/rooms" /><main className="container detail-content detail-error"><div role="alert">{loadError || t("detail.messages.notFound")} <Link href="/rooms">{t("detail.breadcrumbRooms")}</Link></div></main></div>;
 
   const nights = getNightCount(checkIn, checkOut);
   const photos = [...room.images].sort((left, right) => Number(right.isCover) - Number(left.isCover) || left.sortOrder - right.sortOrder).slice(0, 5);
@@ -220,12 +218,13 @@ export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }
   };
 
   return (
-    <div className="detail-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="#availability" contactHref="/contact" />
-      <main>
-        <nav className="container detail-breadcrumb" aria-label="Breadcrumb"><a href="/">{t("detail.breadcrumbHome")}</a><span>/</span><a href="/rooms">{t("detail.breadcrumbRooms")}</a><span>/</span><span>{room.name}</span></nav>
+    <div className="dp-home detail-page">
+      <a className="dp-skip" href="#detail-main">{pageCopy.skip}</a>
+      <DarajatHeader interior solid bookingHref="#availability" />
+      <main id="detail-main">
+        <nav className="container detail-breadcrumb" aria-label="Breadcrumb"><Link href="/">{t("detail.breadcrumbHome")}</Link><span>/</span><Link href="/rooms">{t("detail.breadcrumbRooms")}</Link><span>/</span><span>{room.name}</span></nav>
 
-        <section className={`container detail-gallery${photos.length === 1 ? " detail-gallery--single" : ""}${photos.length === 0 ? " detail-gallery--empty" : ""}`} id="gallery" aria-label={t("detail.galleryAriaLabel", { name: room.name })}>
+        <section className={`container detail-gallery${photos.length === 1 ? " detail-gallery--single" : ""}${photos.length === 4 ? " detail-gallery--four" : ""}${photos.length === 0 ? " detail-gallery--empty" : ""}`} id="gallery" aria-label={t("detail.galleryAriaLabel", { name: room.name })}>
           {photos.map((photo, index) => (
             <a key={photo.id} href={photo.url} target="_blank" rel="noreferrer" className={`detail-gallery-photo detail-gallery-photo-${index + 1}`} aria-label={t("detail.photoLinkAriaLabel", { index: index + 1, name: room.name })}>
               <Image src={photo.url} alt={photo.altText || t("detail.photoAlt", { name: room.name, index: index + 1 })} fill unoptimized priority={index === 0} sizes={index === 0 ? "(max-width: 720px) 100vw, 60vw" : "(max-width: 720px) 50vw, 20vw"} />
@@ -292,12 +291,12 @@ export default function RoomDetailPage({ slug, initialCheckIn, initialCheckOut }
 
         {experiences.length > 0 && <section className="detail-extras"><div className="container"><span className="detail-eyebrow">{t("detail.extras.eyebrow")}</span><h2>{t("detail.extras.title")}</h2><p>{t("detail.extras.description")}</p><div className="detail-extra-grid">{experiences.map((experience) => <article key={experience.id}><div className="detail-extra-photo">{experience.imageUrl && <Image src={experience.imageUrl} alt={experience.name} fill unoptimized sizes="(max-width: 720px) 100vw, 33vw" />}</div><h3>{experience.name}</h3><p>{experience.description || t("detail.messages.noDescription")}</p></article>)}</div></div></section>}
 
-        <section className="container detail-related"><div className="detail-section-heading"><div><span className="detail-eyebrow">{t("detail.related.eyebrow")}</span><h2>{t("detail.related.title")}</h2></div><a href="/rooms">{t("detail.related.viewAll")} <ArrowRight size={17} /></a></div><div className="detail-related-grid">{relatedRooms.map((item) => { const image = item.images.find((photo) => photo.isCover) ?? item.images[0]; const capacity = Math.max(0, ...item.capacityPatterns.map((pattern) => pattern.adults + pattern.children)); return <article key={item.id}><a className="detail-related-photo" href={`/rooms/${encodeURIComponent(item.slug)}`}>{image && <Image src={image.url} alt={image.altText || item.name} fill unoptimized sizes="(max-width: 720px) 100vw, 50vw" />}</a><div><small>{capacity ? t("detail.messages.maxGuests", { count: capacity }) : t("detail.messages.notSpecified")}</small><h3>{item.name}</h3><p>{item.description || t("detail.messages.noDescription")}</p><div><strong>{t("detail.messages.priceByDate")}</strong><a href={`/rooms/${encodeURIComponent(item.slug)}`}>{t("detail.related.viewDetail")} <ArrowRight size={16} /></a></div></div></article>; })}</div></section>
+        <section className="container detail-related"><div className="detail-section-heading"><div><span className="detail-eyebrow">{t("detail.related.eyebrow")}</span><h2>{t("detail.related.title")}</h2></div><Link href="/rooms">{t("detail.related.viewAll")} <ArrowRight size={17} /></Link></div><div className="detail-related-grid">{relatedRooms.map((item) => { const image = item.images.find((photo) => photo.isCover) ?? item.images[0]; const capacity = Math.max(0, ...item.capacityPatterns.map((pattern) => pattern.adults + pattern.children)); return <article key={item.id}><Link className="detail-related-photo" href={`/rooms/${encodeURIComponent(item.slug)}`}>{image && <Image src={image.url} alt={image.altText || item.name} fill unoptimized sizes="(max-width: 720px) 100vw, 50vw" />}</Link><div><small>{capacity ? t("detail.messages.maxGuests", { count: capacity }) : t("detail.messages.notSpecified")}</small><h3>{item.name}</h3><p>{item.description || t("detail.messages.noDescription")}</p><div><strong>{t("detail.messages.priceByDate")}</strong><Link href={`/rooms/${encodeURIComponent(item.slug)}`}>{t("detail.related.viewDetail")} <ArrowRight size={16} /></Link></div></div></article>; })}</div></section>
 
         <section className="container detail-final-cta"><span className="detail-eyebrow">{t("detail.finalCta.eyebrow")}</span><h2>{t("detail.finalCta.title")}</h2><p>{t("detail.finalCta.description")}</p><a className="button button-white button-lg" href="#availability">{t("detail.finalCta.action")} <ArrowRight size={18} /></a></section>
       </main>
 
-      <footer className="site-footer theme-footer" id="contact"><div className="container footer-grid"><div className="footer-about"><Brand href="/" /><p>{t("footer.aboutDetail")}</p><div className="social-icons"><a href="/gallery" aria-label={t("footer.galleryAriaLabel")}><Globe2 size={20} /></a><a href="/#location" aria-label={t("footer.mapAriaLabel")}><Map size={20} /></a></div></div><div><h3>{t("footer.exploreTitle")}</h3><a href="/">{t("footer.exploreHome")}</a><a href="/rooms">{t("footer.exploreRooms")}</a><a href="/facilities">{t("footer.exploreFacilities")}</a><a href="/#experiences">{t("footer.exploreExperiences")}</a></div><div><h3>{t("footer.helpTitleShort")}</h3><a href="#availability">{t("footer.helpCheckAvailability")}</a><a href="/#location">{t("footer.helpRouteGuideShort")}</a><a href="/contact">{t("footer.helpContactShort")}</a></div><div><h3>{t("footer.contactTitle")}</h3><span><MapPin size={20} /> {t("footer.contactAddressShort")}</span><span><Mail size={20} /> {t("footer.contactEmail")}</span></div></div><div className="container footer-bottom"><span>{t("footer.copyrightShort")}</span><span>{t("footer.demoNoteShort")}</span></div></footer>
+      <DarajatFooter />
     </div>
   );
 }

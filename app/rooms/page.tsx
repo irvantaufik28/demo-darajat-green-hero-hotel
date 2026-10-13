@@ -3,8 +3,8 @@ import { getNights } from "@/features/booking/constants/booking-data";
 import RoomsPage from "@/features/rooms/pages/RoomsPage";
 
 export const metadata: Metadata = {
-  title: "Kamar & Suite | Green Hero Darajat",
-  description: "Pilih beberapa tipe dan jumlah kamar dalam satu booking di Green Hero Darajat.",
+  title: "Kamar & Bungalow | Darajat Pass",
+  description: "Pilih kamar atau bungalow untuk menginap bersama di Darajat Pass, Garut.",
 };
 
 type PageProps = { searchParams: Promise<Record<string, string | string[] | undefined>> };

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import {
   BellRing,
   CalendarDays,
@@ -22,21 +22,15 @@ import {
   UtensilsCrossed,
   Waves,
 } from "lucide-react";
-import { Brand } from "@/components/Brand";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import {
   contactDetails,
   contactSubjects,
   contactTopics,
 } from "@/features/contact/constants/contact-data";
-import {
-  getPublicHotelInfo,
-  type PublicHotelInfo,
-} from "@/features/contact/services/contact";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
 import id from "../locales/id.json";
-import "../styles/contact.css";
 
 const topicKeyByLabel: Record<string, string> = {
   "Ketersediaan Kamar": "roomAvailability",
@@ -61,30 +55,15 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
   const [formStatus, setFormStatus] = useState("");
   const [locationZoom, setLocationZoom] = useState(1);
-  const [hotelInfo, setHotelInfo] = useState<PublicHotelInfo | null>(null);
   const subjectRef = useRef<HTMLSelectElement>(null);
 
-  useEffect(() => {
-    const controller = new AbortController();
-    void getPublicHotelInfo(controller.signal)
-      .then(({ hotel }) => setHotelInfo(hotel))
-      .catch(() => undefined);
-    return () => controller.abort();
-  }, []);
-
-  const whatsapp = hotelInfo?.whatsappNumber || contactDetails.whatsapp;
+  const whatsapp = contactDetails.whatsapp;
   const whatsappDigits = whatsapp.replace(/\D/g, "").replace(/^0/, "62");
-  const phone = hotelInfo?.phone || contactDetails.phone;
-  const phoneHref = hotelInfo?.phone
-    ? `tel:${hotelInfo.phone.replace(/[^+\d]/g, "")}`
-    : contactDetails.phoneHref;
-  const email = hotelInfo?.email || contactDetails.email;
-  const address = hotelInfo?.address || contactDetails.address;
-  const mapsHref =
-    hotelInfo?.googleMapsUrl ||
-    (hotelInfo?.latitude && hotelInfo.longitude
-      ? `https://maps.google.com/?q=${hotelInfo.latitude},${hotelInfo.longitude}`
-      : contactDetails.mapsHref);
+  const phone = contactDetails.phone;
+  const phoneHref = contactDetails.phoneHref;
+  const email = contactDetails.email;
+  const address = contactDetails.address;
+  const mapsHref = contactDetails.mapsHref;
   const whatsappHref = whatsappDigits
     ? `https://wa.me/${whatsappDigits}`
     : contactDetails.whatsappHref;
@@ -143,15 +122,8 @@ export default function ContactPage() {
   }
 
   return (
-    <>
-      <SiteHeader
-        id="contact-header"
-        links={interiorLinks}
-        activeHref="/contact"
-        homeHref="/"
-        bookingHref="/rooms#availability"
-        contactHref="/contact"
-      />
+    <div className="dp-home contact-shell">
+      <DarajatHeader interior solid bookingHref="/rooms" />
       <main className="resort-contact-page">
         <section className="resort-contact-hero">
           <Image
@@ -217,7 +189,7 @@ export default function ContactPage() {
               <div className="resort-contact-reservation-actions">
                 <a
                   className="button button-primary"
-                  href={`${whatsappHref}?text=Halo%20Green%20Hero,%20saya%20butuh%20bantuan%20reservasi`}
+                  href={`${whatsappHref}?text=Halo%20Darajat%20Pass,%20saya%20butuh%20bantuan%20reservasi`}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -381,7 +353,7 @@ export default function ContactPage() {
                 <Mountain size={18} />
                 {t("location.altitude")}
               </span>
-              <h3>{hotelInfo?.name || t("location.name")}</h3>
+              <h3>{t("location.name")}</h3>
               <div className="resort-contact-location-row">
                 <MapPin size={22} />
                 <div>
@@ -436,7 +408,7 @@ export default function ContactPage() {
                 <span>
                   <Hotel size={28} />
                 </span>
-                <h3>{hotelInfo?.name || t("location.name")}</h3>
+                <h3>{t("location.name")}</h3>
                 <p>{t("location.markerArea")}</p>
                 <strong>
                   <Thermometer size={17} />
@@ -487,75 +459,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <footer className="resort-contact-footer theme-footer">
-        <div className="resort-contact-container">
-          <div className="resort-contact-footer-grid">
-            <div>
-              <Brand href="/" />
-              <p>{t("footer.about")}</p>
-              <strong className="resort-contact-footer-hours">
-                <span />
-                {t("footer.hours")}
-              </strong>
-            </div>
-            <div>
-              <h2>{t("footer.navTitle")}</h2>
-              <a href="/#about">{t("footer.navAbout")}</a>
-              <a href="/rooms">{t("footer.navRooms")}</a>
-              <a href="/rooms">{t("footer.navPolicy")}</a>
-              <a href="#location">{t("footer.navRoute")}</a>
-              <a href="/contact" aria-current="page">
-                {t("footer.navContact")}
-              </a>
-            </div>
-            <div>
-              <h2>{t("footer.experiencesTitle")}</h2>
-              {[
-                t("footer.experienceGoatRoast"),
-                t("footer.experienceBbq"),
-                t("footer.experienceChicken"),
-                t("footer.experienceBirthday"),
-                t("footer.experienceAnniversary"),
-              ].map((label) => (
-                <a key={label} href="/#experiences">
-                  {label}
-                </a>
-              ))}
-            </div>
-            <div>
-              <h2>{t("footer.contactTitle")}</h2>
-              <p className="resort-contact-footer-detail">
-                <MapPin size={18} />
-                {address}
-              </p>
-              <a className="resort-contact-footer-detail" href={phoneHref}>
-                <Phone size={18} />
-                {phone}
-              </a>
-              <a
-                className="resort-contact-footer-detail"
-                href={whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <MessageCircle size={18} />
-                {t("footer.conciergeLabel", { whatsapp })}
-              </a>
-              <a
-                className="resort-contact-footer-detail"
-                href={`mailto:${email}`}
-              >
-                <Mail size={18} />
-                {email}
-              </a>
-            </div>
-          </div>
-          <div className="resort-contact-footer-bottom">
-            <span>{t("footer.copyright")}</span>
-            <a href="/">{t("footer.sitemap")}</a>
-          </div>
-        </div>
-      </footer>
-    </>
+      <DarajatFooter />
+    </div>
   );
 }

@@ -11,9 +11,8 @@ import {
   Wallet,
   Zap,
 } from "lucide-react";
-import { Brand } from "@/components/Brand";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { bookingExtraLabels, bookingExtraPrices, getExtraCost, getNights, type PaidExtraId } from "@/features/booking/constants/booking-data";
 import { formatRoomPrice, getRoom } from "@/features/rooms/constants/rooms-data";
 import { countSelectedRooms, getRoomSelectionTotal, serializeRoomSelection, type RoomSelection } from "@/features/rooms/constants/room-selection-data";
@@ -110,8 +109,8 @@ export default function PaymentPage({ roomId, roomSelection, checkIn, checkOut, 
   }
 
   return (
-    <div className="booking-page payment-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="#payment-summary" contactHref="/contact" />
+    <div className="dp-home booking-page payment-page">
+      <DarajatHeader interior solid bookingHref="#payment-summary" />
       <main className="container booking-main payment-main">
         <nav className="booking-progress" aria-label={t("progress.ariaLabel")}>
           {["progress.selectRoom", "progress.addOns", "progress.guestDetails", "progress.payment"].map((label, index) => (
@@ -121,7 +120,7 @@ export default function PaymentPage({ roomId, roomSelection, checkIn, checkOut, 
           ))}
         </nav>
 
-        <div className="payment-intro"><span className="booking-eyebrow">{t("payment.intro.eyebrow")}</span><h1>{t("payment.intro.title")}</h1><p>{t("payment.intro.description")}</p></div>
+        <div className="payment-intro"><h1>{t("payment.intro.title")}</h1><p>{t("payment.intro.description")}</p></div>
 
         <div className="payment-layout">
           <div className="payment-left">
@@ -147,7 +146,7 @@ export default function PaymentPage({ roomId, roomSelection, checkIn, checkOut, 
           </aside>
         </div>
       </main>
-      <footer className="payment-footer theme-footer"><div className="container payment-footer-grid"><div><Brand href="/" /><p>{t("payment.footer.about")}</p></div><div><strong>{t("payment.footer.exploreTitle")}</strong><a href="/">{t("payment.footer.exploreHome")}</a><a href="/rooms">{t("payment.footer.exploreRooms")}</a><a href="/facilities">{t("payment.footer.exploreFacilities")}</a></div><div><strong>{t("payment.footer.contactTitle")}</strong><span>{t("payment.footer.contactAddress")}</span><span>{t("payment.footer.contactEmail")}</span></div></div><div className="container payment-footer-bottom"><span>{t("payment.footer.copyright")}</span><span>{t("payment.footer.demoNote")}</span></div></footer>
+      <DarajatFooter />
     </div>
   );
 }

@@ -118,10 +118,10 @@
 .payment-method-option > input:disabled { border-color: #c6cec6; background: var(--cream); cursor: not-allowed; }
 .payment-method-heading .payment-demo-notice { display: flex; align-items: center; gap: 7px; margin-top: 14px; padding: 11px 13px; border: 1px solid #e5d9b9; border-radius: 8px; background: #fff9ec; color: #826b38; font-weight: 400; }
 .payment-method-heading .payment-demo-notice svg { color: #a78a44; }
-.payment-xendit-notice { display: flex; gap: 16px; align-items: flex-start; padding: 22px; border: 1px solid #dce5db; border-radius: 10px; background: #f4f8f3; color: var(--forest); }
-.payment-xendit-notice > svg { flex-shrink: 0; }
-.payment-xendit-notice strong { font-size: 16px; }
-.payment-xendit-notice p { margin: 7px 0 0; color: #58685d; font-size: 13px; line-height: 1.6; }
+.payment-demo-mode-notice { display: flex; gap: 16px; align-items: flex-start; padding: 22px; border: 1px solid #dce5db; border-radius: 10px; background: #f4f8f3; color: var(--forest); }
+.payment-demo-mode-notice > svg { flex-shrink: 0; }
+.payment-demo-mode-notice strong { font-size: 16px; }
+.payment-demo-mode-notice p { margin: 7px 0 0; color: #58685d; font-size: 13px; line-height: 1.6; }
 .payment-result-card { display: flex; align-items: flex-start; gap: 18px; max-width: 700px; }
 .payment-result-card > svg { flex-shrink: 0; color: var(--forest); }
 .payment-result-card > div { flex: 1; }
@@ -131,3 +131,80 @@
 .payment-result-back { display: inline-block; margin-left: 16px; color: var(--forest); font-weight: 700; }
 .payment-restart-button { display: block; width: 100%; min-height: 44px; margin-top: 12px; border: 1px solid #bdd0c0; border-radius: 8px; background: #fff; color: var(--forest); font-weight: 700; cursor: pointer; }
 .payment-result-card .payment-restart-button { display: inline-block; width: auto; min-width: 170px; margin: 0; padding: 0 16px; }
+
+/* Darajat Pass payment */
+.payment-page {
+  --forest: #173f33;
+  --forest-soft: #245440;
+  --cream: #f4f0e6;
+  --gold: #e5b23e;
+  --line: #d4d9cc;
+  --surface: #fffdf7;
+  background: #f7f4ec;
+}
+.payment-page .payment-main { width: min(100% - 96px, 1280px); padding-top: 128px; }
+.payment-page .booking-progress { margin-bottom: 52px; }
+.payment-page .booking-step.is-complete::after { background: var(--forest); }
+.payment-page .booking-step.is-complete .booking-step-circle { background: var(--forest); }
+.payment-page .booking-step.is-current .booking-step-circle { background: var(--gold); color: #173f33; box-shadow: 0 0 0 5px #f1dfaf; }
+.payment-page .payment-intro { max-width: 720px; margin-bottom: 42px; }
+.payment-page .payment-intro h1 { margin: 0 0 12px; color: var(--forest); font-size: clamp(42px, 5vw, 64px); font-weight: 500; line-height: 1; letter-spacing: -.035em; }
+.payment-page .payment-intro p { max-width: 680px; color: #566157; }
+.payment-page .payment-layout { gap: 38px; }
+.payment-page .payment-left { gap: 24px; }
+.payment-page .payment-method-card,
+.payment-page .payment-policy-card { padding: 32px; border-color: var(--line); border-radius: 4px; background: var(--surface); box-shadow: none; }
+.payment-page .payment-method-heading,
+.payment-page .payment-summary-heading { border-color: var(--line); }
+.payment-page .payment-method-heading h2,
+.payment-page .payment-policy-card h2 { color: var(--forest); font-size: clamp(28px, 3vw, 38px); font-weight: 500; }
+.payment-page .payment-demo-mode-notice { border-color: #b8c9b7; border-radius: 3px; background: #edf3e9; }
+.payment-page .payment-policy-room,
+.payment-page .payment-policy-option { border-color: var(--line); border-radius: 3px; }
+.payment-page .payment-policy-room { background: var(--cream); }
+.payment-page .payment-tabs button { min-height: 44px; border-radius: 3px; }
+.payment-page .payment-method-option,
+.payment-page .payment-option-information { border-radius: 3px; }
+.payment-page .payment-trust-grid > div { border-color: var(--line); border-radius: 3px; background: var(--surface); box-shadow: none; }
+.payment-page .payment-timer { border: 0; border-radius: 4px; background: #ece5d5; box-shadow: none; }
+.payment-page .payment-timer > svg { color: var(--forest); }
+.payment-page .payment-verification-banner { border-radius: 4px; }
+.payment-page .payment-summary-card { padding: 26px; border: 0; border-radius: 4px; background: var(--forest); color: white; box-shadow: none; }
+.payment-page .payment-summary-heading { border-color: rgba(255,255,255,.2); }
+.payment-page .payment-summary-heading h2 { color: white; font-size: 28px; font-weight: 500; }
+.payment-page .payment-summary-heading > span { border-radius: 2px; background: var(--gold); color: #173f33; }
+.payment-page .payment-booking-details > div > span,
+.payment-page .payment-booking-details strong small,
+.payment-page .payment-total span,
+.payment-page .payment-total p,
+.payment-page .booking-room-selection-row span,
+.payment-page .payment-pay-caption { color: #d1ddd3; }
+.payment-page .payment-booking-details strong,
+.payment-page .payment-total strong,
+.payment-page .booking-room-selection-row { color: white; }
+.payment-page .booking-room-selection-row,
+.payment-page .payment-total,
+.payment-page .payment-back { border-color: rgba(255,255,255,.2); }
+.payment-page .payment-pay-button { min-height: 50px; border-radius: 3px; background: var(--gold); color: #173f33; box-shadow: none; }
+.payment-page .payment-pay-button:hover { background: #f0c662; }
+.payment-page .payment-pay-button:disabled { background: #aeb9ad; color: #435248; }
+.payment-page .payment-restart-button { border-radius: 3px; background: transparent; color: white; }
+.payment-page .payment-status { border-radius: 3px; background: #fff4d7; color: #5b4210; }
+.payment-page .payment-back a { min-height: 44px; color: #e2ebe3; }
+.payment-page .payment-back a:hover { color: white; }
+.payment-page :is(button, a, input):focus-visible,
+.payment-page .payment-method-option:focus-within { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 1080px) {
+  .payment-page .payment-main { width: min(100% - 48px, 1280px); padding-top: 118px; }
+}
+@media (max-width: 620px) {
+  .payment-page .payment-main { width: min(100% - 32px, 1280px); padding-top: 104px; padding-bottom: 56px; }
+  .payment-page .booking-progress { margin-bottom: 38px; }
+  .payment-page .payment-intro { margin-bottom: 32px; }
+  .payment-page .payment-intro h1 { font-size: clamp(38px, 12vw, 50px); }
+  .payment-page .payment-method-card,
+  .payment-page .payment-policy-card,
+  .payment-page .payment-summary-card { padding: 20px; }
+  .payment-page .payment-tabs button { min-height: 44px; }
+}

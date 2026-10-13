@@ -6,8 +6,8 @@ import { parseRoomSelection } from "@/features/rooms/constants/room-selection-da
 import BookingGuestPage from "@/features/booking/pages/BookingGuestPage";
 
 export const metadata: Metadata = {
-  title: "Data Tamu | Green Hero Darajat",
-  description: "Lengkapi data pemesan untuk reservasi Green Hero Darajat.",
+  title: "Data Tamu | Darajat Pass",
+  description: "Lengkapi data pemesan untuk reservasi Darajat Pass.",
 };
 
 type PageProps = {

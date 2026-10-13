@@ -281,3 +281,81 @@
   .celebration-package-name { font-size: 21px; }
   .celebration-package-price strong { font-size: 20px; }
 }
+
+/* Darajat Pass booking extras */
+.booking-extras-page {
+  --forest: #173f33;
+  --forest-soft: #245440;
+  --cream: #f4f0e6;
+  --gold: #e5b23e;
+  --line: #d4d9cc;
+  --surface: #fffdf7;
+  background: #f7f4ec;
+}
+.booking-extras-page .booking-main { padding-top: 128px; }
+.booking-extras-page .booking-progress { margin-bottom: 52px; }
+.booking-extras-page .booking-step.is-complete::after { background: var(--forest); }
+.booking-extras-page .booking-step.is-complete .booking-step-circle { background: var(--forest); }
+.booking-extras-page .booking-step.is-current .booking-step-circle { background: var(--gold); color: #173f33; box-shadow: 0 0 0 5px #f1dfaf; }
+.booking-extras-page .booking-intro { max-width: 690px; margin-bottom: 42px; }
+.booking-extras-page .booking-intro h1 { margin: 0 0 12px; font-size: clamp(42px, 5vw, 64px); font-weight: 500; line-height: 1; letter-spacing: -.035em; }
+.booking-extras-page .booking-intro p { max-width: 650px; color: #566157; }
+.booking-extras-page .booking-layout { gap: 38px; }
+.booking-extras-page .booking-options { gap: 46px; }
+.booking-extras-page .booking-stay-banner { padding: 24px; border-color: var(--line); border-radius: 4px; background: var(--surface); box-shadow: none; }
+.booking-extras-page .booking-stay-banner strong > span { border-radius: 2px; background: #e7eee4; }
+.booking-extras-page .booking-food-hero { height: 340px; border-radius: 4px; }
+.booking-extras-page .booking-food-hero::after { background: linear-gradient(0deg, rgba(8,35,26,.96), rgba(8,35,26,.08) 82%); }
+.booking-extras-page .booking-food-hero img { transition: none; }
+.booking-extras-page .booking-food-hero:hover img { transform: none; }
+.booking-extras-page .booking-food-hero span { padding: 0; border-radius: 0; background: transparent; color: #f0c662; letter-spacing: .12em; }
+.booking-extras-page .booking-food-hero h2 { margin: 0 0 7px; color: white; font-size: clamp(27px, 3vw, 38px); font-weight: 500; }
+.booking-extras-page .booking-extra-card { border-color: var(--line); border-radius: 4px; background: var(--surface); }
+.booking-extras-page .booking-extra-card.is-selected { border-color: var(--forest); border-width: 1px; padding: 17px; background: #eef3e9; box-shadow: inset 4px 0 0 var(--forest); }
+.booking-extras-page .booking-section-title { padding-bottom: 16px; border-bottom-color: var(--line); }
+.booking-extras-page .booking-section-title > span { color: #4e7059; }
+.booking-extras-page .booking-section-title.is-clay > span { color: #8a6530; }
+.booking-extras-page .booking-section-title h2 { margin: 7px 0 0; font-size: clamp(29px, 3vw, 39px); font-weight: 500; }
+.booking-extras-page .booking-request-section { padding: 26px; border-color: var(--line); border-radius: 4px; background: var(--surface); }
+.booking-extras-page .booking-request-card { border-radius: 3px; background: var(--cream); }
+.booking-extras-page .booking-add-button,
+.booking-extras-page .booking-request-card button,
+.booking-extras-page .booking-request-section textarea { border-radius: 3px; }
+.booking-extras-page .booking-add-button { min-height: 44px; }
+.booking-extras-page .booking-request-card button { min-height: 44px; }
+.booking-extras-page .booking-summary { top: 108px; padding: 26px; border: 0; border-radius: 4px; background: var(--forest); color: white; box-shadow: none; }
+.booking-extras-page .booking-summary-header,
+.booking-extras-page .booking-summary-stay { border-color: rgba(255,255,255,.2); }
+.booking-extras-page .booking-summary-header h2 { color: white; font-size: 28px; font-weight: 500; }
+.booking-extras-page .booking-summary-header > span { border-radius: 2px; background: #f0c662; color: #173f33; }
+.booking-extras-page .booking-summary-stay strong,
+.booking-extras-page .booking-summary-row strong,
+.booking-extras-page .booking-summary-total > strong { color: white; }
+.booking-extras-page .booking-summary-stay span,
+.booking-extras-page .booking-summary-row,
+.booking-extras-page .booking-summary-addons p,
+.booking-extras-page .booking-summary-cost h3,
+.booking-extras-page .booking-summary-total small { color: #d1ddd3; }
+.booking-extras-page .booking-summary-addons,
+.booking-extras-page .booking-summary-total { border-color: rgba(255,255,255,.2); }
+.booking-extras-page .booking-summary-addons h4 { color: #f0c662; }
+.booking-extras-page .booking-summary-actions .button-primary { background: var(--gold); color: #173f33; }
+.booking-extras-page .booking-summary-actions .button-primary:hover { background: #f0c662; }
+.booking-extras-page .booking-summary-actions > button:last-child { color: #d1ddd3; }
+.booking-extras-page .booking-summary-actions > button:last-child:hover { color: white; }
+.booking-extras-page :is(button, a, textarea):focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 1023px) {
+  .booking-extras-page .booking-main { padding-top: 118px; }
+}
+@media (max-width: 620px) {
+  .booking-extras-page .booking-main { padding-top: 104px; padding-bottom: 56px; }
+  .booking-extras-page .booking-progress { margin-bottom: 38px; }
+  .booking-extras-page .booking-intro { margin-bottom: 32px; }
+  .booking-extras-page .booking-intro h1 { font-size: clamp(38px, 12vw, 50px); }
+  .booking-extras-page .booking-options { gap: 38px; }
+  .booking-extras-page .booking-food-hero { height: 300px; }
+  .booking-extras-page .booking-stay-banner,
+  .booking-extras-page .booking-summary,
+  .booking-extras-page .booking-request-section { padding: 20px; }
+}

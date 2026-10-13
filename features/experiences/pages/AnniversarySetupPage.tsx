@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { ArrowRight, BedDouble, Cake, CalendarDays, Camera, CheckCircle2, ClipboardCheck, Clock3, Crown, Flower2, Heart, Info, Lamp, Mail, Moon, Palette, PenLine, Sparkles, UtensilsCrossed, Wine } from "lucide-react";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
 import { ExperienceFooter } from "@/components/ExperienceFooter";
+import { DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { celebrationCategories } from "@/features/booking/constants/celebration-packages-data";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import { useTranslations } from "@/lib/i18n";
@@ -53,8 +53,8 @@ const steps = [
 export default function AnniversarySetupPage() {
   const { t } = useTranslations({ en, id });
   return (
-    <div className={styles.page}>
-      <SiteHeader links={interiorLinks} activeHref="/experiences/anniversary-setup" homeHref="/" bookingHref="/rooms" />
+    <div className={`dp-home experience-page ${styles.page}`}>
+      <DarajatHeader interior solid bookingHref="/rooms" />
       <main>
         <section className={styles.hero} aria-labelledby="anniversary-title">
           <Image src="/images/anniversary-dinner-night.webp" alt={t("anniversarySetup.hero.imageAlt")} fill preload sizes="100vw" className={styles.cover} />

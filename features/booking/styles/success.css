@@ -11,7 +11,7 @@
 .payment-success-pending-badge { border: 1px solid #e8d7ac; background: #fff5de; color: #866624; }
 .reservation-check-timeline .payment-success-pending-step > span { background: #ead7a8; color: #73591f; }
 .payment-success-result .reservation-check-help { margin-top: 32px; }
-@media print { .payment-success-main .booking-progress, .payment-success-main .payment-success-result .button, .payment-success-main .reservation-check-help, .payment-success-main .reservation-check-modification, .payment-footer, .site-header { display: none !important; } .payment-success-main { width: 100%; max-width: none; padding: 0; } .payment-success-result .reservation-check-sidebar { position: static; } .payment-success-result .reservation-check-card { box-shadow: none; break-inside: avoid; } }
+@media print { .payment-success-main .booking-progress, .payment-success-main .payment-success-result .button, .payment-success-main .reservation-check-help, .payment-success-main .reservation-check-modification, .payment-footer, .site-header, .dp-header, .dp-footer { display: none !important; } .payment-success-main { width: 100%; max-width: none; padding: 0; } .payment-success-result .reservation-check-sidebar { position: static; } .payment-success-result .reservation-check-card { box-shadow: none; break-inside: avoid; } }
 .payment-success-hero { display: flex; align-items: flex-start; gap: 20px; padding: 30px; border: 1px solid #e8d7ac; border-radius: 15px; background: #fff9ec; }
 .payment-success-hero.is-paid { border-color: #c5dccb; background: #f0f7f0; }
 .payment-success-icon { display: grid; flex: 0 0 58px; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #f5e8c4; color: #805d20; }
@@ -32,3 +32,105 @@
 .payment-success-spinning { animation: payment-success-spin 1.4s linear infinite; }
 @keyframes payment-success-spin { to { transform: rotate(360deg); } }
 @media (max-width: 600px) { .payment-success-hero { padding: 22px; } .payment-success-icon { flex-basis: 44px; width: 44px; height: 44px; } .payment-success-card { padding: 20px; } }
+
+/* Darajat Pass payment result */
+.payment-success-page {
+  --forest: #173f33;
+  --forest-soft: #245440;
+  --cream: #f4f0e6;
+  --gold: #e5b23e;
+  --line: #d4d9cc;
+  --surface: #fffdf7;
+  background: #f7f4ec;
+}
+.payment-success-page .payment-success-main { width: min(100% - 96px, 1280px); max-width: 1280px; padding-top: 128px; }
+.payment-success-page .payment-success-hero { padding: 32px; border-color: #d5c79f; border-radius: 4px; background: #f1e8d2; }
+.payment-success-page .payment-success-hero.is-paid { border-color: var(--forest); background: var(--forest); color: white; }
+.payment-success-page .payment-success-icon { border-radius: 3px; background: var(--gold); color: #173f33; }
+.payment-success-page .payment-success-hero.is-paid .payment-success-icon { background: var(--gold); color: #173f33; }
+.payment-success-page .payment-success-hero h1 { margin: 0 0 10px; font-size: clamp(40px, 5vw, 62px); font-weight: 500; line-height: 1; letter-spacing: -.035em; }
+.payment-success-page .payment-success-hero.is-paid h1 { color: white; }
+.payment-success-page .payment-success-hero.is-paid p { color: #d7e2d9; }
+.payment-success-page .payment-success-code,
+.payment-success-page .payment-success-card,
+.payment-success-page .reservation-check-card,
+.payment-success-page .reservation-check-confirmation,
+.payment-success-page .reservation-check-room,
+.payment-success-page .reservation-check-stay-grid > div,
+.payment-success-page .reservation-check-modification,
+.payment-success-page .reservation-check-help { border-radius: 4px; box-shadow: none; }
+.payment-success-page .reservation-check-card { border-color: var(--line); background: var(--surface); }
+.payment-success-page .reservation-check-timeline .complete > span { background: var(--forest); }
+.payment-success-page .reservation-check-timeline .current > span { background: var(--gold); color: #173f33; }
+.payment-success-page .reservation-check-timeline::before { background: linear-gradient(90deg, var(--forest) 68%, #ded8c9 68%); }
+.payment-success-page .reservation-check-confirmation { border-color: #b9cbb9; background: #e8f0e5; }
+.payment-success-page .reservation-check-confirmation > span { border-radius: 3px; background: var(--forest); }
+.payment-success-page .reservation-check-room { border-color: var(--line); background: var(--cream); }
+.payment-success-page .reservation-check-room-image { border-radius: 2px; }
+.payment-success-page .reservation-check-stay-grid > div { border-color: var(--line); }
+.payment-success-page .reservation-check-payment { border: 0; background: var(--forest); color: white; }
+.payment-success-page .reservation-check-payment h2,
+.payment-success-page .reservation-check-payment .reservation-check-costs strong,
+.payment-success-page .reservation-check-payment .reservation-check-total b,
+.payment-success-page .reservation-check-payment-info strong { color: white; }
+.payment-success-page .reservation-check-payment h2,
+.payment-success-page .reservation-check-payment .reservation-check-total,
+.payment-success-page .reservation-check-payment .reservation-check-security { border-color: rgba(255,255,255,.2); }
+.payment-success-page .reservation-check-payment .reservation-check-costs span,
+.payment-success-page .reservation-check-payment .reservation-check-total small,
+.payment-success-page .reservation-check-payment-info span,
+.payment-success-page .reservation-check-payment .reservation-check-security { color: #d1ddd3; }
+.payment-success-page .reservation-check-payment-info { border-color: rgba(255,255,255,.18); border-radius: 3px; background: rgba(255,255,255,.09); }
+.payment-success-page .reservation-check-payment .button-primary { background: var(--gold); color: #173f33; }
+.payment-success-page .reservation-check-payment .button-primary:hover { background: #f0c662; }
+.payment-success-page .reservation-check-payment .button-quiet { border-color: #93a99a; color: white; }
+.payment-success-page .reservation-check-modification { border-color: #d6c9aa; background: #eee6d4; }
+.payment-success-page .reservation-check-help { border-color: var(--line); background: #ece5d5; }
+.payment-success-page .reservation-check-help > span { border-radius: 3px; background: var(--forest); }
+.payment-success-page .reservation-check-help .button { background: var(--forest); color: white; }
+.payment-success-page .payment-success-waiting .button-quiet { min-height: 44px; border-radius: 3px; }
+.payment-success-page :is(button, a):focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.payment-demo-modal-backdrop {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(10, 28, 22, .72);
+}
+.payment-demo-modal {
+  width: min(100%, 440px);
+  padding: 32px;
+  border: 1px solid #c8b77f;
+  border-radius: 4px;
+  background: #fffdf7;
+  box-shadow: 0 24px 64px rgba(8, 24, 18, .28);
+  color: #173f33;
+}
+.payment-demo-modal-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  border-radius: 3px;
+  background: #e5b23e;
+  color: #173f33;
+}
+.payment-demo-modal h2 { margin: 0 0 12px; font-size: 28px; line-height: 1.15; }
+.payment-demo-modal p { margin: 0 0 26px; color: #59675e; font-size: 14px; line-height: 1.7; }
+.payment-demo-modal .button { width: 100%; min-height: 46px; border-radius: 3px; background: #173f33; color: white; }
+.payment-demo-modal .button:hover { background: #245440; }
+.payment-demo-modal .button:focus-visible { outline: 3px solid #e5b23e; outline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .payment-success-page .payment-success-main { width: min(100% - 48px, 1280px); padding-top: 118px; }
+}
+@media (max-width: 600px) {
+  .payment-success-page .payment-success-main { width: min(100% - 32px, 1280px); padding-top: 104px; padding-bottom: 56px; }
+  .payment-success-page .payment-success-hero { flex-direction: column; padding: 22px; }
+  .payment-success-page .payment-success-hero h1 { font-size: clamp(38px, 12vw, 50px); }
+  .payment-demo-modal { padding: 24px; }
+}

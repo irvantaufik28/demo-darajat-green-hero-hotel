@@ -3,9 +3,9 @@ export const contactDetails = {
   whatsappHref: "https://wa.me/6281234567890",
   phone: "(0262) 543-890 / +62 811-234-998",
   phoneHref: "tel:0262543890",
-  email: "reservation@greenherodarajat.com",
+  email: "info@darajatpass.com",
   address: "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut, Jawa Barat 44161",
-  mapsHref: "https://maps.google.com/?q=Green+Hero+Darajat+Garut",
+  mapsHref: "https://maps.google.com/?q=Darajat+Pass+Garut",
 };
 
 export const contactSubjects = [

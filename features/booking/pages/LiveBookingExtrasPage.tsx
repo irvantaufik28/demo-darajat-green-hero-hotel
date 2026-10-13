@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BedDouble, Cake, CalendarDays, Check, CheckCircle2, ChevronRight, Clock3, Coffee, Heart, MapPin, Minus, Plus, UsersRound, UtensilsCrossed } from "lucide-react";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
-import { Brand } from "@/components/Brand";
+import { ArrowRight, BedDouble, Cake, CalendarDays, Check, CheckCircle2, ChevronRight, Clock3, Coffee, Heart, Minus, Plus, UsersRound, UtensilsCrossed } from "lucide-react";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
@@ -150,11 +149,11 @@ export default function LiveBookingExtrasPage({ roomId, checkIn, checkOut, guest
     }
   }
 
-  return <div className="booking-page booking-extras-page">
-    <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="#booking-summary" contactHref="/contact" />
+  return <div className="dp-home booking-page booking-extras-page">
+    <DarajatHeader interior solid bookingHref="#booking-summary" />
     <main className="container booking-main">
       <nav className="booking-progress" aria-label={t("progress.ariaLabel")}>{["progress.selectRoom", "progress.addOns", "progress.guestDetails", "progress.payment"].map((label, index) => <div className={`booking-step${index === 1 ? " is-current" : ""}${index === 0 ? " is-complete" : ""}`} key={label}><span className="booking-step-circle">{index === 0 ? <Check size={18} /> : index + 1}</span><span>{t(label)}</span></div>)}</nav>
-      <div className="booking-intro"><span className="booking-eyebrow">{t("extras.intro.eyebrow")}</span><h1>{t("extras.intro.title")}</h1><p>{t("extras.intro.description")}</p></div>
+      <div className="booking-intro"><h1>{t("extras.intro.title")}</h1><p>{t("extras.intro.description")}</p></div>
       <div className="booking-layout">
         <div className="booking-options">
           <div className="booking-stay-banner"><div><strong><BedDouble size={20} /> {t("extras.stayBanner.roomSelection")} <span>{t("extras.stayBanner.roomCount", { count: booking.quote.roomCount })}</span></strong><p><CalendarDays size={16} /> {checkIn} → {checkOut} ({nights} {english ? "nights" : "malam"})</p><p><UsersRound size={16} /> {guests}</p><LiveBookingRoomSelection booking={booking} nights={nights} /><small>{t("extras.stayBanner.roomSubtotal")} <b>{formatRoomPrice(booking.quote.roomTotal)}</b></small></div><a href={roomHref}>{t("extras.stayBanner.changeRoom")} <ArrowRight size={16} /></a></div>
@@ -192,6 +191,6 @@ export default function LiveBookingExtrasPage({ roomId, checkIn, checkOut, guest
       </div>
     </main>
     {activeExperience && <ExperiencePackageModal key={activeExperience.id} experience={activeExperience} choice={choices[activeExperience.id]} onSave={(choice) => saveExperience(activeExperience.id, choice)} onClose={() => setActiveExperience(null)} />}
-    <footer className="booking-footer theme-footer"><div className="container booking-footer-inner"><div className="booking-footer-grid"><div className="booking-footer-about"><Brand href="/" /><p>{t("footer.about")}</p><span><MapPin size={17} /> {t("footer.address")}</span></div><div><strong>{t("footer.navTitle")}</strong><a href="/">{t("footer.navAbout")}</a><a href="/rooms">{t("footer.navRooms")}</a><a href="/#location">{t("footer.navRouteGuide")}</a><a href="/rooms">{t("footer.navReservationPolicy")}</a></div><div><strong>{t("footer.helpTitle")}</strong><a href="/contact">{t("footer.helpContact")}</a><a href="/contact">{t("footer.helpPrivacy")}</a><a href="/contact">{t("footer.helpFaq")}</a></div></div><div className="booking-footer-bottom"><span>{t("extras.live.footer")}</span><a href="/rooms">{t("footer.backToRooms")} <ChevronRight size={15} /></a></div></div></footer>
+      <DarajatFooter />
   </div>;
 }

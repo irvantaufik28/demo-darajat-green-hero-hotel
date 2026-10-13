@@ -10,7 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import { ExperienceFooter } from "@/components/ExperienceFooter";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { foodCategories } from "@/features/booking/constants/food-packages-data";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
@@ -123,16 +123,9 @@ const steps = [
 export default function BbqGrillPage() {
   const { t } = useTranslations({ en, id });
   return (
-    <div className="bbq-page">
+    <div className="dp-home experience-page bbq-page">
       {/* ── Header ──────────────────────────────────────── */}
-      <SiteHeader
-        id="bbq-header"
-        links={interiorLinks}
-        activeHref="/experiences/bbq-grill"
-        homeHref="/"
-        bookingHref="/rooms"
-        contactHref="/contact"
-      />
+      <DarajatHeader interior solid bookingHref="/rooms" />
 
       <main>
         {/* ── 1. HERO ──────────────────────────────────── */}

@@ -1,8 +1,8 @@
 {
   "hero": {
-    "label": "HUBUNGI GREEN HERO",
+    "label": "HUBUNGI DARAJAT PASS",
     "title": "Kami Siap Membantu Perjalanan Anda",
-    "description": "Hubungi tim Green Hero Darajat untuk informasi kamar, reservasi, fasilitas, maupun kebutuhan selama menginap.",
+    "description": "Hubungi tim Hotel Darajat Pass untuk informasi kamar, reservasi, fasilitas, maupun kebutuhan selama menginap.",
     "imageAlt": "Panorama pegunungan hijau di kawasan Darajat"
   },
   "cards": {
@@ -17,7 +17,7 @@
     "phone": {
       "title": "Hubungi Hotel",
       "badge": "Front Desk & Hotel",
-      "description": "Berbicara langsung dengan tim reservasi dan front desk Green Hero Darajat.",
+      "description": "Berbicara langsung dengan tim reservasi dan front desk Hotel Darajat Pass.",
       "action": "Telepon Sekarang"
     },
     "email": {
@@ -30,7 +30,7 @@
   "reservation": {
     "eyebrow": "BANTUAN RESERVASI CEPAT",
     "title": "Butuh Bantuan Reservasi?",
-    "description": "Tim kami dapat membantu informasi ketersediaan kamar, detail reservasi, maupun Green Hero Experiences.",
+    "description": "Tim kami dapat membantu informasi ketersediaan kamar, detail reservasi, maupun Darajat Pass Experiences.",
     "chatAction": "Chat Reservasi",
     "checkAction": "Cek Reservasi",
     "topicsLabel": "Topik Populer:"
@@ -67,13 +67,13 @@
       "requiredMark": "*"
     },
     "submit": "Kirim Pesan",
-    "topicPrefill": "Halo Green Hero Darajat, saya ingin bertanya mengenai {topic}.",
+    "topicPrefill": "Halo Hotel Darajat Pass, saya ingin bertanya mengenai {topic}.",
     "status": "Simulasi selesai. Pesan belum dikirim karena ini adalah demo. Hubungi tim hotel melalui WhatsApp, telepon, atau email untuk bantuan langsung."
   },
   "service": {
     "eyebrow": "OPERASIONAL RESORT",
     "title": "Informasi Layanan & Operasional",
-    "description": "Green Hero Darajat berkomitmen memberikan pelayanan prima bagi kenyamanan liburan Anda dan keluarga di kawasan Darajat Pass.",
+    "description": "Hotel Darajat Pass berkomitmen memberikan pelayanan prima bagi kenyamanan liburan Anda dan keluarga di kawasan Darajat Pass.",
     "frontDesk": {
       "title": "Layanan Meja Depan (Front Desk)",
       "detail": "24 Jam Setiap Hari tanpa henti"
@@ -95,14 +95,14 @@
       "detail": "Respons aktif 24 Jam siap membantu perjalanan"
     },
     "quote": "“Kenyamanan udara pegunungan Garut berpadu dengan kehangatan air panas alami.”",
-    "quoteCite": "— GREEN HERO DARAJAT HOSPITALITY"
+    "quoteCite": "— HOTEL DARAJAT PASS"
   },
   "location": {
     "eyebrow": "PANDUAN RUTE & LOKASI",
     "title": "Temukan Kami di Darajat",
     "description": "Terletak strategis di kawasan wisata pegunungan Darajat Pass, Garut, dengan akses jalan beraspal mulus dan udara sejuk pegunungan.",
     "altitude": "1.600 – 1.800 mdpl",
-    "name": "Green Hero Darajat",
+    "name": "Hotel Darajat Pass",
     "addressLabel": "ALAMAT RESMI",
     "areaLabel": "KETERANGAN KAWASAN",
     "areaDescription": "Berada di kawasan dataran tinggi Darajat Pass dengan pemandangan pegunungan dan perkebunan teh yang menghampar asri. Berdekatan dengan kawah aktif dan sumber air panas vulkanik alami Garut.",
@@ -119,7 +119,7 @@
   "booking": {
     "eyebrow": "RESERVASI MUDAH & LANGSUNG",
     "title": "Sudah Siap Menginap?",
-    "description": "Pilih tanggal perjalanan dan temukan kamar yang tersedia di Green Hero Darajat. Rasakan kehangatan sumber air panas di tengah sejuknya pegunungan.",
+    "description": "Pilih tanggal perjalanan dan temukan kamar yang tersedia di Hotel Darajat Pass. Rasakan kehangatan sumber air panas di tengah sejuknya pegunungan.",
     "bookNow": "Pesan Sekarang",
     "viewRooms": "Lihat Kamar"
   },
@@ -140,7 +140,7 @@
     "experienceAnniversary": "Anniversary Setup",
     "contactTitle": "Kontak & Lokasi",
     "conciergeLabel": "WhatsApp Concierge 24 Jam: {whatsapp}",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
+    "copyright": "© 2026 Hotel Darajat Pass. Seluruh Hak Cipta Dilindungi.",
     "sitemap": "Peta Situs"
   }
 }

@@ -83,7 +83,7 @@
       }
     },
     "experiences": {
-      "heading": "Green Hero Experiences",
+      "heading": "Darajat Pass Experiences",
       "description": "Selected add-on services for the comfort of your holiday in Pasirwangi.",
       "countBadge": "2 Packages",
       "dynamicCount": "{count} Packages",
@@ -135,12 +135,12 @@
   },
   "help": {
     "title": "Need Reservation Help?",
-    "description": "The Green Hero Darajat team is ready to assist if you have trouble checking, rescheduling, or confirming a payment transfer.",
+    "description": "The Hotel Darajat Pass team is ready to assist if you have trouble checking, rescheduling, or confirming a payment transfer.",
     "action": "Contact Us via WhatsApp"
   },
   "voucher": {
     "pageTitle": "Demo Voucher {code}",
-    "brand": "Green Hero Darajat",
+    "brand": "Hotel Darajat Pass",
     "heading": "Demo E-Voucher & Reservation Proof",
     "disclaimer": "DEMO SIMULATION — not a valid stay voucher or transaction proof.",
     "codeLabel": "Code:",
@@ -180,7 +180,7 @@
     "hoursRestaurantLabel": "Restaurant & Grill:",
     "hoursRestaurantValue": "06:00 – 22:00 WIB",
     "hoursTemperature": "Average temperature: 17°C – 22°C (Cool)",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
+    "copyright": "© 2026 Hotel Darajat Pass. All Rights Reserved.",
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy"
   }

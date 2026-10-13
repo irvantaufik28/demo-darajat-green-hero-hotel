@@ -14,13 +14,13 @@
       "backToRooms": "Back to rooms",
       "previewNotice": "Your room total is up to date. Add-ons are temporarily unavailable.",
       "roomNightLine": "{count} Rooms × {nights} Nights",
-      "footer": "© 2026 Green Hero Darajat Hotel & Resort.",
+      "footer": "© 2026 Darajat Pass.",
       "trust": "Your room total is checked again before moving to guest details."
     },
     "intro": {
       "eyebrow": "ADD-ONS",
-      "title": "Complete Your Stay Experience",
-      "description": "Add options to suit your needs during your stay in the cool Darajat area. All add-ons are optional and can be skipped to the next step."
+      "title": "Add what you need",
+      "description": "Choose room essentials, dining, or special requests for your stay at Darajat Pass. You can also skip this step."
     },
     "stayBanner": {
       "roomSelection": "Room Selection",
@@ -30,20 +30,20 @@
       "changeRoom": "Change Room"
     },
     "food": {
-      "badge": "FOOD & GRILL",
-      "title": "Enjoy Time Together in the Cool Air of Darajat",
-      "description": "Enjoy warm dishes right on the resort terrace while taking in the misty panorama of the Garut highlands with your beloved family.",
-      "heroAlt": "Dining together on the Green Hero Darajat resort terrace",
+      "badge": "DINING",
+      "title": "Meals to share during your stay",
+      "description": "Choose an available dining package for your time together at Darajat Pass.",
+      "heroAlt": "Open-air dining in the Darajat highlands",
       "added": "Added",
       "priceFrom": "Starting from",
       "perPackage": "/ package",
       "changePackage": "Change Package",
       "selectPackage": "Select Package",
-      "note": "Dining options are prepared fresh directly by the resort kitchen team."
+      "note": "Packages and prices follow the catalogue available for your stay dates."
     },
     "roomAddons": {
-      "badge": "ROOM ADD-ONS",
-      "title": "Add-ons for Room Comfort",
+      "badge": "ROOM ESSENTIALS",
+      "title": "Additions for your stay",
       "items": {
         "extraBed": {
           "name": "Extra Bed",
@@ -78,8 +78,8 @@
       "submit": "Request"
     },
     "moments": {
-      "badge": "SPECIAL MOMENTS",
-      "title": "Make Your Stay More Memorable",
+      "badge": "EVENT PACKAGES",
+      "title": "Plan a moment during your stay",
       "selected": "Selected",
       "priceLabel": "Package price",
       "priceFrom": "Starting from",
@@ -90,11 +90,11 @@
     "requests": {
       "badge": "ADDITIONAL REQUESTS",
       "title": "Requests During Your Stay",
-      "description": "Note: Special requests are not guaranteed instantly and depend on room availability at check-in.",
+      "description": "The hotel team will review special requests, subject to availability at check-in.",
       "earlyCheckIn": "Early Check-in",
       "lateCheckOut": "Late Check-out",
       "requestSubmitted": "Request submitted",
-      "statusByRequest": "Status: By Request",
+      "statusByRequest": "Awaiting hotel confirmation",
       "cancel": "Cancel",
       "submitRequest": "Submit Request",
       "noteLabel": "Special Note (Optional)",
@@ -112,7 +112,7 @@
       "countUnit": "({count}x)",
       "noPaidOptions": "No paid options yet.",
       "otherRequests": "Other requests are confirmed by hotel staff.",
-      "estimatedTotal": "Preliminary Estimated Total",
+      "estimatedTotal": "Estimated Total",
       "taxIncluded": "Includes tax & service",
       "continue": "Continue to Guest Details",
       "skip": "Skip Add-ons",
@@ -125,29 +125,29 @@
       "expiredTitle": "Room selection is no longer available",
       "expiredDescription": "Please select your rooms again to continue.",
       "backToRooms": "Back to rooms",
-      "description": "Enter the booking contact details. Your room price is based on the latest availability check.",
+      "description": "Enter the booking contact details to continue. Your room price is based on the latest availability check.",
       "security": "Your details are saved in this browser for the next step. No reservation has been created yet.",
       "save": "Continue to Payment",
       "saved": "Guest details saved.",
       "saveError": "Unable to save your details in this browser. Please try again.",
       "totalNote": "Room total from the latest quote. Final charges are confirmed at checkout.",
       "policyNote": "Your reservation is created when you select Pay Now in the next step.",
-      "footer": "© 2026 Green Hero Darajat Hotel & Resort."
+      "footer": "© 2026 Darajat Pass."
     },
     "intro": {
       "eyebrow": "GUEST DETAILS",
-      "title": "Complete the Booker's Details",
-      "description": "Dummy booker data is pre-filled for the demo. You can edit the data before continuing; the data is not yet sent to the server."
+      "title": "Booker details",
+      "description": "Review the contact details before continuing. In demo mode, you can edit the sample data and it has not been sent to the server."
     },
     "form": {
-      "title": "Main Booking Contact",
-      "description": "This data is used to contact the booker and prepare the stay information.",
+      "title": "Reservation contact",
+      "description": "The hotel uses these details to contact the booker and share stay information.",
       "fullNameLabel": "Full Name",
       "fullNameHint": "As on ID Card / Passport",
       "fullNamePlaceholder": "Name as on identity (ID Card / Passport)",
       "fullNameNote": "The name registered during check-in at the reception.",
       "nationalityLabel": "Nationality",
-      "nationalityHint": "WhatsApp Country Code",
+      "nationalityHint": "Sets the WhatsApp code",
       "whatsappLabel": "WhatsApp Number",
       "whatsappHint": "Active on WhatsApp",
       "whatsappTitle": "Enter 6–14 digits without a country code or a leading 0",
@@ -160,16 +160,16 @@
       "backLink": "Back to Add-ons"
     },
     "resortNote": {
-      "imageAlt": "Green Hero Darajat mountain resort atmosphere",
-      "brand": "GREEN HERO DARAJAT",
-      "text": "Rest in the cool mountain air of Garut with a warm atmosphere for the family."
+      "imageAlt": "Bungalows in the Darajat Pass highlands",
+      "brand": "DARAJAT PASS",
+      "text": "Family accommodation in the Darajat highlands with access to the hot-spring recreation area."
     },
     "summary": {
       "ariaLabel": "Booking summary",
       "title": "Booking Summary",
       "step": "Step 3 of 4",
       "roomLine": "{count} Rooms ({nights} Nights)",
-      "brand": "Green Hero Darajat",
+      "brand": "Darajat Pass",
       "change": "Edit",
       "checkIn": "Check-in",
       "checkInTime": "From 14:00",
@@ -189,15 +189,15 @@
       "policyNote": "The final price and terms will be verified by the hotel before payment becomes available."
     },
     "footer": {
-      "about": "A family-friendly hotel & resort in the Darajat highlands, Garut.",
+      "about": "Family accommodation and hot springs in the Garut highlands.",
       "exploreTitle": "Explore",
       "exploreHome": "Home",
       "exploreRooms": "Rooms & Suites",
       "exploreFacilities": "Facilities",
       "contactTitle": "Contact & Support",
       "contactAddress": "Jl. Raya Darajat KM 14, Pasirwangi, Garut",
-      "contactEmail": "halo@greenherodarajat.com",
-      "bottom": "© 2026 Green Hero Darajat Hotel & Resort. · Frontend demo"
+      "contactEmail": "darajatpass.com",
+      "bottom": "© 2026 Darajat Pass · Demo concept"
     }
   },
   "payment": {
@@ -206,11 +206,11 @@
       "missingTitle": "Booking details are incomplete",
       "missingDescription": "Please select rooms and complete your guest details again.",
       "quoteError": "The latest price could not be checked. Please reload this page.",
-      "description": "Review your booking total before continuing to Xendit checkout.",
+      "description": "Review your booking total before completing the payment simulation.",
       "methodTitle": "Payment Methods",
-      "methodDescription": "Choose your payment method on the Xendit checkout page.",
-      "methodNoticeTitle": "Choose a method on Xendit",
-      "methodNotice": "Select Pay Now to see the available methods and complete your payment securely on Xendit.",
+      "methodDescription": "This page uses a payment simulation for demonstration purposes.",
+      "methodNoticeTitle": "Demo mode is active",
+      "methodNotice": "No transaction or reservation is sent to Xendit. The pay button opens the demo success page directly.",
       "policyTitle": "Cancellation Policy",
       "policyDescription": "The applicable policy is selected automatically for your stay dates and room type.",
       "policyRoom": "Room {number}",
@@ -225,17 +225,19 @@
       "policyNoShowFullStay": "full stay",
       "policyUnavailable": "Cancellation policies could not be loaded. Reload this page and try again.",
       "secureTitle": "Secure Checkout",
-      "secureDetail": "Payment is processed by Xendit",
-      "statusTitle": "Automatic Status",
-      "statusDetail": "Status updates after payment confirmation",
+      "secureDetail": "No real transaction is made",
+      "statusTitle": "Instant Simulation",
+      "statusDetail": "Continues directly to demo success",
       "guestTitle": "Booker Email",
-      "timerBefore": "Payment time starts when your reservation is created.",
+      "timerBefore": "No payment is processed and no reservation is created.",
+      "demoBadge": "DEMO MODE",
       "timerActive": "Complete payment before your reservation expires.",
       "ready": "READY TO PAY",
-      "totalNote": "The API confirms the final total when your reservation is created.",
+      "totalNote": "This total is shown for simulation and will not be charged.",
       "payNow": "Pay Now",
       "processing": "Preparing payment...",
-      "payCaption": "You will be redirected to Xendit checkout.",
+      "demoProcessing": "Processing demo...",
+      "payCaption": "No real transaction. You will continue directly to the demo success page.",
       "verificationTitle": "Payment is being verified",
       "verificationDescription": "Do not pay again. The hotel system checks your payment status automatically.",
       "verificationPending": "Payment confirmation from Xendit has not arrived yet. Please wait on this page.",
@@ -321,12 +323,17 @@
       "supportAction": "Contact Hotel",
       "statusTitle": "Checking Status",
       "statusDescription": "Do not pay again while your payment status is being verified.",
-      "contactSupport": "Share your booking code with hotel staff to check your payment."
+      "contactSupport": "Share your booking code with hotel staff to check your payment.",
+      "demoProvider": "Demo Mode",
+      "demoDownloadTitle": "Feature not available",
+      "demoVoucherDescription": "The e-voucher is not available in demo mode. No document was downloaded.",
+      "demoReceiptDescription": "The payment receipt is not available in demo mode. No document was downloaded.",
+      "demoDownloadClose": "Close"
     },
     "intro": {
       "eyebrow": "RESERVATION PAYMENT",
-      "title": "Complete Payment",
-      "description": "Choose a payment method to review your Green Hero Darajat reservation. Payment is not yet active on this demo page."
+      "title": "Review and pay for your booking",
+      "description": "Review your Darajat Pass booking before continuing. In demo mode, no payment is processed."
     },
     "method": {
       "title": "Choose Payment Method",
@@ -400,16 +407,16 @@
       "methodFallback": "Payment method"
     },
     "footer": {
-      "about": "A highland retreat resort in the Darajat area, Garut. Enjoy mountain panoramas and natural hot springs with your family.",
+      "about": "Family accommodation and hot springs in the Garut highlands.",
       "exploreTitle": "Explore",
       "exploreHome": "Home",
       "exploreRooms": "Rooms & Suites",
       "exploreFacilities": "Facilities",
       "contactTitle": "Contact",
       "contactAddress": "Jl. Raya Darajat KM 14, Pasirwangi, Garut",
-      "contactEmail": "halo@greenherodarajat.com",
-      "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
-      "demoNote": "Frontend demo · Payment not yet active"
+      "contactEmail": "darajatpass.com",
+      "copyright": "© 2026 Darajat Pass.",
+      "demoNote": "Demo concept by Setaraworks"
     }
   },
   "instructions": {
@@ -430,7 +437,7 @@
       "vaLabel": "Virtual Account Number",
       "copyVa": "Copy VA Number",
       "accountNameLabel": "Reservation Account Name",
-      "accountNameValue": "Green Hero Darajat — {name}",
+      "accountNameValue": "Hotel Darajat Pass — {name}",
       "accountNameFallback": "Booker Name",
       "totalLabel": "Total Payment",
       "copyAmountAriaLabel": "Copy payment amount",
@@ -481,7 +488,7 @@
     },
     "summary": {
       "title": "Reservation Summary",
-      "brand": "Green Hero Darajat",
+      "brand": "Hotel Darajat Pass",
       "roomValue": "{count} Rooms • {nights} Nights",
       "guestFilled": "{name} ({whatsapp})",
       "guestEmpty": "Booker data not yet filled in",
@@ -524,7 +531,7 @@
       "helpContact": "Contact Us",
       "helpFaq": "FAQ & Help",
       "helpPaymentMethods": "Payment Methods",
-      "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+      "copyright": "© 2026 Hotel Darajat Pass.",
       "demoNote": "Frontend demo · Payment not yet active"
     }
   },
@@ -540,7 +547,7 @@
     "helpContact": "Contact & Support",
     "helpPrivacy": "Privacy Policy",
     "helpFaq": "F.A.Q.",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort.",
+    "copyright": "© 2026 Hotel Darajat Pass.",
     "backToRooms": "Back to Rooms & Suites"
   },
   "foodModal": {
@@ -556,7 +563,7 @@
     "selectedCount": "{count} packages selected",
     "cancel": "Cancel",
     "save": "Save Selection",
-    "grilledChickenAlt": "Dining together atmosphere at Green Hero",
+    "grilledChickenAlt": "Dining together atmosphere at Darajat Pass",
     "sideDish": "Side dish"
   },
   "celebrationModal": {

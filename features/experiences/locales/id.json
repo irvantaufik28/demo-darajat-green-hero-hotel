@@ -2,7 +2,7 @@
   "common": {
     "breadcrumbHome": "Home",
     "breadcrumbExperiences": "Experiences",
-    "experiencesBadge": "GREEN HERO EXPERIENCES",
+    "experiencesBadge": "DARAJAT PASS EXPERIENCES",
     "popularBadge": "Paling Populer",
     "inclusionsLabel": "Termasuk Dalam Paket:",
     "pricePerPackage": "/ paket",
@@ -17,7 +17,7 @@
     "breadcrumbCurrent": "BBQ & Grill",
     "hero": {
       "title": "BBQ & Grill di Tengah Udara Sejuk Darajat",
-      "description": "Nikmati waktu bersama keluarga dan teman dengan pilihan grill yang disiapkan untuk melengkapi pengalaman menginap di Green Hero Darajat.",
+      "description": "Nikmati waktu bersama keluarga dan teman dengan pilihan grill yang disiapkan untuk melengkapi pengalaman menginap di Hotel Darajat Pass.",
       "selectPackage": "Pilih Paket",
       "checkAvailability": "Cek Ketersediaan",
       "imageAlt": "Keluarga menikmati BBQ outdoor di area pegunungan Darajat"
@@ -25,11 +25,11 @@
     "editorial": {
       "eyebrow": "HIGHLAND DINING EXPERIENCE",
       "title": "Lebih Hangat Saat Dinikmati Bersama",
-      "description": "Dari makan malam keluarga hingga gathering kecil, BBQ & Grill Green Hero menghadirkan pengalaman santap yang santai di suasana dataran tinggi Darajat. Hangatnya bara api menyempurnakan malam pegunungan Anda.",
+      "description": "Dari makan malam keluarga hingga gathering kecil, BBQ & Grill Darajat Pass menghadirkan pengalaman santap yang santai di suasana dataran tinggi Darajat. Hangatnya bara api menyempurnakan malam pegunungan Anda.",
       "chipTitle": "Outdoor Highland Deck",
       "chipSubtitle": "Pemandangan perbukitan Darajat & kabut sore",
       "link": "Lihat Pilihan Paket",
-      "photoAlt": "Bahan grill segar di atas panggangan arang Green Hero Darajat",
+      "photoAlt": "Bahan grill segar di atas panggangan arang Hotel Darajat Pass",
       "highlights": {
         "family": {
           "title": "Untuk Keluarga & Gathering",
@@ -48,12 +48,12 @@
     "packages": {
       "eyebrow": "PILIHAN PAKET",
       "title": "Pilih Paket Sesuai Jumlah Tamu",
-      "description": "Pilihan paket dapat disesuaikan dengan kebutuhan keluarga maupun kelompok selama menginap di Green Hero Darajat.",
+      "description": "Pilihan paket dapat disesuaikan dengan kebutuhan keluarga maupun kelompok selama menginap di Hotel Darajat Pass.",
       "priceLabel": "Harga Estimasi",
       "tagHighland": "Porsi Santai",
       "tagFamily": "Favorit Keluarga",
       "tagGrand": "Porsi Besar",
-      "note": "Harga pada halaman ini dapat berubah mengikuti pilihan bahan, jumlah tamu, dan kebutuhan acara. Ketersediaan paket mengikuti jadwal reservasi villa/kamar Anda di Green Hero Darajat."
+      "note": "Harga pada halaman ini dapat berubah mengikuti pilihan bahan, jumlah tamu, dan kebutuhan acara. Ketersediaan paket mengikuti jadwal reservasi villa/kamar Anda di Hotel Darajat Pass."
     },
     "ingredients": {
       "eyebrow": "BAHAN & OLAHAN",
@@ -100,7 +100,7 @@
     "howTo": {
       "eyebrow": "PROSES SEDERHANA",
       "title": "Langkah Pemesanan BBQ",
-      "description": "BBQ & Grill dapat ditambahkan saat proses booking sebagai bagian dari pengalaman eksklusif Green Hero Experiences.",
+      "description": "BBQ & Grill dapat ditambahkan saat proses booking sebagai bagian dari pengalaman eksklusif Darajat Pass Experiences.",
       "steps": {
         "selectPackage": {
           "title": "Pilih Paket",
@@ -131,12 +131,12 @@
       "description": "Sajian ayam kampung bakar dengan cita rasa khas Indonesia, disiapkan untuk melengkapi waktu bersama keluarga di sejuknya Darajat.",
       "selectPackage": "Pilih Paket",
       "checkAvailability": "Cek Ketersediaan",
-      "imageAlt": "Keluarga menikmati Ayam Bakar Kampung di teras outdoor Green Hero Darajat"
+      "imageAlt": "Keluarga menikmati Ayam Bakar Kampung di teras outdoor Hotel Darajat Pass"
     },
     "editorial": {
       "eyebrow": "CITA RASA NUSANTARA",
       "title": "Hangat, Sederhana, dan Nikmat Bersama",
-      "description": "Ayam Bakar Kampung Green Hero menghadirkan sajian yang familiar untuk makan bersama keluarga, gathering, dan momen santai selama menginap di dataran tinggi Pasirwangi.",
+      "description": "Ayam Bakar Kampung Darajat Pass menghadirkan sajian yang familiar untuk makan bersama keluarga, gathering, dan momen santai selama menginap di dataran tinggi Pasirwangi.",
       "chip": "Kuliner Tradisi Dataran Tinggi — Gurih Manis Bumbu Rempah",
       "photoAlt": "Ayam bakar kampung dengan lalapan dan sambal tradisional",
       "highlights": {
@@ -157,9 +157,9 @@
     "packages": {
       "eyebrow": "PILIHAN PAKET",
       "title": "Pilih Paket Sesuai Jumlah Tamu",
-      "description": "Pilihan paket dapat disesuaikan dengan kebutuhan keluarga maupun kelompok selama menginap di Green Hero Darajat.",
+      "description": "Pilihan paket dapat disesuaikan dengan kebutuhan keluarga maupun kelompok selama menginap di Hotel Darajat Pass.",
       "popularBadge": "PALING POPULER",
-      "note": "Harga dapat berubah mengikuti jumlah tamu, pilihan menu pendamping, dan kebutuhan penyajian. Ketersediaan paket mengikuti reservasi kamar atau villa di Green Hero Darajat."
+      "note": "Harga dapat berubah mengikuti jumlah tamu, pilihan menu pendamping, dan kebutuhan penyajian. Ketersediaan paket mengikuti reservasi kamar atau villa di Hotel Darajat Pass."
     },
     "pendamping": {
       "eyebrow": "KOMPOSISI SAJIAN MEJA",
@@ -235,7 +235,7 @@
       }
     },
     "cta": {
-      "title": "Nikmati Makan Bersama di Green Hero",
+      "title": "Nikmati Makan Bersama di Darajat Pass",
       "description": "Pilih kamar dan tambahkan Ayam Bakar Kampung sebagai bagian dari pengalaman menginap Anda di kesejukan alam Darajat.",
       "bookRoom": "Pesan Kamar Sekarang",
       "viewOther": "Lihat Experiences Lainnya"
@@ -245,15 +245,15 @@
     "breadcrumbCurrent": "Roast Goat",
     "hero": {
       "title": "Kambing Guling untuk Momen Bersama",
-      "description": "Nikmati sajian kambing guling hangat untuk melengkapi waktu bersama keluarga, sahabat, maupun acara spesial selama berada di Green Hero Darajat.",
+      "description": "Nikmati sajian kambing guling hangat untuk melengkapi waktu bersama keluarga, sahabat, maupun acara spesial selama berada di Hotel Darajat Pass.",
       "selectPackage": "Pilih Paket",
       "askAvailability": "Tanya Ketersediaan",
-      "imageAlt": "Kambing guling hangat disajikan di area outdoor Green Hero Darajat"
+      "imageAlt": "Kambing guling hangat disajikan di area outdoor Hotel Darajat Pass"
     },
     "editorial": {
       "eyebrow": "KEHANGATAN TRADISI DATARAN TINGGI",
       "title": "Sajian Hangat untuk Momen Spesial",
-      "description": "Mulai dari makan bersama keluarga hingga perayaan kecil, Kambing Guling Green Hero dapat ditambahkan sebagai pengalaman khusus selama menginap.",
+      "description": "Mulai dari makan bersama keluarga hingga perayaan kecil, Kambing Guling Darajat Pass dapat ditambahkan sebagai pengalaman khusus selama menginap.",
       "chip": "Tradisi Kuliner Resor",
       "photoAlt": "Kambing guling disajikan dengan perlengkapan tradisional khas Sunda",
       "features": {
@@ -284,7 +284,7 @@
       "eyebrow": "THE EXPERIENCE",
       "title": "Bukan Hanya Menu Tambahan",
       "description": "Jadikan makan bersama sebagai bagian dari pengalaman menginap. Paket dapat disiapkan untuk keluarga, gathering, ulang tahun, atau momen spesial lainnya di tengah hawa dingin pegunungan Darajat.",
-      "photoAlt": "Keluarga menikmati santap bersama di area outdoor Green Hero Darajat",
+      "photoAlt": "Keluarga menikmati santap bersama di area outdoor Hotel Darajat Pass",
       "moments": {
         "familyDinner": "Family Dinner",
         "gathering": "Gathering",
@@ -295,7 +295,7 @@
     "howTo": {
       "eyebrow": "LANGKAH SEDERHANA",
       "title": "Cara Pemesanan",
-      "description": "Green Hero Experiences dapat ditambahkan secara fleksibel selama proses booking kamar berlangsung.",
+      "description": "Darajat Pass Experiences dapat ditambahkan secara fleksibel selama proses booking kamar berlangsung.",
       "steps": {
         "selectPackage": {
           "title": "Pilih Paket",
@@ -323,19 +323,19 @@
     "breadcrumbCurrent": "Birthday Celebration",
     "hero": {
       "title": "Rayakan Momen Spesial di Sejuknya Darajat",
-      "description": "Lengkapi waktu menginap Anda dengan perayaan ulang tahun yang hangat, sederhana, dan berkesan di Green Hero Darajat.",
+      "description": "Lengkapi waktu menginap Anda dengan perayaan ulang tahun yang hangat, sederhana, dan berkesan di Hotel Darajat Pass.",
       "selectPackage": "Pilih Paket",
       "askAvailability": "Tanya Ketersediaan",
-      "imageAlt": "Keluarga merayakan ulang tahun di teras outdoor Green Hero Darajat"
+      "imageAlt": "Keluarga merayakan ulang tahun di teras outdoor Hotel Darajat Pass"
     },
     "editorial": {
       "eyebrow": "INTIMATE HIGHLAND CELEBRATION",
       "title": "Perayaan yang Hangat dan Berkesan",
-      "description": "Mulai dari surprise sederhana di kamar hingga perayaan keluarga yang lebih lengkap, Birthday Celebration Green Hero dirancang untuk menghadirkan suasana yang nyaman dan menyenangkan.",
+      "description": "Mulai dari surprise sederhana di kamar hingga perayaan keluarga yang lebih lengkap, Birthday Celebration Darajat Pass dirancang untuk menghadirkan suasana yang nyaman dan menyenangkan.",
       "chipLabel": "Atmosphere",
       "chipTitle": "Tenang & Hangat di Dataran Tinggi",
       "link": "Lihat Pilihan Paket",
-      "photoAlt": "Kamar birthday yang hangat dengan dekorasi natural di Green Hero Darajat",
+      "photoAlt": "Kamar birthday yang hangat dengan dekorasi natural di Hotel Darajat Pass",
       "highlights": {
         "family": {
           "title": "Cocok untuk Keluarga",
@@ -354,17 +354,17 @@
     "packages": {
       "eyebrow": "PILIHAN PAKET",
       "title": "Pilih Paket Sesuai Momen Anda",
-      "description": "Paket dirancang untuk memberikan pengalaman perayaan yang sederhana hingga lebih lengkap, tetap selaras dengan suasana Green Hero Darajat.",
+      "description": "Paket dirancang untuk memberikan pengalaman perayaan yang sederhana hingga lebih lengkap, tetap selaras dengan suasana Hotel Darajat Pass.",
       "priceLabel": "Mulai Dari",
       "inclusionsLabel": "Termasuk dalam paket:",
       "note": "Harga dapat berubah mengikuti jumlah tamu, kebutuhan dekorasi, dan lokasi setup. Ketersediaan paket mengikuti reservasi dan operasional hotel."
     },
     "style": {
       "eyebrow": "HARMONIOUS RESORT AESTHETIC",
-      "title": "Nuansa Perayaan yang Selaras dengan Green Hero",
+      "title": "Nuansa Perayaan yang Selaras dengan Darajat Pass",
       "description": "Perayaan dirancang tetap hangat, natural, dan nyaman, menggunakan pendekatan dekorasi yang tidak berlebihan agar selaras dengan suasana pegunungan Darajat.",
       "photoLabel": "Organic Minimalist Details",
-      "photoAlt": "Kue ulang tahun dan dekorasi bunga di kamar Green Hero Darajat",
+      "photoAlt": "Kue ulang tahun dan dekorasi bunga di kamar Hotel Darajat Pass",
       "items": {
         "lighting": {
           "title": "Warm Lighting",
@@ -435,26 +435,26 @@
     "cta": {
       "eyebrow": "MAKE IT MEMORABLE",
       "title": "Buat Momen Menginap Lebih Berkesan",
-      "description": "Pilih kamar dan tambahkan Birthday Celebration sebagai bagian dari pengalaman menginap Anda di Green Hero Darajat.",
+      "description": "Pilih kamar dan tambahkan Birthday Celebration sebagai bagian dari pengalaman menginap Anda di Hotel Darajat Pass.",
       "bookRoom": "Pesan Kamar",
       "viewOther": "Lihat Experiences Lainnya"
     }
   },
   "anniversarySetup": {
-    "badge": "Green Hero Experiences",
+    "badge": "Darajat Pass Experiences",
     "hero": {
       "title": "Rayakan Perjalanan Kalian di Sejuknya Darajat",
-      "description": "Waktu berdua terasa lebih istimewa dengan suasana hangat, dekorasi yang personal, dan ketenangan dataran tinggi Green Hero Darajat.",
+      "description": "Waktu berdua terasa lebih istimewa dengan suasana hangat, dekorasi yang personal, dan ketenangan dataran tinggi Hotel Darajat Pass.",
       "selectPackage": "Pilih Paket",
       "askAvailability": "Tanya Ketersediaan",
-      "imageAlt": "Meja makan malam romantis dengan cahaya lilin di area terbuka Green Hero Darajat"
+      "imageAlt": "Meja makan malam romantis dengan cahaya lilin di area terbuka Hotel Darajat Pass"
     },
     "intro": {
       "eyebrow": "A Moment for Two",
       "title": "Momen yang Lebih Personal untuk Dirayakan Bersama",
       "link": "Lihat Pilihan Paket",
       "photoCaption": "Intimate Highland Suite — Suasana Hangat Berdua",
-      "photoAlt": "Kamar Green Hero Darajat dengan dekorasi bunga dan handuk berbentuk hati untuk anniversary",
+      "photoAlt": "Kamar Hotel Darajat Pass dengan dekorasi bunga dan handuk berbentuk hati untuk anniversary",
       "highlights": {
         "forTwo": {
           "title": "Dirancang untuk Berdua",
@@ -473,7 +473,7 @@
     "packages": {
       "eyebrow": "Pilihan Paket",
       "title": "Pilih Cara Merayakan Momen Kalian",
-      "description": "Tiga pilihan pengalaman untuk melengkapi waktu berdua selama menginap di Green Hero Darajat.",
+      "description": "Tiga pilihan pengalaman untuk melengkapi waktu berdua selama menginap di Hotel Darajat Pass.",
       "popularBadge": "Paling Populer",
       "pricePerPackage": "/ paket",
       "note": "Harga pada prototype dapat berubah mengikuti kebutuhan dekorasi, pilihan dining, dan detail personalisasi. Ketersediaan paket mengikuti reservasi dan operasional hotel."
@@ -500,8 +500,8 @@
     },
     "style": {
       "eyebrow": "Harmoni dengan Alam",
-      "title": "Nuansa yang Selaras dengan Green Hero",
-      "description": "Dekorasi menggunakan pendekatan yang natural dan tenang agar tetap selaras dengan suasana pegunungan dan karakter Green Hero Darajat.",
+      "title": "Nuansa yang Selaras dengan Darajat Pass",
+      "description": "Dekorasi menggunakan pendekatan yang natural dan tenang agar tetap selaras dengan suasana pegunungan dan karakter Hotel Darajat Pass.",
       "items": {
         "candlelight": {
           "title": "Warm Candlelight & Fairy Lights",
@@ -590,7 +590,7 @@
     },
     "cta": {
       "title": "Buat Waktu Berdua Lebih Berkesan",
-      "description": "Pilih kamar dan tambahkan Anniversary Setup sebagai bagian dari pengalaman menginap Anda di Green Hero Darajat.",
+      "description": "Pilih kamar dan tambahkan Anniversary Setup sebagai bagian dari pengalaman menginap Anda di Hotel Darajat Pass.",
       "bookRoom": "Pesan Kamar Sekarang",
       "viewOther": "Lihat Experiences Lainnya"
     }

@@ -13,15 +13,13 @@ import {
   Clock3,
   Coffee,
   Heart,
-  MapPin,
   Plus,
   ShieldCheck,
   Trash2,
   UsersRound,
   UtensilsCrossed,
 } from "lucide-react";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
-import { Brand } from "@/components/Brand";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
 import { BOOKING_DRAFT_KEY, bookingExtraPrices, bookingExtraLabels, normalizeExtraCounts, type PaidExtraId, type BookingDraft, getExtraCost, getNights } from "@/features/booking/constants/booking-data";
@@ -208,14 +206,14 @@ function DemoBookingExtrasPage({ roomId, roomSelection, initialCheckIn, initialC
   }
 
   return (
-    <div className="booking-page booking-extras-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="#booking-summary" contactHref="/contact" />
+    <div className="dp-home booking-page booking-extras-page">
+      <DarajatHeader interior solid bookingHref="#booking-summary" />
       <main className="container booking-main">
         <nav className="booking-progress" aria-label={t("progress.ariaLabel")}>
           {["progress.selectRoom", "progress.addOns", "progress.guestDetails", "progress.payment"].map((label, index) => <div className={`booking-step${index === 1 ? " is-current" : ""}${index === 0 ? " is-complete" : ""}`} key={label}><span className="booking-step-circle">{index === 0 ? <Check size={18} /> : index + 1}</span><span>{t(label)}</span></div>)}
         </nav>
 
-        <div className="booking-intro"><span className="booking-eyebrow">{t("extras.intro.eyebrow")}</span><h1>{t("extras.intro.title")}</h1><p>{t("extras.intro.description")}</p></div>
+        <div className="booking-intro"><h1>{t("extras.intro.title")}</h1><p>{t("extras.intro.description")}</p></div>
         {liveMode && <div className="booking-live-notice" role="status">{t("extras.live.previewNotice")}</div>}
 
         <div className="booking-layout">
@@ -251,7 +249,7 @@ function DemoBookingExtrasPage({ roomId, roomSelection, initialCheckIn, initialC
       </main>
       {activeCelebrationCategory && <CelebrationPackageModal key={activeCelebrationCategory.id} category={activeCelebrationCategory} counts={counts} onClose={() => setActiveCelebrationCategory(null)} onSave={(selection) => { setCounts((previous) => normalizeExtraCounts({ ...previous, ...selection })); setActiveCelebrationCategory(null); }} />}
       {activeFoodCategory && <FoodPackageModal key={activeFoodCategory.id} category={activeFoodCategory} counts={counts} onClose={() => setActiveFoodCategory(null)} onSave={(selection) => { setCounts((previous) => ({ ...previous, ...selection })); setActiveFoodCategory(null); }} />}
-      <footer className="booking-footer theme-footer"><div className="container booking-footer-inner"><div className="booking-footer-grid"><div className="booking-footer-about"><Brand href="/" /><p>{t("footer.about")}</p><span><MapPin size={17} /> {t("footer.address")}</span></div><div><strong>{t("footer.navTitle")}</strong><a href="/">{t("footer.navAbout")}</a><a href="/rooms">{t("footer.navRooms")}</a><a href="/#location">{t("footer.navRouteGuide")}</a><a href="/rooms">{t("footer.navReservationPolicy")}</a></div><div><strong>{t("footer.helpTitle")}</strong><a href="/contact">{t("footer.helpContact")}</a><a href="/contact">{t("footer.helpPrivacy")}</a><a href="/contact">{t("footer.helpFaq")}</a></div></div><div className="booking-footer-bottom"><span>{liveMode ? t("extras.live.footer") : t("footer.copyright")}</span><a href="/rooms">{t("footer.backToRooms")} <ChevronRight size={15} /></a></div></div></footer>
+      <DarajatFooter />
     </div>
   );
 }

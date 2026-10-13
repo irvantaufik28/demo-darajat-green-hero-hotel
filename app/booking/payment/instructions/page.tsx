@@ -7,8 +7,8 @@ import PaymentInstructionsPage from "@/features/booking/pages/PaymentInstruction
 import WebsitePaymentResultPage from "@/features/booking/pages/WebsitePaymentResultPage";
 
 export const metadata: Metadata = {
-  title: "Instruksi Pembayaran | Green Hero Darajat",
-  description: "Instruksi BCA Virtual Account dan ringkasan reservasi Green Hero Darajat.",
+  title: "Instruksi Pembayaran | Hotel Darajat Pass",
+  description: "Instruksi BCA Virtual Account dan ringkasan reservasi Hotel Darajat Pass.",
 };
 
 type PageProps = {

@@ -1,6 +1,6 @@
 {
   "hero": {
-    "ariaLabel": "Selamat datang di Green Hero Darajat",
+    "ariaLabel": "Selamat datang di Hotel Darajat Pass",
     "destinationTitle": "Darajat Garut"
   },
   "booking": {
@@ -25,12 +25,12 @@
     }
   },
   "welcome": {
-    "eyebrow": "WELCOME TO GREEN HERO",
+    "eyebrow": "SELAMAT DATANG DI DARAJAT PASS",
     "title": "Tempat Beristirahat di Udara Sejuk Darajat",
-    "description": "Green Hero Darajat menawarkan pengalaman menginap yang nyaman untuk keluarga dengan suasana pegunungan dan fasilitas yang mendukung liburan santai. Berada tepat di kawasan dataran tinggi Garut, udara segar dan panorama alam menjadi teman terbaik istirahat Anda.",
+    "description": "Hotel Darajat Pass menawarkan pengalaman menginap yang nyaman untuk keluarga dengan suasana pegunungan dan fasilitas yang mendukung liburan santai. Berada tepat di kawasan dataran tinggi Garut, udara segar dan panorama alam menjadi teman terbaik istirahat Anda.",
     "badgeTitle": "Family Friendly Resort",
     "badgeDetail": "Fasilitas aman & nyaman untuk semua umur",
-    "mediaAlt": "Resor Green Hero Darajat dan kolam air hangat saat senja"
+    "mediaAlt": "Resor Hotel Darajat Pass dan kolam air hangat saat senja"
   },
   "highlights": {
     "warmWater": {
@@ -51,7 +51,7 @@
     "title": "Pilihan Kamar untuk Perjalanan Anda",
     "description": "Dirancang mewah, hangat, dan intim untuk kebersamaan keluarga di pelukan sejuknya alam pegunungan Darajat Pass.",
     "viewAll": "Lihat Semua Kamar",
-    "carouselAriaLabel": "Pilihan kamar Green Hero",
+    "carouselAriaLabel": "Pilihan kamar Darajat Pass",
     "gridAriaLabel": "Geser untuk melihat pilihan kamar",
     "previousAriaLabel": "Kamar sebelumnya",
     "nextAriaLabel": "Kamar berikutnya",
@@ -70,9 +70,9 @@
     "loadError": "Pilihan kamar belum dapat dimuat."
   },
   "experiences": {
-    "eyebrow": "GREEN HERO EXPERIENCES",
+    "eyebrow": "DARAJAT PASS EXPERIENCES",
     "title": "Lebih dari Sekadar Menginap",
-    "description": "Lengkapi waktu bersama keluarga dengan pilihan pengalaman dan layanan tambahan selama menginap di Green Hero Darajat.",
+    "description": "Lengkapi waktu bersama keluarga dengan pilihan pengalaman dan layanan tambahan selama menginap di Hotel Darajat Pass.",
     "feature": {
       "badge": "DINING HIGHLIGHT",
       "title": "Outdoor Highland Dining",
@@ -81,7 +81,7 @@
     "roastGoat": {
       "eyebrow": "DINING EXPERIENCE",
       "title": "Kambing Guling",
-      "detail": "Pilihan santap bersama untuk keluarga besar, gathering, atau momen spesial selama menginap di Green Hero.",
+      "detail": "Pilihan santap bersama untuk keluarga besar, gathering, atau momen spesial selama menginap di Darajat Pass.",
       "meta": "Cocok untuk keluarga & rombongan"
     },
     "bbq": {
@@ -107,7 +107,7 @@
   },
   "spring": {
     "mediaBadge": "Suhu Air Alami: 36°C – 38°C",
-    "mediaAlt": "Tamu berendam di kolam air hangat Green Hero Darajat dengan pemandangan pegunungan",
+    "mediaAlt": "Tamu berendam di kolam air hangat Hotel Darajat Pass dengan pemandangan pegunungan",
     "eyebrow": "RELAKSASI ALAMI",
     "title": "Hangat di Tengah Udara Pegunungan",
     "description": "Nikmati waktu santai bersama keluarga di kolam air hangat setelah menikmati sejuknya kawasan Darajat. Air hangat alami bersuhu ideal untuk relaksasi tubuh di tengah sejuknya udara dataran tinggi.",
@@ -155,7 +155,7 @@
   },
   "gallery": {
     "eyebrow": "FOTO & MOMEN",
-    "title": "Experience Green Hero",
+    "title": "Experience Darajat Pass",
     "viewFull": "Lihat Galeri Lengkap",
     "items": {
       "dining": {
@@ -164,7 +164,7 @@
       },
       "resort": {
         "category": "RESORT",
-        "title": "Green Hero Darajat Saat Senja"
+        "title": "Hotel Darajat Pass Saat Senja"
       },
       "nature": {
         "category": "NATURE",
@@ -235,8 +235,8 @@
     "contactTitle": "Kontak & Lokasi",
     "contactAddress": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Kabupaten Garut, Jawa Barat 44161",
     "contactPhone": "+62 812-3456-7890",
-    "contactEmail": "halo@greenherodarajat.com",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. Seluruh Hak Cipta Dilindungi.",
+    "contactEmail": "halo@darajatpass.com",
+    "copyright": "© 2026 Hotel Darajat Pass. Seluruh Hak Cipta Dilindungi.",
     "demoNote": "Demo frontend · Data & kontak contoh"
   }
 }

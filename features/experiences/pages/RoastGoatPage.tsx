@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, Info, Users } from "lucide-react";
 import { ExperienceFooter } from "@/components/ExperienceFooter";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { foodCategories } from "@/features/booking/constants/food-packages-data";
 import { useTranslations } from "@/lib/i18n";
 import en from "../locales/en.json";
@@ -28,15 +28,8 @@ const steps = [
 export default function RoastGoatPage() {
   const { t } = useTranslations({ en, id });
   return (
-    <div className="kg-page">
-      <SiteHeader
-        id="kg-header"
-        links={interiorLinks}
-        activeHref="/experiences/roast-goat"
-        homeHref="/"
-        bookingHref="/rooms"
-        contactHref="/contact"
-      />
+    <div className="dp-home experience-page kg-page">
+      <DarajatHeader interior solid bookingHref="/rooms" />
 
       <main>
         {/* ── 1. HERO ──────────────────────────────────── */}

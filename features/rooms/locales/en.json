@@ -1,12 +1,12 @@
 {
   "list": {
-    "heroAriaLabel": "Green Hero Darajat Rooms and Suites",
-    "heroImageAlt": "Green Hero Darajat, warm pool, and mountain panorama at dusk",
+    "heroAriaLabel": "Darajat Pass rooms and bungalows",
+    "heroImageAlt": "Hotel Darajat Pass and its pool area beneath a clear sky",
     "breadcrumbHome": "Home",
-    "breadcrumbCurrent": "Rooms & Suites",
-    "eyebrow": "OUR ROOMS",
-    "title": "Find the Right Room for Your Journey",
-    "description": "Choose a comfortable room to rest in with your partner, family, or group while enjoying the cool atmosphere and natural hot springs of Darajat."
+    "breadcrumbCurrent": "Rooms & Bungalows",
+    "eyebrow": "STAY IN DARAJAT",
+    "title": "Find room to rest together.",
+    "description": "From a trip for two to an extended-family gathering, find a stay that fits your time in Darajat's cool mountain air and hot springs."
   },
   "availability": {
     "ariaLabel": "Search rooms",
@@ -78,7 +78,7 @@
   "cart": {
     "ariaLabel": "Room selection summary",
     "eyebrow": "BOOKING SUMMARY",
-    "brand": "Green Hero Darajat",
+    "brand": "Darajat Pass",
     "nights": "{count} Nights",
     "selectValidDates": "Select valid stay dates",
     "roomHeading": "Rooms",
@@ -108,15 +108,15 @@
     "items": {
       "directReservation": {
         "title": "Direct Reservation Process",
-        "description": "Choose rooms directly from Green Hero Darajat with easy-to-understand information."
+        "description": "Choose a Darajat Pass room with clear dates, capacity, and pricing."
       },
       "clearInfo": {
         "title": "Clear Room Information",
         "description": "See the facilities, guest capacity, and bed type of each room before choosing."
       },
       "staffSupport": {
-        "title": "Green Hero Staff Support",
-        "description": "Our team is ready to help with your stay needs and room arrangements."
+        "title": "Reservation Team Support",
+        "description": "Our reservation team is ready to help with your stay needs and room arrangements."
       }
     }
   },
@@ -132,7 +132,7 @@
   "finalCta": {
     "eyebrow": "EASY RESERVATION",
     "title": "Found the Right Room?",
-    "description": "Choose your stay dates and check Green Hero Darajat room availability to make your family holiday memorable.",
+    "description": "Choose your stay dates and check Darajat Pass room availability for your time together in Garut.",
     "checkAvailability": "Check Availability",
     "contact": "Contact Us"
   },
@@ -246,8 +246,8 @@
       "viewDetail": "View Detail"
     },
     "finalCta": {
-      "eyebrow": "GREEN HERO DARAJAT RESERVATION",
-      "title": "Ready to Stay at Green Hero Darajat?",
+      "eyebrow": "HOTEL DARAJAT PASS RESERVATION",
+      "title": "Ready to Stay at Hotel Darajat Pass?",
       "description": "Choose your stay dates and review the room choices to enjoy a warm mountain holiday.",
       "action": "Check Availability"
     }
@@ -305,10 +305,10 @@
     "contactTitle": "Contact & Location",
     "contactAddress": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut Regency, West Java 44161",
     "contactAddressShort": "Jl. Raya Darajat KM 14, Karyamekar, Pasirwangi, Garut",
-    "contactEmail": "halo@greenherodarajat.com",
-    "copyright": "© 2026 Green Hero Darajat Hotel & Resort. All Rights Reserved.",
-    "copyrightShort": "© 2026 Green Hero Darajat Hotel & Resort.",
-    "roomDataNote": "Room information and availability from Green Hero Darajat",
+    "contactEmail": "halo@darajatpass.com",
+    "copyright": "© 2026 Hotel Darajat Pass. All Rights Reserved.",
+    "copyrightShort": "© 2026 Hotel Darajat Pass.",
+    "roomDataNote": "Room information and availability from Hotel Darajat Pass",
     "demoNote": "Frontend demo · Sample data & contacts",
     "demoNoteShort": "Frontend demo · Sample prices & availability"
   }

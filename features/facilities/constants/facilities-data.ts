@@ -17,7 +17,7 @@ export const featuredFacilities: FeaturedFacility[] = [
   {
     id: "pools", eyebrow: "REKREASI & HANGATNYA ALAM", title: "Kolam & Relaksasi",
     description: "Area kolam menjadi salah satu pengalaman utama selama menginap, cocok untuk relaksasi maupun waktu bersama keluarga di tengah sejuknya udara pegunungan Darajat.",
-    image: "/images/green-hero-warm-pool.webp", imageAlt: "Tamu berendam di kolam air hangat Green Hero Darajat dengan pemandangan pegunungan",
+    image: "/images/hero/darajat-pass-hero-02.png", imageAlt: "Area kolam Hotel Darajat Pass di bawah langit pegunungan yang cerah",
     compact: true,
     features: [{ icon: Waves, title: "Outdoor swimming pool" }, { icon: Bath, title: "Warm pool (36°C – 38°C)" }, { icon: Waves, title: "Natural Hot tub" }, { icon: Baby, title: "Kids warm pool" }],
     note: "Tidak menyediakan layanan spa. Fokus murni pada kehangatan air belerang alami pegunungan.",
@@ -31,13 +31,13 @@ export const featuredFacilities: FeaturedFacility[] = [
   {
     id: "family", eyebrow: "RAMAH KELUARGA & ANAK", title: "Nyaman untuk Keluarga",
     description: "Dirancang agar pengalaman menginap tetap nyaman untuk orang tua dan anak. Nikmati area terbuka hijau berlatar kebun teh dan kolam dangkal anak yang aman serta mudah diawasi.",
-    image: "/images/room-mountain-villa-new.webp", imageAlt: "Vila kayu dengan taman dan area bermain anak di Green Hero Darajat",
+    image: "/images/hero/darajat-pass-hero-01.png", imageAlt: "Kawasan rekreasi keluarga dan waterpark Hotel Darajat Pass dilihat dari udara",
     features: [{ icon: UsersRound, title: "Family-friendly environment", description: "Kawasan asri, bersih, dan bebas bising untuk rekreasi privat keluarga" }, { icon: Waves, title: "Kids pool kedalaman aman", description: "Air hangat bersuhu nyaman dengan kedalaman ramah anak balita" }, { icon: Trees, title: "Children-friendly open garden & seating", description: "Taman rumput luas untuk si kecil bereksplorasi secara aman" }],
   },
   {
     id: "connectivity", eyebrow: "AKSESIBILITAS & KELANCARAN", title: "Parkir & Konektivitas",
     description: "Fasilitas dasar yang membantu perjalanan tetap praktis selama berada di Darajat. Akses kendaraan mudah dengan area parkir luas di depan lobby serta koneksi internet stabil.",
-    image: "/images/facilities-parking.jpg", imageAlt: "Area parkir dan pintu masuk resor yang dikelilingi pepohonan pegunungan",
+    image: "/images/darajat-welcome.webp", imageAlt: "Kawasan Hotel Darajat Pass dan aksesnya di tengah perbukitan hijau",
     features: [{ icon: ParkingCircle, title: "Free Guest Parking", description: "Area parkir beraspal luas untuk kendaraan pribadi maupun bus pariwisata" }, { icon: Wifi, title: "Free High-Speed Wi-Fi", description: "Akses internet serat optik di seluruh area publik resort" }, { icon: Signal, title: "Wi-Fi in Rooms & Suites", description: "Konektivitas stabil di dalam setiap unit kamar untuk kenyamanan bekerja santai" }],
   },
 ];

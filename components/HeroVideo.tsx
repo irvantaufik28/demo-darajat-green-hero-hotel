@@ -60,7 +60,7 @@ export function HeroVideo() {
       <Image
         className="hero-image is-active"
         src={fallbackImage}
-        alt="Pemandangan Green Hero Darajat dan kolam air hangat saat senja"
+        alt="Pemandangan Hotel Darajat Pass dan kolam air hangat saat senja"
         fill
         priority
         sizes="100vw"

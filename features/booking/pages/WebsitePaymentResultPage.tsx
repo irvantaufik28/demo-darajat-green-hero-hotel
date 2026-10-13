@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Check, Clock3, RefreshCw } from "lucide-react";
-import { Brand } from "@/components/Brand";
 import PageSkeleton from "@/components/PageSkeleton";
 import { navigateWithSkeleton } from "@/components/NavigationSkeleton";
-import { SiteHeader, interiorLinks } from "@/components/SiteHeader";
+import { DarajatFooter, DarajatHeader } from "@/features/home/components/DarajatHeader";
 import { formatRoomPrice } from "@/features/rooms/constants/rooms-data";
 import { readLiveBooking, serializeLiveSelection } from "@/features/rooms/services/live-booking";
 import { clearWebsiteCheckout, getWebsitePaymentStatus, readWebsiteCheckout, type WebsitePaymentStatus, type WebsiteReservation } from "../services/website-checkout";
@@ -71,8 +70,8 @@ export default function WebsitePaymentResultPage({ bookingCode }: { bookingCode:
   if (loading) return <PageSkeleton />;
 
   return (
-    <div className="booking-page payment-page">
-      <SiteHeader links={interiorLinks} activeHref="/rooms" homeHref="/" bookingHref="/rooms" contactHref="/contact" />
+    <div className="dp-home booking-page payment-page payment-result-page">
+      <DarajatHeader interior solid bookingHref="/rooms" />
       <main className="container booking-main payment-main">
         <nav className="booking-progress" aria-label={t("progress.ariaLabel")}>{["progress.selectRoom", "progress.addOns", "progress.guestDetails", "progress.payment"].map((label, index) => <div className={`booking-step${index < 3 ? " is-complete" : " is-current"}`} key={label}><span className="booking-step-circle">{index < 3 ? <Check size={18} /> : 4}</span><span>{t(label)}</span></div>)}</nav>
         <div className="payment-intro"><span className="booking-eyebrow">{t("payment.intro.eyebrow")}</span><h1>{t("payment.live.resultTitle")}</h1><p>{t("payment.live.resultDescription")}</p></div>
@@ -87,7 +86,7 @@ export default function WebsitePaymentResultPage({ bookingCode }: { bookingCode:
           {reservation && !isPaid && !isExpired && <RefreshCw size={20} aria-label={t("payment.live.refreshing")} />}
         </div>
       </main>
-      <footer className="payment-footer theme-footer"><div className="container payment-footer-grid"><div><Brand href="/" /><p>{t("payment.footer.about")}</p></div></div></footer>
+      <DarajatFooter />
     </div>
   );
 }
