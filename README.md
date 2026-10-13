@@ -57,3 +57,4 @@ Official documentation: [Next.js on Vercel](https://vercel.com/docs/frameworks/f
 ## Demo behavior
 
 All rooms, stock, prices, policies and reservation results use static example data. Multiple room quantities and priced extras are carried through the booking steps. Guest information and booking drafts are stored temporarily in browser session storage. Payment and contact forms do not process real transactions or send messages. Downloaded demo vouchers are marked as simulations.
+# demo-darajatpass
